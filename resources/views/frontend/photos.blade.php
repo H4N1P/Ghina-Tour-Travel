@@ -34,20 +34,17 @@
       $colors = ['#7c3f00','#c97a1a','#1e3a5f','#2d6a9f','#1a5c2e','#2e9952','#3b0764','#6d28d9','#7f1d1d','#dc2626','#134e4a','#0d9488'];
       $color = $colors[$index % count($colors)];
     ?>
-    <div class="foto-item relative group" onclick="openLightbox('{{ $foto->path ? asset('storage/' . $foto->path) : '' }}', '{{ $foto->keterangan ?? 'Galeri Foto' }}', '{{ $color }}')">
+    <div class="foto-item relative group" onclick="openLightbox('{{ $foto->path ? asset('storage/' . $foto->path) : '' }}', '{{ $foto->paket->nama_paket ?? 'Galeri Foto' }}', '{{ $color }}')">
       @if($foto->path)
-      <img src="{{ asset('storage/' . $foto->path) }}" alt="{{ $foto->keterangan ?? 'Galeri' }}" class="w-full h-full object-cover" />
+      <img src="{{ asset('storage/' . $foto->path) }}" alt="{{ $foto->paket->nama_paket ?? 'Galeri' }}" class="w-full h-full object-cover" />
       @else
       <div class="w-full h-full flex items-center justify-center" style="background:{{ $color }};">
         <svg class="w-12 h-12 text-white/30" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
       </div>
       @endif
       <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-end p-2">
-        @if($foto->keterangan)
-        <p class="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">{{ $foto->keterangan }}</p>
-        @endif
         @if($foto->paket)
-        <p class="text-white/70 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">{{ $foto->paket->nama_paket }}</p>
+        <p class="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">{{ $foto->paket->nama_paket }}</p>
         @endif
       </div>
     </div>

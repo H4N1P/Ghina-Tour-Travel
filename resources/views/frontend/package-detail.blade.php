@@ -47,9 +47,6 @@
       <div class="relative h-[180px] rounded-xl overflow-hidden" style="background:linear-gradient(135deg,#7c3f00,#c97a1a);">
         <div class="absolute inset-0 flex flex-col justify-end p-3" style="background:linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);">
           <p class="text-white font-semibold text-sm">{{ $tempat->nama_tempat }}</p>
-          @if($tempat->lokasi)
-          <p class="text-gray-300 text-xs">{{ $tempat->lokasi }}</p>
-          @endif
         </div>
       </div>
       @endforeach
@@ -99,7 +96,7 @@
         <p class="font-semibold t mb-2 text-[15px]">a. Transportasi</p>
         <div class="space-y-1 ml-1">
           @foreach($paket->transportasis as $transportasi)
-          <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">{{ $transportasi->jenis_transportasi ?? 'Bus Pariwisata' }}</span></div>
+          <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">{{ $transportasi->fasilitas_transportasi }}</span></div>
           @endforeach
           <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">AC (Air Conditioner)</span></div>
           <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Audio System</span></div>
@@ -126,9 +123,7 @@
           <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Tiket Masuk Objek Wisata</span></div>
           <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">P3K + Asuransi Wisata</span></div>
           @foreach($paket->akomodasis as $akomodasi)
-            @if($akomodasi->nama_hotel)
-            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Hotel: {{ $akomodasi->nama_hotel }}</span></div>
-            @endif
+          <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">{{ $akomodasi->fasilitas_akomodasi }}</span></div>
           @endforeach
           <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Retribusi Perjalanan (Tol, Parkir, dll)</span></div>
         </div>
@@ -150,7 +145,7 @@
         <p class="font-semibold t mb-2 text-[15px]">c. Konsumsi</p>
         <div class="space-y-1 ml-1">
           @foreach($paket->konsumsis as $konsumsi)
-          <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">{{ $konsumsi->jumlah_makanan ? 'Makan ' . $konsumsi->jumlah_makanan . 'x' : 'Makan 2x' }}</span></div>
+          <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">{{ $konsumsi->fasilitas_konsumsi }}</span></div>
           @endforeach
           <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Snack</span></div>
           <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Air Mineral</span></div>

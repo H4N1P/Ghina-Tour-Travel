@@ -64,7 +64,6 @@
               <h3 class="text-[15px] font-bold text-white mt-1">{{ $paket->nama_paket }}</h3>
               <p class="text-sm font-semibold" style="color:#f0c94d;">Rp {{ number_format($paket->harga_per_pax, 0, ',', '.') }}<span class="text-white font-normal text-xs">/pax</span></p>
             </div>
-            <span class="text-xs text-yellow-300 mt-1">★ {{ $paket->rating ?? '4.8' }}</span>
           </div>
           <p class="text-[11px] text-gray-300">{{ Str::limit($paket->deskripsi ?? '', 60) }}</p>
         </div>
