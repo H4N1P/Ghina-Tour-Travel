@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CompanyProfileController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\PaketController;
 use App\Http\Controllers\Customer\PageController;
@@ -24,4 +25,7 @@ Route::get('/photos', [PageController::class, 'photos'])->name('photos');
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('paket', PaketController::class);
     Route::resource('gallery', GalleryController::class);
+    Route::resource('company-profile', CompanyProfileController::class)->only([
+        'show', 'edit', 'update'
+    ]);
 });
