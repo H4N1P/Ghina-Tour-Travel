@@ -48,7 +48,7 @@ class PageController extends Controller
             ->findOrFail($id);
 
 
-        return view('customer.package-detail', compact('paket', 'relatedPakets'));
+        return view('customer.package-detail', compact('paket'));
     }
 
     /**
