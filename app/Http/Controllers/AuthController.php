@@ -10,7 +10,7 @@ class AuthController extends Controller
     /**
      * Tampilkan halaman login.
      */
-    public function showLogin()
+    public function showLoginForm()
     {
         // Jika sudah login, langsung ke dashboard admin
         if (Auth::check()) {

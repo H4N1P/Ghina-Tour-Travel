@@ -14,7 +14,7 @@ class PesananController extends Controller
      */
     public function index()
     {
-        $pesanans = Pesanan::latest()->get();
+        $pesanans = Pesanan::latest()->paginate(10);
         return view('admin.pesanan.index', compact('pesanans'));
     }
 

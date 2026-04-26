@@ -311,4 +311,245 @@
             </table>
         </div>
     </div>
+
+    {{-- ── Grafik Pendapatan ── --}}
+    <div style="margin-top:32px;">
+        <h2 style="font-size:20px;font-weight:700;color:var(--text);margin:0 0 18px;">
+            Grafik Pendapatan {{ $tahun }}
+        </h2>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+
+            {{-- Chart 1: Tren Pendapatan Bulanan --}}
+            <div class="adm-card" style="padding:24px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                    <h3 style="font-size:15px;font-weight:600;color:var(--text);margin:0;">
+                        Tren Pendapatan Bulanan
+                    </h3>
+                    <span
+                        style="display:inline-flex;align-items:center;gap:5px;font-size:11px;
+                        color:#ea580c;background:#fff7ed;padding:3px 10px;border-radius:999px;">
+                        <span
+                            style="width:7px;height:7px;background:#f59e0b;border-radius:50%;display:inline-block;"></span>
+                        Hanya Selesai
+                    </span>
+                </div>
+                @if (array_sum($chartRevenu) === 0)
+                    <div
+                        style="height:300px;display:flex;flex-direction:column;align-items:center;
+                        justify-content:center;color:var(--text-muted);">
+                        <svg style="width:40px;height:40px;margin-bottom:10px;opacity:.35;" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0
+                                           0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0
+                                           0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        <p style="font-size:13px;margin:0;">Belum ada pendapatan di tahun {{ $tahun }}</p>
+                    </div>
+                @else
+                    <div id="chartPendapatan"></div>
+                @endif
+            </div>
+
+            {{-- Chart 2: Pendapatan per Paket --}}
+            <div class="adm-card" style="padding:24px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                    <h3 style="font-size:15px;font-weight:600;color:var(--text);margin:0;">
+                        Pendapatan per Paket
+                    </h3>
+                    @if (count($chartPaketLabel) > 0)
+                        <span style="font-size:11px;color:var(--text-muted);">
+                            Top {{ count($chartPaketLabel) }} paket
+                        </span>
+                    @endif
+                </div>
+                @if (count($chartPaketLabel) === 0)
+                    <div
+                        style="height:300px;display:flex;flex-direction:column;align-items:center;
+                        justify-content:center;color:var(--text-muted);">
+                        <svg style="width:40px;height:40px;margin-bottom:10px;opacity:.35;" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                        <p style="font-size:13px;margin:0;">Belum ada pesanan selesai</p>
+                    </div>
+                @else
+                    <div id="chartPaket"></div>
+                @endif
+            </div>
+
+        </div>
+    </div>
+
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.49.0/dist/apexcharts.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const bulanLabels = @json($chartBulan);
+            const revenuData = @json($chartRevenu);
+            const paketLabels = @json($chartPaketLabel);
+            const paketData = @json($chartPaketData);
+
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#94a3b8' : '#6b7280';
+            const gridColor = isDark ? '#2a3045' : '#f3f4f6';
+
+            // Chart 1: Area — Tren Pendapatan Bulanan
+            @if (array_sum($chartRevenu) > 0)
+                new ApexCharts(document.querySelector("#chartPendapatan"), {
+                    series: [{
+                        name: 'Pendapatan',
+                        data: revenuData
+                    }],
+                    chart: {
+                        type: 'area',
+                        height: 300,
+                        toolbar: {
+                            show: false
+                        },
+                        background: 'transparent',
+                        fontFamily: 'Poppins, sans-serif',
+                    },
+                    colors: ['#f59e0b'],
+                    fill: {
+                        type: 'gradient',
+                        gradient: {
+                            shadeIntensity: 1,
+                            opacityFrom: 0.45,
+                            opacityTo: 0.04,
+                            stops: [0, 100]
+                        }
+                    },
+                    stroke: {
+                        curve: 'smooth',
+                        width: 2.5
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    xaxis: {
+                        categories: bulanLabels,
+                        labels: {
+                            style: {
+                                colors: textColor,
+                                fontSize: '11px'
+                            }
+                        },
+                        axisBorder: {
+                            show: false
+                        },
+                        axisTicks: {
+                            show: false
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: textColor,
+                                fontSize: '11px'
+                            },
+                            formatter: val => 'Rp ' + (val >= 1000000 ?
+                                (val / 1000000).toFixed(1) + 'jt' :
+                                val.toLocaleString('id-ID'))
+                        }
+                    },
+                    grid: {
+                        borderColor: gridColor,
+                        strokeDashArray: 4
+                    },
+                    tooltip: {
+                        theme: isDark ? 'dark' : 'light',
+                        y: {
+                            formatter: val => 'Rp ' + val.toLocaleString('id-ID')
+                        }
+                    }
+                }).render();
+            @endif
+
+            // Chart 2: Bar — Pendapatan per Paket
+            @if (count($chartPaketLabel) > 0)
+                new ApexCharts(document.querySelector("#chartPaket"), {
+                    series: [{
+                        name: 'Total Pendapatan',
+                        data: paketData
+                    }],
+                    chart: {
+                        type: 'bar',
+                        height: 300,
+                        toolbar: {
+                            show: false
+                        },
+                        background: 'transparent',
+                        fontFamily: 'Poppins, sans-serif',
+                    },
+                    plotOptions: {
+                        bar: {
+                            borderRadius: 6,
+                            columnWidth: '50%',
+                            distributed: true
+                        }
+                    },
+                    colors: ['#f59e0b', '#fb923c', '#f97316', '#ea580c', '#fbbf24', '#fcd34d', '#fde68a',
+                        '#fed7aa'
+                    ],
+                    dataLabels: {
+                        enabled: false
+                    },
+                    legend: {
+                        show: false
+                    },
+                    xaxis: {
+                        categories: paketLabels,
+                        labels: {
+                            style: {
+                                colors: textColor,
+                                fontSize: '10px'
+                            },
+                            trim: true,
+                            maxHeight: 60
+                        },
+                        axisBorder: {
+                            show: false
+                        },
+                        axisTicks: {
+                            show: false
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: textColor,
+                                fontSize: '11px'
+                            },
+                            formatter: val => 'Rp ' + (val >= 1000000 ?
+                                (val / 1000000).toFixed(1) + 'jt' :
+                                val.toLocaleString('id-ID'))
+                        }
+                    },
+                    grid: {
+                        borderColor: gridColor,
+                        strokeDashArray: 4
+                    },
+                    tooltip: {
+                        theme: isDark ? 'dark' : 'light',
+                        y: {
+                            formatter: val => 'Rp ' + val.toLocaleString('id-ID')
+                        }
+                    }
+                }).render();
+            @endif
+
+            // Reload saat dark mode toggle supaya warna axis ikut berubah
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('change', () => {
+                    setTimeout(() => location.reload(), 150);
+                });
+            }
+        });
+    </script>
+@endpush

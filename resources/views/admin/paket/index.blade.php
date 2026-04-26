@@ -288,7 +288,8 @@
                                         <p style="font-weight:600;font-size:14px;color:var(--text);margin:0;">
                                             {{ $paket->nama_paket }}
                                         </p>
-                                        <p style="font-size:12px;color:var(--text-muted);margin:2px 0 0;
+                                        <p
+                                            style="font-size:12px;color:var(--text-muted);margin:2px 0 0;
                                             max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
                                             {{ Str::limit($paket->note, 40) }}
                                         </p>
@@ -321,9 +322,9 @@
                                     @php
                                         $fasilitasGroup = $paket->fasilitas->groupBy('tipe_fasilitas');
                                         $tipeStyle = [
-                                            'tempat'       => ['bg' => '#EFF6FF', 'color' => '#2563eb'],
-                                            'konsumsi'     => ['bg' => '#F0FDF4', 'color' => '#16a34a'],
-                                            'akomodasi'    => ['bg' => '#FAF5FF', 'color' => '#7c3aed'],
+                                            'tempat' => ['bg' => '#EFF6FF', 'color' => '#2563eb'],
+                                            'konsumsi' => ['bg' => '#F0FDF4', 'color' => '#16a34a'],
+                                            'akomodasi' => ['bg' => '#FAF5FF', 'color' => '#7c3aed'],
                                             'transportasi' => ['bg' => '#FFF4EB', 'color' => 'var(--orange)'],
                                         ];
                                     @endphp
@@ -338,7 +339,10 @@
                                     {{-- Badge per tipe_fasilitas --}}
                                     @forelse ($fasilitasGroup as $tipe => $items)
                                         @php
-                                            $style = $tipeStyle[strtolower($tipe)] ?? ['bg' => '#F3F4F6', 'color' => '#6b7280'];
+                                            $style = $tipeStyle[strtolower($tipe)] ?? [
+                                                'bg' => '#F3F4F6',
+                                                'color' => '#6b7280',
+                                            ];
                                         @endphp
                                         <span class="komp-badge"
                                             style="background:{{ $style['bg'] }};color:{{ $style['color'] }};">
@@ -356,7 +360,8 @@
                             {{-- Aksi --}}
                             <td style="text-align:center;">
                                 <div style="display:inline-flex;align-items:center;gap:2px;">
-                                    <a href="{{ route('admin.paket.show', $paket->id) }}" class="btn-view" title="Lihat Detail">
+                                    <a href="{{ route('admin.paket.show', $paket->id) }}" class="btn-view"
+                                        title="Lihat Detail">
                                         <svg style="width:16px;height:16px;" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -393,7 +398,8 @@
                         <tr>
                             <td colspan="6" style="padding:60px 20px;text-align:center;">
                                 <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-                                    <div style="width:60px;height:60px;border-radius:50%;background:var(--table-head);
+                                    <div
+                                        style="width:60px;height:60px;border-radius:50%;background:var(--table-head);
                                         display:flex;align-items:center;justify-content:center;">
                                         <svg style="width:28px;height:28px;color:var(--text-muted);" fill="none"
                                             stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
@@ -402,7 +408,8 @@
                                         </svg>
                                     </div>
                                     <p style="font-weight:600;color:var(--text);margin:0;">Belum ada paket tour</p>
-                                    <p style="font-size:13px;color:var(--text-muted);margin:0;">Tambahkan paket tour pertama Anda</p>
+                                    <p style="font-size:13px;color:var(--text-muted);margin:0;">Tambahkan paket tour pertama
+                                        Anda</p>
                                     <a href="{{ route('admin.paket.create') }}" class="btn-orange" style="margin-top:4px;">
                                         <svg style="width:14px;height:14px;" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" stroke-width="2.5">
@@ -434,7 +441,7 @@
     </div>
 
     {{-- Modal hapus (tidak berubah) --}}
-        <div id="deleteModal"
+    <div id="deleteModal"
         style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);
             z-index:999;align-items:center;justify-content:center;">
         <div
@@ -448,7 +455,7 @@
                     <svg style="width:22px;height:22px;color:#ef4444;" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858
-                                           L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                               L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
                 </div>
                 <div>
@@ -505,4 +512,3 @@
     </script>
 
 @endsection
-

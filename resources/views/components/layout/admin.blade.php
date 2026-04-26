@@ -119,8 +119,8 @@
             </div>
         </aside>
 
-        {{-- <div id="sidebarBackdrop" class="fixed inset-0 z-40 bg-black/50 lg:hidden hidden" onclick="closeSidebar()">
-        </div> --}}
+        <div id="sidebarBackdrop" class="fixed inset-0 z-40 bg-black/50 lg:hidden hidden" onclick="closeSidebar()">
+        </div>
 
         <div class="flex-1 lg:ml-64 w-full">
             <header
@@ -135,7 +135,6 @@
                                     d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
-                        <h2 class="text-base lg:text-lg font-semibold">@yield('header', 'Dashboard')</h2>
                     </div>
                 </div>
             </header>
@@ -176,7 +175,22 @@
             document.getElementById('sidebarBackdrop').classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
         }
+
+        function toggleLogoutMenu() {
+            const menu = document.getElementById('logoutMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Tutup menu saat klik di luar area dropdown
+        window.addEventListener('click', function(e) {
+            const menu = document.getElementById('logoutMenu');
+            const button = menu.previousElementSibling;
+            if (!button.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
     </script>
+    @stack('scripts')
 </body>
 
 </html>
