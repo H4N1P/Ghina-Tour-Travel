@@ -19,8 +19,9 @@ class CompanyProfileController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * FIX: hapus parameter CompanyProfile $id yang tidak relevan — route tidak meneruskan ID
      */
-    public function edit(CompanyProfile $id)
+    public function edit()
     {
         $companyProfile = CompanyProfile::first() ?? new CompanyProfile();
 
@@ -29,8 +30,9 @@ class CompanyProfileController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * FIX: hapus parameter CompanyProfile $id yang tidak relevan
      */
-    public function update(Request $request, CompanyProfile $id)
+    public function update(Request $request)
     {
         $validated = $request->validate([
             'about'    => 'required|string',

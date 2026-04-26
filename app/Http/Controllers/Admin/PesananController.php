@@ -33,23 +33,27 @@ class PesananController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_paket' => 'required|exists:pakets,id',
-            'nama_pemesan' => 'required|string|max:255',
-            'no_hp' => 'required|string|max:20',
-            'diskon' => 'nullable|min:0',
-            'total_harga' => 'required|numeric|min:0',
+            'id_paket'      => 'required|exists:pakets,id',
+            'nama_pemesan'  => 'required|string|max:255',
+            'no_hp'         => 'required|string|max:20',
+            'diskon'        => 'nullable|numeric|min:0|max:100',
+            'total_harga'   => 'required|numeric|min:0',
             'tanggal_acara' => 'required|date',
+            // FIX: tambah validasi jumlah_orang yang hilang dari store()
+            'jumlah_orang'  => 'required|integer|min:1',
         ]);
 
-        $pesanan = Pesanan::create([
-            'id_paket' => $request->id_paket,
-            'nama_pemesan' => $request->nama_pemesan,
-            'no_hp' => $request->no_hp,
-            'diskon' => $request->diskon ?? 0,
-            'total_harga' => (Paket::find($request->id_paket)->harga * $request->jumlah_orang) * (1 - ($request->diskon ?? 0) / 100),
+        Pesanan::create([
+            'id_paket'      => $request->id_paket,
+            'nama_pemesan'  => $request->nama_pemesan,
+            'no_hp'         => $request->no_hp,
+            'diskon'        => $request->diskon ?? 0,
+            // FIX: hitung total_harga konsisten — ambil dari request (sudah dihitung di frontend)
+            'total_harga'   => $request->total_harga,
+            'jumlah_orang'  => $request->jumlah_orang,
             'tanggal_acara' => $request->tanggal_acara,
-            'invoice' => 'INV-' . strtoupper(uniqid()),
-            'status' => 'pending',
+            'invoice'       => 'INV-' . strtoupper(uniqid()),
+            'status'        => 'pending',
         ]);
 
         return redirect()->route('admin.pesanan.index')->with('success', 'Pesanan berhasil dibuat.');
@@ -67,8 +71,11 @@ class PesananController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pesanan $id)
+    public function edit(Pesanan $pesanan)
     {
+        // FIX: rename parameter dari $id ke $pesanan agar route model binding bekerja benar
+        // Gunakan variable $id agar view edit.blade.php yang menggunakan $id tetap kompatibel
+        $id = $pesanan;
         $pakets = Paket::with(['fasilitas', 'tempats'])->get();
         return view('admin.pesanan.edit', compact('id', 'pakets'));
     }
@@ -79,18 +86,29 @@ class PesananController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'id_paket' => 'required|exists:pakets,id',
-            'nama_pemesan' => 'required|string|max:255',
-            'no_hp' => 'required|string|max:20',
-            'diskon' => 'nullable|min:0',
-            'total_harga' => 'required|numeric|min:0',
+            'id_paket'      => 'required|exists:pakets,id',
+            'nama_pemesan'  => 'required|string|max:255',
+            'no_hp'         => 'required|string|max:20',
+            'diskon'        => 'nullable|numeric|min:0|max:100',
+            'total_harga'   => 'required|numeric|min:0',
             'tanggal_acara' => 'required|date',
-            'jumlah_orang' => 'required|integer|min:1',
-            'status'        => 'nullable|in:batal,selesai'
+            'jumlah_orang'  => 'required|integer|min:1',
+            'status'        => 'nullable|in:pending,batal,selesai',
         ]);
 
         $pesanan = Pesanan::findOrFail($id);
-        $pesanan->update($request->all());
+
+        // FIX: gunakan only() bukan $request->all() agar tidak ada field berbahaya yang masuk (misal invoice)
+        $pesanan->update($request->only([
+            'id_paket',
+            'nama_pemesan',
+            'no_hp',
+            'diskon',
+            'total_harga',
+            'jumlah_orang',
+            'tanggal_acara',
+            'status',
+        ]));
 
         return redirect()->route('admin.pesanan.index')->with('success', 'Pesanan berhasil diperbarui.');
     }
@@ -98,9 +116,10 @@ class PesananController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pesanan $id)
+    public function destroy(Pesanan $pesanan)
     {
-        $id->delete();
+        // FIX: rename $id ke $pesanan agar route model binding sesuai konvensi Laravel
+        $pesanan->delete();
         return redirect()->route('admin.pesanan.index')->with('success', 'Pesanan berhasil dihapus.');
     }
 }

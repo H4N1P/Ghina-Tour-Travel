@@ -40,7 +40,6 @@
             --sidebar-active-bg: rgba(212, 160, 23, .12);
         }
 
-        /* ── Stat cards ── */
         .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -77,7 +76,6 @@
             margin: 0;
         }
 
-        /* ── Table card ── */
         .adm-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -118,7 +116,6 @@
             background: var(--sidebar-active-bg);
         }
 
-        /* ── Badge paket ── */
         .badge {
             display: inline-block;
             padding: 3px 10px;
@@ -127,27 +124,46 @@
             font-weight: 700;
         }
 
-        .badge-day {
+        .badge-pending {
             background: #FFF4EB;
             color: var(--orange);
         }
 
-        .badge-inap {
+        .badge-selesai {
+            background: #ECFDF5;
+            color: #10b981;
+        }
+
+        .badge-batal {
+            background: #FEF2F2;
+            color: #ef4444;
+        }
+
+        .badge-proses {
             background: #EFF6FF;
             color: #2563eb;
         }
 
-        [data-theme="dark"] .badge-day {
+        [data-theme="dark"] .badge-pending {
             background: rgba(255, 147, 87, .15);
             color: #ff9357;
         }
 
-        [data-theme="dark"] .badge-inap {
+        [data-theme="dark"] .badge-selesai {
+            background: rgba(16, 185, 129, .15);
+            color: #34d399;
+        }
+
+        [data-theme="dark"] .badge-batal {
+            background: rgba(239, 68, 68, .15);
+            color: #f87171;
+        }
+
+        [data-theme="dark"] .badge-proses {
             background: rgba(37, 99, 235, .15);
             color: #60a5fa;
         }
 
-        /* ── Invoice icon button ── */
         .btn-view {
             background: transparent;
             color: #8b5cf6;
@@ -158,19 +174,27 @@
             transition: background .15s;
             display: inline-flex;
             align-items: center;
+            text-decoration: none;
         }
 
         .btn-view:hover {
             background: rgba(139, 92, 246, .1);
         }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
     </style>
 
-    {{-- ── Judul ── --}}
     <h1 style="font-size:26px;font-weight:700;color:var(--text);margin:0 0 24px;">Dashboard</h1>
 
     {{-- ── Stat Cards ── --}}
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px;">
 
+        {{-- Total Paket --}}
         <div class="stat-card">
             <div class="stat-icon" style="background:#FFF4EB;">
                 <svg style="width:24px;height:24px;color:var(--orange);" fill="none" stroke="currentColor"
@@ -185,13 +209,49 @@
             </div>
         </div>
 
+        {{-- Total Pesanan --}}
+        <div class="stat-card">
+            <div class="stat-icon" style="background:#ECFDF5;">
+                <svg style="width:24px;height:24px;color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </div>
+            <div>
+                <p class="stat-label">Total Pesanan</p>
+                <p class="stat-value">{{ $orders->count() }}</p>
+            </div>
+        </div>
+
+        {{-- Revenue --}}
+        <div class="stat-card">
+            <div class="stat-icon" style="background:#FFFBEB;">
+                <svg style="width:24px;height:24px;color:var(--gold);" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div>
+                <p class="stat-label">Revenue (Selesai)</p>
+                <p class="stat-value" style="font-size:20px;margin-top:4px;">
+                    Rp {{ number_format($revenue, 0, ',', '.') }}
+                </p>
+            </div>
+        </div>
 
     </div>
 
     {{-- ── Tabel Pesanan Terbaru ── --}}
     <div class="adm-card">
-        <div style="padding:18px 20px;border-bottom:1px solid var(--border);">
+        <div
+            style="padding:18px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
             <h2 style="font-size:16px;font-weight:700;color:var(--text);margin:0;">Pesanan Terbaru</h2>
+            <a href="{{ route('admin.pesanan.index') }}"
+                style="font-size:13px;color:var(--gold);font-weight:600;text-decoration:none;">
+                Lihat Semua →
+            </a>
         </div>
 
         <div class="overflow-x-auto">
@@ -199,84 +259,54 @@
                 <thead>
                     <tr>
                         <th style="width:50px;">No</th>
-                        <th>Nama Perwakilan</th>
+                        <th>Nama Pemesan</th>
                         <th>No. HP</th>
                         <th>Paket</th>
-                        <th>Harga Total</th>
-                        <th style="width:90px;text-align:center;">Invoice</th>
+                        <th>Jumlah Orang</th>
+                        <th>Tanggal Tour</th>
+                        <th>Total Harga</th>
+                        <th>Status</th>
+                        <th style="width:80px;text-align:center;">Detail</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- Data dummy pesanan; ganti dengan relasi Pesanan/Order jika sudah ada --}}
-                    {{-- @php
-                        $dummyPesanan = [
-                            [
-                                'nama' => 'Admin User',
-                                'hp' => '081234567890',
-                                'paket' => 'Jogja 1 Day',
-                                'harga' => 207200,
-                                'inap' => false,
-                            ],
-                            [
-                                'nama' => 'Admin User',
-                                'hp' => '081234567890',
-                                'paket' => 'Bali 1 Day',
-                                'harga' => 207200,
-                                'inap' => true,
-                            ],
-                            [
-                                'nama' => 'Admin User',
-                                'hp' => '081234567890',
-                                'paket' => 'Jogja 1 Day',
-                                'harga' => 207200,
-                                'inap' => false,
-                            ],
-                            [
-                                'nama' => 'Admin User',
-                                'hp' => '081234567890',
-                                'paket' => 'Bali 1 Day',
-                                'harga' => 207200,
-                                'inap' => true,
-                            ],
-                            [
-                                'nama' => 'Budi Santoso',
-                                'hp' => '082134500000',
-                                'paket' => 'Karimunjawa 3D2N',
-                                'harga' => 555000,
-                                'inap' => true,
-                            ],
-                            [
-                                'nama' => 'Sari Dewi',
-                                'hp' => '085678901234',
-                                'paket' => 'Semarang 1 Day',
-                                'harga' => 300000,
-                                'inap' => false,
-                            ],
-                        ];
-                    @endphp --}}
-
-                    @foreach ($orders as $i => $p)
+                    @forelse ($orders as $i => $p)
                         <tr>
                             <td style="color:var(--text-muted);font-size:13px;">{{ $i + 1 }}</td>
-                            <td style="font-weight:500;">{{ $p['nama'] }}</td>
-                            <td style="color:var(--text-muted);">{{ $p['hp'] }}</td>
+                            <td style="font-weight:500;">{{ $p->nama_pemesan }}</td>
+                            <td style="color:var(--text-muted);">{{ $p->no_hp }}</td>
+                            <td>{{ $p->paket->nama_paket ?? '-' }}</td>
+                            <td>{{ $p->jumlah_orang }} orang</td>
+                            <td>{{ \Carbon\Carbon::parse($p->tanggal_acara)->format('d M Y') }}</td>
+                            <td style="font-weight:600;">Rp {{ number_format($p->total_harga, 0, ',', '.') }}</td>
                             <td>
-                                <span class="badge {{ $p['inap'] ? 'badge-inap' : 'badge-day' }}">
-                                    {{ $p['paket'] }}
-                                </span>
+                                @php
+                                    $badgeClass = match ($p->status) {
+                                        'selesai' => 'badge-selesai',
+                                        'batal' => 'badge-batal',
+                                        'proses' => 'badge-proses',
+                                        default => 'badge-pending',
+                                    };
+                                @endphp
+                                <span class="badge {{ $badgeClass }}">{{ ucfirst($p->status) }}</span>
                             </td>
-                            <td style="font-weight:600;">Rp {{ number_format($p['harga'], 0, ',', '.') }}</td>
                             <td style="text-align:center;">
-                                <button class="btn-view" title="Lihat Invoice">
+                                <a href="{{ route('admin.pesanan.show', $p->id) }}" class="btn-view" title="Lihat Detail">
                                     <svg style="width:17px;height:17px;" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                     </svg>
-                                </button>
+                                </a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="9" class="empty-state">Belum ada pesanan masuk.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
