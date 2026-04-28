@@ -14,7 +14,8 @@
                 <a href="{{ route('admin.pesanan.index') }}"
                     class="p-2 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
                 </a>
                 <div>
@@ -29,7 +30,7 @@
                 <select name="id_paket" id="id_paket" required onchange="updateHargaPaket(this)"
                     class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-amber-500 transition-colors">
                     <option value="">-- Pilih Paket --</option>
-                    @foreach($pakets as $pk)
+                    @foreach ($pakets as $pk)
                         <option value="{{ $pk->id }}" data-harga="{{ $pk->harga_paket }}"
                             {{ old('id_paket', $id->id_paket) == $pk->id ? 'selected' : '' }}>
                             {{ $pk->nama_paket }} — Rp {{ number_format($pk->harga_paket, 0, ',', '.') }}
@@ -73,7 +74,8 @@
                         Tanggal Acara <span class="text-red-500">*</span>
                     </label>
                     <input type="date" name="tanggal_acara"
-                        value="{{ old('tanggal_acara', \Carbon\Carbon::parse($id->tanggal_acara)->format('Y-m-d')) }}" required
+                        value="{{ old('tanggal_acara', \Carbon\Carbon::parse($id->tanggal_acara)->format('Y-m-d')) }}"
+                        required
                         class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 transition-colors">
                     @error('tanggal_acara')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -81,10 +83,10 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                        Jumlah Orang <span class="text-red-500">*</span>
+                        Pax <span class="text-red-500">*</span>
                     </label>
-                    <input type="number" name="jumlah_orang" id="jumlah_orang"
-                        value="{{ old('jumlah_orang', $id->jumlah_orang) }}" required min="1"
+                    <input type="number" name="jumlah_orang" id="jumlah_pax"
+                        value="{{ old('jumlah_orang', $id->jumlah_pax) }}" required min="1"
                         class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 transition-colors"
                         oninput="hitungTotal()">
                     @error('jumlah_orang')
@@ -102,8 +104,8 @@
             <div class="p-4 lg:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Diskon (%)</label>
-                    <input type="number" name="diskon" id="diskon"
-                        value="{{ old('diskon', $id->diskon) }}" min="0" max="100"
+                    <input type="number" name="diskon" id="diskon" value="{{ old('diskon', $id->diskon) }}"
+                        min="0" max="100"
                         class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 transition-colors"
                         oninput="hitungTotal()">
                     @error('diskon')
@@ -131,12 +133,16 @@
                     </div>
                 </div>
                 <div class="sm:col-span-2">
-                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Status Pesanan</label>
+                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Status
+                        Pesanan</label>
                     <select name="status"
                         class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 transition-colors">
-                        <option value="pending" {{ old('status', $id->status) === 'pending' ? 'selected' : '' }}>Pending</option>
-                        <option value="selesai" {{ old('status', $id->status) === 'selesai' ? 'selected' : '' }}>Selesai</option>
-                        <option value="batal"   {{ old('status', $id->status) === 'batal'   ? 'selected' : '' }}>Batal</option>
+                        <option value="pending" {{ old('status', $id->status) === 'pending' ? 'selected' : '' }}>Pending
+                        </option>
+                        <option value="selesai" {{ old('status', $id->status) === 'selesai' ? 'selected' : '' }}>Selesai
+                        </option>
+                        <option value="batal" {{ old('status', $id->status) === 'batal' ? 'selected' : '' }}>Batal
+                        </option>
                     </select>
                     @error('status')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -165,10 +171,10 @@
         }
 
         function hitungTotal() {
-            const orang  = parseInt(document.getElementById('jumlah_orang').value) || 0;
+            const orang = parseInt(document.getElementById('jumlah_orang').value) || 0;
             const diskon = parseFloat(document.getElementById('diskon').value) || 0;
             const subtotal = hargaPerOrang * orang;
-            const total    = Math.round(subtotal * (1 - diskon / 100));
+            const total = Math.round(subtotal * (1 - diskon / 100));
 
             document.getElementById('total_harga').value = total;
             document.getElementById('total-akhir').textContent = 'Rp ' + total.toLocaleString('id-ID');

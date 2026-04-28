@@ -68,7 +68,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                        Jumlah Orang <span class="text-red-500">*</span>
+                        Pax <span class="text-red-500">*</span>
                     </label>
                     <input type="number" name="jumlah_orang" id="jumlah_orang" value="{{ old('jumlah_orang', 1) }}"
                         required min="1"
