@@ -19,7 +19,7 @@
 
             {{-- Foto --}}
             <div class="bg-neutral-100 dark:bg-neutral-800">
-                <img src="{{ asset('storage/' . $id->path) }}" alt="Gallery"
+                <img src="{{ asset('storage/' . $gallery->path) }}" alt="Gallery"
                     class="w-full max-h-96 object-contain mx-auto">
             </div>
 
@@ -28,36 +28,36 @@
                 <table class="w-full text-sm">
                     <tr class="border-b border-neutral-100 dark:border-neutral-800">
                         <td class="py-3 pr-4 text-neutral-500 w-36">Diunggah</td>
-                        <td class="py-3 font-medium">{{ $id->created_at ? $id->created_at->format('d F Y, H:i') : '-' }}
+                        <td class="py-3 font-medium">{{ $gallery->created_at ? $gallery->created_at->format('d F Y, H:i') : '-' }}
                         </td>
                     </tr>
-                    @if ($id->tempat)
+                    @if ($gallery->tempat)
                         <tr class="border-b border-neutral-100 dark:border-neutral-800">
                             <td class="py-3 pr-4 text-neutral-500">Tempat Wisata</td>
-                            <td class="py-3 font-medium">{{ $id->tempat->nama_tempat }}</td>
+                            <td class="py-3 font-medium">{{ $gallery->tempat->nama_tempat }}</td>
                         </tr>
-                        @if ($id->tempat->paket)
+                        @if ($gallery->tempat->paket)
                             <tr class="border-b border-neutral-100 dark:border-neutral-800">
                                 <td class="py-3 pr-4 text-neutral-500">Paket</td>
-                                <td class="py-3">{{ $id->tempat->paket->nama_paket }}</td>
+                                <td class="py-3">{{ $gallery->tempat->paket->nama_paket }}</td>
                             </tr>
                         @endif
                     @endif
-                    @if ($id->fasilitas)
+                    @if ($gallery->fasilitas)
                         <tr class="border-b border-neutral-100 dark:border-neutral-800">
                             <td class="py-3 pr-4 text-neutral-500">Fasilitas</td>
-                            <td class="py-3 font-medium">{{ $id->fasilitas->nama_fasilitas }}</td>
+                            <td class="py-3 font-medium">{{ $gallery->fasilitas->nama_fasilitas }}</td>
                         </tr>
                     @endif
                     <tr>
                         <td class="py-3 pr-4 text-neutral-500">Path</td>
-                        <td class="py-3 text-xs font-mono text-neutral-500 break-all">{{ $id->path }}</td>
+                        <td class="py-3 text-xs font-mono text-neutral-500 break-all">{{ $gallery->path }}</td>
                     </tr>
                 </table>
             </div>
 
             <div class="px-4 lg:px-6 pb-6 flex justify-end">
-                <form action="{{ route('admin.gallery.destroy', $id->id) }}" method="POST"
+                <form action="{{ route('admin.gallery.destroy', $gallery->id) }}" method="POST"
                     onsubmit="return confirm('Yakin hapus foto ini?')">
                     @csrf @method('DELETE')
                     <button type="submit"

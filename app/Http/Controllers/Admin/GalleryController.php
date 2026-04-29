@@ -30,10 +30,10 @@ class GalleryController extends Controller
         return view('admin.gallery.create', compact('pakets'));
     }
 
-    public function show(Gallery $id)
+    public function show(Gallery $gallery)
     {
-        $id->load(['tempat', 'fasilitas']);
-        return view('admin.gallery.show', compact('id'));
+        $gallery->load(['tempat', 'fasilitas']);
+        return view('admin.gallery.show', compact('gallery'));
     }
 
 
@@ -67,14 +67,14 @@ class GalleryController extends Controller
      * Remove the specified resource from storage.
      * FIX: hapus file dari disk storage sebelum delete record
      */
-    public function destroy(Gallery $id)
+    public function destroy(Gallery $gallery)
     {
         // FIX: hapus file dari storage saat foto dihapus
-        if (Storage::disk('public')->exists($id->path)) {
-            Storage::disk('public')->delete($id->path);
+        if (Storage::disk('public')->exists($gallery->path)) {
+            Storage::disk('public')->delete($gallery->path);
         }
 
-        $id->delete();
+        $gallery->delete();
         return redirect()->route('admin.gallery.index')->with('success', 'Gallery berhasil dihapus');
     }
 }

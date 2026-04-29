@@ -152,42 +152,45 @@ class PaketController extends Controller
     /**
      * Sync child records (tempat or fasilitas) while preserving existing images
      */
-    private function syncChildWithImages(Paket $paket, string $relation, array $incomingData, string $modelClass)
-    {
+    private function syncChildWithImages(
+        Paket $paket,
+        string $relation,
+        array $incomingData,
+        string $modelClass
+    ) {
         if (empty($incomingData)) {
-            // If user removed all, delete everything (images will cascade)
             $paket->{$relation}()->delete();
             return;
         }
     
         $incomingIds = collect($incomingData)
             ->pluck('id')
-            ->filter()                    // remove null/empty ids
+            ->filter()
             ->all();
     
-        // Delete only the records that were removed by user
         $paket->{$relation}()
-              ->whereNotIn('id', $incomingIds)
-              ->delete();                 // this will also delete their galleries via cascade
+            ->whereNotIn('id', $incomingIds)
+            ->delete();
     
-        // Update or Create each item
         foreach ($incomingData as $item) {
-            if (!empty($item['id'])) {
-                // Update existing
-                $modelClass::where('id', $item['id'])
-                           ->where('id_paket', $paket->id)   // security
-                           ->update([
-                               'nama_tempat'    => $item['nama_tempat'] ?? null,     // for tempat
-                               'nama_fasilitas' => $item['nama_fasilitas'] ?? null,  // for fasilitas
-                               'tipe_fasilitas' => $item['tipe_fasilitas'] ?? null,
-                           ]);
+    
+            if ($relation === 'tempats') {
+                $payload = [
+                    'nama_tempat' => $item['nama_tempat'],
+                ];
             } else {
-                // Create new
-                $paket->{$relation}()->create([
-                    'nama_tempat'    => $item['nama_tempat'] ?? null,
-                    'nama_fasilitas' => $item['nama_fasilitas'] ?? null,
-                    'tipe_fasilitas' => $item['tipe_fasilitas'] ?? null,
-                ]);
+                $payload = [
+                    'nama_fasilitas' => $item['nama_fasilitas'],
+                    'tipe_fasilitas' => $item['tipe_fasilitas'],
+                ];
+            }
+    
+            if (!empty($item['id'])) {
+                $modelClass::where('id', $item['id'])
+                    ->where('id_paket', $paket->id)
+                    ->update($payload);
+            } else {
+                $paket->{$relation}()->create($payload);
             }
         }
     }

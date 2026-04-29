@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
             PaketSeeder::class,
             PesananSeeder::class,
         ]);
+
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+        ]);
     }
 }
