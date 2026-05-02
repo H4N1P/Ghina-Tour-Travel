@@ -1,31 +1,44 @@
-# Plan: Integrasi Chatbot Frontend & Filter Dashboard Admin
+# Plan: Enhancement Galeri, UI Admin, dan Company Profile
 
-## 1. Integrasi Frontend Chatbot
-**Tujuan:** Membuat antarmuka (UI) chatbot interaktif bagi pelanggan yang terintegrasi langsung dengan backend AI Agent (`ChatbotController`) menggunakan palet warna (gold/dark/light theme) dari proyek Ghina Tour Travel.
-
-**Langkah High-Level:**
-*   **UI/UX Chat Widget:** 
-    *   Buat komponen floating chat widget (tombol chat di pojok kanan bawah yang membuka jendela obrolan).
-    *   Sesuaikan desain dengan tema utama (menggunakan variabel warna `--gold`, `--bg-card`, dll yang sudah ada).
-*   **Integrasi Backend (API Calls):**
-    *   Gunakan JavaScript (Fetch/Axios) untuk mengambil pesan awal dan opsi menu dari endpoint `getMenu()`.
-    *   Kirim pesan input dari user ke endpoint `handleMessage()`.
-    *   Implementasikan *quick actions* (tombol menu cepat) untuk memicu fungsi spesifik seperti `getPakets()`, `getCompanyProfile()`, dan `searchPesanan()`.
-*   **State Management:**
-    *   Kelola riwayat obrolan (chat history) sementara di sisi klien agar percakapan terasa natural.
-    *   Tampilkan indikator *loading/typing* saat menunggu balasan dari AI Agent.
+**Deskripsi:**
+Issue ini mencakup beberapa pembaruan fungsionalitas dan antarmuka pengguna, baik di sisi Admin maupun Customer. Pekerjaan difokuskan pada integrasi media (foto/video) yang lebih baik pada paket wisata, penyelarasan tema antarmuka (Dark/Light mode), kontrol visibilitas data spesifik (Rundown), serta penambahan modul manajemen Company Profile.
 
 ---
 
-## 2. Fitur Filter & Pencarian Pesanan di Admin Dashboard
-**Tujuan:** Memudahkan admin dalam mengelola dan mencari data pesanan dengan menambahkan fitur pencarian teks dan filter spesifik pada halaman indeks pesanan.
+## 1. Manajemen Galeri & Media (Foto/Video)
+**Tujuan:** Mengembangkan fitur galeri admin untuk mendukung unggahan foto dan video terkompresi yang terelasi langsung dengan Paket, Destinasi, dan Fasilitas.
 
-**Langkah High-Level:**
-*   **Pembaruan UI Admin (`pesanan/index.blade.php`):**
-    *   Tambahkan *Search Bar* (untuk mencari nama pemesan, no HP, atau invoice).
-    *   Tambahkan *Dropdown Filter* untuk **Status Pesanan** (misal: pending, lunas, dp).
-    *   Tambahkan *Input Date/Date Range* untuk filter berdasarkan **Tanggal Acara**.
-*   **Pembaruan Backend (`PesananController@index`):**
-    *   Tangkap parameter `request` (search, status, tanggal).
-    *   Modifikasi *Eloquent Query* pada model `Pesanan` secara dinamis menggunakan klausa `where` atau `when` berdasarkan parameter yang dikirim dari UI.
-    *   Pastikan pagination tetap berjalan lancar bersamaan dengan parameter filter (append query string).
+**High-Level Task:**
+*   **Backend (Upload & Kompresi):** 
+    *   Implementasikan logika kompresi otomatis untuk unggahan foto dan video pada modul Galeri.
+    *   Simpan data media ke dalam tabel `galleries`.
+*   **Admin UI (Form Tambah Galeri):**
+    *   Buat dropdown/opsi relasi saat *upload*: pilih penempatan media (Paket, Destinasi Tempat, atau Fasilitas).
+    *   *Rules:* Jika memilih Destinasi atau Fasilitas, *user* wajib memilih/filter Paket-nya terlebih dahulu. (Catatan: Foto pada fasilitas bersifat opsional).
+*   **Customer UI (Tampilan Media):**
+    *   Tampilkan *thumbnail* Paket di halaman Home (Section Paket) dan halaman "Semua Paket".
+    *   Pada halaman Detail Paket, integrasikan media yang terhubung: jadikan gambar latar (*background*), serta tampilkan gambar Destinasi dan Fasilitas (jika ada).
+    *   Tampilkan *thumbnail* galeri di halaman Home (Section Galeri) dan buat halaman khusus "Semua Galeri".
+
+## 2. Implementasi Tema Dark/Light Mode (Admin)
+**Tujuan:** Membawa fitur *toggle* tema yang sudah ada di sisi Customer ke Dashboard Admin.
+
+**High-Level Task:**
+*   Integrasikan *script* atau *state management* (contoh: Tailwind dark mode class, local storage) yang digunakan di UI Customer ke dalam layout Admin.
+*   Pastikan *toggle switch* tema tersedia dan berfungsi dengan baik di seluruh halaman Dashboard Admin.
+
+## 3. Penyesuaian Data Paket (Rundown)
+**Tujuan:** Menampilkan informasi Rundown di tabel Admin dan membatasi akses melihat Rundown di halaman Customer hanya untuk Admin.
+
+**High-Level Task:**
+*   **Admin - Index Paket:** Tambahkan kolom untuk menampilkan data (atau ringkasan) `rundown` pada tabel *list* Paket di Dashboard Admin.
+*   **Customer - Detail Paket:** 
+    *   Tambahkan komponen *Rundown* di halaman detail paket customer. Letakkan bersebelahan (dalam 1 *card*/komponen yang sama) dengan daftar *Fasilitas*.
+    *   Berikan kondisional (`if auth/session admin`): Rundown **hanya** boleh di-*render* atau dilihat jika pengguna yang mengakses halaman tersebut sedang *login* sebagai Admin. Pelanggan biasa tidak boleh melihatnya.
+
+## 4. Manajemen Company Profile (Admin)
+**Tujuan:** Membuat modul CRUD/Edit sederhana untuk profil perusahaan di Dashboard Admin.
+
+**High-Level Task:**
+*   Gunakan model `CompanyProfile.php` dan buat/perbarui `CompanyProfileController.php`.
+*   Buat halaman di Admin Dashboard untuk mengedit data profil perusahaan (About, Vision & Mission, Kontak, Social Media) yang diambil dari tabel `company_profiles`.
