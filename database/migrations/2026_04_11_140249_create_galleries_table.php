@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreign('id_fasilitas')->references('id')->on('fasilitas')->onDelete('cascade');
             $table->foreign('id_tempat')->references('id')->on('tempats')->onDelete('cascade');
             $table->string('path');
+            $table->string('keterangan')->nullable();
+            $table->string('type')->default('image');
             $table->timestamps();
         });
     }

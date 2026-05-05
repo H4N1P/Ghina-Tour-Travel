@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Fasilitas;
 use App\Models\Paket;
+use App\Models\Rundown;
 use App\Models\Tempat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -32,8 +33,13 @@ class PaketController extends Controller
             'nama_paket'      => 'required|string|max:255',
             'harga_paket'     => 'required|numeric',
             'durasi'          => 'required|string|max:255',
-            'rundown'       => 'nullable|string',
             'note'            => 'nullable|string',
+
+            // Nested Rundown
+            'rundowns'                => 'nullable|array',
+            'rundowns.*.waktu'        => 'required|string|max:255',
+            'rundowns.*.acara'        => 'required|string|max:255',
+            'rundowns.*.deskripsi'    => 'nullable|string',
 
             // Nested Tempat
             'tempats'                  => 'nullable|array',
@@ -67,6 +73,17 @@ class PaketController extends Controller
                     $paket->fasilitas()->create([
                         'nama_fasilitas' => $fasilitas['nama_fasilitas'],
                         'tipe_fasilitas' => $fasilitas['tipe_fasilitas'],
+                    ]);
+                }
+            }
+
+            // === Handle Rundowns ===
+            if ($request->has('rundowns')) {
+                foreach ($request->rundowns as $rundown) {
+                    $paket->rundowns()->create([
+                        'waktu'     => $rundown['waktu'],
+                        'acara'     => $rundown['acara'],
+                        'deskripsi' => $rundown['deskripsi'] ?? null,
                     ]);
                 }
             }
@@ -105,8 +122,14 @@ class PaketController extends Controller
             'nama_paket'      => 'required|string|max:255',
             'harga_paket'     => 'required|numeric',
             'durasi'          => 'required|string|max:255',
-            'rundown'       => 'nullable|string',
             'note'            => 'nullable|string',
+
+            // Nested Rundown
+            'rundowns'                => 'nullable|array',
+            'rundowns.*.id'           => 'nullable|exists:rundowns,id',
+            'rundowns.*.waktu'        => 'required|string|max:255',
+            'rundowns.*.acara'        => 'required|string|max:255',
+            'rundowns.*.deskripsi'    => 'nullable|string',
 
             // Nested Tempat
             'tempats'                  => 'nullable|array',
@@ -127,6 +150,9 @@ class PaketController extends Controller
     
         // Handle Fasilitas safely
         $this->syncChildWithImages($paket, 'fasilitas', $request->fasilitas ?? [], Fasilitas::class);
+
+        // Handle Rundowns safely
+        $this->syncRundowns($paket, $request->rundowns ?? []);
 
         return redirect()->route('admin.paket.index')
             ->with('success', 'Paket berhasil diperbarui');
@@ -191,6 +217,42 @@ class PaketController extends Controller
                     ->update($payload);
             } else {
                 $paket->{$relation}()->create($payload);
+            }
+        }
+    }
+
+    /**
+     * Sync rundown records while preserving existing ones
+     */
+    private function syncRundowns(Paket $paket, array $incomingData)
+    {
+        if (empty($incomingData)) {
+            $paket->rundowns()->delete();
+            return;
+        }
+
+        $incomingIds = collect($incomingData)
+            ->pluck('id')
+            ->filter()
+            ->all();
+
+        $paket->rundowns()
+            ->whereNotIn('id', $incomingIds)
+            ->delete();
+
+        foreach ($incomingData as $item) {
+            $payload = [
+                'waktu'     => $item['waktu'],
+                'acara'     => $item['acara'],
+                'deskripsi' => $item['deskripsi'] ?? null,
+            ];
+
+            if (!empty($item['id'])) {
+                Rundown::where('id', $item['id'])
+                    ->where('id_paket', $paket->id)
+                    ->update($payload);
+            } else {
+                $paket->rundowns()->create($payload);
             }
         }
     }

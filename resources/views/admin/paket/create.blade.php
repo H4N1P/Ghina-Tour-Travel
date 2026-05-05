@@ -57,14 +57,6 @@
                     </div>
                 </div>
 
-                <div>
-                    <label for="rundown" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-                        Rundown / Itinerary
-                    </label>
-                    <textarea id="rundown" name="rundown" rows="4"
-                        class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors resize-none"
-                        placeholder="Hari 1: Meeting Point...&#10;Hari 2: Perjalanan ke...">{{ old('rundown') }}</textarea>
-                </div>
 
                 <div>
                     <label for="note" class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
@@ -121,6 +113,28 @@
                 <div id="fasilitas-container" class="space-y-3">
                     <p id="fasilitas-empty" class="text-sm text-neutral-400 italic">Belum ada fasilitas. Klik "+ Tambah
                         Fasilitas" untuk menambahkan.</p>
+                </div>
+            </div>
+        </div>
+
+        {{-- ── Rundown Detail ── --}}
+        <div class="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800">
+            <div class="p-4 lg:p-6 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-semibold text-purple-600 dark:text-purple-400">Rundown Detail (Harian)</h3>
+                    <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-0.5">Jadwal harian kegiatan/acara paket tour</p>
+                </div>
+                <button type="button" onclick="addRundownField()"
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-lg transition-colors border border-purple-200 dark:border-purple-800">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Tambah Rundown
+                </button>
+            </div>
+            <div class="p-4 lg:p-6">
+                <div id="rundowns-container" class="space-y-4">
+                    <p id="rundowns-empty" class="text-sm text-neutral-400 italic">Belum ada rundown. Klik "+ Tambah Rundown" untuk menambahkan.</p>
                 </div>
             </div>
         </div>
@@ -189,6 +203,57 @@
             </svg>
         </button>`;
             container.appendChild(div);
+        }
+
+        function addRundownField(waktu = '', acara = '', deskripsi = '') {
+            const container = document.getElementById('rundowns-container');
+            const empty = document.getElementById('rundowns-empty');
+            if (empty) empty.remove();
+
+            const index = container.querySelectorAll('.field-row').length;
+            const div = document.createElement('div');
+            div.className = 'field-row grid grid-cols-1 md:grid-cols-12 gap-4 items-start p-4 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800/50';
+            div.innerHTML = `
+                <input type="hidden" name="rundowns[${index}][id]" value="">
+                <div class="md:col-span-3">
+                    <label class="block text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1">Waktu / Hari</label>
+                    <input type="text" name="rundowns[${index}][waktu]" value="${waktu}"
+                        class="w-full px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors text-sm"
+                        placeholder="Contoh: Hari 1 / 08.00">
+                </div>
+                <div class="md:col-span-4">
+                    <label class="block text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1">Acara / Kegiatan</label>
+                    <input type="text" name="rundowns[${index}][acara]" value="${acara}"
+                        class="w-full px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors text-sm"
+                        placeholder="Contoh: Kedatangan di Bandara">
+                </div>
+                <div class="md:col-span-4">
+                    <label class="block text-xs font-medium text-neutral-500 dark:text-neutral-400 mb-1">Deskripsi</label>
+                    <input type="text" name="rundowns[${index}][deskripsi]" value="${deskripsi}"
+                        class="w-full px-3 py-2 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors text-sm"
+                        placeholder="Contoh: Penjemputan di gate kedatangan...">
+                </div>
+                <div class="md:col-span-1 flex items-end">
+                    <button type="button" onclick="removeRundownRow(this)"
+                        class="w-full p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>`;
+            container.appendChild(div);
+        }
+
+        function removeRundownRow(btn) {
+            const container = document.getElementById('rundowns-container');
+            btn.closest('.field-row').remove();
+            if (container.querySelectorAll('.field-row').length === 0) {
+                const p = document.createElement('p');
+                p.id = 'rundowns-empty';
+                p.className = 'text-sm text-neutral-400 italic';
+                p.innerHTML = 'Belum ada rundown. Klik &quot;+ Tambah Rundown&quot; untuk menambahkan.';
+                container.appendChild(p);
+            }
         }
 
         function removeRow(btn, containerId, emptyId, emptyText) {

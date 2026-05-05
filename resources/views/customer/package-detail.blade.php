@@ -119,6 +119,29 @@
             </div>
         </div>
 
+        <!-- Rundown Detail -->
+        @if ($paket->rundowns && $paket->rundowns->count() > 0)
+            <div class="mb-10">
+                <h2 class="text-[22px] font-bold t mb-4">📋 Rundown Perjalanan</h2>
+                <div class="space-y-4">
+                    @foreach ($paket->rundowns as $index => $rundown)
+                        <div class="rounded-2xl p-5" style="background:var(--bg-card);border:1px solid var(--border);">
+                            <div class="flex items-start gap-4">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:var(--gold);">{{ $index + 1 }}</span>
+                                <div class="flex-1">
+                                    <p class="font-semibold t text-[17px]" style="color:var(--gold);">{{ $rundown->waktu }}</p>
+                                    <h4 class="font-bold text-[16px] t mt-1 mb-2">{{ $rundown->acara }}</h4>
+                                    @if ($rundown->deskripsi)
+                                        <p class="tm text-sm leading-7">{{ $rundown->deskripsi }}</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
         <!-- Fasilitas + Harga -->
         <div class="flex gap-8 flex-col lg:flex-row">
 

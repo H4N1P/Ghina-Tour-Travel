@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pakets', function (Blueprint $table) {
+        Schema::create('rundowns', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_paket');
+            $table->string('waktu');
+            $table->string('acara');
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
-            $table->string('nama_paket');
-            $table->decimal('harga_paket', 15, 2);
-            $table->string('durasi')->nullable();
-            $table->text('note')->nullable();
+            $table->foreign('id_paket')->references('id')->on('pakets')->onDelete('cascade');
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pakets');
+        Schema::dropIfExists('rundowns');
     }
 };
