@@ -120,7 +120,7 @@
         </div>
 
         <!-- Rundown Detail -->
-        @if ($paket->rundowns && $paket->rundowns->count() > 0)
+        @if (auth()->check() && $paket->rundowns->isNotEmpty())
             <div class="mb-10">
                 <h2 class="text-[22px] font-bold t mb-4">📋 Rundown Perjalanan</h2>
                 <div class="space-y-4">
