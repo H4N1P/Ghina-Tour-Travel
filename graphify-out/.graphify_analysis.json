@@ -1,0 +1,612 @@
+{
+  "communities": {
+    "0": [
+      "assets_app_du0szzg0_accessor",
+      "assets_app_du0szzg0_ae",
+      "assets_app_du0szzg0_cancel",
+      "assets_app_du0szzg0_clear",
+      "assets_app_du0szzg0_concat",
+      "assets_app_du0szzg0_ct",
+      "assets_app_du0szzg0_delete",
+      "assets_app_du0szzg0_dt",
+      "assets_app_du0szzg0_eject",
+      "assets_app_du0szzg0_foreach",
+      "assets_app_du0szzg0_from",
+      "assets_app_du0szzg0_ft",
+      "assets_app_du0szzg0_get",
+      "assets_app_du0szzg0_getsetcookie",
+      "assets_app_du0szzg0_gt",
+      "assets_app_du0szzg0_has",
+      "assets_app_du0szzg0_ht",
+      "assets_app_du0szzg0_it",
+      "assets_app_du0szzg0_k",
+      "assets_app_du0szzg0_ke",
+      "assets_app_du0szzg0_l",
+      "assets_app_du0szzg0_mt",
+      "assets_app_du0szzg0_normalize",
+      "assets_app_du0szzg0_nt",
+      "assets_app_du0szzg0_o",
+      "assets_app_du0szzg0_pt",
+      "assets_app_du0szzg0_pull",
+      "assets_app_du0szzg0_q",
+      "assets_app_du0szzg0_qt",
+      "assets_app_du0szzg0_r",
+      "assets_app_du0szzg0_read",
+      "assets_app_du0szzg0_remove",
+      "assets_app_du0szzg0_request",
+      "assets_app_du0szzg0_rt",
+      "assets_app_du0szzg0_s",
+      "assets_app_du0szzg0_source",
+      "assets_app_du0szzg0_st",
+      "assets_app_du0szzg0_subscribe",
+      "assets_app_du0szzg0_symbol_iterator",
+      "assets_app_du0szzg0_symbol_tostringtag",
+      "assets_app_du0szzg0_throwifrequested",
+      "assets_app_du0szzg0_toabortsignal",
+      "assets_app_du0szzg0_tojson",
+      "assets_app_du0szzg0_tt",
+      "assets_app_du0szzg0_use",
+      "assets_app_du0szzg0_ut",
+      "assets_app_du0szzg0_v",
+      "assets_app_du0szzg0_ve",
+      "assets_app_du0szzg0_we",
+      "assets_app_du0szzg0_write",
+      "assets_app_du0szzg0_wt",
+      "assets_app_du0szzg0_xt",
+      "assets_app_du0szzg0_yt",
+      "assets_app_du0szzg0_z",
+      "public_build_assets_app_du0szzg0_js"
+    ],
+    "1": [
+      "admin_gallerycontroller_gallerycontroller",
+      "admin_gallerycontroller_gallerycontroller_compressandstoreimage",
+      "admin_gallerycontroller_gallerycontroller_create",
+      "admin_gallerycontroller_gallerycontroller_destroy",
+      "admin_gallerycontroller_gallerycontroller_getrelationsbypaket",
+      "admin_gallerycontroller_gallerycontroller_index",
+      "admin_gallerycontroller_gallerycontroller_show",
+      "admin_gallerycontroller_gallerycontroller_store",
+      "app_http_controllers_admin_gallerycontroller_php",
+      "app_http_controllers_customer_pagecontroller_php",
+      "app_models_gallery_php",
+      "customer_pagecontroller_pagecontroller",
+      "customer_pagecontroller_pagecontroller_index",
+      "customer_pagecontroller_pagecontroller_packagedetail",
+      "customer_pagecontroller_pagecontroller_packages",
+      "customer_pagecontroller_pagecontroller_photos",
+      "customer_pagecontroller_pagecontroller_search",
+      "models_gallery_gallery",
+      "models_gallery_gallery_fasilitas",
+      "models_gallery_gallery_isvideo",
+      "models_gallery_gallery_paket",
+      "models_gallery_gallery_tempat"
+    ],
+    "2": [
+      "assets_app_du0szzg0_a",
+      "assets_app_du0szzg0_constructor",
+      "assets_app_du0szzg0_e",
+      "assets_app_du0szzg0_et",
+      "assets_app_du0szzg0_f",
+      "assets_app_du0szzg0_g",
+      "assets_app_du0szzg0_geturi",
+      "assets_app_du0szzg0_he",
+      "assets_app_du0szzg0_ie",
+      "assets_app_du0szzg0_j",
+      "assets_app_du0szzg0_m",
+      "assets_app_du0szzg0_n",
+      "assets_app_du0szzg0_p",
+      "assets_app_du0szzg0_qe",
+      "assets_app_du0szzg0_set",
+      "assets_app_du0szzg0_t",
+      "assets_app_du0szzg0_tostring",
+      "assets_app_du0szzg0_unsubscribe",
+      "assets_app_du0szzg0_w",
+      "assets_app_du0szzg0_zt"
+    ],
+    "3": [
+      "admin_companyprofilecontroller_companyprofilecontroller",
+      "admin_companyprofilecontroller_companyprofilecontroller_edit",
+      "admin_companyprofilecontroller_companyprofilecontroller_show",
+      "admin_companyprofilecontroller_companyprofilecontroller_update",
+      "app_http_controllers_admin_companyprofilecontroller_php",
+      "app_http_controllers_chatbot_chatbotcontroller_php",
+      "app_models_companyprofile_php",
+      "chatbot_chatbotcontroller_chatbotcontroller",
+      "chatbot_chatbotcontroller_chatbotcontroller_containskeyword",
+      "chatbot_chatbotcontroller_chatbotcontroller_getmenu",
+      "chatbot_chatbotcontroller_chatbotcontroller_handlecompanyprofile",
+      "chatbot_chatbotcontroller_chatbotcontroller_handlemessage",
+      "chatbot_chatbotcontroller_chatbotcontroller_handlepaketquery",
+      "chatbot_chatbotcontroller_chatbotcontroller_handlepesanansearch",
+      "database_seeders_companyprofileseeder_php",
+      "models_companyprofile_companyprofile",
+      "seeders_companyprofileseeder_companyprofileseeder",
+      "seeders_companyprofileseeder_companyprofileseeder_run"
+    ],
+    "4": [
+      "admin_dashboardcontroller_dashboardcontroller",
+      "admin_dashboardcontroller_dashboardcontroller_index",
+      "admin_pesanancontroller_pesanancontroller",
+      "admin_pesanancontroller_pesanancontroller_create",
+      "admin_pesanancontroller_pesanancontroller_destroy",
+      "admin_pesanancontroller_pesanancontroller_edit",
+      "admin_pesanancontroller_pesanancontroller_index",
+      "admin_pesanancontroller_pesanancontroller_show",
+      "admin_pesanancontroller_pesanancontroller_store",
+      "admin_pesanancontroller_pesanancontroller_update",
+      "app_http_controllers_admin_dashboardcontroller_php",
+      "app_http_controllers_admin_pesanancontroller_php",
+      "app_models_pesanan_php",
+      "database_seeders_pesananseeder_php",
+      "models_pesanan_pesanan",
+      "models_pesanan_pesanan_paket",
+      "seeders_pesananseeder_pesananseeder",
+      "seeders_pesananseeder_pesananseeder_run"
+    ],
+    "5": [
+      "app_http_controllers_authcontroller_php",
+      "app_models_user_php",
+      "controllers_authcontroller_authcontroller",
+      "controllers_authcontroller_authcontroller_login",
+      "controllers_authcontroller_authcontroller_logout",
+      "controllers_authcontroller_authcontroller_resetpassword",
+      "controllers_authcontroller_authcontroller_sendresetlinkemail",
+      "controllers_authcontroller_authcontroller_showforgotpasswordform",
+      "controllers_authcontroller_authcontroller_showloginform",
+      "controllers_authcontroller_authcontroller_showresetpasswordform",
+      "database_seeders_databaseseeder_php",
+      "models_user_user",
+      "models_user_user_casts",
+      "seeders_databaseseeder_databaseseeder",
+      "seeders_databaseseeder_databaseseeder_run"
+    ],
+    "6": [
+      "admin_paketcontroller_paketcontroller",
+      "admin_paketcontroller_paketcontroller_create",
+      "admin_paketcontroller_paketcontroller_destroy",
+      "admin_paketcontroller_paketcontroller_edit",
+      "admin_paketcontroller_paketcontroller_index",
+      "admin_paketcontroller_paketcontroller_show",
+      "admin_paketcontroller_paketcontroller_store",
+      "admin_paketcontroller_paketcontroller_syncchildwithimages",
+      "admin_paketcontroller_paketcontroller_syncrundowns",
+      "admin_paketcontroller_paketcontroller_update",
+      "app_http_controllers_admin_paketcontroller_php",
+      "app_models_rundown_php",
+      "models_rundown_rundown",
+      "models_rundown_rundown_paket"
+    ],
+    "7": [
+      "js_chatbot_appendmessage",
+      "js_chatbot_fetchinitialmenu",
+      "js_chatbot_hidetyping",
+      "js_chatbot_sendmessage",
+      "js_chatbot_showtyping",
+      "resources_js_chatbot_js"
+    ],
+    "8": [
+      "app_models_paket_php",
+      "models_paket_paket",
+      "models_paket_paket_fasilitas",
+      "models_paket_paket_rundowns",
+      "models_paket_paket_tempats"
+    ],
+    "9": [
+      "app_models_fasilitas_php",
+      "models_fasilitas_fasilitas",
+      "models_fasilitas_fasilitas_galleries",
+      "models_fasilitas_fasilitas_paket"
+    ],
+    "10": [
+      "app_models_tempat_php",
+      "models_tempat_tempat",
+      "models_tempat_tempat_galleries",
+      "models_tempat_tempat_paket"
+    ],
+    "11": [
+      "app_providers_appserviceprovider_php",
+      "providers_appserviceprovider_appserviceprovider",
+      "providers_appserviceprovider_appserviceprovider_boot",
+      "providers_appserviceprovider_appserviceprovider_register"
+    ],
+    "12": [
+      "database_factories_userfactory_php",
+      "factories_userfactory_userfactory",
+      "factories_userfactory_userfactory_definition",
+      "factories_userfactory_userfactory_unverified"
+    ],
+    "13": [
+      "components_layout_footer",
+      "components_layout_navbar",
+      "components_layout_scripts",
+      "resources_views_components_layout_customer_blade_php"
+    ],
+    "14": [
+      "database_migrations_0001_01_01_000000_create_users_table_php",
+      "migrations_0001_01_01_000000_create_users_table_down",
+      "migrations_0001_01_01_000000_create_users_table_up"
+    ],
+    "15": [
+      "database_migrations_0001_01_01_000001_create_cache_table_php",
+      "migrations_0001_01_01_000001_create_cache_table_down",
+      "migrations_0001_01_01_000001_create_cache_table_up"
+    ],
+    "16": [
+      "database_migrations_0001_01_01_000002_create_jobs_table_php",
+      "migrations_0001_01_01_000002_create_jobs_table_down",
+      "migrations_0001_01_01_000002_create_jobs_table_up"
+    ],
+    "17": [
+      "database_migrations_2026_04_06_173144_create_pakets_table_php",
+      "migrations_2026_04_06_173144_create_pakets_table_down",
+      "migrations_2026_04_06_173144_create_pakets_table_up"
+    ],
+    "18": [
+      "database_migrations_2026_04_06_173204_create_tempats_table_php",
+      "migrations_2026_04_06_173204_create_tempats_table_down",
+      "migrations_2026_04_06_173204_create_tempats_table_up"
+    ],
+    "19": [
+      "database_migrations_2026_04_06_173232_create_fasilitas_table_php",
+      "migrations_2026_04_06_173232_create_fasilitas_table_down",
+      "migrations_2026_04_06_173232_create_fasilitas_table_up"
+    ],
+    "20": [
+      "database_migrations_2026_04_11_140249_create_galleries_table_php",
+      "migrations_2026_04_11_140249_create_galleries_table_down",
+      "migrations_2026_04_11_140249_create_galleries_table_up"
+    ],
+    "21": [
+      "database_migrations_2026_04_11_143438_create_company_profiles_table_php",
+      "migrations_2026_04_11_143438_create_company_profiles_table_down",
+      "migrations_2026_04_11_143438_create_company_profiles_table_up"
+    ],
+    "22": [
+      "database_migrations_2026_04_19_083859_create_pesanans_table_php",
+      "migrations_2026_04_19_083859_create_pesanans_table_down",
+      "migrations_2026_04_19_083859_create_pesanans_table_up"
+    ],
+    "23": [
+      "database_migrations_2026_05_05_052908_create_rundowns_table_php",
+      "migrations_2026_05_05_052908_create_rundowns_table_down",
+      "migrations_2026_05_05_052908_create_rundowns_table_up"
+    ],
+    "24": [
+      "database_seeders_paketseeder_php",
+      "seeders_paketseeder_paketseeder",
+      "seeders_paketseeder_paketseeder_run"
+    ],
+    "25": [
+      "app_http_controllers_controller_php",
+      "controllers_controller_controller"
+    ],
+    "26": [
+      "tests_pest_php",
+      "tests_pest_something"
+    ],
+    "27": [
+      "tests_testcase_php",
+      "tests_testcase_testcase"
+    ],
+    "28": [
+      "vite_config_js"
+    ],
+    "29": [
+      "bootstrap_app_php"
+    ],
+    "30": [
+      "bootstrap_providers_php"
+    ],
+    "31": [
+      "bootstrap_cache_packages_php"
+    ],
+    "32": [
+      "bootstrap_cache_services_php"
+    ],
+    "33": [
+      "config_app_php"
+    ],
+    "34": [
+      "config_auth_php"
+    ],
+    "35": [
+      "config_cache_php"
+    ],
+    "36": [
+      "config_database_php"
+    ],
+    "37": [
+      "config_filesystems_php"
+    ],
+    "38": [
+      "config_logging_php"
+    ],
+    "39": [
+      "config_mail_php"
+    ],
+    "40": [
+      "config_queue_php"
+    ],
+    "41": [
+      "config_services_php"
+    ],
+    "42": [
+      "config_session_php"
+    ],
+    "43": [
+      "public_index_php"
+    ],
+    "44": [
+      "resources_js_app_js"
+    ],
+    "45": [
+      "resources_js_bootstrap_js"
+    ],
+    "46": [
+      "resources_views_forgot_password_blade_php"
+    ],
+    "47": [
+      "resources_views_login_blade_php"
+    ],
+    "48": [
+      "resources_views_reset_password_blade_php"
+    ],
+    "49": [
+      "resources_views_admin_index_blade_php"
+    ],
+    "50": [
+      "resources_views_admin_company_profile_edit_blade_php"
+    ],
+    "51": [
+      "resources_views_admin_company_profile_show_blade_php"
+    ],
+    "52": [
+      "resources_views_admin_gallery_create_blade_php"
+    ],
+    "53": [
+      "resources_views_admin_gallery_index_blade_php"
+    ],
+    "54": [
+      "resources_views_admin_gallery_show_blade_php"
+    ],
+    "55": [
+      "resources_views_admin_paket_create_blade_php"
+    ],
+    "56": [
+      "resources_views_admin_paket_edit_blade_php"
+    ],
+    "57": [
+      "resources_views_admin_paket_index_blade_php"
+    ],
+    "58": [
+      "resources_views_admin_paket_show_blade_php"
+    ],
+    "59": [
+      "resources_views_admin_pesanan_create_blade_php"
+    ],
+    "60": [
+      "resources_views_admin_pesanan_edit_blade_php"
+    ],
+    "61": [
+      "resources_views_admin_pesanan_index_blade_php"
+    ],
+    "62": [
+      "resources_views_admin_pesanan_show_blade_php"
+    ],
+    "63": [
+      "resources_views_components_layout_admin_blade_php"
+    ],
+    "64": [
+      "resources_views_components_layout_footer_blade_php"
+    ],
+    "65": [
+      "resources_views_components_layout_navbar_blade_php"
+    ],
+    "66": [
+      "resources_views_components_layout_scripts_blade_php"
+    ],
+    "67": [
+      "resources_views_customer_index_blade_php"
+    ],
+    "68": [
+      "resources_views_customer_package_detail_blade_php"
+    ],
+    "69": [
+      "resources_views_customer_packages_blade_php"
+    ],
+    "70": [
+      "resources_views_customer_photos_blade_php"
+    ],
+    "71": [
+      "routes_console_php"
+    ],
+    "72": [
+      "routes_web_php"
+    ],
+    "73": [
+      "tests_feature_exampletest_php"
+    ],
+    "74": [
+      "tests_unit_exampletest_php"
+    ]
+  },
+  "cohesion": {
+    "0": 0.06,
+    "1": 0.1,
+    "2": 0.15,
+    "3": 0.16,
+    "4": 0.12,
+    "5": 0.13,
+    "6": 0.2,
+    "7": 0.73,
+    "8": 0.4,
+    "9": 0.5,
+    "10": 0.5,
+    "11": 0.5,
+    "12": 0.5,
+    "13": 0.5,
+    "14": 0.67,
+    "15": 0.67,
+    "16": 0.67,
+    "17": 0.67,
+    "18": 0.67,
+    "19": 0.67,
+    "20": 0.67,
+    "21": 0.67,
+    "22": 0.67,
+    "23": 0.67,
+    "24": 0.67,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 1.0,
+    "72": 1.0,
+    "73": 1.0,
+    "74": 1.0
+  },
+  "gods": [
+    {
+      "id": "assets_app_du0szzg0_foreach",
+      "label": "forEach()",
+      "degree": 12
+    },
+    {
+      "id": "admin_paketcontroller_paketcontroller",
+      "label": "PaketController",
+      "degree": 10
+    },
+    {
+      "id": "assets_app_du0szzg0_w",
+      "label": "w()",
+      "degree": 10
+    },
+    {
+      "id": "models_gallery_gallery",
+      "label": "Gallery",
+      "degree": 9
+    },
+    {
+      "id": "controllers_authcontroller_authcontroller",
+      "label": "AuthController",
+      "degree": 8
+    },
+    {
+      "id": "admin_gallerycontroller_gallerycontroller",
+      "label": "GalleryController",
+      "degree": 8
+    },
+    {
+      "id": "admin_pesanancontroller_pesanancontroller",
+      "label": "PesananController",
+      "degree": 8
+    },
+    {
+      "id": "assets_app_du0szzg0_f",
+      "label": "f()",
+      "degree": 8
+    },
+    {
+      "id": "assets_app_du0szzg0_g",
+      "label": "g()",
+      "degree": 8
+    },
+    {
+      "id": "chatbot_chatbotcontroller_chatbotcontroller",
+      "label": "ChatbotController",
+      "degree": 7
+    }
+  ],
+  "surprises": [
+    {
+      "source": "n()",
+      "target": "V()",
+      "source_files": [
+        "public/build/assets/app-DU0szZG0.js",
+        "public/build/assets/app-DU0szZG0.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 2 \u2192 community 0"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `Pesanan` connect `Community 4` to `Community 3`?",
+      "why": "High betweenness centrality (0.010) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 4 inferred relationships involving `Gallery` (e.g. with `.index()` and `.store()`) actually correct?",
+      "why": "`Gallery` has 4 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Controller`, `components.layout.navbar`, `components.layout.footer` to the rest of the system?",
+      "why": "5 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 4` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.12 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 5` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

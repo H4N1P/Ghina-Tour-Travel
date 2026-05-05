@@ -1,44 +1,44 @@
-# Plan: Enhancement Galeri, UI Admin, dan Company Profile
+# UI Enhancements: Customer Paket Slideshow & Admin Views Refactoring
 
-**Deskripsi:**
-Issue ini mencakup beberapa pembaruan fungsionalitas dan antarmuka pengguna, baik di sisi Admin maupun Customer. Pekerjaan difokuskan pada integrasi media (foto/video) yang lebih baik pada paket wisata, penyelarasan tema antarmuka (Dark/Light mode), kontrol visibilitas data spesifik (Rundown), serta penambahan modul manajemen Company Profile.
+## 📌 Deskripsi Tugas
+
+Issue ini bertujuan untuk melakukan peningkatan antarmuka pengguna (UI) pada dua bagian utama aplikasi:
+
+1. Memperbarui tampilan daftar paket wisata pada halaman _customer_ menjadi bentuk _slideshow_ (karosel).
+2. Memperbaiki dan menyeragamkan seluruh tampilan panel Admin agar sesuai dengan _mockup_ atau referensi desain.
 
 ---
 
-## 1. Manajemen Galeri & Media (Foto/Video)
-**Tujuan:** Mengembangkan fitur galeri admin untuk mendukung unggahan foto dan video terkompresi yang terelasi langsung dengan Paket, Destinasi, dan Fasilitas.
+## 📋 High-Level Implementation Plan
 
-**High-Level Task:**
-*   **Backend (Upload & Kompresi):** 
-    *   Implementasikan logika kompresi otomatis untuk unggahan foto dan video pada modul Galeri.
-    *   Simpan data media ke dalam tabel `galleries`.
-*   **Admin UI (Form Tambah Galeri):**
-    *   Buat dropdown/opsi relasi saat *upload*: pilih penempatan media (Paket, Destinasi Tempat, atau Fasilitas).
-    *   *Rules:* Jika memilih Destinasi atau Fasilitas, *user* wajib memilih/filter Paket-nya terlebih dahulu. (Catatan: Foto pada fasilitas bersifat opsional).
-*   **Customer UI (Tampilan Media):**
-    *   Tampilkan *thumbnail* Paket di halaman Home (Section Paket) dan halaman "Semua Paket".
-    *   Pada halaman Detail Paket, integrasikan media yang terhubung: jadikan gambar latar (*background*), serta tampilkan gambar Destinasi dan Fasilitas (jika ada).
-    *   Tampilkan *thumbnail* galeri di halaman Home (Section Galeri) dan buat halaman khusus "Semua Galeri".
+### 1. Implementasi Slideshow pada Customer Index (Section Paket)
 
-## 2. Implementasi Tema Dark/Light Mode (Admin)
-**Tujuan:** Membawa fitur *toggle* tema yang sudah ada di sisi Customer ke Dashboard Admin.
+- **Lokasi Target:** Halaman utama customer / section yang menampilkan daftar paket wisata (`resources/views/customer/`).
+- **Rencana Tindakan:**
+    - Ubah struktur tata letak (grid/list) yang menampilkan daftar paket menjadi bentuk _slideshow_.
+    - Integrasikan pustaka _slideshow_ (contoh: Swiper.js, Splide, atau _carousel default_ bawaan UI framework jika sudah tersedia di _project_).
+    - Pastikan _slideshow_ memiliki navigasi yang intuitif (tombol _prev/next_ dan indikator titik/dots).
+    - Buat tampilan _slideshow_ _fully responsive_ (menampilkan jumlah kartu/paket yang sesuai berdasarkan lebar layar perangkat: _mobile_, _tablet_, _desktop_).
 
-**High-Level Task:**
-*   Integrasikan *script* atau *state management* (contoh: Tailwind dark mode class, local storage) yang digunakan di UI Customer ke dalam layout Admin.
-*   Pastikan *toggle switch* tema tersedia dan berfungsi dengan baik di seluruh halaman Dashboard Admin.
+### 2. Refactoring dan Perbaikan Tampilan Admin
 
-## 3. Penyesuaian Data Paket (Rundown)
-**Tujuan:** Menampilkan informasi Rundown di tabel Admin dan membatasi akses melihat Rundown di halaman Customer hanya untuk Admin.
+- **Lokasi Target:** Seluruh _file view_ di dalam direktori `resources/views/admin/` beserta sub-direktorinya.
+- **Referensi Desain:** Folder `UI/Admin/`, dan komponen dari folder `UI/Component`
+- **Rencana Tindakan:**
+    - **Analisis Referensi:** Tinjau terlebih dahulu _file_ desain atau kode referensi yang ada di dalam folder `UI/Admin/` dan `UI/Component` untuk memahami _style guide_ (warna, tipografi, struktur tabel, form, _sidebar_, dll).
+    - **Standardisasi Layout Utama:** Terapkan standar desain tersebut pada _layout_ utama (induk) admin.
+    - **Penerapan Bertahap:** Terapkan gaya visual yang baru pada halaman-halaman spesifik (Dashboard, Manajemen Paket, Manajemen Pesanan, dll).
+    - **Konsistensi UI:** Pastikan komponen-komponen yang sering digunakan seperti tombol, _modal_ CRUD, form input, dan tabel data memiliki desain yang konsisten di seluruh halaman admin.
 
-**High-Level Task:**
-*   **Admin - Index Paket:** Tambahkan kolom untuk menampilkan data (atau ringkasan) `rundown` pada tabel *list* Paket di Dashboard Admin.
-*   **Customer - Detail Paket:** 
-    *   Tambahkan komponen *Rundown* di halaman detail paket customer. Letakkan bersebelahan (dalam 1 *card*/komponen yang sama) dengan daftar *Fasilitas*.
-    *   Berikan kondisional (`if auth/session admin`): Rundown **hanya** boleh di-*render* atau dilihat jika pengguna yang mengakses halaman tersebut sedang *login* sebagai Admin. Pelanggan biasa tidak boleh melihatnya.
+---
 
-## 4. Manajemen Company Profile (Admin)
-**Tujuan:** Membuat modul CRUD/Edit sederhana untuk profil perusahaan di Dashboard Admin.
+## 🔄 Langkah Pengerjaan yang Disarankan (Action Items)
 
-**High-Level Task:**
-*   Gunakan model `CompanyProfile.php` dan buat/perbarui `CompanyProfileController.php`.
-*   Buat halaman di Admin Dashboard untuk mengedit data profil perusahaan (About, Vision & Mission, Kontak, Social Media) yang diambil dari tabel `company_profiles`.
+- [ ] Mengerjakan integrasi dan fungsionalitas _slideshow_ untuk daftar paket di sisi _customer_.
+- [ ] Memastikan _slideshow_ responsif dan bekerja dengan baik pada berbagai perangkat.
+- [ ] Melakukan pengecekan referensi desain di `UI/Admin/` dan `UI/Component`.
+- [ ] Memperbaiki _layout_ utama admin (header, sidebar, footer).
+- [ ] Memperbaiki antarmuka untuk fitur CRUD di setiap entitas admin (Paket, Pesanan, Galeri, dll) agar sesuai dengan referensi.
+- [ ] Uji coba (_testing_) visual pada halaman _customer_ maupun _admin_ untuk memastikan tidak ada UI yang '_broken_'.
+
+\*email admin : [admin@example.com] password : [password/password123]

@@ -1,0 +1,5672 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "vite.config.js",
+      "source_location": "L1",
+      "id": "vite_config_js",
+      "community": 28,
+      "norm_label": "vite.config.js"
+    },
+    {
+      "label": "AuthController.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_authcontroller_php",
+      "community": 5,
+      "norm_label": "authcontroller.php"
+    },
+    {
+      "label": "AuthController",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L10",
+      "id": "controllers_authcontroller_authcontroller",
+      "community": 5,
+      "norm_label": "authcontroller"
+    },
+    {
+      "label": ".showLoginForm()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L15",
+      "id": "controllers_authcontroller_authcontroller_showloginform",
+      "community": 5,
+      "norm_label": ".showloginform()"
+    },
+    {
+      "label": ".login()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L28",
+      "id": "controllers_authcontroller_authcontroller_login",
+      "community": 5,
+      "norm_label": ".login()"
+    },
+    {
+      "label": ".logout()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L57",
+      "id": "controllers_authcontroller_authcontroller_logout",
+      "community": 5,
+      "norm_label": ".logout()"
+    },
+    {
+      "label": ".showForgotPasswordForm()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L70",
+      "id": "controllers_authcontroller_authcontroller_showforgotpasswordform",
+      "community": 5,
+      "norm_label": ".showforgotpasswordform()"
+    },
+    {
+      "label": ".sendResetLinkEmail()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L78",
+      "id": "controllers_authcontroller_authcontroller_sendresetlinkemail",
+      "community": 5,
+      "norm_label": ".sendresetlinkemail()"
+    },
+    {
+      "label": ".showResetPasswordForm()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L94",
+      "id": "controllers_authcontroller_authcontroller_showresetpasswordform",
+      "community": 5,
+      "norm_label": ".showresetpasswordform()"
+    },
+    {
+      "label": ".resetPassword()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L102",
+      "id": "controllers_authcontroller_authcontroller_resetpassword",
+      "community": 5,
+      "norm_label": ".resetpassword()"
+    },
+    {
+      "label": "Controller.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Controller.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_controller_php",
+      "community": 25,
+      "norm_label": "controller.php"
+    },
+    {
+      "label": "Controller",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Controller.php",
+      "source_location": "L5",
+      "id": "controllers_controller_controller",
+      "community": 25,
+      "norm_label": "controller"
+    },
+    {
+      "label": "CompanyProfileController.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_admin_companyprofilecontroller_php",
+      "community": 3,
+      "norm_label": "companyprofilecontroller.php"
+    },
+    {
+      "label": "CompanyProfileController",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L9",
+      "id": "admin_companyprofilecontroller_companyprofilecontroller",
+      "community": 3,
+      "norm_label": "companyprofilecontroller"
+    },
+    {
+      "label": ".show()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L14",
+      "id": "admin_companyprofilecontroller_companyprofilecontroller_show",
+      "community": 3,
+      "norm_label": ".show()"
+    },
+    {
+      "label": ".edit()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L24",
+      "id": "admin_companyprofilecontroller_companyprofilecontroller_edit",
+      "community": 3,
+      "norm_label": ".edit()"
+    },
+    {
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L35",
+      "id": "admin_companyprofilecontroller_companyprofilecontroller_update",
+      "community": 3,
+      "norm_label": ".update()"
+    },
+    {
+      "label": "DashboardController.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/DashboardController.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_admin_dashboardcontroller_php",
+      "community": 4,
+      "norm_label": "dashboardcontroller.php"
+    },
+    {
+      "label": "DashboardController",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/DashboardController.php",
+      "source_location": "L9",
+      "id": "admin_dashboardcontroller_dashboardcontroller",
+      "community": 4,
+      "norm_label": "dashboardcontroller"
+    },
+    {
+      "label": ".index()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/DashboardController.php",
+      "source_location": "L11",
+      "id": "admin_dashboardcontroller_dashboardcontroller_index",
+      "community": 4,
+      "norm_label": ".index()"
+    },
+    {
+      "label": "GalleryController.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_admin_gallerycontroller_php",
+      "community": 1,
+      "norm_label": "gallerycontroller.php"
+    },
+    {
+      "label": "GalleryController",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L11",
+      "id": "admin_gallerycontroller_gallerycontroller",
+      "community": 1,
+      "norm_label": "gallerycontroller"
+    },
+    {
+      "label": ".index()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L16",
+      "id": "admin_gallerycontroller_gallerycontroller_index",
+      "community": 1,
+      "norm_label": ".index()"
+    },
+    {
+      "label": ".create()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L26",
+      "id": "admin_gallerycontroller_gallerycontroller_create",
+      "community": 1,
+      "norm_label": ".create()"
+    },
+    {
+      "label": ".show()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L33",
+      "id": "admin_gallerycontroller_gallerycontroller_show",
+      "community": 1,
+      "norm_label": ".show()"
+    },
+    {
+      "label": ".getRelationsByPaket()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L42",
+      "id": "admin_gallerycontroller_gallerycontroller_getrelationsbypaket",
+      "community": 1,
+      "norm_label": ".getrelationsbypaket()"
+    },
+    {
+      "label": ".store()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L60",
+      "id": "admin_gallerycontroller_gallerycontroller_store",
+      "community": 1,
+      "norm_label": ".store()"
+    },
+    {
+      "label": ".compressAndStoreImage()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L95",
+      "id": "admin_gallerycontroller_gallerycontroller_compressandstoreimage",
+      "community": 1,
+      "norm_label": ".compressandstoreimage()"
+    },
+    {
+      "label": ".destroy()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L150",
+      "id": "admin_gallerycontroller_gallerycontroller_destroy",
+      "community": 1,
+      "norm_label": ".destroy()"
+    },
+    {
+      "label": "PaketController.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_admin_paketcontroller_php",
+      "community": 6,
+      "norm_label": "paketcontroller.php"
+    },
+    {
+      "label": "PaketController",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L14",
+      "id": "admin_paketcontroller_paketcontroller",
+      "community": 6,
+      "norm_label": "paketcontroller"
+    },
+    {
+      "label": ".index()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L16",
+      "id": "admin_paketcontroller_paketcontroller_index",
+      "community": 6,
+      "norm_label": ".index()"
+    },
+    {
+      "label": ".create()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L25",
+      "id": "admin_paketcontroller_paketcontroller_create",
+      "community": 6,
+      "norm_label": ".create()"
+    },
+    {
+      "label": ".store()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L30",
+      "id": "admin_paketcontroller_paketcontroller_store",
+      "community": 6,
+      "norm_label": ".store()"
+    },
+    {
+      "label": ".show()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L106",
+      "id": "admin_paketcontroller_paketcontroller_show",
+      "community": 6,
+      "norm_label": ".show()"
+    },
+    {
+      "label": ".edit()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L112",
+      "id": "admin_paketcontroller_paketcontroller_edit",
+      "community": 6,
+      "norm_label": ".edit()"
+    },
+    {
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L118",
+      "id": "admin_paketcontroller_paketcontroller_update",
+      "community": 6,
+      "norm_label": ".update()"
+    },
+    {
+      "label": ".destroy()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L161",
+      "id": "admin_paketcontroller_paketcontroller_destroy",
+      "community": 6,
+      "norm_label": ".destroy()"
+    },
+    {
+      "label": ".syncChildWithImages()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L181",
+      "id": "admin_paketcontroller_paketcontroller_syncchildwithimages",
+      "community": 6,
+      "norm_label": ".syncchildwithimages()"
+    },
+    {
+      "label": ".syncRundowns()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L227",
+      "id": "admin_paketcontroller_paketcontroller_syncrundowns",
+      "community": 6,
+      "norm_label": ".syncrundowns()"
+    },
+    {
+      "label": "PesananController.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_admin_pesanancontroller_php",
+      "community": 4,
+      "norm_label": "pesanancontroller.php"
+    },
+    {
+      "label": "PesananController",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L10",
+      "id": "admin_pesanancontroller_pesanancontroller",
+      "community": 4,
+      "norm_label": "pesanancontroller"
+    },
+    {
+      "label": ".index()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L15",
+      "id": "admin_pesanancontroller_pesanancontroller_index",
+      "community": 4,
+      "norm_label": ".index()"
+    },
+    {
+      "label": ".create()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L41",
+      "id": "admin_pesanancontroller_pesanancontroller_create",
+      "community": 4,
+      "norm_label": ".create()"
+    },
+    {
+      "label": ".store()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L50",
+      "id": "admin_pesanancontroller_pesanancontroller_store",
+      "community": 4,
+      "norm_label": ".store()"
+    },
+    {
+      "label": ".show()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L80",
+      "id": "admin_pesanancontroller_pesanancontroller_show",
+      "community": 4,
+      "norm_label": ".show()"
+    },
+    {
+      "label": ".edit()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L89",
+      "id": "admin_pesanancontroller_pesanancontroller_edit",
+      "community": 4,
+      "norm_label": ".edit()"
+    },
+    {
+      "label": ".update()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L99",
+      "id": "admin_pesanancontroller_pesanancontroller_update",
+      "community": 4,
+      "norm_label": ".update()"
+    },
+    {
+      "label": ".destroy()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L129",
+      "id": "admin_pesanancontroller_pesanancontroller_destroy",
+      "community": 4,
+      "norm_label": ".destroy()"
+    },
+    {
+      "label": "ChatbotController.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_chatbot_chatbotcontroller_php",
+      "community": 3,
+      "norm_label": "chatbotcontroller.php"
+    },
+    {
+      "label": "ChatbotController",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L13",
+      "id": "chatbot_chatbotcontroller_chatbotcontroller",
+      "community": 3,
+      "norm_label": "chatbotcontroller"
+    },
+    {
+      "label": ".handleMessage()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L18",
+      "id": "chatbot_chatbotcontroller_chatbotcontroller_handlemessage",
+      "community": 3,
+      "norm_label": ".handlemessage()"
+    },
+    {
+      "label": ".getMenu()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L77",
+      "id": "chatbot_chatbotcontroller_chatbotcontroller_getmenu",
+      "community": 3,
+      "norm_label": ".getmenu()"
+    },
+    {
+      "label": ".handlePaketQuery()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L89",
+      "id": "chatbot_chatbotcontroller_chatbotcontroller_handlepaketquery",
+      "community": 3,
+      "norm_label": ".handlepaketquery()"
+    },
+    {
+      "label": ".handlePesananSearch()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L141",
+      "id": "chatbot_chatbotcontroller_chatbotcontroller_handlepesanansearch",
+      "community": 3,
+      "norm_label": ".handlepesanansearch()"
+    },
+    {
+      "label": ".handleCompanyProfile()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L194",
+      "id": "chatbot_chatbotcontroller_chatbotcontroller_handlecompanyprofile",
+      "community": 3,
+      "norm_label": ".handlecompanyprofile()"
+    },
+    {
+      "label": ".containsKeyword()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L249",
+      "id": "chatbot_chatbotcontroller_chatbotcontroller_containskeyword",
+      "community": 3,
+      "norm_label": ".containskeyword()"
+    },
+    {
+      "label": "PageController.php",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L1",
+      "id": "app_http_controllers_customer_pagecontroller_php",
+      "community": 1,
+      "norm_label": "pagecontroller.php"
+    },
+    {
+      "label": "PageController",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L11",
+      "id": "customer_pagecontroller_pagecontroller",
+      "community": 1,
+      "norm_label": "pagecontroller"
+    },
+    {
+      "label": ".index()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L16",
+      "id": "customer_pagecontroller_pagecontroller_index",
+      "community": 1,
+      "norm_label": ".index()"
+    },
+    {
+      "label": ".packages()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L33",
+      "id": "customer_pagecontroller_pagecontroller_packages",
+      "community": 1,
+      "norm_label": ".packages()"
+    },
+    {
+      "label": ".packageDetail()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L45",
+      "id": "customer_pagecontroller_pagecontroller_packagedetail",
+      "community": 1,
+      "norm_label": ".packagedetail()"
+    },
+    {
+      "label": ".photos()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L57",
+      "id": "customer_pagecontroller_pagecontroller_photos",
+      "community": 1,
+      "norm_label": ".photos()"
+    },
+    {
+      "label": ".search()",
+      "file_type": "code",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L68",
+      "id": "customer_pagecontroller_pagecontroller_search",
+      "community": 1,
+      "norm_label": ".search()"
+    },
+    {
+      "label": "CompanyProfile.php",
+      "file_type": "code",
+      "source_file": "app/Models/CompanyProfile.php",
+      "source_location": "L1",
+      "id": "app_models_companyprofile_php",
+      "community": 3,
+      "norm_label": "companyprofile.php"
+    },
+    {
+      "label": "CompanyProfile",
+      "file_type": "code",
+      "source_file": "app/Models/CompanyProfile.php",
+      "source_location": "L7",
+      "id": "models_companyprofile_companyprofile",
+      "community": 3,
+      "norm_label": "companyprofile"
+    },
+    {
+      "label": "Fasilitas.php",
+      "file_type": "code",
+      "source_file": "app/Models/Fasilitas.php",
+      "source_location": "L1",
+      "id": "app_models_fasilitas_php",
+      "community": 9,
+      "norm_label": "fasilitas.php"
+    },
+    {
+      "label": "Fasilitas",
+      "file_type": "code",
+      "source_file": "app/Models/Fasilitas.php",
+      "source_location": "L7",
+      "id": "models_fasilitas_fasilitas",
+      "community": 9,
+      "norm_label": "fasilitas"
+    },
+    {
+      "label": ".paket()",
+      "file_type": "code",
+      "source_file": "app/Models/Fasilitas.php",
+      "source_location": "L17",
+      "id": "models_fasilitas_fasilitas_paket",
+      "community": 9,
+      "norm_label": ".paket()"
+    },
+    {
+      "label": ".galleries()",
+      "file_type": "code",
+      "source_file": "app/Models/Fasilitas.php",
+      "source_location": "L22",
+      "id": "models_fasilitas_fasilitas_galleries",
+      "community": 9,
+      "norm_label": ".galleries()"
+    },
+    {
+      "label": "Gallery.php",
+      "file_type": "code",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L1",
+      "id": "app_models_gallery_php",
+      "community": 1,
+      "norm_label": "gallery.php"
+    },
+    {
+      "label": "Gallery",
+      "file_type": "code",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L8",
+      "id": "models_gallery_gallery",
+      "community": 1,
+      "norm_label": "gallery"
+    },
+    {
+      "label": ".fasilitas()",
+      "file_type": "code",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L12",
+      "id": "models_gallery_gallery_fasilitas",
+      "community": 1,
+      "norm_label": ".fasilitas()"
+    },
+    {
+      "label": ".tempat()",
+      "file_type": "code",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L17",
+      "id": "models_gallery_gallery_tempat",
+      "community": 1,
+      "norm_label": ".tempat()"
+    },
+    {
+      "label": ".paket()",
+      "file_type": "code",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L25",
+      "id": "models_gallery_gallery_paket",
+      "community": 1,
+      "norm_label": ".paket()"
+    },
+    {
+      "label": ".isVideo()",
+      "file_type": "code",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L40",
+      "id": "models_gallery_gallery_isvideo",
+      "community": 1,
+      "norm_label": ".isvideo()"
+    },
+    {
+      "label": "Paket.php",
+      "file_type": "code",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L1",
+      "id": "app_models_paket_php",
+      "community": 8,
+      "norm_label": "paket.php"
+    },
+    {
+      "label": "Paket",
+      "file_type": "code",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L7",
+      "id": "models_paket_paket",
+      "community": 8,
+      "norm_label": "paket"
+    },
+    {
+      "label": ".tempats()",
+      "file_type": "code",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L17",
+      "id": "models_paket_paket_tempats",
+      "community": 8,
+      "norm_label": ".tempats()"
+    },
+    {
+      "label": ".fasilitas()",
+      "file_type": "code",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L22",
+      "id": "models_paket_paket_fasilitas",
+      "community": 8,
+      "norm_label": ".fasilitas()"
+    },
+    {
+      "label": ".rundowns()",
+      "file_type": "code",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L27",
+      "id": "models_paket_paket_rundowns",
+      "community": 8,
+      "norm_label": ".rundowns()"
+    },
+    {
+      "label": "Pesanan.php",
+      "file_type": "code",
+      "source_file": "app/Models/Pesanan.php",
+      "source_location": "L1",
+      "id": "app_models_pesanan_php",
+      "community": 4,
+      "norm_label": "pesanan.php"
+    },
+    {
+      "label": "Pesanan",
+      "file_type": "code",
+      "source_file": "app/Models/Pesanan.php",
+      "source_location": "L7",
+      "id": "models_pesanan_pesanan",
+      "community": 4,
+      "norm_label": "pesanan"
+    },
+    {
+      "label": ".paket()",
+      "file_type": "code",
+      "source_file": "app/Models/Pesanan.php",
+      "source_location": "L23",
+      "id": "models_pesanan_pesanan_paket",
+      "community": 4,
+      "norm_label": ".paket()"
+    },
+    {
+      "label": "Rundown.php",
+      "file_type": "code",
+      "source_file": "app/Models/Rundown.php",
+      "source_location": "L1",
+      "id": "app_models_rundown_php",
+      "community": 6,
+      "norm_label": "rundown.php"
+    },
+    {
+      "label": "Rundown",
+      "file_type": "code",
+      "source_file": "app/Models/Rundown.php",
+      "source_location": "L7",
+      "id": "models_rundown_rundown",
+      "community": 6,
+      "norm_label": "rundown"
+    },
+    {
+      "label": ".paket()",
+      "file_type": "code",
+      "source_file": "app/Models/Rundown.php",
+      "source_location": "L16",
+      "id": "models_rundown_rundown_paket",
+      "community": 6,
+      "norm_label": ".paket()"
+    },
+    {
+      "label": "Tempat.php",
+      "file_type": "code",
+      "source_file": "app/Models/Tempat.php",
+      "source_location": "L1",
+      "id": "app_models_tempat_php",
+      "community": 10,
+      "norm_label": "tempat.php"
+    },
+    {
+      "label": "Tempat",
+      "file_type": "code",
+      "source_file": "app/Models/Tempat.php",
+      "source_location": "L7",
+      "id": "models_tempat_tempat",
+      "community": 10,
+      "norm_label": "tempat"
+    },
+    {
+      "label": ".paket()",
+      "file_type": "code",
+      "source_file": "app/Models/Tempat.php",
+      "source_location": "L14",
+      "id": "models_tempat_tempat_paket",
+      "community": 10,
+      "norm_label": ".paket()"
+    },
+    {
+      "label": ".galleries()",
+      "file_type": "code",
+      "source_file": "app/Models/Tempat.php",
+      "source_location": "L19",
+      "id": "models_tempat_tempat_galleries",
+      "community": 10,
+      "norm_label": ".galleries()"
+    },
+    {
+      "label": "User.php",
+      "file_type": "code",
+      "source_file": "app/Models/User.php",
+      "source_location": "L1",
+      "id": "app_models_user_php",
+      "community": 5,
+      "norm_label": "user.php"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "app/Models/User.php",
+      "source_location": "L13",
+      "id": "models_user_user",
+      "community": 5,
+      "norm_label": "user"
+    },
+    {
+      "label": ".casts()",
+      "file_type": "code",
+      "source_file": "app/Models/User.php",
+      "source_location": "L25",
+      "id": "models_user_user_casts",
+      "community": 5,
+      "norm_label": ".casts()"
+    },
+    {
+      "label": "AppServiceProvider.php",
+      "file_type": "code",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L1",
+      "id": "app_providers_appserviceprovider_php",
+      "community": 11,
+      "norm_label": "appserviceprovider.php"
+    },
+    {
+      "label": "AppServiceProvider",
+      "file_type": "code",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L7",
+      "id": "providers_appserviceprovider_appserviceprovider",
+      "community": 11,
+      "norm_label": "appserviceprovider"
+    },
+    {
+      "label": ".register()",
+      "file_type": "code",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L12",
+      "id": "providers_appserviceprovider_appserviceprovider_register",
+      "community": 11,
+      "norm_label": ".register()"
+    },
+    {
+      "label": ".boot()",
+      "file_type": "code",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L20",
+      "id": "providers_appserviceprovider_appserviceprovider_boot",
+      "community": 11,
+      "norm_label": ".boot()"
+    },
+    {
+      "label": "app.php",
+      "file_type": "code",
+      "source_file": "bootstrap/app.php",
+      "source_location": "L1",
+      "id": "bootstrap_app_php",
+      "community": 29,
+      "norm_label": "app.php"
+    },
+    {
+      "label": "providers.php",
+      "file_type": "code",
+      "source_file": "bootstrap/providers.php",
+      "source_location": "L1",
+      "id": "bootstrap_providers_php",
+      "community": 30,
+      "norm_label": "providers.php"
+    },
+    {
+      "label": "packages.php",
+      "file_type": "code",
+      "source_file": "bootstrap/cache/packages.php",
+      "source_location": "L1",
+      "id": "bootstrap_cache_packages_php",
+      "community": 31,
+      "norm_label": "packages.php"
+    },
+    {
+      "label": "services.php",
+      "file_type": "code",
+      "source_file": "bootstrap/cache/services.php",
+      "source_location": "L1",
+      "id": "bootstrap_cache_services_php",
+      "community": 32,
+      "norm_label": "services.php"
+    },
+    {
+      "label": "app.php",
+      "file_type": "code",
+      "source_file": "config/app.php",
+      "source_location": "L1",
+      "id": "config_app_php",
+      "community": 33,
+      "norm_label": "app.php"
+    },
+    {
+      "label": "auth.php",
+      "file_type": "code",
+      "source_file": "config/auth.php",
+      "source_location": "L1",
+      "id": "config_auth_php",
+      "community": 34,
+      "norm_label": "auth.php"
+    },
+    {
+      "label": "cache.php",
+      "file_type": "code",
+      "source_file": "config/cache.php",
+      "source_location": "L1",
+      "id": "config_cache_php",
+      "community": 35,
+      "norm_label": "cache.php"
+    },
+    {
+      "label": "database.php",
+      "file_type": "code",
+      "source_file": "config/database.php",
+      "source_location": "L1",
+      "id": "config_database_php",
+      "community": 36,
+      "norm_label": "database.php"
+    },
+    {
+      "label": "filesystems.php",
+      "file_type": "code",
+      "source_file": "config/filesystems.php",
+      "source_location": "L1",
+      "id": "config_filesystems_php",
+      "community": 37,
+      "norm_label": "filesystems.php"
+    },
+    {
+      "label": "logging.php",
+      "file_type": "code",
+      "source_file": "config/logging.php",
+      "source_location": "L1",
+      "id": "config_logging_php",
+      "community": 38,
+      "norm_label": "logging.php"
+    },
+    {
+      "label": "mail.php",
+      "file_type": "code",
+      "source_file": "config/mail.php",
+      "source_location": "L1",
+      "id": "config_mail_php",
+      "community": 39,
+      "norm_label": "mail.php"
+    },
+    {
+      "label": "queue.php",
+      "file_type": "code",
+      "source_file": "config/queue.php",
+      "source_location": "L1",
+      "id": "config_queue_php",
+      "community": 40,
+      "norm_label": "queue.php"
+    },
+    {
+      "label": "services.php",
+      "file_type": "code",
+      "source_file": "config/services.php",
+      "source_location": "L1",
+      "id": "config_services_php",
+      "community": 41,
+      "norm_label": "services.php"
+    },
+    {
+      "label": "session.php",
+      "file_type": "code",
+      "source_file": "config/session.php",
+      "source_location": "L1",
+      "id": "config_session_php",
+      "community": 42,
+      "norm_label": "session.php"
+    },
+    {
+      "label": "UserFactory.php",
+      "file_type": "code",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L1",
+      "id": "database_factories_userfactory_php",
+      "community": 12,
+      "norm_label": "userfactory.php"
+    },
+    {
+      "label": "UserFactory",
+      "file_type": "code",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L13",
+      "id": "factories_userfactory_userfactory",
+      "community": 12,
+      "norm_label": "userfactory"
+    },
+    {
+      "label": ".definition()",
+      "file_type": "code",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L25",
+      "id": "factories_userfactory_userfactory_definition",
+      "community": 12,
+      "norm_label": ".definition()"
+    },
+    {
+      "label": ".unverified()",
+      "file_type": "code",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L39",
+      "id": "factories_userfactory_userfactory_unverified",
+      "community": 12,
+      "norm_label": ".unverified()"
+    },
+    {
+      "label": "0001_01_01_000000_create_users_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000000_create_users_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_0001_01_01_000000_create_users_table_php",
+      "community": 14,
+      "norm_label": "0001_01_01_000000_create_users_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000000_create_users_table.php",
+      "source_location": "L12",
+      "id": "migrations_0001_01_01_000000_create_users_table_up",
+      "community": 14,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000000_create_users_table.php",
+      "source_location": "L43",
+      "id": "migrations_0001_01_01_000000_create_users_table_down",
+      "community": 14,
+      "norm_label": "down()"
+    },
+    {
+      "label": "0001_01_01_000001_create_cache_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000001_create_cache_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_0001_01_01_000001_create_cache_table_php",
+      "community": 15,
+      "norm_label": "0001_01_01_000001_create_cache_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000001_create_cache_table.php",
+      "source_location": "L12",
+      "id": "migrations_0001_01_01_000001_create_cache_table_up",
+      "community": 15,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000001_create_cache_table.php",
+      "source_location": "L30",
+      "id": "migrations_0001_01_01_000001_create_cache_table_down",
+      "community": 15,
+      "norm_label": "down()"
+    },
+    {
+      "label": "0001_01_01_000002_create_jobs_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000002_create_jobs_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_0001_01_01_000002_create_jobs_table_php",
+      "community": 16,
+      "norm_label": "0001_01_01_000002_create_jobs_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000002_create_jobs_table.php",
+      "source_location": "L12",
+      "id": "migrations_0001_01_01_000002_create_jobs_table_up",
+      "community": 16,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/0001_01_01_000002_create_jobs_table.php",
+      "source_location": "L51",
+      "id": "migrations_0001_01_01_000002_create_jobs_table_down",
+      "community": 16,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_04_06_173144_create_pakets_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173144_create_pakets_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_2026_04_06_173144_create_pakets_table_php",
+      "community": 17,
+      "norm_label": "2026_04_06_173144_create_pakets_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173144_create_pakets_table.php",
+      "source_location": "L12",
+      "id": "migrations_2026_04_06_173144_create_pakets_table_up",
+      "community": 17,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173144_create_pakets_table.php",
+      "source_location": "L27",
+      "id": "migrations_2026_04_06_173144_create_pakets_table_down",
+      "community": 17,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_04_06_173204_create_tempats_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173204_create_tempats_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_2026_04_06_173204_create_tempats_table_php",
+      "community": 18,
+      "norm_label": "2026_04_06_173204_create_tempats_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173204_create_tempats_table.php",
+      "source_location": "L12",
+      "id": "migrations_2026_04_06_173204_create_tempats_table_up",
+      "community": 18,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173204_create_tempats_table.php",
+      "source_location": "L26",
+      "id": "migrations_2026_04_06_173204_create_tempats_table_down",
+      "community": 18,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_04_06_173232_create_fasilitas_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173232_create_fasilitas_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_2026_04_06_173232_create_fasilitas_table_php",
+      "community": 19,
+      "norm_label": "2026_04_06_173232_create_fasilitas_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173232_create_fasilitas_table.php",
+      "source_location": "L12",
+      "id": "migrations_2026_04_06_173232_create_fasilitas_table_up",
+      "community": 19,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_06_173232_create_fasilitas_table.php",
+      "source_location": "L27",
+      "id": "migrations_2026_04_06_173232_create_fasilitas_table_down",
+      "community": 19,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_04_11_140249_create_galleries_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_11_140249_create_galleries_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_2026_04_11_140249_create_galleries_table_php",
+      "community": 20,
+      "norm_label": "2026_04_11_140249_create_galleries_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_11_140249_create_galleries_table.php",
+      "source_location": "L12",
+      "id": "migrations_2026_04_11_140249_create_galleries_table_up",
+      "community": 20,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_11_140249_create_galleries_table.php",
+      "source_location": "L30",
+      "id": "migrations_2026_04_11_140249_create_galleries_table_down",
+      "community": 20,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_04_11_143438_create_company_profiles_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_11_143438_create_company_profiles_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_2026_04_11_143438_create_company_profiles_table_php",
+      "community": 21,
+      "norm_label": "2026_04_11_143438_create_company_profiles_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_11_143438_create_company_profiles_table.php",
+      "source_location": "L12",
+      "id": "migrations_2026_04_11_143438_create_company_profiles_table_up",
+      "community": 21,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_11_143438_create_company_profiles_table.php",
+      "source_location": "L29",
+      "id": "migrations_2026_04_11_143438_create_company_profiles_table_down",
+      "community": 21,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_04_19_083859_create_pesanans_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_19_083859_create_pesanans_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_2026_04_19_083859_create_pesanans_table_php",
+      "community": 22,
+      "norm_label": "2026_04_19_083859_create_pesanans_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_19_083859_create_pesanans_table.php",
+      "source_location": "L12",
+      "id": "migrations_2026_04_19_083859_create_pesanans_table_up",
+      "community": 22,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_04_19_083859_create_pesanans_table.php",
+      "source_location": "L33",
+      "id": "migrations_2026_04_19_083859_create_pesanans_table_down",
+      "community": 22,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_05_05_052908_create_rundowns_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_05_05_052908_create_rundowns_table.php",
+      "source_location": "L1",
+      "id": "database_migrations_2026_05_05_052908_create_rundowns_table_php",
+      "community": 23,
+      "norm_label": "2026_05_05_052908_create_rundowns_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_05_05_052908_create_rundowns_table.php",
+      "source_location": "L12",
+      "id": "migrations_2026_05_05_052908_create_rundowns_table_up",
+      "community": 23,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_05_05_052908_create_rundowns_table.php",
+      "source_location": "L28",
+      "id": "migrations_2026_05_05_052908_create_rundowns_table_down",
+      "community": 23,
+      "norm_label": "down()"
+    },
+    {
+      "label": "CompanyProfileSeeder.php",
+      "file_type": "code",
+      "source_file": "database/seeders/CompanyProfileSeeder.php",
+      "source_location": "L1",
+      "id": "database_seeders_companyprofileseeder_php",
+      "community": 3,
+      "norm_label": "companyprofileseeder.php"
+    },
+    {
+      "label": "CompanyProfileSeeder",
+      "file_type": "code",
+      "source_file": "database/seeders/CompanyProfileSeeder.php",
+      "source_location": "L8",
+      "id": "seeders_companyprofileseeder_companyprofileseeder",
+      "community": 3,
+      "norm_label": "companyprofileseeder"
+    },
+    {
+      "label": ".run()",
+      "file_type": "code",
+      "source_file": "database/seeders/CompanyProfileSeeder.php",
+      "source_location": "L13",
+      "id": "seeders_companyprofileseeder_companyprofileseeder_run",
+      "community": 3,
+      "norm_label": ".run()"
+    },
+    {
+      "label": "DatabaseSeeder.php",
+      "file_type": "code",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L1",
+      "id": "database_seeders_databaseseeder_php",
+      "community": 5,
+      "norm_label": "databaseseeder.php"
+    },
+    {
+      "label": "DatabaseSeeder",
+      "file_type": "code",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L9",
+      "id": "seeders_databaseseeder_databaseseeder",
+      "community": 5,
+      "norm_label": "databaseseeder"
+    },
+    {
+      "label": ".run()",
+      "file_type": "code",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L16",
+      "id": "seeders_databaseseeder_databaseseeder_run",
+      "community": 5,
+      "norm_label": ".run()"
+    },
+    {
+      "label": "PaketSeeder.php",
+      "file_type": "code",
+      "source_file": "database/seeders/PaketSeeder.php",
+      "source_location": "L1",
+      "id": "database_seeders_paketseeder_php",
+      "community": 24,
+      "norm_label": "paketseeder.php"
+    },
+    {
+      "label": "PaketSeeder",
+      "file_type": "code",
+      "source_file": "database/seeders/PaketSeeder.php",
+      "source_location": "L8",
+      "id": "seeders_paketseeder_paketseeder",
+      "community": 24,
+      "norm_label": "paketseeder"
+    },
+    {
+      "label": ".run()",
+      "file_type": "code",
+      "source_file": "database/seeders/PaketSeeder.php",
+      "source_location": "L10",
+      "id": "seeders_paketseeder_paketseeder_run",
+      "community": 24,
+      "norm_label": ".run()"
+    },
+    {
+      "label": "PesananSeeder.php",
+      "file_type": "code",
+      "source_file": "database/seeders/PesananSeeder.php",
+      "source_location": "L1",
+      "id": "database_seeders_pesananseeder_php",
+      "community": 4,
+      "norm_label": "pesananseeder.php"
+    },
+    {
+      "label": "PesananSeeder",
+      "file_type": "code",
+      "source_file": "database/seeders/PesananSeeder.php",
+      "source_location": "L10",
+      "id": "seeders_pesananseeder_pesananseeder",
+      "community": 4,
+      "norm_label": "pesananseeder"
+    },
+    {
+      "label": ".run()",
+      "file_type": "code",
+      "source_file": "database/seeders/PesananSeeder.php",
+      "source_location": "L15",
+      "id": "seeders_pesananseeder_pesananseeder_run",
+      "community": 4,
+      "norm_label": ".run()"
+    },
+    {
+      "label": "index.php",
+      "file_type": "code",
+      "source_file": "public/index.php",
+      "source_location": "L1",
+      "id": "public_index_php",
+      "community": 43,
+      "norm_label": "index.php"
+    },
+    {
+      "label": "app-DU0szZG0.js",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "public_build_assets_app_du0szzg0_js",
+      "community": 0,
+      "norm_label": "app-du0szzg0.js"
+    },
+    {
+      "label": "n()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_n",
+      "community": 2,
+      "norm_label": "n()"
+    },
+    {
+      "label": "f()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_f",
+      "community": 2,
+      "norm_label": "f()"
+    },
+    {
+      "label": "m()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_m",
+      "community": 2,
+      "norm_label": "m()"
+    },
+    {
+      "label": "ae()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_ae",
+      "community": 0,
+      "norm_label": "ae()"
+    },
+    {
+      "label": "w()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_w",
+      "community": 2,
+      "norm_label": "w()"
+    },
+    {
+      "label": "he()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_he",
+      "community": 2,
+      "norm_label": "he()"
+    },
+    {
+      "label": "_e()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_e",
+      "community": 2,
+      "norm_label": "_e()"
+    },
+    {
+      "label": "r()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_r",
+      "community": 0,
+      "norm_label": "r()"
+    },
+    {
+      "label": "Ie()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_ie",
+      "community": 2,
+      "norm_label": "ie()"
+    },
+    {
+      "label": "from()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_from",
+      "community": 0,
+      "norm_label": "from()"
+    },
+    {
+      "label": "constructor()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_constructor",
+      "community": 2,
+      "norm_label": "constructor()"
+    },
+    {
+      "label": "toJSON()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_tojson",
+      "community": 0,
+      "norm_label": "tojson()"
+    },
+    {
+      "label": "O()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_o",
+      "community": 0,
+      "norm_label": "o()"
+    },
+    {
+      "label": "Ve()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_ve",
+      "community": 0,
+      "norm_label": "ve()"
+    },
+    {
+      "label": "k()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_k",
+      "community": 0,
+      "norm_label": "k()"
+    },
+    {
+      "label": "A()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_a",
+      "community": 2,
+      "norm_label": "a()"
+    },
+    {
+      "label": "We()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_we",
+      "community": 0,
+      "norm_label": "we()"
+    },
+    {
+      "label": "j()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_j",
+      "community": 2,
+      "norm_label": "j()"
+    },
+    {
+      "label": "Ke()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_ke",
+      "community": 0,
+      "norm_label": "ke()"
+    },
+    {
+      "label": "qe()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_qe",
+      "community": 2,
+      "norm_label": "qe()"
+    },
+    {
+      "label": "use()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_use",
+      "community": 0,
+      "norm_label": "use()"
+    },
+    {
+      "label": "eject()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_eject",
+      "community": 0,
+      "norm_label": "eject()"
+    },
+    {
+      "label": "clear()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_clear",
+      "community": 0,
+      "norm_label": "clear()"
+    },
+    {
+      "label": "forEach()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_foreach",
+      "community": 0,
+      "norm_label": "foreach()"
+    },
+    {
+      "label": "et()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_et",
+      "community": 2,
+      "norm_label": "et()"
+    },
+    {
+      "label": "tt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_tt",
+      "community": 0,
+      "norm_label": "tt()"
+    },
+    {
+      "label": "nt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_nt",
+      "community": 0,
+      "norm_label": "nt()"
+    },
+    {
+      "label": "rt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_rt",
+      "community": 0,
+      "norm_label": "rt()"
+    },
+    {
+      "label": "it()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "id": "assets_app_du0szzg0_it",
+      "community": 0,
+      "norm_label": "it()"
+    },
+    {
+      "label": "L()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_l",
+      "community": 0,
+      "norm_label": "l()"
+    },
+    {
+      "label": "ct()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_ct",
+      "community": 0,
+      "norm_label": "ct()"
+    },
+    {
+      "label": "z()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_z",
+      "community": 0,
+      "norm_label": "z()"
+    },
+    {
+      "label": "ut()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_ut",
+      "community": 0,
+      "norm_label": "ut()"
+    },
+    {
+      "label": "dt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_dt",
+      "community": 0,
+      "norm_label": "dt()"
+    },
+    {
+      "label": "set()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_set",
+      "community": 2,
+      "norm_label": "set()"
+    },
+    {
+      "label": "get()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_get",
+      "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "has()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_has",
+      "community": 0,
+      "norm_label": "has()"
+    },
+    {
+      "label": "delete()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_delete",
+      "community": 0,
+      "norm_label": "delete()"
+    },
+    {
+      "label": "normalize()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_normalize",
+      "community": 0,
+      "norm_label": "normalize()"
+    },
+    {
+      "label": "concat()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_concat",
+      "community": 0,
+      "norm_label": "concat()"
+    },
+    {
+      "label": "[Symbol.iterator]()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_symbol_iterator",
+      "community": 0,
+      "norm_label": "[symbol.iterator]()"
+    },
+    {
+      "label": "toString()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "id": "assets_app_du0szzg0_tostring",
+      "community": 2,
+      "norm_label": "tostring()"
+    },
+    {
+      "label": "getSetCookie()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_getsetcookie",
+      "community": 0,
+      "norm_label": "getsetcookie()"
+    },
+    {
+      "label": "[Symbol.toStringTag]()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_symbol_tostringtag",
+      "community": 0,
+      "norm_label": "[symbol.tostringtag]()"
+    },
+    {
+      "label": "accessor()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_accessor",
+      "community": 0,
+      "norm_label": "accessor()"
+    },
+    {
+      "label": "V()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_v",
+      "community": 0,
+      "norm_label": "v()"
+    },
+    {
+      "label": "ft()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_ft",
+      "community": 0,
+      "norm_label": "ft()"
+    },
+    {
+      "label": "pt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_pt",
+      "community": 0,
+      "norm_label": "pt()"
+    },
+    {
+      "label": "mt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_mt",
+      "community": 0,
+      "norm_label": "mt()"
+    },
+    {
+      "label": "ht()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_ht",
+      "community": 0,
+      "norm_label": "ht()"
+    },
+    {
+      "label": "gt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_gt",
+      "community": 0,
+      "norm_label": "gt()"
+    },
+    {
+      "label": "write()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_write",
+      "community": 0,
+      "norm_label": "write()"
+    },
+    {
+      "label": "read()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_read",
+      "community": 0,
+      "norm_label": "read()"
+    },
+    {
+      "label": "remove()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_remove",
+      "community": 0,
+      "norm_label": "remove()"
+    },
+    {
+      "label": "xt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_xt",
+      "community": 0,
+      "norm_label": "xt()"
+    },
+    {
+      "label": "St()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_st",
+      "community": 0,
+      "norm_label": "st()"
+    },
+    {
+      "label": "g()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_g",
+      "community": 2,
+      "norm_label": "g()"
+    },
+    {
+      "label": "s()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_s",
+      "community": 0,
+      "norm_label": "s()"
+    },
+    {
+      "label": "pull()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_pull",
+      "community": 0,
+      "norm_label": "pull()"
+    },
+    {
+      "label": "cancel()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_cancel",
+      "community": 0,
+      "norm_label": "cancel()"
+    },
+    {
+      "label": "p()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "id": "assets_app_du0szzg0_p",
+      "community": 2,
+      "norm_label": "p()"
+    },
+    {
+      "label": "q()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "id": "assets_app_du0szzg0_q",
+      "community": 0,
+      "norm_label": "q()"
+    },
+    {
+      "label": "Wt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "id": "assets_app_du0szzg0_wt",
+      "community": 0,
+      "norm_label": "wt()"
+    },
+    {
+      "label": "qt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "id": "assets_app_du0szzg0_qt",
+      "community": 0,
+      "norm_label": "qt()"
+    },
+    {
+      "label": "request()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "id": "assets_app_du0szzg0_request",
+      "community": 0,
+      "norm_label": "request()"
+    },
+    {
+      "label": "getUri()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_geturi",
+      "community": 2,
+      "norm_label": "geturi()"
+    },
+    {
+      "label": "t()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_t",
+      "community": 2,
+      "norm_label": "t()"
+    },
+    {
+      "label": "throwIfRequested()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_throwifrequested",
+      "community": 0,
+      "norm_label": "throwifrequested()"
+    },
+    {
+      "label": "subscribe()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_subscribe",
+      "community": 0,
+      "norm_label": "subscribe()"
+    },
+    {
+      "label": "unsubscribe()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_unsubscribe",
+      "community": 2,
+      "norm_label": "unsubscribe()"
+    },
+    {
+      "label": "toAbortSignal()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_toabortsignal",
+      "community": 0,
+      "norm_label": "toabortsignal()"
+    },
+    {
+      "label": "source()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_source",
+      "community": 0,
+      "norm_label": "source()"
+    },
+    {
+      "label": "Yt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_yt",
+      "community": 0,
+      "norm_label": "yt()"
+    },
+    {
+      "label": "Zt()",
+      "file_type": "code",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "id": "assets_app_du0szzg0_zt",
+      "community": 2,
+      "norm_label": "zt()"
+    },
+    {
+      "label": "app.js",
+      "file_type": "code",
+      "source_file": "resources/js/app.js",
+      "source_location": "L1",
+      "id": "resources_js_app_js",
+      "community": 44,
+      "norm_label": "app.js"
+    },
+    {
+      "label": "bootstrap.js",
+      "file_type": "code",
+      "source_file": "resources/js/bootstrap.js",
+      "source_location": "L1",
+      "id": "resources_js_bootstrap_js",
+      "community": 45,
+      "norm_label": "bootstrap.js"
+    },
+    {
+      "label": "chatbot.js",
+      "file_type": "code",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L1",
+      "id": "resources_js_chatbot_js",
+      "community": 7,
+      "norm_label": "chatbot.js"
+    },
+    {
+      "label": "sendMessage()",
+      "file_type": "code",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L24",
+      "id": "js_chatbot_sendmessage",
+      "community": 7,
+      "norm_label": "sendmessage()"
+    },
+    {
+      "label": "fetchInitialMenu()",
+      "file_type": "code",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L60",
+      "id": "js_chatbot_fetchinitialmenu",
+      "community": 7,
+      "norm_label": "fetchinitialmenu()"
+    },
+    {
+      "label": "appendMessage()",
+      "file_type": "code",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L74",
+      "id": "js_chatbot_appendmessage",
+      "community": 7,
+      "norm_label": "appendmessage()"
+    },
+    {
+      "label": "showTyping()",
+      "file_type": "code",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L101",
+      "id": "js_chatbot_showtyping",
+      "community": 7,
+      "norm_label": "showtyping()"
+    },
+    {
+      "label": "hideTyping()",
+      "file_type": "code",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L110",
+      "id": "js_chatbot_hidetyping",
+      "community": 7,
+      "norm_label": "hidetyping()"
+    },
+    {
+      "label": "forgot-password.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/forgot-password.blade.php",
+      "source_location": null,
+      "id": "resources_views_forgot_password_blade_php",
+      "community": 46,
+      "norm_label": "forgot-password.blade.php"
+    },
+    {
+      "label": "login.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/login.blade.php",
+      "source_location": null,
+      "id": "resources_views_login_blade_php",
+      "community": 47,
+      "norm_label": "login.blade.php"
+    },
+    {
+      "label": "reset-password.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/reset-password.blade.php",
+      "source_location": null,
+      "id": "resources_views_reset_password_blade_php",
+      "community": 48,
+      "norm_label": "reset-password.blade.php"
+    },
+    {
+      "label": "index.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/index.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_index_blade_php",
+      "community": 49,
+      "norm_label": "index.blade.php"
+    },
+    {
+      "label": "edit.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/company-profile/edit.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_company_profile_edit_blade_php",
+      "community": 50,
+      "norm_label": "edit.blade.php"
+    },
+    {
+      "label": "show.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/company-profile/show.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_company_profile_show_blade_php",
+      "community": 51,
+      "norm_label": "show.blade.php"
+    },
+    {
+      "label": "create.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/gallery/create.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_gallery_create_blade_php",
+      "community": 52,
+      "norm_label": "create.blade.php"
+    },
+    {
+      "label": "index.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/gallery/index.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_gallery_index_blade_php",
+      "community": 53,
+      "norm_label": "index.blade.php"
+    },
+    {
+      "label": "show.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/gallery/show.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_gallery_show_blade_php",
+      "community": 54,
+      "norm_label": "show.blade.php"
+    },
+    {
+      "label": "create.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/paket/create.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_paket_create_blade_php",
+      "community": 55,
+      "norm_label": "create.blade.php"
+    },
+    {
+      "label": "edit.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/paket/edit.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_paket_edit_blade_php",
+      "community": 56,
+      "norm_label": "edit.blade.php"
+    },
+    {
+      "label": "index.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/paket/index.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_paket_index_blade_php",
+      "community": 57,
+      "norm_label": "index.blade.php"
+    },
+    {
+      "label": "show.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/paket/show.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_paket_show_blade_php",
+      "community": 58,
+      "norm_label": "show.blade.php"
+    },
+    {
+      "label": "create.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/pesanan/create.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_pesanan_create_blade_php",
+      "community": 59,
+      "norm_label": "create.blade.php"
+    },
+    {
+      "label": "edit.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/pesanan/edit.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_pesanan_edit_blade_php",
+      "community": 60,
+      "norm_label": "edit.blade.php"
+    },
+    {
+      "label": "index.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/pesanan/index.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_pesanan_index_blade_php",
+      "community": 61,
+      "norm_label": "index.blade.php"
+    },
+    {
+      "label": "show.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/admin/pesanan/show.blade.php",
+      "source_location": null,
+      "id": "resources_views_admin_pesanan_show_blade_php",
+      "community": 62,
+      "norm_label": "show.blade.php"
+    },
+    {
+      "label": "admin.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/components/layout/admin.blade.php",
+      "source_location": null,
+      "id": "resources_views_components_layout_admin_blade_php",
+      "community": 63,
+      "norm_label": "admin.blade.php"
+    },
+    {
+      "label": "customer.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/components/layout/customer.blade.php",
+      "source_location": null,
+      "id": "resources_views_components_layout_customer_blade_php",
+      "community": 13,
+      "norm_label": "customer.blade.php"
+    },
+    {
+      "label": "components.layout.navbar",
+      "file_type": "code",
+      "source_file": "resources/views/components/layout/customer.blade.php",
+      "source_location": null,
+      "id": "components_layout_navbar",
+      "community": 13,
+      "norm_label": "components.layout.navbar"
+    },
+    {
+      "label": "components.layout.footer",
+      "file_type": "code",
+      "source_file": "resources/views/components/layout/customer.blade.php",
+      "source_location": null,
+      "id": "components_layout_footer",
+      "community": 13,
+      "norm_label": "components.layout.footer"
+    },
+    {
+      "label": "components.layout.scripts",
+      "file_type": "code",
+      "source_file": "resources/views/components/layout/customer.blade.php",
+      "source_location": null,
+      "id": "components_layout_scripts",
+      "community": 13,
+      "norm_label": "components.layout.scripts"
+    },
+    {
+      "label": "footer.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/components/layout/footer.blade.php",
+      "source_location": null,
+      "id": "resources_views_components_layout_footer_blade_php",
+      "community": 64,
+      "norm_label": "footer.blade.php"
+    },
+    {
+      "label": "navbar.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/components/layout/navbar.blade.php",
+      "source_location": null,
+      "id": "resources_views_components_layout_navbar_blade_php",
+      "community": 65,
+      "norm_label": "navbar.blade.php"
+    },
+    {
+      "label": "scripts.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/components/layout/scripts.blade.php",
+      "source_location": null,
+      "id": "resources_views_components_layout_scripts_blade_php",
+      "community": 66,
+      "norm_label": "scripts.blade.php"
+    },
+    {
+      "label": "index.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/customer/index.blade.php",
+      "source_location": null,
+      "id": "resources_views_customer_index_blade_php",
+      "community": 67,
+      "norm_label": "index.blade.php"
+    },
+    {
+      "label": "package-detail.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/customer/package-detail.blade.php",
+      "source_location": null,
+      "id": "resources_views_customer_package_detail_blade_php",
+      "community": 68,
+      "norm_label": "package-detail.blade.php"
+    },
+    {
+      "label": "packages.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/customer/packages.blade.php",
+      "source_location": null,
+      "id": "resources_views_customer_packages_blade_php",
+      "community": 69,
+      "norm_label": "packages.blade.php"
+    },
+    {
+      "label": "photos.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/customer/photos.blade.php",
+      "source_location": null,
+      "id": "resources_views_customer_photos_blade_php",
+      "community": 70,
+      "norm_label": "photos.blade.php"
+    },
+    {
+      "label": "console.php",
+      "file_type": "code",
+      "source_file": "routes/console.php",
+      "source_location": "L1",
+      "id": "routes_console_php",
+      "community": 71,
+      "norm_label": "console.php"
+    },
+    {
+      "label": "web.php",
+      "file_type": "code",
+      "source_file": "routes/web.php",
+      "source_location": "L1",
+      "id": "routes_web_php",
+      "community": 72,
+      "norm_label": "web.php"
+    },
+    {
+      "label": "Pest.php",
+      "file_type": "code",
+      "source_file": "tests/Pest.php",
+      "source_location": "L1",
+      "id": "tests_pest_php",
+      "community": 26,
+      "norm_label": "pest.php"
+    },
+    {
+      "label": "something()",
+      "file_type": "code",
+      "source_file": "tests/Pest.php",
+      "source_location": "L47",
+      "id": "tests_pest_something",
+      "community": 26,
+      "norm_label": "something()"
+    },
+    {
+      "label": "TestCase.php",
+      "file_type": "code",
+      "source_file": "tests/TestCase.php",
+      "source_location": "L1",
+      "id": "tests_testcase_php",
+      "community": 27,
+      "norm_label": "testcase.php"
+    },
+    {
+      "label": "TestCase",
+      "file_type": "code",
+      "source_file": "tests/TestCase.php",
+      "source_location": "L7",
+      "id": "tests_testcase_testcase",
+      "community": 27,
+      "norm_label": "testcase"
+    },
+    {
+      "label": "ExampleTest.php",
+      "file_type": "code",
+      "source_file": "tests/Feature/ExampleTest.php",
+      "source_location": "L1",
+      "id": "tests_feature_exampletest_php",
+      "community": 73,
+      "norm_label": "exampletest.php"
+    },
+    {
+      "label": "ExampleTest.php",
+      "file_type": "code",
+      "source_file": "tests/Unit/ExampleTest.php",
+      "source_location": "L1",
+      "id": "tests_unit_exampletest_php",
+      "community": 74,
+      "norm_label": "exampletest.php"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_http_controllers_authcontroller_php",
+      "target": "controllers_authcontroller_authcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_authcontroller",
+      "target": "controllers_authcontroller_authcontroller_showloginform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_authcontroller",
+      "target": "controllers_authcontroller_authcontroller_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_authcontroller",
+      "target": "controllers_authcontroller_authcontroller_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_authcontroller",
+      "target": "controllers_authcontroller_authcontroller_showforgotpasswordform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_authcontroller",
+      "target": "controllers_authcontroller_authcontroller_sendresetlinkemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_authcontroller",
+      "target": "controllers_authcontroller_authcontroller_showresetpasswordform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_authcontroller",
+      "target": "controllers_authcontroller_authcontroller_resetpassword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/AuthController.php",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_authcontroller_login",
+      "target": "models_user_user"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Controller.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_http_controllers_controller_php",
+      "target": "controllers_controller_controller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_http_controllers_admin_companyprofilecontroller_php",
+      "target": "admin_companyprofilecontroller_companyprofilecontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "admin_companyprofilecontroller_companyprofilecontroller",
+      "target": "admin_companyprofilecontroller_companyprofilecontroller_show",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "admin_companyprofilecontroller_companyprofilecontroller",
+      "target": "admin_companyprofilecontroller_companyprofilecontroller_edit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "admin_companyprofilecontroller_companyprofilecontroller",
+      "target": "admin_companyprofilecontroller_companyprofilecontroller_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "admin_companyprofilecontroller_companyprofilecontroller_show",
+      "target": "models_companyprofile_companyprofile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "admin_companyprofilecontroller_companyprofilecontroller_edit",
+      "target": "models_companyprofile_companyprofile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/CompanyProfileController.php",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "admin_companyprofilecontroller_companyprofilecontroller_update",
+      "target": "models_companyprofile_companyprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/DashboardController.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_http_controllers_admin_dashboardcontroller_php",
+      "target": "admin_dashboardcontroller_dashboardcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/DashboardController.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "admin_dashboardcontroller_dashboardcontroller",
+      "target": "admin_dashboardcontroller_dashboardcontroller_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/DashboardController.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "admin_dashboardcontroller_dashboardcontroller_index",
+      "target": "models_pesanan_pesanan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_http_controllers_admin_gallerycontroller_php",
+      "target": "admin_gallerycontroller_gallerycontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller",
+      "target": "admin_gallerycontroller_gallerycontroller_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller",
+      "target": "admin_gallerycontroller_gallerycontroller_create",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller",
+      "target": "admin_gallerycontroller_gallerycontroller_show",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller",
+      "target": "admin_gallerycontroller_gallerycontroller_getrelationsbypaket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller",
+      "target": "admin_gallerycontroller_gallerycontroller_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller",
+      "target": "admin_gallerycontroller_gallerycontroller_compressandstoreimage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller",
+      "target": "admin_gallerycontroller_gallerycontroller_destroy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller_index",
+      "target": "models_gallery_gallery"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller_compressandstoreimage",
+      "target": "admin_gallerycontroller_gallerycontroller_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/GalleryController.php",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "admin_gallerycontroller_gallerycontroller_store",
+      "target": "models_gallery_gallery"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_http_controllers_admin_paketcontroller_php",
+      "target": "admin_paketcontroller_paketcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_create",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_show",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_edit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_destroy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_syncchildwithimages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L227",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller",
+      "target": "admin_paketcontroller_paketcontroller_syncrundowns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller_store",
+      "target": "admin_paketcontroller_paketcontroller_create",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller_syncchildwithimages",
+      "target": "admin_paketcontroller_paketcontroller_create",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L255",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller_syncrundowns",
+      "target": "admin_paketcontroller_paketcontroller_create",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L215",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller_syncchildwithimages",
+      "target": "admin_paketcontroller_paketcontroller_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller_syncrundowns",
+      "target": "admin_paketcontroller_paketcontroller_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/PaketController.php",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "admin_paketcontroller_paketcontroller_syncrundowns",
+      "target": "models_rundown_rundown"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_http_controllers_admin_pesanancontroller_php",
+      "target": "admin_pesanancontroller_pesanancontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller",
+      "target": "admin_pesanancontroller_pesanancontroller_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller",
+      "target": "admin_pesanancontroller_pesanancontroller_create",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller",
+      "target": "admin_pesanancontroller_pesanancontroller_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller",
+      "target": "admin_pesanancontroller_pesanancontroller_show",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller",
+      "target": "admin_pesanancontroller_pesanancontroller_edit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller",
+      "target": "admin_pesanancontroller_pesanancontroller_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller",
+      "target": "admin_pesanancontroller_pesanancontroller_destroy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller_index",
+      "target": "models_pesanan_pesanan"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Admin/PesananController.php",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "admin_pesanancontroller_pesanancontroller_store",
+      "target": "models_pesanan_pesanan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_http_controllers_chatbot_chatbotcontroller_php",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_handlemessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_getmenu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_handlepaketquery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_handlepesanansearch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_handlecompanyprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_containskeyword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller_handlemessage",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_containskeyword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller_handlemessage",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_handlepaketquery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller_handlemessage",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_handlepesanansearch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller_handlemessage",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_handlecompanyprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller_handlemessage",
+      "target": "chatbot_chatbotcontroller_chatbotcontroller_getmenu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller_handlepesanansearch",
+      "target": "models_pesanan_pesanan"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Chatbot/ChatbotController.php",
+      "source_location": "L197",
+      "weight": 1.0,
+      "source": "chatbot_chatbotcontroller_chatbotcontroller_handlecompanyprofile",
+      "target": "models_companyprofile_companyprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_http_controllers_customer_pagecontroller_php",
+      "target": "customer_pagecontroller_pagecontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "customer_pagecontroller_pagecontroller",
+      "target": "customer_pagecontroller_pagecontroller_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "customer_pagecontroller_pagecontroller",
+      "target": "customer_pagecontroller_pagecontroller_packages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "customer_pagecontroller_pagecontroller",
+      "target": "customer_pagecontroller_pagecontroller_packagedetail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "customer_pagecontroller_pagecontroller",
+      "target": "customer_pagecontroller_pagecontroller_photos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "customer_pagecontroller_pagecontroller",
+      "target": "customer_pagecontroller_pagecontroller_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "customer_pagecontroller_pagecontroller_index",
+      "target": "models_gallery_gallery"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Http/Controllers/Customer/PageController.php",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "customer_pagecontroller_pagecontroller_photos",
+      "target": "models_gallery_gallery"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/CompanyProfile.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_models_companyprofile_php",
+      "target": "models_companyprofile_companyprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "database/seeders/CompanyProfileSeeder.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "seeders_companyprofileseeder_companyprofileseeder_run",
+      "target": "models_companyprofile_companyprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Fasilitas.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_models_fasilitas_php",
+      "target": "models_fasilitas_fasilitas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Fasilitas.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "models_fasilitas_fasilitas",
+      "target": "models_fasilitas_fasilitas_paket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Fasilitas.php",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "models_fasilitas_fasilitas",
+      "target": "models_fasilitas_fasilitas_galleries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_models_gallery_php",
+      "target": "models_gallery_gallery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "models_gallery_gallery",
+      "target": "models_gallery_gallery_fasilitas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "models_gallery_gallery",
+      "target": "models_gallery_gallery_tempat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "models_gallery_gallery",
+      "target": "models_gallery_gallery_paket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Gallery.php",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "models_gallery_gallery",
+      "target": "models_gallery_gallery_isvideo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_models_paket_php",
+      "target": "models_paket_paket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "models_paket_paket",
+      "target": "models_paket_paket_tempats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "models_paket_paket",
+      "target": "models_paket_paket_fasilitas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Paket.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "models_paket_paket",
+      "target": "models_paket_paket_rundowns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Pesanan.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_models_pesanan_php",
+      "target": "models_pesanan_pesanan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Pesanan.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "models_pesanan_pesanan",
+      "target": "models_pesanan_pesanan_paket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "database/seeders/PesananSeeder.php",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "seeders_pesananseeder_pesananseeder_run",
+      "target": "models_pesanan_pesanan"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Rundown.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_models_rundown_php",
+      "target": "models_rundown_rundown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Rundown.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "models_rundown_rundown",
+      "target": "models_rundown_rundown_paket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Tempat.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_models_tempat_php",
+      "target": "models_tempat_tempat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Tempat.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "models_tempat_tempat",
+      "target": "models_tempat_tempat_paket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/Tempat.php",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "models_tempat_tempat",
+      "target": "models_tempat_tempat_galleries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_models_user_php",
+      "target": "models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "models_user_user",
+      "target": "models_user_user_casts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "seeders_databaseseeder_databaseseeder_run",
+      "target": "models_user_user"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_providers_appserviceprovider_php",
+      "target": "providers_appserviceprovider_appserviceprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "providers_appserviceprovider_appserviceprovider",
+      "target": "providers_appserviceprovider_appserviceprovider_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "providers_appserviceprovider_appserviceprovider",
+      "target": "providers_appserviceprovider_appserviceprovider_boot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "database_factories_userfactory_php",
+      "target": "factories_userfactory_userfactory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "factories_userfactory_userfactory",
+      "target": "factories_userfactory_userfactory_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "factories_userfactory_userfactory",
+      "target": "factories_userfactory_userfactory_unverified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/0001_01_01_000000_create_users_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_0001_01_01_000000_create_users_table_php",
+      "target": "migrations_0001_01_01_000000_create_users_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/0001_01_01_000000_create_users_table.php",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "database_migrations_0001_01_01_000000_create_users_table_php",
+      "target": "migrations_0001_01_01_000000_create_users_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/0001_01_01_000001_create_cache_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_0001_01_01_000001_create_cache_table_php",
+      "target": "migrations_0001_01_01_000001_create_cache_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/0001_01_01_000001_create_cache_table.php",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "database_migrations_0001_01_01_000001_create_cache_table_php",
+      "target": "migrations_0001_01_01_000001_create_cache_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/0001_01_01_000002_create_jobs_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_0001_01_01_000002_create_jobs_table_php",
+      "target": "migrations_0001_01_01_000002_create_jobs_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/0001_01_01_000002_create_jobs_table.php",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "database_migrations_0001_01_01_000002_create_jobs_table_php",
+      "target": "migrations_0001_01_01_000002_create_jobs_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_06_173144_create_pakets_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_06_173144_create_pakets_table_php",
+      "target": "migrations_2026_04_06_173144_create_pakets_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_06_173144_create_pakets_table.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_06_173144_create_pakets_table_php",
+      "target": "migrations_2026_04_06_173144_create_pakets_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_06_173204_create_tempats_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_06_173204_create_tempats_table_php",
+      "target": "migrations_2026_04_06_173204_create_tempats_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_06_173204_create_tempats_table.php",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_06_173204_create_tempats_table_php",
+      "target": "migrations_2026_04_06_173204_create_tempats_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_06_173232_create_fasilitas_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_06_173232_create_fasilitas_table_php",
+      "target": "migrations_2026_04_06_173232_create_fasilitas_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_06_173232_create_fasilitas_table.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_06_173232_create_fasilitas_table_php",
+      "target": "migrations_2026_04_06_173232_create_fasilitas_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_11_140249_create_galleries_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_11_140249_create_galleries_table_php",
+      "target": "migrations_2026_04_11_140249_create_galleries_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_11_140249_create_galleries_table.php",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_11_140249_create_galleries_table_php",
+      "target": "migrations_2026_04_11_140249_create_galleries_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_11_143438_create_company_profiles_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_11_143438_create_company_profiles_table_php",
+      "target": "migrations_2026_04_11_143438_create_company_profiles_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_11_143438_create_company_profiles_table.php",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_11_143438_create_company_profiles_table_php",
+      "target": "migrations_2026_04_11_143438_create_company_profiles_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_19_083859_create_pesanans_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_19_083859_create_pesanans_table_php",
+      "target": "migrations_2026_04_19_083859_create_pesanans_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_04_19_083859_create_pesanans_table.php",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "database_migrations_2026_04_19_083859_create_pesanans_table_php",
+      "target": "migrations_2026_04_19_083859_create_pesanans_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_05_05_052908_create_rundowns_table.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "database_migrations_2026_05_05_052908_create_rundowns_table_php",
+      "target": "migrations_2026_05_05_052908_create_rundowns_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_05_05_052908_create_rundowns_table.php",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "database_migrations_2026_05_05_052908_create_rundowns_table_php",
+      "target": "migrations_2026_05_05_052908_create_rundowns_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/seeders/CompanyProfileSeeder.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "database_seeders_companyprofileseeder_php",
+      "target": "seeders_companyprofileseeder_companyprofileseeder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "database/seeders/CompanyProfileSeeder.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "seeders_companyprofileseeder_companyprofileseeder",
+      "target": "seeders_companyprofileseeder_companyprofileseeder_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "database_seeders_databaseseeder_php",
+      "target": "seeders_databaseseeder_databaseseeder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "seeders_databaseseeder_databaseseeder",
+      "target": "seeders_databaseseeder_databaseseeder_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/seeders/PaketSeeder.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "database_seeders_paketseeder_php",
+      "target": "seeders_paketseeder_paketseeder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "database/seeders/PaketSeeder.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "seeders_paketseeder_paketseeder",
+      "target": "seeders_paketseeder_paketseeder_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/seeders/PesananSeeder.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "database_seeders_pesananseeder_php",
+      "target": "seeders_pesananseeder_pesananseeder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "database/seeders/PesananSeeder.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "seeders_pesananseeder_pesananseeder",
+      "target": "seeders_pesananseeder_pesananseeder_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_m",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_ae",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_w",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_he",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_e",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_r",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_ie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_from",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_tojson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_o",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_ve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_k",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_we",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_j",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_ke",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_qe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_use",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_eject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_clear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_et",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_tt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_nt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_rt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_l",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_ct",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_z",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_ut",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_dt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_set",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_has",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_delete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_normalize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_concat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_symbol_iterator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_tostring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_getsetcookie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_symbol_tostringtag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_accessor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_v",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_ft",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_pt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_mt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_ht",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_gt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_write",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_read",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_remove",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_xt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_st",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_g",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_pull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_cancel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_p",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_q",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_wt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_qt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_geturi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_throwifrequested",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_subscribe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_unsubscribe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_toabortsignal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_source",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_yt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "public_build_assets_app_du0szzg0_js",
+      "target": "assets_app_du0szzg0_zt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_n",
+      "target": "assets_app_du0szzg0_v",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_n",
+      "target": "assets_app_du0szzg0_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_n",
+      "target": "assets_app_du0szzg0_w",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_g",
+      "target": "assets_app_du0szzg0_n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_pull",
+      "target": "assets_app_du0szzg0_n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_zt",
+      "target": "assets_app_du0szzg0_n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_f",
+      "target": "assets_app_du0szzg0_g",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_w",
+      "target": "assets_app_du0szzg0_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_he",
+      "target": "assets_app_du0szzg0_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_a",
+      "target": "assets_app_du0szzg0_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_m",
+      "target": "assets_app_du0szzg0_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_p",
+      "target": "assets_app_du0szzg0_f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_m",
+      "target": "assets_app_du0szzg0_p",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_m",
+      "target": "assets_app_du0szzg0_unsubscribe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_g",
+      "target": "assets_app_du0szzg0_m",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_e",
+      "target": "assets_app_du0szzg0_w",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_w",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_w",
+      "target": "assets_app_du0szzg0_a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_request",
+      "target": "assets_app_du0szzg0_w",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_geturi",
+      "target": "assets_app_du0szzg0_w",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_t",
+      "target": "assets_app_du0szzg0_w",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_zt",
+      "target": "assets_app_du0szzg0_w",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_r",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_accessor",
+      "target": "assets_app_du0szzg0_r",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_pt",
+      "target": "assets_app_du0szzg0_r",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_s",
+      "target": "assets_app_du0szzg0_r",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_ie",
+      "target": "assets_app_du0szzg0_g",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_v",
+      "target": "assets_app_du0szzg0_from",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_g",
+      "target": "assets_app_du0szzg0_from",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_wt",
+      "target": "assets_app_du0szzg0_from",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_constructor",
+      "target": "assets_app_du0szzg0_set",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_constructor",
+      "target": "assets_app_du0szzg0_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_tojson",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_symbol_iterator",
+      "target": "assets_app_du0szzg0_tojson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_tostring",
+      "target": "assets_app_du0szzg0_tojson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_o",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_qt",
+      "target": "assets_app_du0szzg0_o",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_k",
+      "target": "assets_app_du0szzg0_ve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_k",
+      "target": "assets_app_du0szzg0_concat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_j",
+      "target": "assets_app_du0szzg0_a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_qe",
+      "target": "assets_app_du0szzg0_a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_et",
+      "target": "assets_app_du0szzg0_a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_set",
+      "target": "assets_app_du0szzg0_a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_qe",
+      "target": "assets_app_du0szzg0_tostring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_geturi",
+      "target": "assets_app_du0szzg0_qe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_clear",
+      "target": "assets_app_du0szzg0_z",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_dt",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_delete",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_normalize",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_concat",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_accessor",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_v",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_request",
+      "target": "assets_app_du0szzg0_foreach",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_et",
+      "target": "assets_app_du0szzg0_tostring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_get",
+      "target": "assets_app_du0szzg0_l",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_has",
+      "target": "assets_app_du0szzg0_l",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_get",
+      "target": "assets_app_du0szzg0_ct",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_ct",
+      "target": "assets_app_du0szzg0_xt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_ct",
+      "target": "assets_app_du0szzg0_st",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_geturi",
+      "target": "assets_app_du0szzg0_ct",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_has",
+      "target": "assets_app_du0szzg0_z",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_getsetcookie",
+      "target": "assets_app_du0szzg0_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_ht",
+      "target": "assets_app_du0szzg0_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_v",
+      "target": "assets_app_du0szzg0_normalize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_request",
+      "target": "assets_app_du0szzg0_concat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_wt",
+      "target": "assets_app_du0szzg0_ft",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_pt",
+      "target": "assets_app_du0szzg0_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_g",
+      "target": "assets_app_du0szzg0_pt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_remove",
+      "target": "assets_app_du0szzg0_write",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_g",
+      "target": "assets_app_du0szzg0_t",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_pull",
+      "target": "assets_app_du0szzg0_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_cancel",
+      "target": "assets_app_du0szzg0_s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_q",
+      "target": "assets_app_du0szzg0_throwifrequested",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_wt",
+      "target": "assets_app_du0szzg0_q",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_t",
+      "target": "assets_app_du0szzg0_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/build/assets/app-DU0szZG0.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assets_app_du0szzg0_toabortsignal",
+      "target": "assets_app_du0szzg0_subscribe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "resources_js_chatbot_js",
+      "target": "js_chatbot_sendmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "resources_js_chatbot_js",
+      "target": "js_chatbot_fetchinitialmenu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "resources_js_chatbot_js",
+      "target": "js_chatbot_appendmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "resources_js_chatbot_js",
+      "target": "js_chatbot_showtyping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "resources_js_chatbot_js",
+      "target": "js_chatbot_hidetyping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "js_chatbot_sendmessage",
+      "target": "js_chatbot_appendmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "js_chatbot_sendmessage",
+      "target": "js_chatbot_showtyping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "js_chatbot_sendmessage",
+      "target": "js_chatbot_hidetyping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "js_chatbot_fetchinitialmenu",
+      "target": "js_chatbot_showtyping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "js_chatbot_fetchinitialmenu",
+      "target": "js_chatbot_hidetyping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/chatbot.js",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "js_chatbot_fetchinitialmenu",
+      "target": "js_chatbot_appendmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "resources/views/components/layout/customer.blade.php",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "resources_views_components_layout_customer_blade_php",
+      "target": "components_layout_navbar"
+    },
+    {
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "resources/views/components/layout/customer.blade.php",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "resources_views_components_layout_customer_blade_php",
+      "target": "components_layout_footer"
+    },
+    {
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "resources/views/components/layout/customer.blade.php",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "resources_views_components_layout_customer_blade_php",
+      "target": "components_layout_scripts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Pest.php",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "tests_pest_php",
+      "target": "tests_pest_something",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/TestCase.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_testcase_php",
+      "target": "tests_testcase_testcase",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "13a862ed3766955d14c3e0f5a67be366c374dcb4"
+}

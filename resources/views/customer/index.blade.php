@@ -7,7 +7,7 @@
     <section id="beranda" class="relative h-[750px] w-full">
         <div class="absolute inset-0 z-10" style="background:var(--hero-overlay);"></div>
         <div class="absolute inset-0 z-0"
-            style="background-image:url('https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=1600&q=80');background-size:cover;background-position:center;">
+            style="background-image:url('https://images.unsplash.com/photo-1641309049459-65b1711ecb1a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');background-size:cover;background-position:center;">
         </div>
 
         <div class="relative z-20 mx-auto grid h-full w-full max-w-[1280px] items-center px-14">
@@ -17,11 +17,10 @@
                     ✈ Biro Perjalanan Wisata Terpercaya Sejak 2010
                 </span>
                 <h1 class="w-[56%] text-[48px] font-bold leading-tight text-white">
-                    Dapatkan Momen Tak Terlupakan Bersama Kami
+                    Temukan Pengalaman Wisata Terbaik Bersama Kami
                 </h1>
                 <p class="w-[38%] text-[15px] leading-8 text-gray-200 mt-4">
-                    PT Ghina Tour Travel — solusi perjalanan wisata rombongan dengan harga sesuai anggaran Anda. Terpercaya,
-                    Fleksibel & Fun.
+                    Jelajahi berbagai destinasi menarik dengan paket open trip yang mudah, terjangkau, dan menyenangkan.
                 </p>
                 <div class="mt-9 flex items-center gap-4">
                     <a href="{{ route('packages') }}" class="btn btn-gold text-[15px] px-8 py-4">Lihat Paket Wisata</a>
@@ -45,8 +44,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h2 class="text-[24px] font-bold t">48+</h2>
-                        <p class="text-sm tm">Klien Setia</p>
+                        <h2 class="text-[24px] font-bold t">10+</h2>
+                        <p class="text-sm tm">Paket Tersedia</p>
                     </div>
                 </div>
                 <div class="w-px" style="background:var(--border);"></div>
@@ -59,8 +58,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h2 class="text-[24px] font-bold t">{{ $pakets->count() }}+</h2>
-                        <p class="text-sm tm">Paket Wisata</p>
+                        <h2 class="text-[24px] font-bold t">40+</h2>
+                        <p class="text-sm tm">Review Terpercaya</p>
                     </div>
                 </div>
                 <div class="w-px" style="background:var(--border);"></div>
@@ -74,7 +73,7 @@
                     </div>
                     <div>
                         <h2 class="text-[24px] font-bold t">100%</h2>
-                        <p class="text-sm tm">Terpercaya</p>
+                        <p class="text-sm tm">Aman</p>
                     </div>
                 </div>
                 <div class="w-px" style="background:var(--border);"></div>
@@ -176,82 +175,98 @@
 
 
     <!-- ===== PAKET ===== -->
-    <section id="paket" class="mt-[100px] py-14 sec-bg">
-        <div class="mx-auto max-w-[1280px] space-y-8 px-14">
-            <div class="flex items-end justify-between fade-in">
-                <div>
-                    <span class="font-semibold text-sm uppercase tracking-widest" style="color:var(--gold);">Destinasi
-                        Pilihan</span>
-                    <h2 class="text-[28px] font-bold t mt-1">Paket Wisata Kami</h2>
-                    <p class="tm">Tersedia berbagai pilihan destinasi dengan harga terjangkau</p>
-                </div>
-                <a href="{{ route('packages') }}" class="btn btn-gold">Semua Paket</a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 fade-in">
-                @forelse($pakets as $paket)
-                    <a href="{{ route('package.detail', $paket->id) }}" class="paket-card">
-                        <div class="relative h-[310px] overflow-hidden rounded-3xl">
-                            <div class="absolute inset-0 z-10 flex flex-col justify-end gap-2 card-ol p-4">
-                                <div class="flex items-start justify-between">
-                                    <div>
-                                        <span class="text-[10px] font-bold rounded-full px-2 py-0.5 text-black"
-                                            style="background:var(--gold);">{{ $paket->durasi }}</span>
-                                        <h3 class="text-[15px] font-bold text-white mt-1">{{ $paket->nama_paket }}</h3>
-                                        <p class="text-sm font-semibold" style="color:#f0c94d;">Rp
-                                            {{ number_format($paket->harga_paket, 0, ',', '.') }}<span
-                                                class="text-white font-normal text-xs">/pax</span></p>
-                                    </div>
+    <section id="paket" class="mx-auto mt-24 max-w-[1280px] space-y-7 px-14 fade-in">
+        <div class="flex flex-col items-center justify-center text-center mb-8">
+            <span class="font-semibold text-sm uppercase tracking-widest" style="color:var(--gold);">Destinasi
+                Pilihan</span>
+            <h2 class="text-[28px] font-bold t mt-1">Paket Wisata Kami</h2>
+            <p class="tm">Tersedia berbagai pilihan destinasi dengan harga terjangkau</p>
+        </div>
+        <div class="flex justify-center mt-8 pt-4">
+            <a href="{{ route('packages') }}"
+                class="btn text-white px-8 py-3 rounded-full font-semibold border border-transparent"
+                style="background:var(--gold);">Lihat Semua Paket</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 fade-in mt-8">
+            @forelse($pakets as $paket)
+                <a href="{{ route('package.detail', $paket->id) }}" class="paket-card">
+                    <div class="relative h-[310px] overflow-hidden rounded-3xl group">
+                        <div class="absolute inset-0 z-10 flex flex-col justify-end gap-2 card-ol p-4">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <span class="text-[10px] font-bold rounded-full px-2 py-0.5 text-black"
+                                        style="background:var(--gold);">{{ $paket->durasi }}</span>
+                                    <h3 class="text-[15px] font-bold text-white mt-1">{{ $paket->nama_paket }}</h3>
                                 </div>
                             </div>
-                            @if ($paket->fotos && $paket->fotos->count() > 0)
-                                @php $firstFoto = $paket->fotos->first(); @endphp
-                                <img src="{{ Str::startsWith($firstFoto->path, 'http') ? $firstFoto->path : asset('storage/' . $firstFoto->path) }}"
-                                    alt="{{ $paket->nama_paket }}" class="h-full w-full object-cover" />
-                            @else
-                                <div class="h-full w-full" style="background:linear-gradient(135deg,#7c3f00,#c97a1a);">
-                                </div>
-                            @endif
+                            <div class="mt-2"
+                                style="background:var(--gold); padding:4px 12px; border-radius:12px; display:inline-block; width:fit-content;">
+                                <p class="text-sm font-bold text-black">Rp
+                                    {{ number_format($paket->harga_paket, 0, ',', '.') }}<span
+                                        class="font-normal text-xs opacity-80">/pax</span></p>
+                            </div>
                         </div>
-                    </a>
-                @empty
-                    <div class="col-span-3 text-center py-10">
-                        <p class="tm">Tidak ada paket wisata yang tersedia saat ini.</p>
+                        @if ($paket->fotos && $paket->fotos->count() > 0)
+                            @php $firstFoto = $paket->fotos->first(); @endphp
+                            <img src="{{ Str::startsWith($firstFoto->path, 'http') ? $firstFoto->path : asset('storage/' . $firstFoto->path) }}"
+                                alt="{{ $paket->nama_paket }}"
+                                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        @else
+                            <div class="h-full w-full" style="background:linear-gradient(135deg,#7c3f00,#c97a1a);">
+                            </div>
+                        @endif
                     </div>
-                @endforelse
-            </div>
-            <p class="text-center text-xs tm fade-in">* Harga dapat berubah sewaktu-waktu. Hubungi kami untuk negosiasi
-                sesuai kebutuhan rombongan.</p>
+                </a>
+            @empty
+                <div class="col-span-4 text-center py-10">
+                    <p class="tm">Tidak ada paket wisata yang tersedia saat ini.</p>
+                </div>
+            @endforelse
+        </div>
+        <p class="text-center text-xs tm fade-in">* Harga dapat berubah sewaktu-waktu. Hubungi kami untuk negosiasi
+            sesuai kebutuhan rombongan.</p>
         </div>
     </section>
 
 
     <!-- ===== GALERI ===== -->
     <section id="galeri" class="mx-auto mt-24 max-w-[1280px] space-y-7 px-14 fade-in">
-        <div class="flex items-end justify-between">
-            <div>
-                <span class="font-semibold text-sm uppercase tracking-widest"
-                    style="color:var(--gold);">Dokumentasi</span>
-                <h2 class="text-[28px] font-bold t mt-1">Galeri Tour</h2>
-                <p class="tm">Kenangan indah bersama ratusan peserta wisata kami</p>
-            </div>
-            <a href="{{ route('photos') }}" class="btn btn-gold">Semua Foto</a>
+        <div class="flex flex-col items-center justify-center text-center mb-8">
+            <span class="font-semibold text-sm uppercase tracking-widest" style="color:var(--gold);">Dokumentasi</span>
+            <h2 class="text-[28px] font-bold t mt-1">Galeri Tour</h2>
+            <p class="tm">Kenangan indah bersama ratusan peserta wisata kami</p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            @forelse($fotos as $index => $foto)
-                <div class="galeri-item h-[185px] flex items-center justify-center flex-col gap-1 text-white/60 relative"
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            @forelse($fotos->take(6) as $index => $foto)
+                @php
+                    $colSpan = 'col-span-1';
+                    if ($index === 0) {
+                        $colSpan = 'col-span-1 md:col-span-2 lg:col-span-2';
+                    }
+                    // Top row wide
+                    elseif ($index === 5) {
+                        $colSpan = 'col-span-1 md:col-span-2 lg:col-span-2';
+                    } // Bottom row wide
+                @endphp
+                <div class="galeri-item {{ $colSpan }} h-[240px] flex items-center justify-center flex-col gap-1 text-white/60 relative rounded-2xl overflow-hidden group"
                     style="@if ($index % 5 == 0) background:linear-gradient(135deg,#7c3f00,#c97a1a); @elseif($index % 5 == 1) background:linear-gradient(135deg,#1e3a8a,#0369a1); @elseif($index % 5 == 2) background:linear-gradient(135deg,#78350f,#d97706); @elseif($index % 5 == 3) background:linear-gradient(135deg,#134e4a,#0d9488); @else background:linear-gradient(135deg,#3b0764,#6d28d9); @endif">
                     @if ($foto->type === 'video' && $foto->path)
-                        <video class="absolute inset-0 w-full h-full object-cover" muted preload="metadata">
+                        <video
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            muted preload="metadata">
                             <source src="{{ asset('storage/' . $foto->path) }}" type="video/mp4">
                         </video>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 z-10">
-                            <svg class="w-10 h-10 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <div
+                            class="absolute inset-0 flex items-center justify-center bg-black/20 z-10 pointer-events-none">
+                            <svg class="w-10 h-10 text-white/80" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
                         </div>
                     @elseif ($foto->path)
-                        <img src="{{ Str::startsWith($foto->path, 'http') ? $foto->path : asset('storage/' . $foto->path) }}" alt="{{ $foto->keterangan ?? 'Galeri' }}"
-                            class="absolute inset-0 w-full h-full object-cover" />
+                        <img src="{{ Str::startsWith($foto->path, 'http') ? $foto->path : asset('storage/' . $foto->path) }}"
+                            alt="{{ $foto->keterangan ?? 'Galeri' }}"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     @else
                         <svg class="w-8 h-8 text-white/30" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -259,7 +274,11 @@
                         </svg>
                     @endif
                     @if ($foto->keterangan)
-                        <p class="text-xs font-medium absolute bottom-2 left-2 right-2 text-center text-white z-20">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                        </div>
+                        <p
+                            class="text-sm font-medium absolute bottom-4 left-4 right-4 text-left text-white z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
                             {{ $foto->keterangan }}</p>
                     @endif
                 </div>
@@ -268,6 +287,12 @@
                     <p class="tm">Tidak ada foto galeri yang tersedia saat ini.</p>
                 </div>
             @endforelse
+        </div>
+
+        <div class="flex justify-center mt-8 pt-4">
+            <a href="{{ route('photos') }}"
+                class="btn text-white px-8 py-3 rounded-full font-semibold border border-transparent"
+                style="background:var(--gold);">Lihat Semua Foto</a>
         </div>
     </section>
 @endsection
