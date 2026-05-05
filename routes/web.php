@@ -42,6 +42,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('paket', PaketController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('pesanan', PesananController::class);
+    Route::get('pesanan/create/custom', [PesananController::class, 'createCustom'])->name('pesanan.create-custom');
+    Route::post('pesanan/store/custom', [PesananController::class, 'storeCustom'])->name('pesanan.store-custom');
     Route::resource('company-profile', CompanyProfileController::class)->only([
         'show',
         'edit',

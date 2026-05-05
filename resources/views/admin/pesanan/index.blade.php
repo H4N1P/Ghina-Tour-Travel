@@ -33,13 +33,22 @@
                 @endif
             </form>
 
-            <a href="{{ route('admin.pesanan.create') }}"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium rounded-lg transition-colors">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg>
-                Tambah Pesanan
-            </a>
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="{{ route('admin.pesanan.create') }}"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium rounded-lg transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Tambah Pesanan
+                </a>
+                <a href="{{ route('admin.pesanan.create-custom') }}"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white text-sm font-medium rounded-lg transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Pesanan Custom
+                </a>
+            </div>
         </div>
     </div>
 
@@ -83,19 +92,26 @@
                                 <div class="font-medium text-sm">{{ $p->nama_pemesan }}</div>
                                 <div class="text-xs text-neutral-400">{{ $p->no_hp }}</div>
                             </td>
-                            <td class="px-4 py-3 text-sm">{{ $p->paket->nama_paket ?? '-' }}</td>
+                            <td class="px-4 py-3 text-sm">
+                                @if($p->is_custom)
+                                    <span class="text-amber-600 font-medium">Custom Order</span>
+                                    <div class="text-xs text-neutral-400 mt-1">
+                                        {{ count($p->custom_places ?? []) }} tempat
+                                    </div>
+                                @else
+                                    {{ $p->paket->nama_paket ?? '-' }}
+                                @endif
+                            </td>
                             <td class="px-4 py-3 text-sm">{{ \Carbon\Carbon::parse($p->tanggal_acara)->format('d M Y') }}
                             </td>
                             <td class="px-4 py-3 text-sm">{{ $p->jumlah_orang ?? '-' }} pax</td>
                             <td class="px-4 py-3 text-sm">
                                 <div class="font-semibold text-neutral-800 dark:text-neutral-200">
-                                    Rp
-                                    {{ number_format(($p->paket->harga_paket ?? 0) * ($p->jumlah_orang ?? 0), 0, ',', '.') }}
+                                    Rp {{ number_format($p->total_harga, 0, ',', '.') }}
                                 </div>
                                 @if ($p->diskon > 0)
                                     <div class="text-xs text-green-600 dark:text-green-400 font-medium mt-0.5">
-                                        Total: Rp {{ number_format($p->total_harga, 0, ',', '.') }} (Disc
-                                        {{ $p->diskon }}%)
+                                        Disc {{ $p->diskon }}%
                                     </div>
                                 @endif
                             </td>

@@ -14,7 +14,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Pantai & Alam Yogyakarta One Day',
                 'harga_paket' => 350000.00,
                 'durasi' => '1 Hari',
-                'rundown' => 'Perjalanan wisata satu hari mengunjungi Pantai Pandansari, Gumuk Pasir Parangkusumo, Pinus Pengger, dan Marlioboro.',
                 'note' => 'Harga untuk 50 PAX. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Pantai Pandansari',
@@ -39,7 +38,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Jogja Inap (Outbound, Gua Pindul, Merapi)',
                 'harga_paket' => 700000.00,
                 'durasi' => '2 Hari 1 Malam',
-                'rundown' => 'Perjalanan wisata menginap ke Yogyakarta dengan kegiatan Outbound di Pantai, Jeep Merapi, Gua Pindul, dan Marlioboro.',
                 'note' => 'Harga untuk SEAT 50. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Outbound di Pantai',
@@ -65,7 +63,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Jogja Inap (Ibarbo, Jeep, Marlioboro)',
                 'harga_paket' => 750000.00,
                 'durasi' => '2 Hari 1 Malam',
-                'rundown' => 'Perjalanan wisata menginap ke Yogyakarta mengunjungi Ibarbo Aviary, kawasan Malioboro, wahana Jeep, dan berbagai destinasi menarik.',
                 'note' => 'Harga untuk SEAT 50. Termasuk kaos per peserta dan doorprize. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Ibarbo Aviary',
@@ -92,7 +89,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Dewata Bali',
                 'harga_paket' => 1900000.00,
                 'durasi' => '3 Hari 2 Malam',
-                'rundown' => 'Paket wisata ke Bali (Dewata Bali) selama 3 hari 2 malam, mengunjungi berbagai destinasi wisata budaya dan alam di Pulau Bali.',
                 'note' => 'Harga untuk 50 PAX. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Destinasi Wisata Budaya Bali',
@@ -117,7 +113,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Batu Malang Inap',
                 'harga_paket' => 1500000.00,
                 'durasi' => '2 Hari 1 Malam',
-                'rundown' => 'Perjalanan wisata ke Batu Malang Jawa Timur, mengunjungi Jatim Park 1, Wonderland, Museum Angkut, dan De Laponte dengan menginap 1 malam.',
                 'note' => 'Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Jatim Park 1',
@@ -144,7 +139,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Bandung One Day',
                 'harga_paket' => 600000.00,
                 'durasi' => '1 Hari',
-                'rundown' => 'Paket wisata satu hari ke Bandung mengunjungi Farm House, Floating Market, The Great Asia Afrika, dan Pasar Baru.',
                 'note' => 'Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Farm House Bandung',
@@ -169,7 +163,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Bandung Jakarta Inap 1 Malam',
                 'harga_paket' => 1400000.00,
                 'durasi' => '2 Hari 1 Malam',
-                'rundown' => 'Paket wisata Bandung-Jakarta dengan menginap 1 malam, mengunjungi berbagai destinasi wisata di Bandung dan Jakarta.',
                 'note' => 'Harga untuk 46 PAX. Termasuk kaos. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Destinasi Wisata Bandung',
@@ -195,7 +188,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Jakarta Bandung Inap 2 Malam',
                 'harga_paket' => 1470000.00,
                 'durasi' => '3 Hari 2 Malam',
-                'rundown' => 'Paket wisata Jakarta-Bandung dengan menginap 2 malam, mengunjungi berbagai destinasi ikonik di Jakarta dan Bandung.',
                 'note' => 'Termasuk kaos. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Monumen Nasional (Monas)',
@@ -223,7 +215,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Jogjakarta One Day',
                 'harga_paket' => 350000.00,
                 'durasi' => '1 Hari',
-                'rundown' => 'Paket wisata satu hari ke Yogyakarta mengunjungi Keraton, Taman Sari, Pantai Parangtritis, dan Marlioboro.',
                 'note' => 'Harga untuk 50 PAX. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Keraton Yogyakarta',
@@ -248,7 +239,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Paket Wisata Semarang 1',
                 'harga_paket' => 500000.00,
                 'durasi' => '1 Hari',
-                'rundown' => 'Paket wisata satu hari ke Semarang mengunjungi Lawang Sewu, Kota Lama Semarang, Sam Po Kong, dan Masjid Agung Semarang.',
                 'note' => 'Harga untuk 50 PAX. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Lawang Sewu',
@@ -273,7 +263,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Karimunjawa 3D2N Homestay Kipas',
                 'harga_paket' => 1850000.00,
                 'durasi' => '3 Hari 2 Malam',
-                'rundown' => 'Paket wisata 3 hari 2 malam ke Karimunjawa via Jepara (Weekday) dengan menginap di Homestay Kipas, termasuk tour laut dan darat.',
                 'note' => 'Harga untuk 30 PAX. Weekday. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Karimunjawa',
@@ -295,7 +284,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Karimunjawa 3D2N Homestay AC',
                 'harga_paket' => 2100000.00,
                 'durasi' => '3 Hari 2 Malam',
-                'rundown' => 'Paket wisata 3 hari 2 malam ke Karimunjawa via Jepara (Weekday) dengan menginap di Homestay ber-AC, termasuk tour laut dan darat.',
                 'note' => 'Harga untuk 30 PAX. Weekday. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Karimunjawa',
@@ -317,7 +305,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Karimunjawa 3D2N Hotel/Resort',
                 'harga_paket' => 2350000.00,
                 'durasi' => '3 Hari 2 Malam',
-                'rundown' => 'Paket wisata 3 hari 2 malam ke Karimunjawa via Jepara (Weekday) dengan menginap di Hotel/Resort, termasuk tour laut dan darat.',
                 'note' => 'Harga untuk 30 PAX. Weekday. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Karimunjawa',
@@ -339,7 +326,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Outbound Baturaden',
                 'harga_paket' => 100000.00,
                 'durasi' => '1 Hari',
-                'rundown' => 'Kegiatan Outbound Fun Game & Game Challenge (komunikasi, tantangan, leadership) untuk Siswa SMP di Baturaden Curug Bayan Ketenger.',
                 'note' => 'Harga untuk 100 siswa. Peserta: Siswa SMP.',
                 'tempats' => [
                     'Baturaden',
@@ -361,7 +347,6 @@ class PaketSeeder extends Seeder
                 'nama_paket' => 'Trip Dieng One Day',
                 'harga_paket' => 425000.00,
                 'durasi' => '1 Hari',
-                'rundown' => 'Paket wisata satu hari ke Dieng, mengunjungi Telaga Warna, Candi Dieng, dan berbagai destinasi wisata alam di kawasan Dataran Tinggi Dieng.',
                 'note' => 'Harga untuk 20 PAX. Harga sewaktu-waktu bisa berubah.',
                 'tempats' => [
                     'Telaga Warna Dieng',
@@ -388,7 +373,6 @@ class PaketSeeder extends Seeder
                 'nama_paket'  => $paketData['nama_paket'],
                 'harga_paket' => $paketData['harga_paket'],
                 'durasi'      => $paketData['durasi'],
-                'rundown'     => $paketData['rundown'],
                 'note'        => $paketData['note'],
                 'created_at'  => now(),
                 'updated_at'  => now(),

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_paket');
+            $table->unsignedBigInteger('id_paket')->nullable();
             $table->string('nama_pemesan');
             $table->string('no_hp');
             $table->decimal('diskon', 15, 2)->default(0);
@@ -22,6 +22,9 @@ return new class extends Migration
             $table->integer('jumlah_orang')->default(1);
             $table->string('invoice')->unique()->nullable();
             $table->string('status')->nullable();
+            $table->boolean('is_custom')->default(false);
+            $table->json('custom_places')->nullable();
+            $table->json('custom_fasilitas')->nullable();
             $table->foreign('id_paket')->references('id')->on('pakets')->onDelete('cascade');
             $table->timestamps();
         });

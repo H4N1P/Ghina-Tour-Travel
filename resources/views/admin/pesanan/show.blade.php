@@ -123,35 +123,83 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="border-t border-neutral-100 dark:border-neutral-700">
-                                <td class="px-4 py-4">
-                                    <p class="font-semibold text-neutral-800 dark:text-neutral-100">
-                                        {{ $pesanan->paket->nama_paket ?? 'Paket Wisata' }}
-                                    </p>
-                                    @if ($pesanan->paket && $pesanan->paket->durasi)
-                                        <p class="text-xs text-neutral-400 mt-0.5">Durasi: {{ $pesanan->paket->durasi }}
+                            @if($pesanan->is_custom)
+                                @foreach($pesanan->custom_places ?? [] as $place)
+                                    <tr class="border-t border-neutral-100 dark:border-neutral-700">
+                                        <td class="px-4 py-4">
+                                            <p class="font-semibold text-neutral-800 dark:text-neutral-100">
+                                                {{ $place }}
+                                            </p>
+                                            <p class="text-xs text-amber-600 mt-0.5">Custom Order</p>
+                                        </td>
+                                        <td class="px-4 py-4 text-center text-neutral-700 dark:text-neutral-300 font-medium">
+                                            {{ $pesanan->jumlah_orang }} pax
+                                        </td>
+                                        <td class="px-4 py-4 text-right text-neutral-700 dark:text-neutral-300">
+                                            —
+                                        </td>
+                                        <td class="px-4 py-4 text-right font-semibold text-neutral-800 dark:text-neutral-100">
+                                            Rp {{ number_format($pesanan->total_harga, 0, ',', '.') }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                @if(!empty($pesanan->custom_fasilitas))
+                                    @foreach($pesanan->custom_fasilitas as $fasilitas)
+                                        <tr class="border-t border-neutral-100 dark:border-neutral-700">
+                                            <td class="px-4 py-4">
+                                                <p class="font-semibold text-neutral-800 dark:text-neutral-100">
+                                                    {{ $fasilitas['nama_fasilitas'] ?? '' }}
+                                                </p>
+                                                <p class="text-xs text-green-600 mt-0.5">
+                                                    @if(($fasilitas['tipe_fasilitas'] ?? '') === 'konsumsi') 🍽 Konsumsi
+                                                    @elseif(($fasilitas['tipe_fasilitas'] ?? '') === 'akomodasi') 🏨 Akomodasi
+                                                    @elseif(($fasilitas['tipe_fasilitas'] ?? '') === 'transportasi') 🚌 Transportasi
+                                                    @endif
+                                                </p>
+                                            </td>
+                                            <td class="px-4 py-4 text-center text-neutral-700 dark:text-neutral-300 font-medium">
+                                                —
+                                            </td>
+                                            <td class="px-4 py-4 text-right text-neutral-700 dark:text-neutral-300">
+                                                —
+                                            </td>
+                                            <td class="px-4 py-4 text-right font-semibold text-neutral-800 dark:text-neutral-100">
+                                                —
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            @else
+                                <tr class="border-t border-neutral-100 dark:border-neutral-700">
+                                    <td class="px-4 py-4">
+                                        <p class="font-semibold text-neutral-800 dark:text-neutral-100">
+                                            {{ $pesanan->paket->nama_paket ?? 'Paket Wisata' }}
                                         </p>
-                                    @endif
-                                </td>
-                                <td class="px-4 py-4 text-center text-neutral-700 dark:text-neutral-300 font-medium">
-                                    {{ $pesanan->jumlah_orang }} pax
-                                </td>
-                                <td class="px-4 py-4 text-right text-neutral-700 dark:text-neutral-300">
-                                    @if ($pesanan->paket)
-                                        Rp {{ number_format($pesanan->paket->harga_paket, 0, ',', '.') }}
-                                    @else
-                                        —
-                                    @endif
-                                </td>
-                                <td class="px-4 py-4 text-right font-semibold text-neutral-800 dark:text-neutral-100">
-                                    @if ($pesanan->paket)
-                                        Rp
-                                        {{ number_format($pesanan->paket->harga_paket * $pesanan->jumlah_orang, 0, ',', '.') }}
-                                    @else
-                                        Rp {{ number_format($pesanan->total_harga, 0, ',', '.') }}
-                                    @endif
-                                </td>
-                            </tr>
+                                        @if ($pesanan->paket && $pesanan->paket->durasi)
+                                            <p class="text-xs text-neutral-400 mt-0.5">Durasi: {{ $pesanan->paket->durasi }}
+                                            </p>
+                                        @endif
+                                    </td>
+                                    <td class="px-4 py-4 text-center text-neutral-700 dark:text-neutral-300 font-medium">
+                                        {{ $pesanan->jumlah_orang }} pax
+                                    </td>
+                                    <td class="px-4 py-4 text-right text-neutral-700 dark:text-neutral-300">
+                                        @if ($pesanan->paket)
+                                            Rp {{ number_format($pesanan->paket->harga_paket, 0, ',', '.') }}
+                                        @else
+                                            —
+                                        @endif
+                                    </td>
+                                    <td class="px-4 py-4 text-right font-semibold text-neutral-800 dark:text-neutral-100">
+                                        @if ($pesanan->paket)
+                                            Rp
+                                            {{ number_format($pesanan->paket->harga_paket * $pesanan->jumlah_orang, 0, ',', '.') }}
+                                        @else
+                                            Rp {{ number_format($pesanan->total_harga, 0, ',', '.') }}
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>

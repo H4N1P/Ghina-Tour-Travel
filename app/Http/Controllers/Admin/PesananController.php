@@ -45,6 +45,15 @@ class PesananController extends Controller
     }
 
     /**
+     * Show the form for creating a custom order.
+     */
+    public function createCustom()
+    {
+        $pakets = Paket::with(['fasilitas', 'tempats'])->get();
+        return view('admin.pesanan.create-custom', compact('pakets'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -75,6 +84,46 @@ class PesananController extends Controller
     }
 
     /**
+     * Store a custom order.
+     */
+    public function storeCustom(Request $request)
+    {
+        $request->validate([
+            'nama_pemesan'     => 'required|string|max:255',
+            'no_hp'            => 'required|string|max:20',
+            'diskon'           => 'nullable|numeric|min:0|max:100',
+            'total_harga'      => 'required|numeric|min:0',
+            'tanggal_acara'    => 'required|date',
+            'jumlah_orang'     => 'required|integer|min:1',
+            'custom_places'    => 'required|array|min:1',
+            'custom_places.*'  => 'required|string|max:255',
+            'custom_fasilitas' => 'nullable|array',
+        ]);
+
+        // Process custom_fasilitas to ensure proper format
+        $customFasilitas = null;
+        if ($request->has('custom_fasilitas') && is_array($request->custom_fasilitas)) {
+            $customFasilitas = array_values($request->custom_fasilitas);
+        }
+
+        Pesanan::create([
+            'nama_pemesan'     => $request->nama_pemesan,
+            'no_hp'            => $request->no_hp,
+            'diskon'           => $request->diskon ?? 0,
+            'total_harga'      => $request->total_harga,
+            'jumlah_orang'     => $request->jumlah_orang,
+            'tanggal_acara'    => $request->tanggal_acara,
+            'invoice'          => 'INV-' . strtoupper(uniqid()),
+            'status'           => 'pending',
+            'is_custom'        => true,
+            'custom_places'    => $request->custom_places,
+            'custom_fasilitas' => $customFasilitas,
+        ]);
+
+        return redirect()->route('admin.pesanan.index')->with('success', 'Pesanan custom berhasil dibuat.');
+    }
+
+    /**
      * Display the specified resource.
      */
     public function show(Pesanan $pesanan)
@@ -90,6 +139,11 @@ class PesananController extends Controller
     {
         $id = $pesanan; // Keep $id for view compatibility
         $pakets = Paket::with(['fasilitas', 'tempats'])->get();
+        
+        if ($pesanan->is_custom) {
+            return view('admin.pesanan.edit-custom', compact('id', 'pakets'));
+        }
+        
         return view('admin.pesanan.edit', compact('id', 'pakets'));
     }
 
@@ -98,8 +152,7 @@ class PesananController extends Controller
      */
     public function update(Request $request, Pesanan $pesanan)
     {
-        $request->validate([
-            'id_paket'      => 'required|exists:pakets,id',
+        $rules = [
             'nama_pemesan'  => 'required|string|max:255',
             'no_hp'         => 'required|string|max:20',
             'diskon'        => 'nullable|numeric|min:0|max:100',
@@ -107,10 +160,16 @@ class PesananController extends Controller
             'tanggal_acara' => 'required|date',
             'jumlah_orang'  => 'required|integer|min:1',
             'status'        => 'nullable|in:pending,batal,selesai',
-        ]);
+        ];
 
-        $pesanan->update($request->only([
-            'id_paket',
+        // If not a custom order, require id_paket
+        if (!$pesanan->is_custom) {
+            $rules['id_paket'] = 'required|exists:pakets,id';
+        }
+
+        $request->validate($rules);
+
+        $updateData = $request->only([
             'nama_pemesan',
             'no_hp',
             'diskon',
@@ -118,7 +177,27 @@ class PesananController extends Controller
             'jumlah_orang',
             'tanggal_acara',
             'status',
-        ]));
+        ]);
+
+        if (!$pesanan->is_custom) {
+            $updateData['id_paket'] = $request->id_paket;
+        }
+
+        // Handle custom order updates
+        if ($pesanan->is_custom) {
+            if ($request->has('custom_places')) {
+                $request->validate([
+                    'custom_places'    => 'required|array|min:1',
+                    'custom_places.*'  => 'required|string|max:255',
+                ]);
+                $updateData['custom_places'] = $request->custom_places;
+            }
+            if ($request->has('custom_fasilitas') && is_array($request->custom_fasilitas)) {
+                $updateData['custom_fasilitas'] = array_values($request->custom_fasilitas);
+            }
+        }
+
+        $pesanan->update($updateData);
 
         return redirect()->route('admin.pesanan.index')->with('success', 'Pesanan berhasil diperbarui.');
     }
