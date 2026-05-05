@@ -25,10 +25,11 @@ Issue ini bertujuan untuk melakukan peningkatan antarmuka pengguna (UI) pada dua
 - **Lokasi Target:** Seluruh _file view_ di dalam direktori `resources/views/admin/` beserta sub-direktorinya.
 - **Referensi Desain:** Folder `UI/Admin/`, dan komponen dari folder `UI/Component`
 - **Rencana Tindakan:**
-    - **Analisis Referensi:** Tinjau terlebih dahulu _file_ desain atau kode referensi yang ada di dalam folder `UI/Admin/` dan `UI/Component` untuk memahami _style guide_ (warna, tipografi, struktur tabel, form, _sidebar_, dll).
-    - **Standardisasi Layout Utama:** Terapkan standar desain tersebut pada _layout_ utama (induk) admin.
-    - **Penerapan Bertahap:** Terapkan gaya visual yang baru pada halaman-halaman spesifik (Dashboard, Manajemen Paket, Manajemen Pesanan, dll).
-    - **Konsistensi UI:** Pastikan komponen-komponen yang sering digunakan seperti tombol, _modal_ CRUD, form input, dan tabel data memiliki desain yang konsisten di seluruh halaman admin.
+    - **Analisis Referensi:** Tinjau terlebih dahulu _file_ desain atau kode referensi yang ada di dalam folder `UI/Admin/`, `UI/Customer/`, dan `UI/Component` untuk memahami struktur _layout_ dan komponen UI.
+    - **Catatan Penting:** JANGAN mengubah tema dan _colour palette_ yang sudah ada. Hanya modifikasi pada UI layoutnya saja agar sesuai dengan referensi desain UI.
+    - **Standardisasi Layout Utama:** Terapkan standar desain struktur/layout tersebut pada _layout_ utama (induk) admin maupun customer.
+    - **Penerapan Bertahap:** Terapkan layout yang baru pada halaman-halaman spesifik (Dashboard, Manajemen Paket, Manajemen Pesanan, dll).
+    - **Konsistensi UI:** Pastikan komponen-komponen yang sering digunakan seperti tombol, _modal_ CRUD, form input, dan tabel data memiliki layout yang konsisten.
 
 ---
 
