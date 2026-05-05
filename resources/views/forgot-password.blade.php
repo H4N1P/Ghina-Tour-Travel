@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login – Ghina Tour Travel</title>
+    <title>Lupa Password – Ghina Tour Travel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet">
@@ -38,7 +38,6 @@
             border: 1px solid #e8dfc8;
         }
 
-        /* Brand */
         .brand {
             text-align: center;
             font-size: 22px;
@@ -52,7 +51,6 @@
             color: #B8952A;
         }
 
-        /* Icon */
         .icon-wrap {
             width: 64px;
             height: 64px;
@@ -70,10 +68,28 @@
             font-size: 18px;
             font-weight: 700;
             color: #3D2008;
-            margin-bottom: 1.75rem;
+            margin-bottom: 0.5rem;
         }
 
-        /* Alert error */
+        .card-subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #8a7050;
+            margin-bottom: 1.75rem;
+            line-height: 1.5;
+        }
+
+        /* Alert */
+        .alert-success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 13px;
+            color: #166534;
+        }
+
         .alert-error {
             background: #fff3f3;
             border: 1px solid #f5c6c6;
@@ -106,17 +122,6 @@
             letter-spacing: 1px;
             color: #8a7050;
             text-transform: uppercase;
-        }
-
-        .forgot-link {
-            font-size: 12px;
-            font-weight: 600;
-            color: #B8952A;
-            text-decoration: none;
-        }
-
-        .forgot-link:hover {
-            color: #8a6e1a;
         }
 
         .input-wrap {
@@ -160,21 +165,6 @@
             color: #c4a97a;
         }
 
-        .btn-eye {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .btn-eye svg {
-            width: 18px;
-            height: 18px;
-            stroke: #B8952A;
-        }
-
         .field-error {
             font-size: 12px;
             color: #dc2626;
@@ -206,6 +196,11 @@
         .btn-submit:active {
             transform: scale(0.98);
             background: #6b5413;
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
         .divider {
@@ -251,7 +246,17 @@
             {{-- <img src="{{ asset('customer/assets/images/logos/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo"> --}}
         </div>
 
-        <div class="card-title">Admin Login</div>
+        <div class="card-title">Lupa Password</div>
+        <div class="card-subtitle">
+            Masukkan email Anda dan kami akan mengirimkan link untuk mereset password.
+        </div>
+
+        {{-- Success message --}}
+        @if (session('status'))
+            <div class="alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
 
         {{-- Validation errors --}}
         @if ($errors->any())
@@ -264,19 +269,7 @@
             </div>
         @endif
 
-        {{-- Session error (wrong credentials) --}}
-        @if (session('error'))
-            <div class="alert-error">{{ session('error') }}</div>
-        @endif
-
-        {{-- Session status (password reset success) --}}
-        @if (session('status'))
-            <div class="alert-success" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 13px; color: #166534;">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
             {{-- Email --}}
@@ -296,60 +289,21 @@
                 @enderror
             </div>
 
-            {{-- Password --}}
-            <div class="field">
-                <div class="label-row">
-                    <label for="password">PASSWORD</label>
-                    <a href="{{ route('password.request') }}" class="forgot-link">Forgot Password?</a>
-                </div>
-                <div class="input-wrap {{ $errors->has('password') ? 'is-invalid' : '' }}">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
-                    <input type="password" id="password" name="password" placeholder="••••••••"
-                        autocomplete="current-password">
-                    <button type="button" class="btn-eye" onclick="togglePassword()" title="Tampilkan password">
-                        <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                            <circle cx="12" cy="12" r="3" />
-                        </svg>
-                    </button>
-                </div>
-                @error('password')
-                    <div class="field-error">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <button type="submit" class="btn-submit">SIGN IN</button>
+            <button type="submit" class="btn-submit">KIRIM LINK RESET</button>
 
             <div class="divider"></div>
         </form>
 
     </div>
 
-    {{-- Back to website --}}
-    <a href="{{ url('/') }}" class="back-link">
+    {{-- Back to login --}}
+    <a href="{{ route('login') }}" class="back-link">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="19" y1="12" x2="5" y2="12" />
             <polyline points="12 19 5 12 12 5" />
         </svg>
-        Kembali ke Website
+        Kembali ke Login
     </a>
-
-    <script>
-        function togglePassword() {
-            var input = document.getElementById('password');
-            var icon = document.getElementById('eye-icon');
-            var isHidden = input.type === 'password';
-            input.type = isHidden ? 'text' : 'password';
-            icon.innerHTML = isHidden ?
-                '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>' :
-                '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
-        }
-    </script>
 
 </body>
 
