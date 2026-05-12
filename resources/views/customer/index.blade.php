@@ -214,7 +214,7 @@
     <section id="galeri" class="sec-bg py-20">
         <div class="mx-auto max-w-[1040px] px-6 text-center lg:px-14">
             <h2 class="text-[32px] font-extrabold t">Galeri</h2>
-            <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-6">
+            <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
                 @forelse($fotos as $index => $foto)
                     @php
                         $src = $foto->path
@@ -222,7 +222,11 @@
                                 ? $foto->path
                                 : asset('storage/' . $foto->path))
                             : null;
-                        $span = in_array($index, [0, 5]) ? 'md:col-span-3' : 'md:col-span-2';
+                        
+                        // Pola Grid Figma (2 Baris, 4 Slot/Baris):
+                        // Baris 1: 1 foto (span 2) kiri, 2 foto (span 1) kanan -> index 0, 1, 2
+                        // Baris 2: dibalik, 2 foto (span 1) kiri, 1 foto (span 2) kanan -> index 3, 4, 5
+                        $span = in_array($index % 6, [0, 5]) ? 'md:col-span-2' : 'md:col-span-1';
                     @endphp
                     <div class="galeri-item {{ $span }} h-[180px] rounded-lg p-3 md:h-[210px]"
                         style="background:var(--bg-section);border:1px solid var(--border);">

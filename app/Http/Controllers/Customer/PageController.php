@@ -24,7 +24,7 @@ class PageController extends Controller
                 ->get();
 
             $fotos = Gallery::orderBy('created_at', 'desc')
-                ->take(8)
+                ->take(6)
                 ->get();
         } catch (QueryException) {
             $pakets = collect();
