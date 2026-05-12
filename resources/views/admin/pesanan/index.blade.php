@@ -10,14 +10,14 @@
             <form id="filterForm" action="{{ route('admin.pesanan.index') }}" method="GET" class="flex flex-wrap items-center gap-2">
                 {{-- Search bar with icon inside --}}
                 <div class="relative">
-                    <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-admin-muted pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     <input type="text" name="search" placeholder="Cari pesanan..." value="{{ request('search') }}"
-                        class="pl-9 pr-3 py-2 text-sm rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 outline-none w-48">
+                        class="pl-9 pr-3 py-2 text-sm rounded-lg border border-admin-border bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 outline-none w-48">
                 </div>
                 
                 {{-- Status dropdown (auto-submit) --}}
                 <select name="status" onchange="document.getElementById('filterForm').submit()"
-                    class="px-3 py-2 text-sm rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 outline-none">
+                    class="px-3 py-2 text-sm rounded-lg border border-admin-border bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 outline-none">
                     <option value="">Semua Status</option>
                     <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pending</option>
                     <option value="selesai" {{ request('status') == 'selesai' ? 'selected' : '' }}>Selesai</option>
@@ -26,7 +26,7 @@
 
                 {{-- Date picker (auto-submit) --}}
                 <input type="date" name="tanggal" value="{{ request('tanggal') }}" onchange="document.getElementById('filterForm').submit()"
-                    class="px-3 py-2 text-sm rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 outline-none">
+                    class="px-3 py-2 text-sm rounded-lg border border-admin-border bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 outline-none">
                 
                 @if(request()->anyFilled(['search', 'status', 'tanggal']))
                     <a href="{{ route('admin.pesanan.index') }}" class="text-xs text-red-500 hover:underline font-medium">Reset</a>
@@ -52,41 +52,41 @@
         </div>
     </div>
 
-    <div class="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+    <div class="bg-admin-card rounded-xl border border-admin-border overflow-hidden">
         <div class="overflow-x-auto">
             <table class="w-full border-collapse">
                 <thead>
-                    <tr class="bg-neutral-50 dark:bg-neutral-800">
+                    <tr class="bg-admin-bg">
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-700">
+                            class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Invoice</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-700">
+                            class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Pemesan</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-700">
+                            class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Paket</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-700">
+                            class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Tanggal Acara</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-700">
+                            class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Jumlah Pax</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-700">
+                            class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Total</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-700">
+                            class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Status</th>
                         <th
-                            class="px-4 py-3 text-center text-xs font-semibold text-neutral-500 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-700">
+                            class="px-4 py-3 text-center text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($pesanans as $p)
                         <tr
-                            class="border-b border-neutral-100 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/50">
+                            class="border-b border-admin-border hover:bg-neutral-50 dark:hover:bg-neutral-800/50">
                             <td class="px-4 py-3 text-sm font-mono text-purple-600">{{ $p->invoice }}</td>
                             <td class="px-4 py-3">
                                 <div class="font-medium text-sm">{{ $p->nama_pemesan }}</div>
@@ -95,7 +95,7 @@
                             <td class="px-4 py-3 text-sm">
                                 @if($p->is_custom)
                                     <span class="text-amber-600 font-medium">Custom Order</span>
-                                    <div class="text-xs text-neutral-400 mt-1">
+                                    <div class="text-xs text-admin-muted mt-1">
                                         {{ count($p->custom_places ?? []) }} tempat
                                     </div>
                                 @else
@@ -106,7 +106,7 @@
                             </td>
                             <td class="px-4 py-3 text-sm">{{ $p->jumlah_orang ?? '-' }} pax</td>
                             <td class="px-4 py-3 text-sm">
-                                <div class="font-semibold text-neutral-800 dark:text-neutral-200">
+                                <div class="font-semibold text-admin-text">
                                     Rp {{ number_format($p->total_harga, 0, ',', '.') }}
                                 </div>
                                 @if ($p->diskon > 0)
@@ -168,7 +168,7 @@
             </table>
         </div>
         @if ($pesanans->hasPages())
-            <div class="px-4 py-4 border-t border-neutral-200 dark:border-neutral-700">
+            <div class="px-4 py-4 border-t border-admin-border">
                 {{ $pesanans->links() }}
             </div>
         @endif

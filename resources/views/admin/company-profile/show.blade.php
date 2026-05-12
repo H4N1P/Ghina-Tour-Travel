@@ -17,38 +17,38 @@
             </a>
         </div>
 
-        <div class="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+        <div class="bg-admin-card rounded-xl border border-admin-border overflow-hidden">
             {{-- About --}}
-            <div class="p-6 border-b border-neutral-100 dark:border-neutral-800">
-                <label class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Tentang Perusahaan</label>
-                <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            <div class="p-6 border-b border-admin-border">
+                <label class="text-xs font-semibold text-admin-muted uppercase tracking-wider">Tentang Perusahaan</label>
+                <p class="mt-2 text-sm text-admin-text leading-relaxed">
                     {{ $companyProfile->about ?? '-' }}
                 </p>
             </div>
 
             {{-- Vision & Mission --}}
-            <div class="p-6 border-b border-neutral-100 dark:border-neutral-800">
-                <label class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Visi & Misi</label>
-                <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line">{{ $companyProfile->vision_mission ?? '-' }}</p>
+            <div class="p-6 border-b border-admin-border">
+                <label class="text-xs font-semibold text-admin-muted uppercase tracking-wider">Visi & Misi</label>
+                <p class="mt-2 text-sm text-admin-text leading-relaxed whitespace-pre-line">{{ $companyProfile->vision_mission ?? '-' }}</p>
             </div>
 
             {{-- Contact Info --}}
             <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                    <label class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Alamat</label>
-                    <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">{{ $companyProfile->address ?? '-' }}</p>
+                    <label class="text-xs font-semibold text-admin-muted uppercase tracking-wider">Alamat</label>
+                    <p class="mt-2 text-sm text-admin-text">{{ $companyProfile->address ?? '-' }}</p>
                 </div>
                 <div>
-                    <label class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">WhatsApp</label>
-                    <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">{{ $companyProfile->whatsapp ?? '-' }}</p>
+                    <label class="text-xs font-semibold text-admin-muted uppercase tracking-wider">WhatsApp</label>
+                    <p class="mt-2 text-sm text-admin-text">{{ $companyProfile->whatsapp ?? '-' }}</p>
                 </div>
                 <div>
-                    <label class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Email</label>
-                    <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">{{ $companyProfile->email ?? '-' }}</p>
+                    <label class="text-xs font-semibold text-admin-muted uppercase tracking-wider">Email</label>
+                    <p class="mt-2 text-sm text-admin-text">{{ $companyProfile->email ?? '-' }}</p>
                 </div>
                 <div>
-                    <label class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Instagram</label>
-                    <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">{{ $companyProfile->instagram ?? '-' }}</p>
+                    <label class="text-xs font-semibold text-admin-muted uppercase tracking-wider">Instagram</label>
+                    <p class="mt-2 text-sm text-admin-text">{{ $companyProfile->instagram ?? '-' }}</p>
                 </div>
             </div>
         </div>

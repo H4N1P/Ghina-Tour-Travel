@@ -23,9 +23,6 @@
 
     <x-chatbot-widget mode="public" />
 
-    <a href="https://wa.me/{{ preg_replace('/\D/', '', $companyProfile->whatsapp ?? '6281234567890') }}" target="_blank" class="wa-float" aria-label="Hubungi lewat WhatsApp">
-        <img src="{{ asset('customer/icon/whatsapp.svg') }}" alt="WhatsApp">
-    </a>
 
     @include('components.layout.scripts')
     @yield('extra_scripts')

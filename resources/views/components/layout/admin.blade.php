@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/css/admin.css', 'resources/css/chatbot.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full bg-[#f3f4f6] text-[#202638]">
+<body class="h-full">
     <div class="admin-shell">
         <aside id="sidebar" class="admin-sidebar">
             <div class="admin-brand">
@@ -35,7 +35,7 @@
                     <span class="admin-nav__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2ZM8.5 11.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5Z"/></svg></span>
                     Galeri
                 </a>
-                <a href="{{ route('admin.company-profile.show', 1) }}" class="admin-nav__link {{ request()->routeIs('admin.company-profile.*') ? 'is-active' : '' }}">
+                <a href="{{ route('admin.company-profile.show') }}" class="admin-nav__link {{ request()->routeIs('admin.company-profile.*') ? 'is-active' : '' }}">
                     <span class="admin-nav__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 21V3h16v18h-6v-5h-4v5H4Zm4-14h3V5H8v2Zm5 0h3V5h-3v2ZM8 11h3V9H8v2Zm5 0h3V9h-3v2Z"/></svg></span>
                     Company Profile
                 </a>
@@ -56,10 +56,13 @@
                 </button>
 
                 <div class="ml-auto flex items-center gap-5">
-                    <button id="adminThemeToggle" type="button" class="admin-theme-toggle" title="Ganti tema">
-                        <span id="adminSunIcon" class="admin-theme-toggle__knob">☀</span>
-                        <span id="adminMoonIcon">☾</span>
-                    </button>
+                    <label class="tgl" title="Ganti tema">
+                        <input type="checkbox" id="adminThemeToggle" />
+                        <span class="sl">
+                            <span style="font-size:11px;z-index:1;">☀️</span>
+                            <span style="font-size:11px;z-index:1;">🌙</span>
+                        </span>
+                    </label>
 
                     <div class="relative">
                         <button type="button" onclick="toggleLogoutMenu()" class="admin-profile">
@@ -139,13 +142,14 @@
             function applyTheme(isDark) {
                 html.classList.toggle('dark', isDark);
                 html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+                if (toggle) toggle.checked = isDark;
             }
 
-            applyTheme(localStorage.getItem('admin-theme') === 'dark');
+            applyTheme(localStorage.getItem('theme') === 'dark');
 
-            toggle?.addEventListener('click', function() {
-                const isDark = !html.classList.contains('dark');
-                localStorage.setItem('admin-theme', isDark ? 'dark' : 'light');
+            toggle?.addEventListener('change', function() {
+                const isDark = toggle.checked;
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 applyTheme(isDark);
             });
         })();

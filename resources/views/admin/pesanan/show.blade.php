@@ -8,7 +8,7 @@
         {{-- Action Bar --}}
         <div class="flex items-center justify-between mb-6">
             <a href="{{ route('admin.pesanan.index') }}"
-                class="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
+                class="inline-flex items-center gap-2 text-sm text-admin-muted hover:text-admin-text transition-colors">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
@@ -36,7 +36,7 @@
 
         {{-- ── Invoice Card ── --}}
         <div id="invoice-print"
-            class="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-sm overflow-hidden">
+            class="bg-admin-card rounded-2xl border border-admin-border shadow-sm overflow-hidden">
 
             {{-- Header stripe --}}
             <div class="bg-gradient-to-r from-amber-500 to-orange-500 px-8 py-6">
@@ -63,8 +63,8 @@
 
             {{-- Status badge --}}
             <div
-                class="px-8 py-3 bg-neutral-50 dark:bg-neutral-800/50 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
-                <span class="text-xs text-neutral-500 dark:text-neutral-400">Status Pesanan</span>
+                class="px-8 py-3 bg-admin-bg/50 border-b border-admin-border flex items-center justify-between">
+                <span class="text-xs text-admin-muted">Status Pesanan</span>
                 <span
                     class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold
                 {{ $pesanan->status === 'selesai'
@@ -85,40 +85,40 @@
                 <div class="grid grid-cols-2 gap-6">
                     <div>
                         <p
-                            class="text-xs font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mb-3">
+                            class="text-xs font-semibold text-admin-muted uppercase tracking-wider mb-3">
                             Billed To</p>
-                        <p class="font-bold text-neutral-800 dark:text-neutral-100 text-base">{{ $pesanan->nama_pemesan }}
+                        <p class="font-bold text-admin-text text-base">{{ $pesanan->nama_pemesan }}
                         </p>
-                        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">{{ $pesanan->no_hp }}</p>
+                        <p class="text-sm text-admin-muted mt-1">{{ $pesanan->no_hp }}</p>
                     </div>
                     <div>
                         <p
-                            class="text-xs font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mb-3">
+                            class="text-xs font-semibold text-admin-muted uppercase tracking-wider mb-3">
                             Tanggal Tour</p>
-                        <p class="font-bold text-neutral-800 dark:text-neutral-100 text-base">
+                        <p class="font-bold text-admin-text text-base">
                             {{ \Carbon\Carbon::parse($pesanan->tanggal_acara)->format('d F Y') }}
                         </p>
-                        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+                        <p class="text-sm text-admin-muted mt-1">
                             {{ \Carbon\Carbon::parse($pesanan->tanggal_acara)->locale('id')->isoFormat('dddd') }}
                         </p>
                     </div>
                 </div>
 
                 {{-- Line items table --}}
-                <div class="rounded-xl border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="rounded-xl border border-admin-border overflow-hidden">
                     <table class="w-full text-sm">
                         <thead>
-                            <tr class="bg-neutral-50 dark:bg-neutral-800">
-                                <th class="px-4 py-3 text-left text-xs font-bold text-neutral-500 uppercase tracking-wider">
+                            <tr class="bg-admin-bg">
+                                <th class="px-4 py-3 text-left text-xs font-bold text-admin-muted uppercase tracking-wider">
                                     Deskripsi</th>
                                 <th
-                                    class="px-4 py-3 text-center text-xs font-bold text-neutral-500 uppercase tracking-wider">
+                                    class="px-4 py-3 text-center text-xs font-bold text-admin-muted uppercase tracking-wider">
                                     Pax</th>
                                 <th
-                                    class="px-4 py-3 text-right text-xs font-bold text-neutral-500 uppercase tracking-wider">
+                                    class="px-4 py-3 text-right text-xs font-bold text-admin-muted uppercase tracking-wider">
                                     Harga / Pax</th>
                                 <th
-                                    class="px-4 py-3 text-right text-xs font-bold text-neutral-500 uppercase tracking-wider">
+                                    class="px-4 py-3 text-right text-xs font-bold text-admin-muted uppercase tracking-wider">
                                     Subtotal</th>
                             </tr>
                         </thead>
@@ -127,18 +127,18 @@
                                 @foreach($pesanan->custom_places ?? [] as $place)
                                     <tr class="border-t border-neutral-100 dark:border-neutral-700">
                                         <td class="px-4 py-4">
-                                            <p class="font-semibold text-neutral-800 dark:text-neutral-100">
+                                            <p class="font-semibold text-admin-text">
                                                 {{ $place }}
                                             </p>
                                             <p class="text-xs text-amber-600 mt-0.5">Custom Order</p>
                                         </td>
-                                        <td class="px-4 py-4 text-center text-neutral-700 dark:text-neutral-300 font-medium">
+                                        <td class="px-4 py-4 text-center text-admin-text font-medium">
                                             {{ $pesanan->jumlah_orang }} pax
                                         </td>
-                                        <td class="px-4 py-4 text-right text-neutral-700 dark:text-neutral-300">
+                                        <td class="px-4 py-4 text-right text-admin-text">
                                             —
                                         </td>
-                                        <td class="px-4 py-4 text-right font-semibold text-neutral-800 dark:text-neutral-100">
+                                        <td class="px-4 py-4 text-right font-semibold text-admin-text">
                                             Rp {{ number_format($pesanan->total_harga, 0, ',', '.') }}
                                         </td>
                                     </tr>
@@ -147,7 +147,7 @@
                                     @foreach($pesanan->custom_fasilitas as $fasilitas)
                                         <tr class="border-t border-neutral-100 dark:border-neutral-700">
                                             <td class="px-4 py-4">
-                                                <p class="font-semibold text-neutral-800 dark:text-neutral-100">
+                                                <p class="font-semibold text-admin-text">
                                                     {{ $fasilitas['nama_fasilitas'] ?? '' }}
                                                 </p>
                                                 <p class="text-xs text-green-600 mt-0.5">
@@ -157,13 +157,13 @@
                                                     @endif
                                                 </p>
                                             </td>
-                                            <td class="px-4 py-4 text-center text-neutral-700 dark:text-neutral-300 font-medium">
+                                            <td class="px-4 py-4 text-center text-admin-text font-medium">
                                                 —
                                             </td>
-                                            <td class="px-4 py-4 text-right text-neutral-700 dark:text-neutral-300">
+                                            <td class="px-4 py-4 text-right text-admin-text">
                                                 —
                                             </td>
-                                            <td class="px-4 py-4 text-right font-semibold text-neutral-800 dark:text-neutral-100">
+                                            <td class="px-4 py-4 text-right font-semibold text-admin-text">
                                                 —
                                             </td>
                                         </tr>
@@ -172,25 +172,25 @@
                             @else
                                 <tr class="border-t border-neutral-100 dark:border-neutral-700">
                                     <td class="px-4 py-4">
-                                        <p class="font-semibold text-neutral-800 dark:text-neutral-100">
+                                        <p class="font-semibold text-admin-text">
                                             {{ $pesanan->paket->nama_paket ?? 'Paket Wisata' }}
                                         </p>
                                         @if ($pesanan->paket && $pesanan->paket->durasi)
-                                            <p class="text-xs text-neutral-400 mt-0.5">Durasi: {{ $pesanan->paket->durasi }}
+                                            <p class="text-xs text-admin-muted mt-0.5">Durasi: {{ $pesanan->paket->durasi }}
                                             </p>
                                         @endif
                                     </td>
-                                    <td class="px-4 py-4 text-center text-neutral-700 dark:text-neutral-300 font-medium">
+                                    <td class="px-4 py-4 text-center text-admin-text font-medium">
                                         {{ $pesanan->jumlah_orang }} pax
                                     </td>
-                                    <td class="px-4 py-4 text-right text-neutral-700 dark:text-neutral-300">
+                                    <td class="px-4 py-4 text-right text-admin-text">
                                         @if ($pesanan->paket)
                                             Rp {{ number_format($pesanan->paket->harga_paket, 0, ',', '.') }}
                                         @else
                                             —
                                         @endif
                                     </td>
-                                    <td class="px-4 py-4 text-right font-semibold text-neutral-800 dark:text-neutral-100">
+                                    <td class="px-4 py-4 text-right font-semibold text-admin-text">
                                         @if ($pesanan->paket)
                                             Rp
                                             {{ number_format($pesanan->paket->harga_paket * $pesanan->jumlah_orang, 0, ',', '.') }}
@@ -216,7 +216,7 @@
                             $total = $pesanan->total_harga;
                         @endphp
 
-                        <div class="flex justify-between text-sm text-neutral-600 dark:text-neutral-400">
+                        <div class="flex justify-between text-sm text-admin-muted">
                             <span>Subtotal</span>
                             <span>Rp {{ number_format($subtotal, 0, ',', '.') }}</span>
                         </div>
@@ -229,8 +229,8 @@
                         @endif
 
                         <div
-                            class="border-t border-neutral-200 dark:border-neutral-700 pt-2 flex justify-between items-center">
-                            <span class="font-bold text-neutral-800 dark:text-neutral-100">Total</span>
+                            class="border-t border-admin-border pt-2 flex justify-between items-center">
+                            <span class="font-bold text-admin-text">Total</span>
                             <span class="text-xl font-bold text-amber-600 dark:text-amber-400">
                                 Rp {{ number_format($total, 0, ',', '.') }}
                             </span>
@@ -241,8 +241,8 @@
                 {{-- Fasilitas paket (opsional) --}}
                 @if ($pesanan->paket && $pesanan->paket->fasilitas && $pesanan->paket->fasilitas->count() > 0)
                     @php $fasGroup = $pesanan->paket->fasilitas->groupBy('tipe_fasilitas'); @endphp
-                    <div class="border-t border-neutral-100 dark:border-neutral-800 pt-5">
-                        <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">Fasilitas Termasuk
+                    <div class="border-t border-admin-border pt-5">
+                        <p class="text-xs font-semibold text-admin-muted uppercase tracking-wider mb-3">Fasilitas Termasuk
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             @foreach ($fasGroup as $tipe => $items)
@@ -255,7 +255,7 @@
                                         'transportasi'
                                             => 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400',
                                         default
-                                            => 'bg-neutral-50 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400',
+                                            => 'bg-admin-bg text-admin-muted',
                                     };
                                 @endphp
                                 <div class="rounded-lg p-3 {{ $color }}">
@@ -275,11 +275,11 @@
                 @endif
 
                 {{-- Footer note --}}
-                <div class="border-t border-neutral-100 dark:border-neutral-800 pt-5 text-center">
+                <div class="border-t border-admin-border pt-5 text-center">
                     <p class="text-xs text-neutral-400">
                         Terima kasih telah mempercayakan perjalanan Anda kepada <strong>Ghina Tour & Travel</strong>.
                     </p>
-                    <p class="text-xs text-neutral-400 mt-1">
+                    <p class="text-xs text-admin-muted mt-1">
                         Diterbitkan: {{ \Carbon\Carbon::parse($pesanan->created_at)->format('d M Y, H:i') }}
                     </p>
                 </div>
@@ -287,7 +287,7 @@
 
             {{-- Danger zone --}}
             <div
-                class="px-8 py-4 bg-neutral-50 dark:bg-neutral-800/50 border-t border-neutral-100 dark:border-neutral-800 flex justify-end">
+                class="px-8 py-4 bg-admin-bg/50 border-t border-admin-border flex justify-end">
                 <form action="{{ route('admin.pesanan.destroy', $pesanan->id) }}" method="POST"
                     data-confirm="delete" data-confirm-title="Apakah anda yakin menghapus pesanan?"
                     data-confirm-message="Data akan hilang dan tidak bisa dikembalikan">

@@ -37,7 +37,7 @@ class PesananSeeder extends Seeder
                 'tanggal_acara' => now()->addDays(rand(1, 30)),
                 'jumlah_orang' => $jumlahOrang,
                 'invoice' => 'INV-' . strtoupper(Str::random(10)),
-                'status' => 'pending',
+                'status' => $faker->randomElement(['pending', 'selesai']),
             ]);
         }
     }

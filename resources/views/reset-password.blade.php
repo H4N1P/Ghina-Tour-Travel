@@ -50,11 +50,6 @@
         }
 
         .icon-wrap {
-            width: 64px;
-            height: 64px;
-            background: #FBF5E6;
-            border-radius: 50%;
-            border: 2px solid #D4AA3A;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -241,7 +236,8 @@
 
         {{-- Logo icon --}}
         <div class="icon-wrap">
-            {{-- <img src="{{ asset('customer/assets/images/logos/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo"> --}}
+            <img src="{{ asset('customer/assets/images/logos/logo.png') }}"
+                style="width:100px;height:100px;object-fit:contain;" alt="Logo">
         </div>
 
         <div class="card-title">Reset Password</div>
@@ -294,8 +290,8 @@
                     <input type="password" id="password" name="password" placeholder="Password baru"
                         autocomplete="new-password" required>
                     <button type="button" class="btn-eye" onclick="togglePassword(this)" title="Tampilkan password">
-                        <svg id="eye-icon-1" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                            stroke-linejoin="round">
+                        <svg id="eye-icon-1" viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                             <circle cx="12" cy="12" r="3" />
                         </svg>
@@ -318,8 +314,8 @@
                     <input type="password" id="password_confirmation" name="password_confirmation"
                         placeholder="Konfirmasi password baru" autocomplete="new-password" required>
                     <button type="button" class="btn-eye" onclick="togglePassword(this)" title="Tampilkan password">
-                        <svg id="eye-icon-2" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                            stroke-linejoin="round">
+                        <svg id="eye-icon-2" viewBox="0 0 24 24" fill="none" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                             <circle cx="12" cy="12" r="3" />
                         </svg>

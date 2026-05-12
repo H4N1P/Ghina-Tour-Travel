@@ -49,11 +49,11 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('pesanan', PesananController::class);
     Route::get('pesanan/create/custom', [PesananController::class, 'createCustom'])->name('pesanan.create-custom');
     Route::post('pesanan/store/custom', [PesananController::class, 'storeCustom'])->name('pesanan.store-custom');
-    Route::resource('company-profile', CompanyProfileController::class)->only([
-        'show',
-        'edit',
-        'update'
-    ]);
+
+    Route::get('company-profile', [CompanyProfileController::class, 'show'])->name('company-profile.show');
+    Route::get('company-profile/edit', [CompanyProfileController::class, 'edit'])->name('company-profile.edit');
+    Route::put('company-profile', [CompanyProfileController::class, 'update'])->name('company-profile.update');
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // AJAX endpoint for gallery dependent dropdown

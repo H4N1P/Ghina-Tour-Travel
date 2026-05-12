@@ -390,7 +390,7 @@ class PaketSeeder extends Seeder
                 $keywords = str_replace(' ', ',', $namaTempat);
                 DB::table('galleries')->insert([
                     'id_tempat' => $tempatId,
-                    'path'      => "https://source.unsplash.com/featured/?travel,{$keywords}",
+                    'path'      => "https://loremflickr.com/600/400/travel,{$keywords}",
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);

@@ -4,6 +4,11 @@
     'messageUrl' => route('public-chatbot.message'),
 ])
 
+<?php
+    $companyProfile = \App\Models\CompanyProfile::first();
+    $waLink = "https://wa.me/" . preg_replace('/\D/', '', $companyProfile->whatsapp ?? '6281234567890');
+?>
+
 <button
     id="chatbotTrigger"
     class="chatbot-trigger"
@@ -21,6 +26,7 @@
     data-menu-url="{{ $menuUrl }}"
     data-message-url="{{ $messageUrl }}"
     data-mode="{{ $mode }}"
+    data-wa="{{ $waLink }}"
     aria-label="Ghina Assistant">
     <header class="chatbot-header">
         <div class="chatbot-brand-icon" aria-hidden="true">

@@ -52,11 +52,6 @@
 
         /* Icon */
         .icon-wrap {
-            width: 64px;
-            height: 64px;
-            background: #FBF5E6;
-            border-radius: 50%;
-            border: 2px solid #D4AA3A;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -246,7 +241,8 @@
 
         {{-- Logo icon --}}
         <div class="icon-wrap">
-            {{-- <img src="{{ asset('customer/assets/images/logos/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo"> --}}
+            <img src="{{ asset('customer/assets/images/logos/logo.png') }}"
+                style="width:100px;height:100px;object-fit:contain;" alt="Logo">
         </div>
 
         <div class="card-title">Admin Login</div>
@@ -269,7 +265,8 @@
 
         {{-- Session status (password reset success) --}}
         @if (session('status'))
-            <div class="alert-success" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 13px; color: #166534;">
+            <div class="alert-success"
+                style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 13px; color: #166534;">
                 {{ session('status') }}
             </div>
         @endif

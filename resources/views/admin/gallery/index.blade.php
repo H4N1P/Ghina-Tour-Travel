@@ -17,16 +17,16 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         @forelse($galleries as $g)
             <div
-                class="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden group">
+                class="bg-admin-card rounded-xl border border-admin-border overflow-hidden group">
                 <div class="relative h-40">
                     @if ($g->type === 'video')
-                        <div class="w-full h-full bg-neutral-800 flex items-center justify-center">
+                        <div class="w-full h-full bg-admin-bg flex items-center justify-center">
                             <svg class="w-12 h-12 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         </div>
                     @elseif ($g->path)
                         <img src="{{ asset('storage/' . $g->path) }}" alt="Gallery" class="w-full h-full object-cover">
                     @else
-                        <div class="w-full h-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
+                        <div class="w-full h-full bg-admin-bg flex items-center justify-center">
                             <svg class="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -75,33 +75,33 @@
 
                 <div class="p-3">
                     @if ($g->tempat)
-                        <p class="text-xs font-medium text-neutral-700 dark:text-neutral-300 truncate">
+                        <p class="text-xs font-medium text-admin-text truncate">
                             📍 {{ $g->tempat->nama_tempat }}
                         </p>
                         @if ($g->tempat->paket)
-                            <p class="text-xs text-neutral-400 mt-0.5 truncate">{{ $g->tempat->paket->nama_paket }}</p>
+                            <p class="text-xs text-admin-muted mt-0.5 truncate">{{ $g->tempat->paket->nama_paket }}</p>
                         @endif
                     @elseif($g->fasilitas)
-                        <p class="text-xs font-medium text-neutral-700 dark:text-neutral-300 truncate">
+                        <p class="text-xs font-medium text-admin-text truncate">
                             ⭐ {{ $g->fasilitas->nama_fasilitas }}
                         </p>
                         @if ($g->fasilitas->paket)
-                            <p class="text-xs text-neutral-400 mt-0.5 truncate">{{ $g->fasilitas->paket->nama_paket }}</p>
+                            <p class="text-xs text-admin-muted mt-0.5 truncate">{{ $g->fasilitas->paket->nama_paket }}</p>
                         @endif
                     @else
-                        <p class="text-xs text-neutral-400 truncate">Tidak dikaitkan</p>
+                        <p class="text-xs text-admin-muted truncate">Tidak dikaitkan</p>
                     @endif
-                    <p class="text-xs text-neutral-400 mt-1">{{ $g->created_at->format('d M Y') }}</p>
+                    <p class="text-xs text-admin-muted mt-1">{{ $g->created_at->format('d M Y') }}</p>
                 </div>
             </div>
         @empty
             <div class="col-span-full text-center py-16">
-                <svg class="w-16 h-16 mx-auto text-neutral-300 mb-4" fill="none" stroke="currentColor"
+                <svg class="w-16 h-16 mx-auto text-admin-muted mb-4" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <p class="text-neutral-400">Belum ada media di galeri</p>
+                <p class="text-admin-muted">Belum ada media di galeri</p>
                 <a href="{{ route('admin.gallery.create') }}"
                     class="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium rounded-lg transition-colors">
                     Upload Media Pertama

@@ -9,13 +9,17 @@ use App\Models\CompanyProfile;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 class ChatbotController extends Controller
 {
+    /**
+     * Handle public chatbot messages
+     */
     public function handlePublicMessage(Request $request): JsonResponse
     {
         try {
-            $userMessage = strtolower(trim($request->input('message', '')));
+            $userMessage = trim($request->input('message', ''));
 
             if ($userMessage === '') {
                 return response()->json([
@@ -24,40 +28,13 @@ class ChatbotController extends Controller
                 ]);
             }
 
-            if ($this->containsKeyword($userMessage, ['best seller', 'bestseller', 'terlaris'])) {
-                return $this->handlePublicPaketQuery(limit: 3, intro: 'Untuk Paket Best Seller, berikut pilihan yang bisa Anda cek:');
-            }
+            // Let AI handle the public message completely
+            $aiResponse = $this->callGemini($userMessage);
 
-            if ($this->containsKeyword($userMessage, ['termurah', 'murah', 'harga'])) {
-                return $this->handlePublicPaketQuery(sort: 'price_asc', limit: 3, intro: 'Berikut paket dengan harga paling terjangkau:');
-            }
-
-            if ($this->containsKeyword($userMessage, ['promo', 'lebaran'])) {
-                return response()->json([
-                    'success' => true,
-                    'response' => "Promo terbaru dapat berubah sewaktu-waktu. Silakan hubungi admin lewat WhatsApp untuk penawaran paling akurat.",
-                    'options' => ['Paket Best Seller', 'Paket Termurah', 'Tanya Admin']
-                ]);
-            }
-
-            if ($this->containsKeyword($userMessage, ['admin', 'kontak', 'whatsapp', 'wa', 'tanya'])) {
-                $company = CompanyProfile::first();
-                $phone = $company?->whatsapp ?: '081234567890';
-                return response()->json([
-                    'success' => true,
-                    'response' => "Anda bisa menghubungi admin Ghina Tour Travel melalui WhatsApp: **{$phone}**."
-                ]);
-            }
-
-            if ($this->containsKeyword($userMessage, ['paket', 'tour', 'wisata', 'perjalanan', 'trip'])) {
-                return $this->handlePublicPaketQuery(limit: 5);
-            }
-
-            if ($this->containsKeyword($userMessage, ['profil', 'profile', 'company', 'tentang', 'alamat', 'email'])) {
-                return $this->handleCompanyProfile();
-            }
-
-            return $this->getPublicMenu();
+            return response()->json([
+                'success' => true,
+                'response' => $aiResponse
+            ]);
         } catch (\Exception $e) {
             Log::error('Public Chatbot Error: ' . $e->getMessage());
 
@@ -68,22 +45,26 @@ class ChatbotController extends Controller
         }
     }
 
+    /**
+     * Get initial greeting menu for public
+     */
     public function getPublicMenu(): JsonResponse
     {
         return response()->json([
             'success' => true,
-            'response' => "Halo! Selamat datang di **Ghina Tour & Travel**. Ada yang bisa kami bantu hari ini?",
-            'options' => ['Paket Best Seller', 'Promo Lebaran', 'Paket Termurah', 'Tanya Admin']
+            'response' => "Halo! Selamat datang di **Ghina Tour & Travel**. Saya adalah asisten virtual cerdas Anda.\n\nAnda bebas bertanya apa saja tentang harga, paket, atau rute perjalanan kami!",
+            'options' => ['Rekomendasi Paket?', 'Paket Termurah', 'Tanya Admin']
         ]);
     }
 
     /**
-     * Handle incoming chatbot messages (rule-based, no AI key required)
+     * Handle logged-in user / generic messages
      */
     public function handleMessage(Request $request): JsonResponse
     {
         try {
-            $userMessage = strtolower(trim($request->input('message', '')));
+            $userMessage = trim($request->input('message', ''));
+            $lowerMessage = strtolower($userMessage);
 
             if (empty($userMessage)) {
                 return response()->json([
@@ -92,38 +73,26 @@ class ChatbotController extends Controller
                 ]);
             }
 
-            // Route message to appropriate handler based on keywords
-            if ($this->containsKeyword($userMessage, ['paket', 'tour', 'wisata', 'perjalanan', 'trip'])) {
-                return $this->handlePaketQuery($userMessage);
-            }
-
-            if ($this->containsKeyword($userMessage, ['pesanan', 'order', 'booking', 'invoice', 'status'])) {
-                return response()->json([
-                    'success' => true,
-                    'response' => "Untuk mengecek pesanan, silakan kirim nomor HP yang digunakan saat pemesanan.\n\nContoh: cek 08123456789"
-                ]);
-            }
-
-            if (preg_match('/(?:cek|check|cari)\s+(\d{8,15})/', $userMessage, $matches)) {
+            // HYBRID: Keep the rule-based logic for specific structured lookups like Pesanan (Orders)
+            // Because AI cannot guess order statuses unless we dump the entire order database into the prompt (not scalable).
+            if (preg_match('/(?:cek|check|cari|pesanan)\s+(\d{8,15})/', $lowerMessage, $matches)) {
                 return $this->handlePesananSearch($matches[1]);
             }
 
-            if (preg_match('/\b(08\d{8,13})\b/', $userMessage, $matches)) {
+            if (preg_match('/\b(08\d{8,13})\b/', $lowerMessage, $matches)) {
                 return $this->handlePesananSearch($matches[1]);
             }
 
-            if ($this->containsKeyword($userMessage, ['profil', 'profile', 'company', 'tentang', 'kontak', 'alamat', 'whatsapp', 'email'])) {
-                return $this->handleCompanyProfile();
-            }
-
-            if ($this->containsKeyword($userMessage, ['menu', 'bantuan', 'help', 'halo', 'hai', 'hi', 'hello'])) {
+            if ($this->containsKeyword($lowerMessage, ['menu', 'bantuan', 'help'])) {
                 return $this->getMenu();
             }
 
-            // Default response
+            // For everything else, ask Gemini AI!
+            $aiResponse = $this->callGemini($userMessage);
+
             return response()->json([
                 'success' => true,
-                'response' => "Maaf, saya belum memahami pertanyaan Anda.\n\nSilakan pilih salah satu menu:\n📦 **Paket Tour** — Lihat daftar paket\n📋 **Pesanan** — Cek status pesanan\n🏢 **Profil** — Info perusahaan\n\nAtau ketik **menu** untuk melihat pilihan lengkap."
+                'response' => $aiResponse
             ]);
 
         } catch (\Exception $e) {
@@ -143,99 +112,89 @@ class ChatbotController extends Controller
     {
         return response()->json([
             'success' => true,
-            'response' => "Halo! Selamat datang di **Ghina Assistant** 😊\n\nSaya siap membantu Anda:\n\n📦 **Paket Tour** — Lihat daftar paket tour kami\n📋 **Pesanan** — Cek status pesanan Anda\n🏢 **Profil Perusahaan** — Info tentang kami\n\nSilakan ketik menu yang Anda inginkan atau ajukan pertanyaan langsung!",
-            'options' => ['paket', 'pesanan', 'profil perusahaan']
+            'response' => "Halo! Selamat datang di **Ghina Assistant** 😊\n\nSaya adalah AI Assistant yang siap membantu Anda. Anda bisa bertanya tentang paket wisata kami atau mengecek status pesanan.\n\nContoh: *\"Cek pesanan 08123456789\"* atau *\"Berapa harga paket ke Jogja?\"*",
+            'options' => ['Paket Populer', 'Cara Cek Pesanan', 'Kontak Admin']
         ]);
     }
 
     /**
-     * Handle paket-related queries
+     * Core AI Integration Logic
      */
-    private function handlePaketQuery(string $userMessage): JsonResponse
+    private function callGemini(string $message): string
     {
+        $apiKey = config('services.gemini.key');
+        if (!$apiKey) {
+            return "Sistem AI sedang dalam perbaikan (API Key tidak ditemukan). Silakan hubungi admin via WhatsApp.";
+        }
+
+        // 1. Gather Context Data from Database
+        $company = CompanyProfile::first();
+        $pakets = Paket::with(['fasilitas', 'tempats'])->get();
+
+        // 2. Build the System Prompt (RAG - Retrieval Augmented Generation)
+        $context = "Anda adalah Customer Service cerdas dari agen travel 'Ghina Tour Travel'.\n";
+        $context .= "Jawab pertanyaan pelanggan dengan ramah, sopan, profesional, ringkas, dan persuasif.\n";
+        $context .= "Gunakan emoji yang relevan secukupnya. Jangan pernah berhalusinasi atau mengarang harga/paket yang tidak ada di dalam daftar di bawah ini. Jika ditanya hal di luar konteks travel/paket, arahkan kembali dengan sopan ke layanan Ghina Tour Travel.\n\n";
+
+        $context .= "--- PROFIL PERUSAHAAN ---\n";
+        if ($company) {
+            $context .= "WhatsApp Admin: " . ($company->whatsapp ?: 'Belum diatur') . "\n";
+            $context .= "Alamat: " . ($company->address ?: 'Belum diatur') . "\n";
+            $context .= "Tentang Kami: " . ($company->about ?: 'Agen tour dan travel terpercaya.') . "\n\n";
+        }
+
+        $context .= "--- DAFTAR PAKET TOUR TERSEDIA ---\n";
+        if ($pakets->isEmpty()) {
+            $context .= "Saat ini belum ada paket yang tersedia.\n";
+        } else {
+            foreach ($pakets as $p) {
+                $context .= "- Paket: {$p->nama_paket}\n";
+                $context .= "  Durasi: {$p->durasi}\n";
+                $context .= "  Harga: Rp " . number_format($p->harga_paket, 0, ',', '.') . "\n";
+                if ($p->tempats->isNotEmpty()) {
+                    $context .= "  Tujuan: " . implode(', ', $p->tempats->pluck('nama_tempat')->toArray()) . "\n";
+                }
+                if ($p->note) {
+                    $context .= "  Catatan Khusus: {$p->note}\n";
+                }
+            }
+        }
+
+        $context .= "\n\n--- PERTANYAAN PELANGGAN ---\n";
+        $context .= $message . "\n";
+        $context .= "--- \nTuliskan balasan Anda sekarang:";
+
+        // 3. Make the API Call to Google Gemini
         try {
-            $pakets = Paket::with(['fasilitas', 'tempats'])->get();
-
-            if ($pakets->isEmpty()) {
-                return response()->json([
-                    'success' => true,
-                    'response' => 'Maaf, belum ada paket tour yang tersedia saat ini.'
-                ]);
-            }
-
-            $result = "📦 **DAFTAR PAKET TOUR:**\n\n";
-            foreach ($pakets as $index => $paket) {
-                $result .= "━━━━━━━━━━━━━━━━━━━━━━\n";
-                $result .= "**" . ($index + 1) . ". {$paket->nama_paket}**\n";
-                $result .= "💰 Harga: Rp " . number_format($paket->harga_paket, 0, ',', '.') . "\n";
-                $result .= "⏱️ Durasi: {$paket->durasi}\n";
-
-                if ($paket->fasilitas->isNotEmpty()) {
-                    $fasilitas = $paket->fasilitas->pluck('nama_fasilitas')->toArray();
-                    $result .= "✅ Fasilitas: " . implode(', ', $fasilitas) . "\n";
-                }
-
-                if ($paket->tempats->isNotEmpty()) {
-                    $tempats = $paket->tempats->pluck('nama_tempat')->toArray();
-                    $result .= "📍 Tujuan: " . implode(', ', $tempats) . "\n";
-                }
-
-                if ($paket->note) {
-                    $result .= "📝 Note: {$paket->note}\n";
-                }
-                $result .= "\n";
-            }
-
-            return response()->json([
-                'success' => true,
-                'response' => $result
+            $response = Http::post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={$apiKey}", [
+                'contents' => [
+                    [
+                        'parts' => [
+                            ['text' => $context]
+                        ]
+                    ]
+                ],
+                'generationConfig' => [
+                    'temperature' => 0.7,
+                ]
             ]);
+
+            if ($response->successful()) {
+                $data = $response->json();
+                return $data['candidates'][0]['content']['parts'][0]['text'] ?? "Maaf, saya tidak dapat memproses respons saat ini.";
+            }
+
+            Log::error('Gemini API Error Response: ' . $response->body());
+            return "Maaf, sistem AI sedang mengalami gangguan koneksi. Silakan coba beberapa saat lagi.";
 
         } catch (\Exception $e) {
-            Log::error('Get Pakets Error: ' . $e->getMessage());
-            return response()->json([
-                'success' => false,
-                'response' => 'Terjadi kesalahan saat mengambil data paket tour.'
-            ]);
+            Log::error('Gemini Request Exception: ' . $e->getMessage());
+            return "Maaf, terjadi kesalahan koneksi internal ke server AI.";
         }
-    }
-
-    private function handlePublicPaketQuery(string $sort = 'latest', int $limit = 5, ?string $intro = null): JsonResponse
-    {
-        $query = Paket::query();
-
-        if ($sort === 'price_asc') {
-            $query->orderBy('harga_paket');
-        } else {
-            $query->latest();
-        }
-
-        $pakets = $query->take($limit)->get();
-
-        if ($pakets->isEmpty()) {
-            return response()->json([
-                'success' => true,
-                'response' => 'Maaf, belum ada paket tour yang tersedia saat ini.'
-            ]);
-        }
-
-        $result = ($intro ?: 'Berikut beberapa paket wisata Ghina Tour Travel:') . "\n\n";
-        foreach ($pakets as $paket) {
-            $result .= "**{$paket->nama_paket}**\n";
-            $result .= "Durasi: {$paket->durasi}\n";
-            $result .= "Harga: Rp " . number_format($paket->harga_paket, 0, ',', '.') . "/pax\n\n";
-        }
-        $result .= "Info lengkapnya bisa langsung cek halaman paket atau tanya admin.";
-
-        return response()->json([
-            'success' => true,
-            'response' => $result,
-            'options' => ['Paket Best Seller', 'Promo Lebaran', 'Paket Termurah', 'Tanya Admin']
-        ]);
     }
 
     /**
-     * Handle pesanan search by phone number
+     * Handle pesanan search by phone number (Kept from old logic for accuracy)
      */
     private function handlePesananSearch(string $noHp): JsonResponse
     {
@@ -283,61 +242,6 @@ class ChatbotController extends Controller
             return response()->json([
                 'success' => false,
                 'response' => 'Terjadi kesalahan saat mencari pesanan.'
-            ]);
-        }
-    }
-
-    /**
-     * Handle company profile query
-     */
-    private function handleCompanyProfile(): JsonResponse
-    {
-        try {
-            $company = CompanyProfile::first();
-
-            if (!$company) {
-                return response()->json([
-                    'success' => true,
-                    'response' => 'Maaf, informasi profil perusahaan belum tersedia.'
-                ]);
-            }
-
-            $result = "🏢 **PROFIL GHINA TOUR TRAVEL**\n\n";
-
-            if ($company->about) {
-                $result .= "**Tentang Kami:**\n{$company->about}\n\n";
-            }
-
-            if ($company->vision_mission) {
-                $result .= "**Visi & Misi:**\n{$company->vision_mission}\n\n";
-            }
-
-            $result .= "━━━━━━━━━━━━━━━━━━━━━━\n";
-            $result .= "📞 **KONTAK KAMI**\n\n";
-
-            if ($company->whatsapp) {
-                $result .= "📱 WhatsApp: {$company->whatsapp}\n";
-            }
-            if ($company->email) {
-                $result .= "📧 Email: {$company->email}\n";
-            }
-            if ($company->address) {
-                $result .= "📍 Alamat: {$company->address}\n";
-            }
-            if ($company->instagram) {
-                $result .= "📸 Instagram: {$company->instagram}\n";
-            }
-
-            return response()->json([
-                'success' => true,
-                'response' => $result
-            ]);
-
-        } catch (\Exception $e) {
-            Log::error('Get Company Profile Error: ' . $e->getMessage());
-            return response()->json([
-                'success' => false,
-                'response' => 'Terjadi kesalahan saat mengambil profil perusahaan.'
             ]);
         }
     }

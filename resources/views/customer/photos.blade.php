@@ -115,13 +115,11 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
                 @foreach ($fotos as $index => $foto)
                     @php
-                        $colors = ['#7c3f00', '#c97a1a', '#1e3a5f', '#2d6a9f', '#1a5c2e', '#2e9952', '#3b0764', '#6d28d9', '#7f1d1d', '#dc2626', '#134e4a', '#0d9488'];
-                        $color = $colors[$index % count($colors)];
                         $mediaSrc = $foto->path ? (Str::startsWith($foto->path, 'http') ? $foto->path : asset('storage/' . $foto->path)) : '';
                         $isVideo = $foto->type === 'video';
                     @endphp
                     <div class="foto-item relative group"
-                        onclick="openLightbox('{{ $mediaSrc }}', '{{ $foto->paket->nama_paket ?? 'Galeri' }}', '{{ $color }}', {{ $isVideo ? 'true' : 'false' }})">
+                        onclick="openLightbox('{{ $mediaSrc }}', '{{ $foto->paket->nama_paket ?? 'Galeri' }}', {{ $isVideo ? 'true' : 'false' }})">
                         @if ($isVideo && $foto->path)
                             <video class="w-full h-full object-cover" muted preload="metadata">
                                 <source src="{{ $mediaSrc }}" type="video/mp4">
@@ -134,8 +132,8 @@
                                 class="w-full h-full object-cover" />
                         @else
                             <div class="w-full h-full flex items-center justify-center"
-                                style="background:{{ $color }};">
-                                <svg class="w-12 h-12 text-white/30" fill="currentColor" viewBox="0 0 24 24">
+                                style="background:var(--bg-section);color:#9ca3af;">
+                                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
                                 </svg>
@@ -213,7 +211,7 @@
 
 @section('extra_scripts')
     <script>
-        function openLightbox(src, label, color, isVideo = false) {
+        function openLightbox(src, label, isVideo = false) {
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
             const video = document.getElementById('lightbox-video');
@@ -235,7 +233,8 @@
                 img.style.display = 'block';
             } else {
                 ph.style.display = 'flex';
-                ph.style.background = color;
+                ph.style.background = 'rgba(255,255,255,.08)';
+                ph.style.border = '1px solid rgba(255,255,255,.15)';
             }
 
             label2.textContent = label || 'Galeri';

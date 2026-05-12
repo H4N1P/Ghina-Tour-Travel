@@ -7,10 +7,10 @@
         @csrf
 
         {{-- Upload Area --}}
-        <div class="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800">
-            <div class="p-4 lg:p-6 border-b border-neutral-200 dark:border-neutral-800 flex items-center gap-3">
+        <div class="bg-admin-card rounded-xl border border-admin-border">
+            <div class="p-4 lg:p-6 border-b border-admin-border flex items-center gap-3">
                 <a href="{{ route('admin.gallery.index') }}"
-                    class="p-2 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+                    class="p-2 rounded-lg text-admin-muted hover:text-admin-text hover:bg-admin-bg transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -21,7 +21,7 @@
             <div class="p-4 lg:p-6">
                 {{-- Dropzone --}}
                 <div id="dropzone"
-                    class="flex flex-col items-center justify-center w-full h-48 border-2 border-neutral-300 dark:border-neutral-700 border-dashed rounded-xl cursor-pointer bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors"
+                    class="flex flex-col items-center justify-center w-full h-48 border-2 border-admin-border border-dashed rounded-xl cursor-pointer bg-admin-bg hover:bg-admin-bg transition-colors"
                     onclick="document.getElementById('media').click()"
                     ondragover="event.preventDefault(); this.classList.add('border-amber-500','bg-amber-50')"
                     ondragleave="this.classList.remove('border-amber-500','bg-amber-50')" ondrop="handleDrop(event)">
@@ -29,8 +29,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <p class="text-sm font-medium text-neutral-600 dark:text-neutral-300">Klik atau drag & drop file di sini</p>
-                    <p class="text-xs text-neutral-400 mt-1">Foto (JPG, PNG, GIF, SVG, WebP) & Video (MP4, MOV, AVI) — Maks. 50MB per file</p>
+                    <p class="text-sm font-medium text-admin-text">Klik atau drag & drop file di sini</p>
+                    <p class="text-xs text-admin-muted mt-1">Foto (JPG, PNG, GIF, SVG, WebP) & Video (MP4, MOV, AVI) — Maks. 50MB per file</p>
                 </div>
                 <input type="file" name="media[]" id="media" multiple accept="image/*,video/*" class="hidden"
                     onchange="previewMedia(this)">
@@ -48,17 +48,17 @@
         </div>
 
         {{-- Relasi --}}
-        <div class="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800">
-            <div class="p-4 lg:p-6 border-b border-neutral-200 dark:border-neutral-800">
+        <div class="bg-admin-card rounded-xl border border-admin-border">
+            <div class="p-4 lg:p-6 border-b border-admin-border">
                 <h3 class="text-lg font-semibold">Relasi Media</h3>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Kaitkan media dengan paket, tempat wisata, atau fasilitas</p>
+                <p class="text-sm text-admin-muted mt-1">Kaitkan media dengan paket, tempat wisata, atau fasilitas</p>
             </div>
             <div class="p-4 lg:p-6 space-y-4">
                 {{-- Pilih Paket --}}
                 <div>
-                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Paket Tour <span class="text-xs text-neutral-400">(pilih dulu untuk filter tempat/fasilitas)</span></label>
+                    <label class="block text-sm font-medium text-admin-text mb-2">Paket Tour <span class="text-xs text-neutral-400">(pilih dulu untuk filter tempat/fasilitas)</span></label>
                     <select id="paketSelect"
-                        class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-amber-500 transition-colors">
+                        class="w-full px-4 py-2.5 rounded-lg border border-admin-border bg-white dark:bg-neutral-800 text-admin-text focus:ring-2 focus:ring-amber-500 transition-colors">
                         <option value="">-- Pilih Paket --</option>
                         @foreach ($pakets as $paket)
                             <option value="{{ $paket->id }}">{{ $paket->nama_paket }}</option>
@@ -69,9 +69,9 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {{-- Pilih Tempat --}}
                     <div>
-                        <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Tempat Wisata</label>
+                        <label class="block text-sm font-medium text-admin-text mb-2">Tempat Wisata</label>
                         <select name="id_tempat" id="tempatSelect" disabled
-                            class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-amber-500 transition-colors disabled:opacity-50">
+                            class="w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-bg text-admin-text focus:ring-2 focus:ring-amber-500 transition-colors disabled:opacity-50">
                             <option value="">-- Pilih paket terlebih dahulu --</option>
                         </select>
                         @error('id_tempat')
@@ -80,9 +80,9 @@
                     </div>
                     {{-- Pilih Fasilitas --}}
                     <div>
-                        <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">Fasilitas <span class="text-xs text-neutral-400">(opsional)</span></label>
+                        <label class="block text-sm font-medium text-admin-text mb-2">Fasilitas <span class="text-xs text-neutral-400">(opsional)</span></label>
                         <select name="id_fasilitas" id="fasilitasSelect" disabled
-                            class="w-full px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-amber-500 transition-colors disabled:opacity-50">
+                            class="w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-bg text-admin-text focus:ring-2 focus:ring-amber-500 transition-colors disabled:opacity-50">
                             <option value="">-- Pilih paket terlebih dahulu --</option>
                         </select>
                         @error('id_fasilitas')
@@ -95,7 +95,7 @@
 
         <div class="flex items-center justify-end gap-3">
             <a href="{{ route('admin.gallery.index') }}"
-                class="px-5 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors">Batal</a>
+                class="px-5 py-2.5 text-sm font-medium text-admin-text hover:bg-admin-bg rounded-lg transition-colors">Batal</a>
             <button type="submit"
                 class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium rounded-lg transition-colors">
                 Upload Media
@@ -161,7 +161,7 @@
 
             Array.from(input.files).forEach(file => {
                 const div = document.createElement('div');
-                div.className = 'relative aspect-square rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-700';
+                div.className = 'relative aspect-square rounded-lg overflow-hidden border border-admin-border';
 
                 if (file.type.startsWith('image/')) {
                     imgCount++;
@@ -192,7 +192,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                     </svg>
                     <p class="text-sm font-medium text-amber-600">${parts.join(' & ')} dipilih</p>
-                    <p class="text-xs text-neutral-400 mt-1">Klik untuk mengganti</p>
+                    <p class="text-xs text-admin-muted mt-1">Klik untuk mengganti</p>
                 `;
             }
         }

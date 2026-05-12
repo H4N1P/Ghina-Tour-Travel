@@ -50,11 +50,6 @@
         }
 
         .icon-wrap {
-            width: 64px;
-            height: 64px;
-            background: #FBF5E6;
-            border-radius: 50%;
-            border: 2px solid #D4AA3A;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -241,7 +236,8 @@
 
         {{-- Logo icon --}}
         <div class="icon-wrap">
-            {{-- <img src="{{ asset('customer/assets/images/logos/logo.png') }}" class="w-8 h-8 object-contain" alt="Logo"> --}}
+            <img src="{{ asset('customer/assets/images/logos/logo.png') }}"
+                style="width:100px;height:100px;object-fit:contain;" alt="Logo">
         </div>
 
         <div class="card-title">Lupa Password</div>

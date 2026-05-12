@@ -3,10 +3,12 @@
     if ($paket->relationLoaded('fotos') && $paket->fotos->isNotEmpty()) {
         $cover = $paket->fotos->first();
     } elseif ($paket->relationLoaded('tempats')) {
-        $cover = $paket->tempats->flatMap(fn ($tempat) => $tempat->galleries ?? collect())->first();
+        $cover = $paket->tempats->flatMap(fn($tempat) => $tempat->galleries ?? collect())->first();
     }
     $coverSrc = $cover?->path
-        ? (Str::startsWith($cover->path, 'http') ? $cover->path : asset('storage/' . $cover->path))
+        ? (Str::startsWith($cover->path, 'http')
+            ? $cover->path
+            : asset('storage/' . $cover->path))
         : null;
 @endphp
 
@@ -15,13 +17,19 @@
         @if ($coverSrc)
             <img src="{{ $coverSrc }}" alt="{{ $paket->nama_paket }}" loading="lazy">
         @else
-            <div class="package-card__placeholder"></div>
+            <div class="package-card__placeholder">
+                <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2ZM8.5 11.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5Z" />
+                </svg>
+            </div>
         @endif
-        <div class="package-card__overlay"></div>
-        <div class="package-card__content">
-            <h3>{{ $paket->nama_paket }}</h3>
-            <p>{{ $paket->durasi ?? '1 Hari' }}</p>
-            <strong>Rp. {{ number_format($paket->harga_paket, 0, ',', '.') }}<span>/Pax</span></strong>
+    </div>
+    <div class="package-card__body">
+        <h3 class="package-card__title">{{ $paket->nama_paket }}</h3>
+        <div class="package-card__meta">
+            <span class="package-card__duration">{{ $paket->durasi ?? '1 Hari' }}</span>
         </div>
+        <p class="package-card__price">Rp. {{ number_format($paket->harga_paket, 0, ',', '.') }}<span>/Pax</span></p>
     </div>
 </a>

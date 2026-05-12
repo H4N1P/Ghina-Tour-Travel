@@ -5,13 +5,13 @@
 @section('content')
     <div class="max-w-4xl">
         <div
-            class="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+            class="bg-admin-card rounded-xl border border-admin-border overflow-hidden">
 
             {{-- Header --}}
-            <div class="p-4 lg:p-6 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
+            <div class="p-4 lg:p-6 border-b border-admin-border flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <a href="{{ route('admin.paket.index') }}"
-                        class="p-2 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+                        class="p-2 rounded-lg text-admin-muted hover:text-admin-text hover:bg-admin-bg transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -19,7 +19,7 @@
                     </a>
                     <div>
                         <h3 class="text-lg font-semibold">Detail Paket Tour</h3>
-                        <p class="text-sm text-neutral-500 dark:text-neutral-400">ID
+                        <p class="text-sm text-admin-muted">ID
                             #{{ str_pad($paket->id, 4, '0', STR_PAD_LEFT) }}</p>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
             </div>
 
             {{-- Nama + info utama --}}
-            <div class="p-4 lg:p-6 border-b border-neutral-100 dark:border-neutral-800">
+            <div class="p-4 lg:p-6 border-b border-admin-border">
                 <div class="flex items-start gap-4">
                     <div
                         class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 flex items-center justify-center flex-shrink-0">
@@ -45,8 +45,8 @@
                         </svg>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h4 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">{{ $paket->nama_paket }}</h4>
-                        <p class="text-sm text-neutral-400 mt-1">Dibuat: {{ $paket->created_at->format('d M Y, H:i') }}</p>
+                        <h4 class="text-xl font-bold text-admin-text">{{ $paket->nama_paket }}</h4>
+                        <p class="text-sm text-admin-muted mt-1">Dibuat: {{ $paket->created_at->format('d M Y, H:i') }}</p>
                     </div>
                 </div>
 
@@ -58,14 +58,14 @@
                             Rp {{ number_format($paket->harga_paket, 0, ',', '.') }}
                         </p>
                     </div>
-                    <div class="bg-neutral-50 dark:bg-neutral-800 rounded-xl p-4">
-                        <p class="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Durasi</p>
-                        <p class="text-base font-bold text-neutral-800 dark:text-neutral-100 mt-1">
+                    <div class="bg-admin-bg rounded-xl p-4">
+                        <p class="text-xs text-admin-muted font-semibold uppercase tracking-wider">Durasi</p>
+                        <p class="text-base font-bold text-admin-text mt-1">
                             {{ $paket->durasi ?? '-' }}</p>
                     </div>
-                    <div class="bg-neutral-50 dark:bg-neutral-800 rounded-xl p-4 col-span-2 sm:col-span-1">
-                        <p class="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Total Komponen</p>
-                        <p class="text-base font-bold text-neutral-800 dark:text-neutral-100 mt-1">
+                    <div class="bg-admin-bg rounded-xl p-4 col-span-2 sm:col-span-1">
+                        <p class="text-xs text-admin-muted font-semibold uppercase tracking-wider">Total Komponen</p>
+                        <p class="text-base font-bold text-admin-text mt-1">
                             {{ $paket->tempats->count() }} Tempat · {{ $paket->fasilitas->count() }} Fasilitas
                         </p>
                     </div>
@@ -74,18 +74,18 @@
 
             {{-- Rundown --}}
             @if ($paket->rundown)
-                <div class="px-4 lg:px-6 py-5 border-b border-neutral-100 dark:border-neutral-800">
-                    <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">Rundown / Itinerary</p>
+                <div class="px-4 lg:px-6 py-5 border-b border-admin-border">
+                    <p class="text-xs font-semibold text-admin-muted uppercase tracking-wider mb-3">Rundown / Itinerary</p>
                     <div
-                        class="bg-neutral-50 dark:bg-neutral-800 rounded-xl p-4 text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
+                        class="bg-admin-bg rounded-xl p-4 text-sm text-admin-text leading-relaxed whitespace-pre-line">
                         {{ $paket->rundown }}</div>
                 </div>
             @endif
 
             {{-- Note --}}
             @if ($paket->note)
-                <div class="px-4 lg:px-6 py-5 border-b border-neutral-100 dark:border-neutral-800">
-                    <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">Catatan</p>
+                <div class="px-4 lg:px-6 py-5 border-b border-admin-border">
+                    <p class="text-xs font-semibold text-admin-muted uppercase tracking-wider mb-3">Catatan</p>
                     <div
                         class="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
                         {{ $paket->note }}</div>
@@ -93,8 +93,8 @@
             @endif
 
             {{-- Tempat + Fasilitas --}}
-            <div class="px-4 lg:px-6 py-5 border-b border-neutral-100 dark:border-neutral-800">
-                <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-4">Komponen Paket</p>
+            <div class="px-4 lg:px-6 py-5 border-b border-admin-border">
+                <p class="text-xs font-semibold text-admin-muted uppercase tracking-wider mb-4">Komponen Paket</p>
 
                 @php
                     $fasGroup = $paket->fasilitas->groupBy('tipe_fasilitas');
@@ -147,7 +147,7 @@
 
                     {{-- Fasilitas grouped --}}
                     @forelse($fasGroup as $tipe => $items)
-                        @php $cfg = $tipeConfig[strtolower($tipe)] ?? ['label'=>ucfirst($tipe),'bg'=>'bg-neutral-50 dark:bg-neutral-800','text'=>'text-neutral-600 dark:text-neutral-400','badge'=>'']; @endphp
+                        @php $cfg = $tipeConfig[strtolower($tipe)] ?? ['label'=>ucfirst($tipe),'bg'=>'bg-admin-bg','text'=>'text-admin-muted','badge'=>'']; @endphp
                         <div class="{{ $cfg['bg'] }} rounded-xl p-4">
                             <div class="flex items-center gap-2 mb-3">
                                 <p class="text-xs font-bold {{ $cfg['text'] }} uppercase">{{ $cfg['label'] }}
@@ -166,16 +166,16 @@
                     @endforelse
 
                     @if ($paket->tempats->count() === 0 && $paket->fasilitas->count() === 0)
-                        <div class="col-span-full bg-neutral-50 dark:bg-neutral-800 rounded-xl p-6 text-center">
-                            <p class="text-neutral-400 text-sm">Belum ada komponen yang ditambahkan</p>
+                        <div class="col-span-full bg-admin-bg rounded-xl p-6 text-center">
+                            <p class="text-admin-muted text-sm">Belum ada komponen yang ditambahkan</p>
                         </div>
                     @endif
                 </div>
             </div>
 
             {{-- Footer actions --}}
-            <div class="px-4 lg:px-6 py-4 bg-neutral-50 dark:bg-neutral-800/50 flex items-center justify-between">
-                <p class="text-xs text-neutral-400">Diperbarui: {{ $paket->updated_at->format('d M Y, H:i') }}</p>
+            <div class="px-4 lg:px-6 py-4 bg-admin-bg/50 flex items-center justify-between">
+                <p class="text-xs text-admin-muted">Diperbarui: {{ $paket->updated_at->format('d M Y, H:i') }}</p>
                 <form action="{{ route('admin.paket.destroy', $paket->id) }}" method="POST"
                     data-confirm="delete" data-confirm-title="Apakah anda yakin menghapus paket?"
                     data-confirm-message="Semua data terkait ikut terhapus dan tidak bisa dikembalikan">
