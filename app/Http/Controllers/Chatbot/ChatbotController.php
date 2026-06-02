@@ -7,6 +7,7 @@ use App\Services\Chatbot\GeminiChatbotService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 
 class ChatbotController extends Controller
 {
@@ -14,41 +15,36 @@ class ChatbotController extends Controller
 
     public function handlePublicMessage(Request $request): JsonResponse
     {
-        return $this->handleAiMessage($request, 'public', 'Public Chatbot Error');
+        try {
+            $validated = $request->validate([
+                'message' => ['required', 'string', 'max:2000'],
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'response' => $this->chatbot->reply($validated['message']),
+            ]);
+        } catch (ValidationException $e) {
+            return response()->json([
+                'success' => false,
+                'response' => 'Mohon masukkan pesan yang valid.',
+            ], 422);
+        } catch (\Throwable $e) {
+            Log::error('Public chatbot error: ' . $e->getMessage(), ['exception' => $e]);
+
+            return response()->json([
+                'success' => false,
+                'response' => 'Maaf, terjadi kesalahan pada sistem. Silakan coba lagi nanti.',
+            ], 500);
+        }
     }
 
     public function getPublicMenu(): JsonResponse
     {
         return response()->json([
             'success' => true,
-            'response' => "Halo! Selamat datang di **Ghina Tour & Travel**.\n\nSaya adalah AI customer service yang bisa membantu tentang paket wisata, harga, fasilitas, kontak admin, dan status pesanan.",
-            'options' => ['Rekomendasi Paket?', 'Paket Termurah', 'Tanya Admin'],
+            'response' => "Halo! Selamat datang di **Ghina Tour Travel**.\n\nSaya customer service AI Ghina Tour Travel. Saya bisa bantu informasi paket wisata, harga, fasilitas, itinerary, kontak admin, dan status pesanan.",
+            'options' => ['Rekomendasi paket', 'Paket termurah', 'Cek status pesanan', 'Kontak admin'],
         ]);
-    }
-
-    private function handleAiMessage(Request $request, string $audience, string $logContext): JsonResponse
-    {
-        try {
-            $userMessage = trim((string) $request->input('message', ''));
-
-            if ($userMessage === '') {
-                return response()->json([
-                    'success' => false,
-                    'response' => 'Mohon masukkan pesan Anda.',
-                ]);
-            }
-
-            return response()->json([
-                'success' => true,
-                'response' => $this->chatbot->reply($userMessage, $audience),
-            ]);
-        } catch (\Throwable $e) {
-            Log::error($logContext . ': ' . $e->getMessage(), ['exception' => $e]);
-
-            return response()->json([
-                'success' => false,
-                'response' => 'Maaf, terjadi kesalahan pada sistem. Silakan coba lagi nanti.',
-            ]);
-        }
     }
 }

@@ -44,9 +44,9 @@
             @enderror
         </div>
 
-        <flux:button type="submit" class="mt-5 h-[52px] w-full rounded-full bg-[#B8952A]! text-sm font-bold tracking-[1.5px] text-white! hover:bg-[#8a6e1a]!">
+        <button type="submit" class="mt-5 inline-flex h-[52px] w-full items-center justify-center rounded-full bg-[#B8952A] text-sm font-bold tracking-[1.5px] text-white transition-colors hover:bg-[#8a6e1a]">
             SIGN IN
-        </flux:button>
+        </button>
 
         <div class="h-px bg-[#e8dfc8]"></div>
     </form>
