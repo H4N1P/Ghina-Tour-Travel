@@ -1,7 +1,8 @@
 @extends('components.layout.customer')
 
 @section('title', 'Semua Paket - Ghina Tour Travel')
-
+@section('description', 'Lihat pilihan paket wisata Ghina Tour Travel untuk perjalanan rombongan, sekolah, instansi, dan
+    keluarga.')
 @section('content')
     <section class="search-hero">
         <form action="{{ route('packages') }}" method="GET" class="search-panel">
@@ -9,7 +10,8 @@
                 <input type="text" name="q" value="{{ $query ?? '' }}" placeholder="Search">
                 <span class="search-panel__icon" aria-hidden="true">
                     <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.2-5.2m1.7-5.3a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.2-5.2m1.7-5.3a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
                     </svg>
                 </span>
             </div>

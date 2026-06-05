@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuUrl = container.dataset.menuUrl;
     const messageUrl = container.dataset.messageUrl;
     const csrfToken = document.querySelector(
-        'meta[name="csrf-token"]',
+        'meta[name="csrf-token"]'
     )?.content;
     const botLogo = "/customer/assets/images/logos/logo.png";
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             appendMessage(
                 data.response || "Tidak ada respons.",
                 "bot",
-                data.options || [],
+                data.options || []
             );
         } catch (error) {
             hideTyping();
@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 messages.dataset.loaded = "true";
             }
         } catch (error) {
+            console.log(error);
             hideTyping();
             appendMessage("Gagal memuat menu.", "bot");
         }
@@ -87,11 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img class="message-avatar" src="${botLogo}" alt="" loading="lazy">
                 <div class="message-stack">
                     <span class="message-author">GhinaTour</span>
-                    <div class="message message-bot"><div>${formatMessage(text)}</div></div>
+                    <div class="message message-bot"><div>${formatMessage(
+                        text
+                    )}</div></div>
                 </div>
             `;
         } else {
-            row.innerHTML = `<div class="message message-user"><div>${formatMessage(text)}</div></div>`;
+            row.innerHTML = `<div class="message message-user"><div>${formatMessage(
+                text
+            )}</div></div>`;
         }
 
         if (options.length > 0) {

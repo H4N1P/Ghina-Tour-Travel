@@ -1,6 +1,16 @@
 @extends('components.layout.customer')
 
 @section('title', $paket->nama_paket . ' — Ghina Tour Travel')
+@section('description',
+    Str::limit(
+    strip_tags(
+    $paket->note ??
+    'Paket wisata dari Ghina Tour Travel dengan harga fleksibel dan
+    layanan terpercaya.',
+    ),
+    155,
+    ))
+@section('og_type', 'product')
 
 @section('extra_styles')
     <style>
@@ -108,14 +118,16 @@
                     @foreach ($paket->destinasis as $tempat)
                         @php
                             $destSrc = $tempat->image
-                                ? (Str::startsWith($tempat->image, 'http') ? $tempat->image : asset('storage/' . $tempat->image))
+                                ? (Str::startsWith($tempat->image, 'http')
+                                    ? $tempat->image
+                                    : asset('storage/' . $tempat->image))
                                 : null;
                         @endphp
                         <div class="tempat-card cursor-pointer group"
-                            @if($destSrc) onclick="openLightbox('{{ $destSrc }}', '{{ $tempat->nama_destinasi }}')" @endif>
+                            @if ($destSrc) onclick="openLightbox('{{ $destSrc }}', '{{ $tempat->nama_destinasi }}')" @endif>
                             @if ($tempat->image)
-                                <img src="{{ $destSrc }}"
-                                    alt="{{ $tempat->nama_destinasi }}" class="absolute inset-0 h-full w-full max-w-full object-cover" loading="lazy" />
+                                <img src="{{ $destSrc }}" alt="{{ $tempat->nama_destinasi }}"
+                                    class="absolute inset-0 h-full w-full max-w-full object-cover" loading="lazy" />
                                 <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all"></div>
                             @else
                                 <div class="placeholder-icon">
@@ -192,9 +204,13 @@
                     <div class="space-y-1 ml-1">
                         @forelse ($transportasis as $transportasi)
                             <div class="fas-item flex items-center gap-2">
-                                @if($transportasi->image)
-                                    <button type="button" class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400" onclick="openLightbox('{{ asset('storage/' . $transportasi->image) }}', '{{ $transportasi->nama_fasilitas }}')">
-                                        <img src="{{ asset('storage/' . $transportasi->image) }}" class="h-5 w-5 max-w-full rounded object-cover" alt="{{ $transportasi->nama_fasilitas }}" loading="lazy" />
+                                @if ($transportasi->image)
+                                    <button type="button"
+                                        class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400"
+                                        onclick="openLightbox('{{ asset('storage/' . $transportasi->image) }}', '{{ $transportasi->nama_fasilitas }}')">
+                                        <img src="{{ asset('storage/' . $transportasi->image) }}"
+                                            class="h-5 w-5 max-w-full rounded object-cover"
+                                            alt="{{ $transportasi->nama_fasilitas }}" loading="lazy" />
                                     </button>
                                 @else
                                     <span class="tm text-sm">–</span>
@@ -202,8 +218,10 @@
                                 <span class="tm text-sm">{{ $transportasi->nama_fasilitas }}</span>
                             </div>
                         @empty
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Bus Pariwisata</span></div>
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">AC (Air Conditioner)</span></div>
+                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Bus
+                                    Pariwisata</span></div>
+                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">AC (Air
+                                    Conditioner)</span></div>
                         @endforelse
                     </div>
                 </div>
@@ -213,9 +231,13 @@
                     <div class="space-y-1 ml-1">
                         @forelse ($akomodasis as $akomodasi)
                             <div class="fas-item flex items-center gap-2">
-                                @if($akomodasi->image)
-                                    <button type="button" class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400" onclick="openLightbox('{{ asset('storage/' . $akomodasi->image) }}', '{{ $akomodasi->nama_fasilitas }}')">
-                                        <img src="{{ asset('storage/' . $akomodasi->image) }}" class="h-5 w-5 max-w-full rounded object-cover" alt="{{ $akomodasi->nama_fasilitas }}" loading="lazy" />
+                                @if ($akomodasi->image)
+                                    <button type="button"
+                                        class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400"
+                                        onclick="openLightbox('{{ asset('storage/' . $akomodasi->image) }}', '{{ $akomodasi->nama_fasilitas }}')">
+                                        <img src="{{ asset('storage/' . $akomodasi->image) }}"
+                                            class="h-5 w-5 max-w-full rounded object-cover"
+                                            alt="{{ $akomodasi->nama_fasilitas }}" loading="lazy" />
                                     </button>
                                 @else
                                     <span class="tm text-sm">–</span>
@@ -223,8 +245,10 @@
                                 <span class="tm text-sm">{{ $akomodasi->nama_fasilitas }}</span>
                             </div>
                         @empty
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Tour Leader</span></div>
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Tiket Masuk Objek Wisata</span></div>
+                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Tour
+                                    Leader</span></div>
+                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Tiket Masuk
+                                    Objek Wisata</span></div>
                         @endforelse
                     </div>
                 </div>
@@ -234,9 +258,13 @@
                     <div class="space-y-1 ml-1">
                         @forelse ($konsumsis as $konsumsi)
                             <div class="fas-item flex items-center gap-2">
-                                @if($konsumsi->image)
-                                    <button type="button" class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400" onclick="openLightbox('{{ asset('storage/' . $konsumsi->image) }}', '{{ $konsumsi->nama_fasilitas }}')">
-                                        <img src="{{ asset('storage/' . $konsumsi->image) }}" class="h-5 w-5 max-w-full rounded object-cover" alt="{{ $konsumsi->nama_fasilitas }}" loading="lazy" />
+                                @if ($konsumsi->image)
+                                    <button type="button"
+                                        class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400"
+                                        onclick="openLightbox('{{ asset('storage/' . $konsumsi->image) }}', '{{ $konsumsi->nama_fasilitas }}')">
+                                        <img src="{{ asset('storage/' . $konsumsi->image) }}"
+                                            class="h-5 w-5 max-w-full rounded object-cover"
+                                            alt="{{ $konsumsi->nama_fasilitas }}" loading="lazy" />
                                     </button>
                                 @else
                                     <span class="tm text-sm">–</span>
@@ -244,8 +272,10 @@
                                 <span class="tm text-sm">{{ $konsumsi->nama_fasilitas }}</span>
                             </div>
                         @empty
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Makan 2x</span></div>
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Air Mineral</span></div>
+                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Makan 2x</span>
+                            </div>
+                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Air
+                                    Mineral</span></div>
                         @endforelse
                     </div>
                 </div>

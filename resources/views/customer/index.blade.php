@@ -1,6 +1,9 @@
 @extends('components.layout.customer')
 
-@section('title', 'Ghina Tour Travel - Serving With Love')
+@section('title', 'Ghina Tour Travel - Paket Wisata Purwokerto & Sewa Bus Pariwisata')
+@section('description',
+    'Ghina Tour Travel melayani paket wisata rombongan, open trip, dan sewa bus pariwisata dari Purwokerto
+    dengan layanan terpercaya, fleksibel, dan menyenangkan.')
 
 @section('content')
     <section id="beranda" class="relative min-h-[560px] w-full overflow-hidden sm:min-h-[620px] lg:min-h-[660px]">
@@ -264,4 +267,16 @@
             <a href="{{ route('photos') }}" class="btn btn-gold mt-12">Lihat Semua Foto</a>
         </div>
     </section>
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@type": "TravelAgency",
+            "name": "Ghina Tour Travel",
+            "url": "{{ route('home') }}",
+            "logo": "{{ asset('customer/assets/images/logos/logo.png') }}",
+            "areaServed": "Purwokerto, Banyumas, Indonesia",
+            "description": "Biro perjalanan wisata, paket tour, open trip, dan sewa bus pariwisata."
+        }
+    </script>
+
 @endsection

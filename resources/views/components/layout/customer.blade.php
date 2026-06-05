@@ -5,9 +5,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Ghina Tour Travel — Serving With Love')</title>
-    <meta name="description" content="@yield('description', 'PT Ghina Tour Travel — solusi perjalanan wisata rombongan dengan harga sesuai anggaran Anda. Terpercaya, Fleksibel & Fun.')" />
+    <title>@yield('title', 'Ghina Tour Travel - Paket Wisata Purwokerto')</title>
+    <meta name="description" content="@yield(
+        'description',
+        'Ghina Tour Travel menyediakan paket wisata, open trip, dan sewa bus        
+      pariwisata dari Purwokerto.'
+    )" />
+    <link rel="canonical" href="@yield('canonical', url()->current())" />
 
+    <meta property="og:title" content="@yield('title', 'Ghina Tour Travel')" />
+    <meta property="og:description" content="@yield('description', 'Paket wisata terpercaya dari Purwokerto.')" />
+    <meta property="og:url" content="@yield('canonical', url()->current())" />
+    <meta property="og:type" content="@yield('og_type', 'website')" />
+    <meta property="og:image" content="@yield('og_image', asset('customer/assets/images/logos/logo.png'))" />
+
+    <meta name="twitter:card" content="summary_large_image" />
     <script>
         (function() {
             const isDark = localStorage.getItem('theme') === 'dark';

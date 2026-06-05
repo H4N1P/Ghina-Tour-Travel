@@ -1,2 +1,7 @@
-User-agent: *
-Disallow:
+User-agent: *                                                                                                                       
+Disallow: /admin                                                                                                                    
+Disallow: /login                                                                                                                    
+Disallow: /forgot-password                                                                                                          
+Disallow: /reset-password                                                                                                           
+Allow: /                                                                                                                            
+Sitemap: https://ghinatourtravel.my.id/sitemap.xml   
