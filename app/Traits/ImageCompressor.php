@@ -53,13 +53,13 @@ trait ImageCompressor
         }
 
         // Save as JPEG with 75% quality
-        $storagePath = storage_path('app/public/' . $filename);
-        $dir = dirname($storagePath);
-        if (!is_dir($dir)) {
-            mkdir($dir, 0755, true);
-        }
-        imagejpeg($image, $storagePath, 75);
+        ob_start();
+        imagejpeg($image, null, 75);
+        $compressedImage = ob_get_clean();
+
         imagedestroy($image);
+
+        Storage::disk('public')->put($filename, $compressedImage);
 
         return $filename;
     }
