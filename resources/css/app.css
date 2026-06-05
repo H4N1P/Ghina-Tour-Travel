@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -8,8 +8,10 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans:
+        "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
     --color-admin-bg: #f3f4f6;
     --color-admin-card: #ffffff;
     --color-admin-text: #1f2637;
@@ -26,7 +28,9 @@
     cursor: pointer;
     flex-shrink: 0;
     border-radius: 999px;
-    transition: transform .18s ease, filter .18s ease;
+    transition:
+        transform 0.18s ease,
+        filter 0.18s ease;
 }
 
 .tgl:hover {
@@ -35,7 +39,7 @@
 }
 
 .tgl:active {
-    transform: translateY(0) scale(.98);
+    transform: translateY(0) scale(0.98);
 }
 
 .tgl input {
@@ -56,9 +60,14 @@
     justify-content: space-between;
     padding: 0 14px;
     color: #fff;
-    border: 2px solid rgba(255,255,255,.55);
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,.06), 0 10px 22px rgba(245,176,0,.22);
-    transition: box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+        0 10px 22px rgba(245, 176, 0, 0.22);
+    transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
 }
 
 .tgl .sl::after {
@@ -74,20 +83,25 @@
     padding: 4px;
     color: #fff;
     flex-shrink: 0;
-    transition: background .2s ease, color .2s ease, opacity .2s ease, transform .2s ease, box-shadow .2s ease;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 [data-theme="light"] .tgl__icon:first-child,
 [data-theme="dark"] .tgl__icon:last-child {
-    background: rgba(255,255,255,.94);
+    background: rgba(255, 255, 255, 0.94);
     color: var(--gold-dark, var(--admin-orange, #c48a00));
     transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(0,0,0,.16);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
 [data-theme="light"] .tgl__icon:last-child,
 [data-theme="dark"] .tgl__icon:first-child {
-    opacity: .72;
+    opacity: 0.72;
 }
 
 .tgl:focus-within {
@@ -95,11 +109,21 @@
 }
 
 .tgl:focus-within .sl {
-    border-color: rgba(245,176,0,.85);
+    border-color: rgba(245, 176, 0, 0.85);
     box-shadow:
-        inset 0 0 0 1px rgba(0,0,0,.06),
-        0 0 0 3px rgba(245,176,0,.28),
-        0 10px 22px rgba(245,176,0,.24);
+        inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+        0 0 0 3px rgba(245, 176, 0, 0.28),
+        0 10px 22px rgba(245, 176, 0, 0.24);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: #1f2637;
+    transition:
+        background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s;
 }
 
 @media (max-width: 640px) {
