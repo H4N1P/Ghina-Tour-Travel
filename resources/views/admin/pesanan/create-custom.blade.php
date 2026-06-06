@@ -34,13 +34,26 @@
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
                 </div>
+
                 <div>
                     <label class="block text-sm font-medium text-admin-text mb-2">
-                        Tanggal Acara <span class="text-red-500">*</span>
+                        Tanggal Mulai <span class="text-red-500">*</span>
                     </label>
-                    <input type="date" name="tanggal_acara" value="{{ old('tanggal_acara') }}" required
+                    <input type="date" id="tanggal_acara" name="tanggal_acara" value="{{ old('tanggal_acara') }}"
+                        data-date-range-start="#tanggal_selesai" required
                         class="admin-date-input w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card focus:ring-2 focus:ring-amber-500 transition-colors">
                     @error('tanggal_acara')
+                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-admin-text mb-2">
+                        Tanggal Selesai <span class="text-red-500">*</span>
+                    </label>
+                    <input type="date" id="tanggal_selesai" name="tanggal_selesai" value="{{ old('tanggal_selesai') }}"
+                        required
+                        class="admin-date-input w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card focus:ring-2 focus:ring-amber-500 transition-colors">
+                    @error('tanggal_selesai')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
                 </div>
@@ -65,8 +78,8 @@
             </div>
             <div class="p-4 lg:p-6">
                 <div id="places-container">
-                    @if(old('custom_places'))
-                        @foreach(old('custom_places') as $index => $place)
+                    @if (old('custom_places'))
+                        @foreach (old('custom_places') as $index => $place)
                             <div class="place-item flex gap-2 mb-2">
                                 <input type="text" name="custom_places[]" value="{{ $place }}" required
                                     class="flex-1 px-4 py-2.5 rounded-lg border border-admin-border bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 transition-colors"
@@ -122,7 +135,8 @@
             </div>
             <div class="p-4 lg:p-6">
                 <div id="fasilitas-container" class="space-y-3">
-                    <p id="fasilitas-empty" class="text-sm text-admin-muted italic">Belum ada fasilitas. Klik "+ Tambah Fasilitas" untuk menambahkan.</p>
+                    <p id="fasilitas-empty" class="text-sm text-admin-muted italic">Belum ada fasilitas. Klik "+ Tambah
+                        Fasilitas" untuk menambahkan.</p>
                 </div>
             </div>
         </div>
@@ -149,8 +163,8 @@
                     <label class="block text-sm font-medium text-admin-text mb-2">
                         Total Harga <span class="text-red-500">*</span>
                     </label>
-                    <input type="number" name="total_harga" id="total_harga" value="{{ old('total_harga', 0) }}" required
-                        min="0"
+                    <input type="number" name="total_harga" id="total_harga" value="{{ old('total_harga', 0) }}"
+                        required min="0"
                         class="w-full px-4 py-2.5 rounded-lg border border-admin-border bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 transition-colors">
                     @error('total_harga')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -165,7 +179,8 @@
                 <label class="block text-sm font-medium text-admin-text mb-2">Status Pesanan</label>
                 <select name="status"
                     class="w-full px-4 py-2.5 rounded-lg border border-admin-border bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 transition-colors">
-                    <option value="pending" {{ old('status', 'pending') === 'pending' ? 'selected' : '' }}>Pending</option>
+                    <option value="pending" {{ old('status', 'pending') === 'pending' ? 'selected' : '' }}>Pending
+                    </option>
                     <option value="selesai" {{ old('status') === 'selesai' ? 'selected' : '' }}>Selesai</option>
                     <option value="batal" {{ old('status') === 'batal' ? 'selected' : '' }}>Batal</option>
                 </select>
@@ -183,6 +198,7 @@
     </form>
 
     <script>
+        // Menambahkan input tujuan baru ke pesanan custom.
         function addPlace() {
             const container = document.getElementById('places-container');
             const div = document.createElement('div');
@@ -202,6 +218,7 @@
             container.appendChild(div);
         }
 
+        // Menghapus input tujuan selama masih ada tujuan lain.
         function removePlace(button) {
             const container = document.getElementById('places-container');
             if (container.children.length > 1) {
@@ -209,6 +226,7 @@
             }
         }
 
+        // Menambahkan input fasilitas baru ke pesanan custom.
         function addFasilitasField(nama = '', tipe = 'konsumsi') {
             const container = document.getElementById('fasilitas-container');
             const empty = document.getElementById('fasilitas-empty');
@@ -236,11 +254,13 @@
             container.appendChild(div);
         }
 
+        // Menghapus fasilitas dan menampilkan status kosong bila semuanya terhapus.
         function removeFasilitasRow(button) {
             const container = document.getElementById('fasilitas-container');
             button.closest('.field-row').remove();
             if (container.querySelectorAll('.field-row').length === 0) {
-                container.innerHTML = '<p id="fasilitas-empty" class="text-sm text-admin-muted italic">Belum ada fasilitas. Klik "+ Tambah Fasilitas" untuk menambahkan.</p>';
+                container.innerHTML =
+                    '<p id="fasilitas-empty" class="text-sm text-admin-muted italic">Belum ada fasilitas. Klik "+ Tambah Fasilitas" untuk menambahkan.</p>';
             }
         }
     </script>

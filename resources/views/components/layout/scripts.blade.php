@@ -1,8 +1,9 @@
 <script>
-  // Theme Toggle
+  // Menyiapkan tombol pengubah tema halaman.
   const themeToggle = document.getElementById('themeToggle');
   const html = document.documentElement;
 
+  // Menerapkan tema pada elemen halaman.
   function applyTheme(isDark) {
     html.classList.toggle('dark', isDark);
     html.setAttribute('data-theme', isDark ? 'dark' : 'light');
@@ -17,7 +18,7 @@
     applyTheme(isDark);
   });
 
-  // Fade-in animation on scroll
+  // Menampilkan animasi masuk ketika elemen terlihat di layar.
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

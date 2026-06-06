@@ -10,15 +10,14 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Mendaftarkan layanan aplikasi saat container disiapkan.
      */
     public function register(): void
     {
-        //
     }
 
     /**
-     * Bootstrap any application services.
+     * Membagikan profil perusahaan ke seluruh view saat aplikasi dijalankan.
      */
     public function boot(): void
     {

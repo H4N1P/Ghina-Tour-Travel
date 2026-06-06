@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class PesananController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Menampilkan daftar pesanan dengan filter pencarian, status, dan rentang tanggal.
      */
     public function index(Request $request)
     {
@@ -26,7 +26,17 @@ class PesananController extends Controller
                 $query->where('status', $status);
             })
             ->when($request->tanggal, function ($query, $tanggal) {
-                $query->whereDate('tanggal_acara', $tanggal);
+                $query
+                    ->whereDate('tanggal_acara', '<=', $tanggal)
+                    ->where(function ($dateQuery) use ($tanggal) {
+                        $dateQuery
+                            ->whereDate('tanggal_selesai', '>=', $tanggal)
+                            ->orWhere(function ($legacyQuery) use ($tanggal) {
+                                $legacyQuery
+                                    ->whereNull('tanggal_selesai')
+                                    ->whereDate('tanggal_acara', $tanggal);
+                            });
+                    });
             })
             ->latest()
             ->paginate(10)
@@ -36,7 +46,7 @@ class PesananController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Menampilkan formulir penambahan pesanan paket.
      */
     public function create()
     {
@@ -45,7 +55,7 @@ class PesananController extends Controller
     }
 
     /**
-     * Show the form for creating a custom order.
+     * Menampilkan formulir penambahan pesanan custom.
      */
     public function createCustom()
     {
@@ -54,7 +64,7 @@ class PesananController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Memvalidasi dan menyimpan pesanan paket baru.
      */
     public function store(Request $request)
     {
@@ -65,6 +75,7 @@ class PesananController extends Controller
             'diskon'        => 'nullable|numeric|min:0|max:100',
             'total_harga'   => 'required|numeric|min:0',
             'tanggal_acara' => 'required|date',
+            'tanggal_selesai' => 'required|date|after_or_equal:tanggal_acara',
             'jumlah_orang'  => 'required|integer|min:1',
         ]);
 
@@ -76,6 +87,7 @@ class PesananController extends Controller
             'total_harga'   => $request->total_harga,
             'jumlah_orang'  => $request->jumlah_orang,
             'tanggal_acara' => $request->tanggal_acara,
+            'tanggal_selesai' => $request->tanggal_selesai,
             'invoice'       => 'INV-' . strtoupper(uniqid()),
             'status'        => 'pending',
         ]);
@@ -84,7 +96,7 @@ class PesananController extends Controller
     }
 
     /**
-     * Store a custom order.
+     * Memvalidasi dan menyimpan pesanan custom baru.
      */
     public function storeCustom(Request $request)
     {
@@ -94,13 +106,14 @@ class PesananController extends Controller
             'diskon'           => 'nullable|numeric|min:0|max:100',
             'total_harga'      => 'required|numeric|min:0',
             'tanggal_acara'    => 'required|date',
+            'tanggal_selesai'  => 'required|date|after_or_equal:tanggal_acara',
             'jumlah_orang'     => 'required|integer|min:1',
             'custom_places'    => 'required|array|min:1',
             'custom_places.*'  => 'required|string|max:255',
             'custom_fasilitas' => 'nullable|array',
         ]);
 
-        // Process custom_fasilitas to ensure proper format
+        // Menormalkan fasilitas custom menjadi array berindeks berurutan.
         $customFasilitas = null;
         if ($request->has('custom_fasilitas') && is_array($request->custom_fasilitas)) {
             $customFasilitas = array_values($request->custom_fasilitas);
@@ -113,6 +126,7 @@ class PesananController extends Controller
             'total_harga'      => $request->total_harga,
             'jumlah_orang'     => $request->jumlah_orang,
             'tanggal_acara'    => $request->tanggal_acara,
+            'tanggal_selesai'  => $request->tanggal_selesai,
             'invoice'          => 'INV-' . strtoupper(uniqid()),
             'status'           => 'pending',
             'is_custom'        => true,
@@ -124,7 +138,7 @@ class PesananController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Menampilkan detail satu pesanan beserta paketnya.
      */
     public function show(Pesanan $pesanan)
     {
@@ -133,7 +147,7 @@ class PesananController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Menampilkan formulir perubahan yang sesuai dengan jenis pesanan.
      */
     public function edit(Pesanan $pesanan)
     {
@@ -148,7 +162,7 @@ class PesananController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Memvalidasi dan menyimpan perubahan pesanan paket atau custom.
      */
     public function update(Request $request, Pesanan $pesanan)
     {
@@ -158,11 +172,12 @@ class PesananController extends Controller
             'diskon'        => 'nullable|numeric|min:0|max:100',
             'total_harga'   => 'required|numeric|min:0',
             'tanggal_acara' => 'required|date',
+            'tanggal_selesai' => 'required|date|after_or_equal:tanggal_acara',
             'jumlah_orang'  => 'required|integer|min:1',
             'status'        => 'nullable|in:pending,batal,selesai',
         ];
 
-        // If not a custom order, require id_paket
+        // Pesanan paket wajib memiliki paket yang valid.
         if (!$pesanan->is_custom) {
             $rules['id_paket'] = 'required|exists:pakets,id';
         }
@@ -176,6 +191,7 @@ class PesananController extends Controller
             'total_harga',
             'jumlah_orang',
             'tanggal_acara',
+            'tanggal_selesai',
             'status',
         ]);
 
@@ -183,7 +199,7 @@ class PesananController extends Controller
             $updateData['id_paket'] = $request->id_paket;
         }
 
-        // Handle custom order updates
+        // Memproses perubahan data khusus untuk pesanan custom.
         if ($pesanan->is_custom) {
             if ($request->has('custom_places')) {
                 $request->validate([
@@ -203,7 +219,7 @@ class PesananController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Menghapus pesanan yang dipilih.
      */
     public function destroy(Pesanan $pesanan)
     {

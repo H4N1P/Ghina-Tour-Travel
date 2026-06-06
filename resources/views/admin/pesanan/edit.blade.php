@@ -71,13 +71,25 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-admin-text mb-2">
-                        Tanggal Acara <span class="text-red-500">*</span>
+                        Tanggal Mulai <span class="text-red-500">*</span>
                     </label>
-                    <input type="date" name="tanggal_acara"
-                        value="{{ old('tanggal_acara', \Carbon\Carbon::parse($id->tanggal_acara)->format('Y-m-d')) }}"
-                        required
+                    <input type="date" id="tanggal_acara" name="tanggal_acara"
+                        value="{{ old('tanggal_acara', $id->tanggal_acara?->format('Y-m-d')) }}"
+                        data-date-range-start="#tanggal_selesai" required
                         class="admin-date-input w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card focus:ring-2 focus:ring-amber-500 transition-colors">
                     @error('tanggal_acara')
+                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-admin-text mb-2">
+                        Tanggal Selesai <span class="text-red-500">*</span>
+                    </label>
+                    <input type="date" id="tanggal_selesai" name="tanggal_selesai"
+                        value="{{ old('tanggal_selesai', ($id->tanggal_selesai ?? $id->tanggal_acara)?->format('Y-m-d')) }}"
+                        required
+                        class="admin-date-input w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card focus:ring-2 focus:ring-amber-500 transition-colors">
+                    @error('tanggal_selesai')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
                 </div>
@@ -131,10 +143,9 @@
                         <span id="subtotal-label" class="text-lg font-bold text-admin-text">Rp
                             0</span>
                     </div>
-                    <div
-                        class="bg-green-50 dark:bg-green-900/20 rounded-xl p-4 flex items-center justify-between border border-green-300 dark:border-green-700">
-                        <span class="font-semibold text-green-700 dark:text-green-400">Total Akhir (Setelah Diskon)</span>
-                        <span id="total-akhir" class="text-2xl font-bold text-green-700 dark:text-green-400">Rp
+                    <div class="admin-total-summary">
+                        <span class="admin-total-summary__label">Total Akhir (Setelah Diskon)</span>
+                        <span id="total-akhir" class="admin-total-summary__value">Rp
                             {{ number_format($id->total_harga, 0, ',', '.') }}</span>
                     </div>
                 </div>
@@ -170,12 +181,14 @@
     <script>
         let hargaPerOrang = 0;
 
+        // Mengambil harga per orang dari paket yang dipilih lalu menghitung ulang total.
         function updateHargaPaket(sel) {
             const opt = sel.options[sel.selectedIndex];
             hargaPerOrang = parseFloat(opt.dataset.harga) || 0;
             hitungTotal();
         }
 
+        // Menghitung subtotal dan total akhir pesanan setelah diskon.
         function hitungTotal() {
             const orang = parseInt(document.getElementById('jumlah_orang').value) || 0;
             const diskon = parseFloat(document.getElementById('diskon').value) || 0;

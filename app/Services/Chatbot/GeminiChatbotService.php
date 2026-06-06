@@ -10,10 +10,16 @@ class GeminiChatbotService
 {
     private const MAX_TOOL_ROUNDS = 4;
 
+    /**
+     * Menyuntikkan alat database yang dapat digunakan oleh model Gemini.
+     */
     public function __construct(private readonly ChatbotDatabaseTools $tools)
     {
     }
 
+    /**
+     * Mengirim pesan pelanggan ke Gemini dan memproses pemanggilan alat hingga memperoleh jawaban.
+     */
     public function reply(string $message): string
     {
         $apiKey = config('services.gemini.key');
@@ -79,6 +85,9 @@ class GeminiChatbotService
         return 'Maaf, saya belum bisa menyelesaikan jawaban ini. Silakan hubungi admin Ghina Tour Travel untuk bantuan lanjutan.';
     }
 
+    /**
+     * Mengirim isi percakapan dan deklarasi alat ke API Gemini.
+     */
     private function sendToGemini(string $apiKey, array $contents): Response
     {
         $model = config('services.gemini.model', 'gemini-2.5-flash-lite');
@@ -109,6 +118,9 @@ class GeminiChatbotService
             ]);
     }
 
+    /**
+     * Menyediakan instruksi sistem yang membatasi peran dan akses chatbot.
+     */
     private function systemPrompt(): string
     {
         return <<<'PROMPT'
@@ -142,11 +154,17 @@ Cara menjawab:
 PROMPT;
     }
 
+    /**
+     * Membersihkan dan membatasi panjang pesan pelanggan.
+     */
     private function customerMessage(string $message): string
     {
         return trim(mb_substr($message, 0, 2000));
     }
 
+    /**
+     * Membersihkan jawaban model dan menyediakan jawaban cadangan bila kosong.
+     */
     private function cleanReply(string $reply): string
     {
         $reply = trim($reply);
@@ -158,6 +176,9 @@ PROMPT;
         return $reply;
     }
 
+    /**
+     * Mengambil pemanggilan alat yang diizinkan dari respons model.
+     */
     private function functionCallsFrom(array $content): array
     {
         return collect($content['parts'] ?? [])
@@ -172,6 +193,9 @@ PROMPT;
             ->all();
     }
 
+    /**
+     * Menormalkan bagian respons model agar dapat dikirim kembali dalam percakapan.
+     */
     private function modelPartsForConversation(array $content): array
     {
         $parts = $content['parts'] ?? [];
@@ -185,6 +209,9 @@ PROMPT;
         return $parts;
     }
 
+    /**
+     * Menggabungkan seluruh bagian teks dari respons model.
+     */
     private function textFrom(array $content): string
     {
         return collect($content['parts'] ?? [])

@@ -18,6 +18,9 @@ class ChatbotDatabaseTools
         'search_orders',
     ];
 
+    /**
+     * Mendeklarasikan alat database yang dapat dipanggil oleh chatbot.
+     */
     public function declarations(): array
     {
         return [
@@ -85,11 +88,17 @@ class ChatbotDatabaseTools
         ];
     }
 
+    /**
+     * Memeriksa apakah nama alat termasuk dalam daftar yang diizinkan.
+     */
     public function isAllowed(string $name): bool
     {
         return in_array($name, self::ALLOWED_TOOLS, true);
     }
 
+    /**
+     * Menjalankan alat database yang diminta dengan argumen yang diberikan.
+     */
     public function execute(string $name, array $arguments): array
     {
         return match ($name) {
@@ -104,6 +113,9 @@ class ChatbotDatabaseTools
         };
     }
 
+    /**
+     * Mengambil profil dan kontak resmi perusahaan.
+     */
     private function companyProfile(): array
     {
         $profile = CompanyProfile::query()->latest('id')->first();
@@ -123,6 +135,9 @@ class ChatbotDatabaseTools
         ];
     }
 
+    /**
+     * Mencari paket wisata berdasarkan kata kunci, anggaran, dan urutan.
+     */
     private function searchTourPackages(array $arguments): array
     {
         $query = trim((string) ($arguments['query'] ?? ''));
@@ -149,6 +164,9 @@ class ChatbotDatabaseTools
         ];
     }
 
+    /**
+     * Mengambil detail lengkap satu paket berdasarkan ID.
+     */
     private function packageDetail(int $packageId): array
     {
         $paket = Paket::query()
@@ -172,6 +190,9 @@ class ChatbotDatabaseTools
         ];
     }
 
+    /**
+     * Mencari pesanan pelanggan menggunakan invoice atau nomor telepon.
+     */
     private function searchOrders(array $arguments): array
     {
         $phone = $this->digitsOnly((string) ($arguments['customer_phone'] ?? ''));
@@ -216,6 +237,9 @@ class ChatbotDatabaseTools
         ];
     }
 
+    /**
+     * Menambahkan kondisi pencarian paket dan relasinya ke query.
+     */
     private function applyPackageSearch(Builder $builder, string $query): void
     {
         $builder->where(function (Builder $nested) use ($query) {
@@ -227,6 +251,9 @@ class ChatbotDatabaseTools
         });
     }
 
+    /**
+     * Menerapkan urutan paket sesuai pilihan yang telah divalidasi.
+     */
     private function applyPackageSort(Builder $builder, string $sortBy): void
     {
         match ($sortBy) {
@@ -237,6 +264,9 @@ class ChatbotDatabaseTools
         };
     }
 
+    /**
+     * Membentuk query pesanan berdasarkan invoice atau nomor telepon.
+     */
     private function orderQuery(string $invoice, string $phone): Builder
     {
         return Pesanan::query()
@@ -245,6 +275,9 @@ class ChatbotDatabaseTools
             ->when($invoice === '' && $phone !== '', fn (Builder $builder) => $builder->where('no_hp', 'like', "%{$phone}%"));
     }
 
+    /**
+     * Mengubah model paket menjadi ringkasan aman untuk chatbot.
+     */
     private function packageSummary(Paket $paket): array
     {
         return [
@@ -264,6 +297,9 @@ class ChatbotDatabaseTools
         ];
     }
 
+    /**
+     * Mengubah model pesanan menjadi ringkasan aman untuk chatbot.
+     */
     private function orderSummary(Pesanan $pesanan): array
     {
         return [
@@ -271,6 +307,9 @@ class ChatbotDatabaseTools
             'customer_name' => $pesanan->nama_pemesan,
             'package' => $pesanan->is_custom ? 'Paket custom' : $pesanan->paket?->nama_paket,
             'event_date' => optional($pesanan->tanggal_acara)->toDateString() ?: (string) $pesanan->tanggal_acara,
+            'event_end_date' => optional($pesanan->tanggal_selesai)->toDateString()
+                ?: optional($pesanan->tanggal_acara)->toDateString()
+                ?: (string) $pesanan->tanggal_acara,
             'people_count' => $pesanan->jumlah_orang,
             'total_price' => (float) $pesanan->total_harga,
             'status' => $pesanan->status ?: 'Menunggu Konfirmasi',
@@ -279,6 +318,9 @@ class ChatbotDatabaseTools
         ];
     }
 
+    /**
+     * Menormalkan pilihan urutan paket ke nilai yang didukung.
+     */
     private function validSort(string $sortBy): string
     {
         return in_array($sortBy, ['cheapest', 'expensive', 'popular', 'newest'], true)
@@ -286,6 +328,9 @@ class ChatbotDatabaseTools
             : 'cheapest';
     }
 
+    /**
+     * Mengubah nilai numerik positif menjadi float atau mengembalikan null.
+     */
     private function positiveNumber(mixed $value): ?float
     {
         if (!is_numeric($value)) {
@@ -297,11 +342,17 @@ class ChatbotDatabaseTools
         return $number > 0 ? $number : null;
     }
 
+    /**
+     * Menghapus seluruh karakter selain angka dari sebuah nilai.
+     */
     private function digitsOnly(string $value): string
     {
         return implode('', array_filter(str_split($value), fn (string $char) => ctype_digit($char)));
     }
 
+    /**
+     * Menormalkan collection atau array menjadi array berindeks berurutan.
+     */
     private function arrayValues(mixed $value): array
     {
         if ($value instanceof Collection) {

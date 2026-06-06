@@ -68,6 +68,7 @@
 
 @section('scripts')
     <script>
+        // Mengubah visibilitas password dan ikon tombolnya.
         function togglePassword(btn) {
             const input = btn.parentElement.querySelector('input');
             const icon = btn.querySelector('svg');

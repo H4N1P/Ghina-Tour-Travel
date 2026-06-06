@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     /**
-     * Display the home page.
+     * Menampilkan halaman utama dengan paket dan galeri terbaru.
      */
     public function index()
     {
@@ -37,7 +37,7 @@ class PageController extends Controller
     }
 
     /**
-     * Display all packages page.
+     * Menampilkan daftar paket dan menerapkan pencarian nama paket.
      */
     public function packages(Request $request)
     {
@@ -60,7 +60,7 @@ class PageController extends Controller
     }
 
     /**
-     * Display a specific package detail.
+     * Menampilkan detail paket beserta rundown dan relasinya.
      */
     public function packageDetail($id)
     {
@@ -71,7 +71,7 @@ class PageController extends Controller
     }
 
     /**
-     * Display all photos/gallery page.
+     * Menampilkan seluruh dokumentasi galeri umum.
      */
     public function photos()
     {
@@ -89,7 +89,7 @@ class PageController extends Controller
     }
 
     /**
-     * Search packages.
+     * Mengarahkan kata pencarian pelanggan ke halaman daftar paket.
      */
     public function search(Request $request)
     {

@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Admin Panel') - Ghina Tour Travel</title>
     <script>
+        // Menerapkan tema tersimpan sebelum halaman dirender untuk mencegah kilatan warna.
         (function() {
             const isDark = localStorage.getItem('theme') === 'dark';
             document.documentElement.classList.toggle('dark', isDark);
@@ -14,7 +15,6 @@
         })();
     </script>
     @vite(['resources/css/app.css', 'resources/css/admin.css', 'resources/js/app.js'])
-    @fluxAppearance
     @stack('head')
 </head>
 
@@ -120,18 +120,21 @@
     <x-admin-modal />
 
     <script>
+        // Membuka sidebar admin pada tampilan layar kecil.
         function openSidebar() {
             document.getElementById('sidebar').classList.add('is-open');
             document.getElementById('sidebarBackdrop').classList.add('is-open');
             document.body.classList.add('overflow-hidden');
         }
 
+        // Menutup sidebar admin pada tampilan layar kecil.
         function closeSidebar() {
             document.getElementById('sidebar').classList.remove('is-open');
             document.getElementById('sidebarBackdrop').classList.remove('is-open');
             document.body.classList.remove('overflow-hidden');
         }
 
+        // Menampilkan atau menyembunyikan menu keluar pengguna.
         function toggleLogoutMenu() {
             document.getElementById('logoutMenu').classList.toggle('hidden');
         }
@@ -144,10 +147,12 @@
             }
         });
 
+        // Menghubungkan tombol tema dengan preferensi tema tersimpan.
         (function() {
             const html = document.documentElement;
             const toggle = document.getElementById('adminThemeToggle');
 
+            // Menerapkan tema admin pada elemen halaman.
             function applyTheme(isDark) {
                 html.classList.toggle('dark', isDark);
                 html.setAttribute('data-theme', isDark ? 'dark' : 'light');
@@ -162,6 +167,23 @@
                 applyTheme(isDark);
             });
         })();
+
+        // Menghubungkan setiap tanggal mulai dengan batas minimum tanggal selesai.
+        document.querySelectorAll('[data-date-range-start]').forEach(function(startInput) {
+            const endInput = document.querySelector(startInput.dataset.dateRangeStart);
+            if (!endInput) return;
+
+            // Menjaga tanggal selesai tidak lebih awal dari tanggal mulai.
+            const syncDateRange = function() {
+                endInput.min = startInput.value;
+                if (startInput.value && endInput.value && endInput.value < startInput.value) {
+                    endInput.value = startInput.value;
+                }
+            };
+
+            startInput.addEventListener('input', syncDateRange);
+            syncDateRange();
+        });
     </script>
 
     @stack('scripts')

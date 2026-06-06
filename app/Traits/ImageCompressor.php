@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 trait ImageCompressor
 {
     /**
-     * Compress image using GD and store it in the specified directory.
+     * Mengompres gambar dengan GD lalu menyimpannya ke direktori publik.
      *
      * @param UploadedFile $file The uploaded file
      * @param string $directory The directory to store the file (e.g., 'pakets', 'galleries')
@@ -19,7 +19,7 @@ trait ImageCompressor
         $extension = strtolower($file->getClientOriginalExtension());
         $filename = $directory . '/' . uniqid() . '_' . time() . '.jpg';
 
-        // Create image resource from uploaded file
+        // Membuat resource gambar dari file yang diunggah.
         $image = match ($extension) {
             'png' => imagecreatefrompng($file->getRealPath()),
             'gif' => imagecreatefromgif($file->getRealPath()),
@@ -28,11 +28,11 @@ trait ImageCompressor
         };
 
         if (!$image) {
-            // Fallback: store without compression if GD fails
+            // Menyimpan file tanpa kompresi jika GD gagal membacanya.
             return $file->store($directory, 'public');
         }
 
-        // Resize if too large (max 1920px width)
+        // Memperkecil gambar yang lebarnya melebihi 1920 piksel.
         $width = imagesx($image);
         $height = imagesy($image);
         $maxWidth = 1920;
@@ -41,7 +41,7 @@ trait ImageCompressor
             $newHeight = (int) ($height * ($maxWidth / $width));
             $resized = imagecreatetruecolor($maxWidth, $newHeight);
 
-            // Preserve transparency for PNG (though we save as JPG, it helps processing)
+            // Mempertahankan transparansi PNG selama proses perubahan ukuran.
             if ($extension === 'png') {
                 imagealphablending($resized, false);
                 imagesavealpha($resized, true);
@@ -52,7 +52,7 @@ trait ImageCompressor
             $image = $resized;
         }
 
-        // Save as JPEG with 75% quality
+        // Menyimpan hasil sebagai JPEG dengan kualitas 75 persen.
         ob_start();
         imagejpeg($image, null, 75);
         $compressedImage = ob_get_clean();

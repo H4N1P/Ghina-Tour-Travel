@@ -75,7 +75,9 @@
                             @if ($company)
                                 <p>{{ $company->address }}</p>
                                 <p>{{ $company->email }}</p>
-                                @if($company->whatsapp)<p>WA: {{ $company->whatsapp }}</p>@endif
+                                @if ($company->whatsapp)
+                                    <p>WA: {{ $company->whatsapp }}</p>
+                                @endif
                             @else
                                 <p>Jl. Di Panjaitan, Purwokerto, Banyumas</p>
                                 <p>Jawa Tengah, Indonesia</p>
@@ -215,7 +217,9 @@
                                 @if ($company)
                                     <p>{{ $company->address }}</p>
                                     <p>{{ $company->email }}</p>
-                                    @if($company->whatsapp)<p>WA: {{ $company->whatsapp }}</p>@endif
+                                    @if ($company->whatsapp)
+                                        <p>WA: {{ $company->whatsapp }}</p>
+                                    @endif
                                 @else
                                     <p>Jl. Di Panjaitan, Purwokerto, Banyumas</p>
                                     <p>Jawa Tengah, Indonesia</p>
@@ -399,6 +403,7 @@
     </style>
 
     <script>
+        // Menyiapkan ukuran dan tata letak invoice sebelum proses cetak.
         function prepareInvoicePrint() {
             const invoice = document.getElementById('invoice-print');
             if (!invoice) return;
@@ -440,6 +445,7 @@
             document.body.classList.add('printing-invoice');
         }
 
+        // Mengembalikan tata letak invoice setelah proses cetak selesai.
         function resetInvoicePrint() {
             document.documentElement.style.setProperty('--invoice-print-scale', '1');
             document.documentElement.style.setProperty('--invoice-print-width', '194mm');
@@ -449,6 +455,7 @@
             document.getElementById('invoice-print-probe')?.remove();
         }
 
+        // Menyiapkan invoice lalu membuka dialog cetak browser.
         function printInvoice() {
             prepareInvoicePrint();
             window.print();

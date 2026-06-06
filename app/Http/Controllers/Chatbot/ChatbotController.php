@@ -11,8 +11,14 @@ use Illuminate\Validation\ValidationException;
 
 class ChatbotController extends Controller
 {
+    /**
+     * Menyuntikkan layanan chatbot yang menangani percakapan publik.
+     */
     public function __construct(private readonly GeminiChatbotService $chatbot) {}
 
+    /**
+     * Memvalidasi pesan pelanggan dan mengembalikan jawaban chatbot dalam JSON.
+     */
     public function handlePublicMessage(Request $request): JsonResponse
     {
         try {
@@ -39,6 +45,9 @@ class ChatbotController extends Controller
         }
     }
 
+    /**
+     * Mengembalikan pesan pembuka dan pilihan cepat chatbot.
+     */
     public function getPublicMenu(): JsonResponse
     {
         return response()->json([

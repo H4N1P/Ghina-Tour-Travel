@@ -46,13 +46,25 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-admin-text mb-2">
-                        Tanggal Acara <span class="text-red-500">*</span>
+                        Tanggal Mulai <span class="text-red-500">*</span>
                     </label>
-                    <input type="date" name="tanggal_acara"
-                        value="{{ old('tanggal_acara', \Carbon\Carbon::parse($id->tanggal_acara)->format('Y-m-d')) }}"
-                        required
+                    <input type="date" id="tanggal_acara" name="tanggal_acara"
+                        value="{{ old('tanggal_acara', $id->tanggal_acara?->format('Y-m-d')) }}"
+                        data-date-range-start="#tanggal_selesai" required
                         class="admin-date-input w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card focus:ring-2 focus:ring-amber-500 transition-colors">
                     @error('tanggal_acara')
+                        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-admin-text mb-2">
+                        Tanggal Selesai <span class="text-red-500">*</span>
+                    </label>
+                    <input type="date" id="tanggal_selesai" name="tanggal_selesai"
+                        value="{{ old('tanggal_selesai', ($id->tanggal_selesai ?? $id->tanggal_acara)?->format('Y-m-d')) }}"
+                        required
+                        class="admin-date-input w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card focus:ring-2 focus:ring-amber-500 transition-colors">
+                    @error('tanggal_selesai')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
                 </div>
@@ -199,6 +211,7 @@
     </form>
 
     <script>
+        // Menambahkan input tujuan baru ke pesanan custom.
         function addPlace() {
             const container = document.getElementById('places-container');
             const div = document.createElement('div');
@@ -218,6 +231,7 @@
             container.appendChild(div);
         }
 
+        // Menghapus input tujuan selama masih ada tujuan lain.
         function removePlace(button) {
             const container = document.getElementById('places-container');
             if (container.children.length > 1) {
@@ -225,6 +239,7 @@
             }
         }
 
+        // Menambahkan input fasilitas baru ke pesanan custom.
         function addFasilitasField(nama = '', tipe = 'konsumsi') {
             const container = document.getElementById('fasilitas-container');
             const empty = document.getElementById('fasilitas-empty');
@@ -252,6 +267,7 @@
             container.appendChild(div);
         }
 
+        // Menghapus fasilitas dan menampilkan status kosong bila semuanya terhapus.
         function removeFasilitasRow(button) {
             const container = document.getElementById('fasilitas-container');
             button.closest('.field-row').remove();

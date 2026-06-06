@@ -104,15 +104,16 @@
     </form>
 
     <script>
-        // === Dependent Dropdown via AJAX ===
+        // Menyiapkan dropdown destinasi dan fasilitas berdasarkan paket yang dipilih.
         const paketSelect = document.getElementById('paketSelect');
         const destinasiSelect = document.getElementById('destinasiSelect');
         const fasilitasSelect = document.getElementById('fasilitasSelect');
 
+        // Memuat relasi paket saat pilihan paket berubah.
         paketSelect.addEventListener('change', async function() {
             const paketId = this.value;
 
-            // Reset dropdowns
+            // Mengembalikan dropdown relasi ke kondisi awal.
             destinasiSelect.innerHTML = '<option value="">-- Tidak dikaitkan --</option>';
             fasilitasSelect.innerHTML = '<option value="">-- Tidak dikaitkan --</option>';
 
@@ -128,7 +129,7 @@
                 const res = await fetch(`{{ url('admin/api/gallery/relations') }}?paket_id=${paketId}`);
                 const data = await res.json();
 
-                // Populate Destinasi
+                // Mengisi pilihan destinasi dari respons server.
                 data.destinasis.forEach(t => {
                     const opt = document.createElement('option');
                     opt.value = t.id;
@@ -136,7 +137,7 @@
                     destinasiSelect.appendChild(opt);
                 });
 
-                // Populate Fasilitas
+                // Mengisi pilihan fasilitas dari respons server.
                 data.fasilitas.forEach(f => {
                     const opt = document.createElement('option');
                     opt.value = f.id;
@@ -153,15 +154,16 @@
             }
         });
 
-        // === Preview Media with Individual Removal ===
-        // We keep a managed list of files using DataTransfer
+        // Menyimpan daftar media terpilih agar setiap file dapat dihapus sebelum unggah.
         let selectedFiles = new DataTransfer();
 
+        // Menyalin daftar file terkelola ke input file formulir.
         function syncFileInput() {
             const input = document.getElementById('media');
             input.files = selectedFiles.files;
         }
 
+        // Menambahkan file baru ke daftar unggahan dan memperbarui pratinjau.
         function addFiles(fileList) {
             Array.from(fileList).forEach(file => {
                 selectedFiles.items.add(file);
@@ -170,6 +172,7 @@
             renderPreviews();
         }
 
+        // Menghapus satu file dari daftar unggahan berdasarkan indeks.
         function removeFile(index) {
             const newDt = new DataTransfer();
             const files = selectedFiles.files;
@@ -181,6 +184,7 @@
             renderPreviews();
         }
 
+        // Merender ulang pratinjau gambar dan video yang dipilih.
         function renderPreviews() {
             const grid = document.getElementById('preview-grid');
             grid.innerHTML = '';
@@ -191,7 +195,7 @@
                 const div = document.createElement('div');
                 div.className = 'relative aspect-square rounded-lg overflow-hidden border border-admin-border group/item';
 
-                // X button
+                // Membuat tombol penghapus pada setiap pratinjau.
                 const removeBtn = document.createElement('button');
                 removeBtn.type = 'button';
                 removeBtn.className = 'absolute top-1 right-1 z-10 w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover/item:opacity-100 transition-opacity shadow-lg hover:bg-red-600 cursor-pointer';
@@ -222,7 +226,7 @@
                 grid.appendChild(div);
             });
 
-            // Update dropzone text
+            // Memperbarui informasi jumlah file pada area unggah.
             const dropzone = document.getElementById('dropzone');
             if (files.length > 0) {
                 const parts = [];
@@ -246,10 +250,12 @@
         }
 
         // File input change handler — add new files, don't replace
+        // Menambahkan file dari input ke daftar media terpilih.
         function previewMedia(input) {
             addFiles(input.files);
         }
 
+        // Menangani file yang dijatuhkan ke area unggah.
         function handleDrop(event) {
             event.preventDefault();
             event.currentTarget.classList.remove('border-amber-500', 'bg-amber-50');

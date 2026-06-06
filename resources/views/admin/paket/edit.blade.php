@@ -43,7 +43,7 @@
                             ingin mengubah)</span>
                     </label>
                     <input type="file" id="image" name="image" accept="image/*"
-                        class="w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors">
+                        class="admin-file-input w-full">
                     @error('image')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
@@ -186,6 +186,7 @@
         const existingFasilitas = @json($fasilitasJson);
 
         // ── Rundown helpers ─────────────────────────────────────────────
+        // Menambahkan baris rundown baru atau data rundown yang sudah tersimpan.
         function addRundownField(id = '', waktu = '', acara = '', deskripsi = '') {
             const container = document.getElementById('rundowns-container');
             const index = container.querySelectorAll('.field-row').length;
@@ -223,6 +224,7 @@
             container.appendChild(div);
         }
 
+        // Menghapus baris rundown dan menampilkan status kosong bila diperlukan.
         function removeRundownRow(btn) {
             const container = document.getElementById('rundowns-container');
             btn.closest('.field-row').remove();
@@ -236,6 +238,7 @@
         }
 
         // ── Destinasi helpers ─────────────────────────────────────────────
+        // Menambahkan baris destinasi beserta data dan gambar yang sudah tersimpan.
         function addDestinasiField(id = '', value = '', imagePath = '') {
             const container = document.getElementById('destinasis-container');
             const index = container.querySelectorAll('.field-row').length;
@@ -255,7 +258,7 @@
             placeholder="Nama destinasi (contoh: Mekkah, Madinah)">
         ${imgHtml}
         <input type="file" name="destinasis[${index}][image]" accept="image/*" title="Ganti Gambar"
-            class="w-full sm:w-48 px-3 py-2 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 transition-colors text-sm">
+            class="admin-file-input w-full sm:w-56 text-sm">
         <button type="button" onclick="removeRow(this,'destinasis-container')"
             class="min-h-11 min-w-11 p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors flex-shrink-0">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -267,6 +270,7 @@
         }
 
         // ── Fasilitas helpers ──────────────────────────────────────────
+        // Menambahkan baris fasilitas beserta data dan gambar yang sudah tersimpan.
         function addFasilitasField(id = '', nama = '', tipe = 'konsumsi', imagePath = '') {
             const container = document.getElementById('fasilitas-container');
             const index = container.querySelectorAll('.field-row').length;
@@ -285,7 +289,7 @@
             placeholder="Nama fasilitas (contoh: Hotel Bintang 5)">
         ${imgHtml}
         <input type="file" name="fasilitas[${index}][image]" accept="image/*" title="Ganti Gambar"
-            class="w-full sm:w-48 px-3 py-2 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 transition-colors text-sm">
+            class="admin-file-input w-full sm:w-56 text-sm">
         <select name="fasilitas[${index}][tipe_fasilitas]"
             class="w-full sm:w-36 px-3 py-2.5 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 text-sm">
             <option value="konsumsi" ${tipe==='konsumsi'?'selected':''}>🍽 Konsumsi</option>
@@ -301,11 +305,13 @@
             container.appendChild(div);
         }
 
+        // Menghapus baris dinamis lalu menyesuaikan kembali indeks input.
         function removeRow(btn, containerId) {
             btn.closest('.field-row').remove();
             renumberRows(containerId);
         }
 
+        // Menyesuaikan indeks dan nomor urut seluruh baris dalam sebuah container.
         function renumberRows(containerId) {
             document.querySelectorAll(`#${containerId} .field-row`).forEach((row, i) => {
                 row.querySelectorAll('[name]').forEach(el => {
@@ -316,6 +322,7 @@
             });
         }
 
+        // Mengamankan teks sebelum disisipkan ke atribut HTML dinamis.
         function escHtml(str) {
             return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }

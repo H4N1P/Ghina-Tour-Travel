@@ -8,6 +8,9 @@ use App\Models\Pesanan;
 
 class DashboardController extends Controller
 {
+    /**
+     * Menyiapkan ringkasan pesanan, pendapatan, dan data grafik dashboard admin.
+     */
     public function index()
     {
         $revenue    = Pesanan::where('status', 'selesai')->sum('total_harga');

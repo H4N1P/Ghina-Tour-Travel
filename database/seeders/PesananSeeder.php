@@ -28,13 +28,16 @@ class PesananSeeder extends Seeder
             $jumlahOrang = rand(1, 5);
             $totalHarga = $paket->harga_paket * $jumlahOrang;
 
+            $tanggalAcara = now()->addDays(rand(1, 30));
+
             Pesanan::create([
                 'id_paket' => $paket->id,
                 'nama_pemesan' => $faker->name,
                 'no_hp' => '08' . $faker->numerify('##########'),
                 'diskon' => 0,
                 'total_harga' => $totalHarga,
-                'tanggal_acara' => now()->addDays(rand(1, 30)),
+                'tanggal_acara' => $tanggalAcara,
+                'tanggal_selesai' => $tanggalAcara->copy()->addDays(rand(0, 3)),
                 'jumlah_orang' => $jumlahOrang,
                 'invoice' => 'INV-' . strtoupper(Str::random(10)),
                 'status' => $faker->randomElement(['pending', 'selesai']),

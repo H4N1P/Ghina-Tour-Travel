@@ -2,6 +2,7 @@ import ApexCharts from 'apexcharts';
 
 window.ApexCharts = ApexCharts;
 
+// Membuat grafik dashboard setelah data dan elemen halaman tersedia.
 document.addEventListener('DOMContentLoaded', () => {
     const data = window.dashboardChartData;
     if (!data) return;
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const textColor = isDark ? '#94a3b8' : '#6b7280';
     const gridColor = isDark ? '#2a3045' : '#f3f4f6';
 
+    // Memformat nilai grafik menjadi nominal Rupiah yang ringkas.
     const formatRupiah = (val) => `Rp ${val >= 1000000 ? `${(val / 1000000).toFixed(1)}jt` : val.toLocaleString('id-ID')}`;
 
     if (data.revenueData?.some((value) => Number(value) > 0)) {

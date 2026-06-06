@@ -22,6 +22,7 @@ Route::get('/packages/search', [PageController::class, 'search'])->name('package
 Route::get('/package/{id}', [PageController::class, 'packageDetail'])->name('package.detail');
 Route::get('/photos', [PageController::class, 'photos'])->name('photos');
 
+// Mengelompokkan endpoint publik yang digunakan antarmuka chatbot.
 Route::prefix('public-chatbot')->name('public-chatbot.web.')->group(function () {
     Route::get('/menu', [ChatbotController::class, 'getPublicMenu'])->name('menu');
     Route::post('/message', [ChatbotController::class, 'handlePublicMessage'])->name('message');
@@ -46,6 +47,7 @@ Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('
 | Admin Routes
 |--------------------------------------------------------------------------
 */
+// Melindungi dan mengelompokkan seluruh route pengelolaan admin.
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('paket', PaketController::class);
     Route::resource('gallery', GalleryController::class);

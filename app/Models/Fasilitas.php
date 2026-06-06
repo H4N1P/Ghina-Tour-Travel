@@ -15,11 +15,17 @@ class Fasilitas extends Model
         'image'
     ];
 
+    /**
+     * Mendefinisikan paket pemilik fasilitas.
+     */
     public function paket()
     {
         return $this->belongsTo(Paket::class, 'id_paket');
     }
 
+    /**
+     * Mendefinisikan kumpulan media galeri milik fasilitas.
+     */
     public function galleries()
     {
         return $this->hasMany(Gallery::class, 'id_fasilitas');

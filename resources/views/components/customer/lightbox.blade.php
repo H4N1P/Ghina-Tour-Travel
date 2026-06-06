@@ -85,7 +85,8 @@
 </div>
 
 <script>
-    function openLightbox(src, label, isVideo = false) {
+        // Membuka lightbox untuk menampilkan gambar atau video yang dipilih.
+        function openLightbox(src, label, isVideo = false) {
         const lightbox = document.getElementById('lightbox');
         const img = document.getElementById('lightbox-img');
         const video = document.getElementById('lightbox-video');
@@ -118,7 +119,8 @@
         document.body.style.overflow = 'hidden';
     }
 
-    function closeLightbox() {
+        // Menutup lightbox dan menghentikan video yang sedang diputar.
+        function closeLightbox() {
         const lightbox = document.getElementById('lightbox');
         const img = document.getElementById('lightbox-img');
         const video = document.getElementById('lightbox-video');
@@ -132,7 +134,8 @@
         document.body.style.overflow = '';
     }
 
-    function handleLightboxBackdrop(event) {
+        // Menutup lightbox ketika pelanggan menekan area latar belakang.
+        function handleLightboxBackdrop(event) {
         if (event.target === event.currentTarget) {
             closeLightbox();
         }

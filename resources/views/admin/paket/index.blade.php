@@ -308,7 +308,6 @@
 
                             {{--
                                 Komponen: semua berasal dari tabel fasilitas (kolom tipe_fasilitas).
-                                Tidak ada tabel konsumsi/akomodasi/transportasi terpisah.
                                 Group fasilitas berdasarkan tipe_fasilitas.
                             --}}
                             <td>

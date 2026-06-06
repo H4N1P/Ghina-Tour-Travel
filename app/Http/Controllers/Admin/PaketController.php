@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Storage;
 class PaketController extends Controller
 {
     use ImageCompressor;
+
+    /**
+     * Menampilkan daftar paket wisata beserta relasi utamanya.
+     */
     public function index()
     {
         $pakets = Paket::with(['fasilitas', 'destinasis.galleries', 'rundowns'])
@@ -24,11 +28,17 @@ class PaketController extends Controller
         return view('admin.paket.index', compact('pakets'));
     }
 
+    /**
+     * Menampilkan formulir penambahan paket wisata.
+     */
     public function create()
     {
         return view('admin.paket.create');
     }
 
+    /**
+     * Memvalidasi dan menyimpan paket baru beserta destinasi, fasilitas, dan rundown.
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -39,18 +49,18 @@ class PaketController extends Controller
 
             'image'           => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
 
-            // Nested Rundown
+            // Validasi rundown bertingkat.
             'rundowns'                => 'nullable|array',
             'rundowns.*.waktu'        => 'required|string|max:255',
             'rundowns.*.acara'        => 'required|string|max:255',
             'rundowns.*.deskripsi'    => 'nullable|string',
 
-            // Nested Destinasi
+            // Validasi destinasi bertingkat.
             'destinasis'                  => 'nullable|array',
             'destinasis.*.nama_destinasi' => 'required|string|max:255',
             'destinasis.*.image'          => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
 
-            // Other relations (text only)
+            // Validasi fasilitas bertingkat.
             'fasilitas'                => 'nullable|array',
             'fasilitas.*.nama_fasilitas' => 'required|string',
             'fasilitas.*.tipe_fasilitas' => 'required|string|in:konsumsi,akomodasi,transportasi',
@@ -68,7 +78,7 @@ class PaketController extends Controller
 
             $paket = Paket::create($paketData);
 
-            // === Handle Destinasi ===
+            // Menyimpan destinasi paket.
             if ($request->has('destinasis')) {
                 foreach ($request->destinasis as $index => $destinasiData) {
                     $payload = ['nama_destinasi' => $destinasiData['nama_destinasi']];
@@ -81,7 +91,7 @@ class PaketController extends Controller
                 }
             }
 
-            // === Handle Fasilitas ===
+            // Menyimpan fasilitas paket.
             if ($request->has('fasilitas')) {
                 foreach ($request->fasilitas as $index => $fasilitasData) {
                     $payload = [
@@ -97,7 +107,7 @@ class PaketController extends Controller
                 }
             }
 
-            // === Handle Rundowns ===
+            // Menyimpan rundown paket.
             if ($request->has('rundowns')) {
                 foreach ($request->rundowns as $rundown) {
                     $paket->rundowns()->create([
@@ -116,28 +126,35 @@ class PaketController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            // Optional: delete uploaded files if transaction fails (advanced)
             return redirect()->back()
                 ->withInput()
                 ->with('failed', 'Gagal menambahkan paket: ' . $e->getMessage());
         }
     }
 
+    /**
+     * Menampilkan detail satu paket wisata.
+     */
     public function show(Paket $paket)
     {
         $paket->load(['fasilitas']);
         return view('admin.paket.show', compact('paket'));
     }
 
+    /**
+     * Menampilkan formulir perubahan paket wisata.
+     */
     public function edit(Paket $paket)
     {
         $paket->load(['fasilitas']);
         return view('admin.paket.edit', compact('paket'));
     }
 
+    /**
+     * Memvalidasi dan menyimpan perubahan paket beserta relasinya.
+     */
     public function update(Request $request, Paket $paket)
     {
-        // For now, basic update (you can extend it later with delete + re-upload logic)
         $request->validate([
             'nama_paket'      => 'required|string|max:255',
             'harga_paket'     => 'required|numeric',
@@ -146,20 +163,20 @@ class PaketController extends Controller
 
             'image'           => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
 
-            // Nested Rundown
+            // Validasi rundown bertingkat.
             'rundowns'                => 'nullable|array',
             'rundowns.*.id'           => 'nullable|exists:rundowns,id',
             'rundowns.*.waktu'        => 'required|string|max:255',
             'rundowns.*.acara'        => 'required|string|max:255',
             'rundowns.*.deskripsi'    => 'nullable|string',
 
-            // Nested Destinasi
+            // Validasi destinasi bertingkat.
             'destinasis'                  => 'nullable|array',
             'destinasis.*.id'             => 'nullable|exists:destinasis,id',
             'destinasis.*.nama_destinasi' => 'required|string|max:255',
             'destinasis.*.image'          => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
 
-            // Other relations (text only)
+            // Validasi fasilitas bertingkat.
             'fasilitas'                => 'nullable|array',
             'fasilitas.*.id'             => 'nullable|exists:fasilitas,id',
             'fasilitas.*.nama_fasilitas' => 'required|string',
@@ -170,7 +187,7 @@ class PaketController extends Controller
         $paketData = $request->only(['nama_paket', 'harga_paket', 'durasi', 'note']);
         
         if ($request->hasFile('image')) {
-            // Delete old image if exists
+            // Menghapus gambar lama sebelum menyimpan gambar pengganti.
             if ($paket->image && Storage::disk('public')->exists($paket->image)) {
                 Storage::disk('public')->delete($paket->image);
             }
@@ -179,22 +196,25 @@ class PaketController extends Controller
 
         $paket->update($paketData);
 
-        // Handle Destinasis safely
+        // Menyinkronkan destinasi paket.
         $this->syncChildWithImages($paket, 'destinasis', $request->destinasis ?? [], Destinasi::class, $request);
     
-        // Handle Fasilitas safely
+        // Menyinkronkan fasilitas paket.
         $this->syncChildWithImages($paket, 'fasilitas', $request->fasilitas ?? [], Fasilitas::class, $request);
 
-        // Handle Rundowns safely
+        // Menyinkronkan rundown paket.
         $this->syncRundowns($paket, $request->rundowns ?? []);
 
         return redirect()->route('admin.paket.index')
             ->with('success', 'Paket berhasil diperbarui');
     }
 
+    /**
+     * Menghapus paket serta file gambar terkait dari penyimpanan.
+     */
     public function destroy(Paket $paket)
     {
-        // Optional: delete all related photos from storage
+        // Menghapus seluruh file gambar yang terkait dengan paket.
         if ($paket->image && Storage::disk('public')->exists($paket->image)) {
             Storage::disk('public')->delete($paket->image);
         }
@@ -222,6 +242,9 @@ class PaketController extends Controller
             ->with('success', 'Paket berhasil dihapus');
     }
 
+    /**
+     * Menyinkronkan data destinasi atau fasilitas beserta gambar yang diunggah.
+     */
     private function syncChildWithImages(
         Paket $paket,
         string $relation,
@@ -263,11 +286,11 @@ class PaketController extends Controller
                 ];
             }
 
-            // Check if file is uploaded
+            // Memproses gambar baru jika tersedia.
             if ($request->hasFile("{$relation}.{$index}.image")) {
                 $payload['image'] = $this->compressAndStoreImage($request->file("{$relation}.{$index}.image"), "images/" . rtrim($relation, 's'));
                 
-                // delete old image if updating
+                // Menghapus gambar lama saat data diperbarui.
                 if (!empty($item['id'])) {
                     $oldChild = $modelClass::find($item['id']);
                     if ($oldChild && $oldChild->image && Storage::disk('public')->exists($oldChild->image)) {
@@ -287,7 +310,7 @@ class PaketController extends Controller
     }
 
     /**
-     * Sync rundown records while preserving existing ones
+     * Menyinkronkan rundown masuk dengan data rundown paket yang tersimpan.
      */
     private function syncRundowns(Paket $paket, array $incomingData)
     {

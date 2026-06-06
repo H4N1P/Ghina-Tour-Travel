@@ -14,7 +14,7 @@ class GalleryController extends Controller
     use ImageCompressor;
 
     /**
-     * Display a listing of the resource.
+     * Menampilkan galeri sesuai kategori yang dipilih.
      */
     public function index(Request $request)
     {
@@ -32,7 +32,7 @@ class GalleryController extends Controller
             case 'dokumentasi':
                 $query->whereNull('id_destinasi')->whereNull('id_fasilitas');
                 break;
-            // 'semua' — no filter
+            // Nilai 'semua' tidak menambahkan filter.
         }
 
         $galleries = $query->get();
@@ -40,15 +40,18 @@ class GalleryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Menampilkan formulir penambahan media galeri.
      */
     public function create()
     {
-        // FIX: relasi di model Paket bernama 'destinasis' bukan 'tempat'
+        // Memuat relasi destinasi dan fasilitas untuk pilihan formulir.
         $pakets = Paket::with(['destinasis', 'fasilitas'])->latest()->get();
         return view('admin.gallery.create', compact('pakets'));
     }
 
+    /**
+     * Menampilkan detail satu media galeri.
+     */
     public function show(Gallery $gallery)
     {
         $gallery->load(['destinasi', 'fasilitas']);
@@ -56,7 +59,7 @@ class GalleryController extends Controller
     }
 
     /**
-     * AJAX: Get destinasi & fasilitas for a given paket.
+     * Mengembalikan destinasi dan fasilitas paket untuk kebutuhan formulir dinamis.
      */
     public function getRelationsByPaket(Request $request)
     {
@@ -73,8 +76,7 @@ class GalleryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     * Supports images & videos. No FFMpeg — just file size limits.
+     * Memvalidasi dan menyimpan gambar atau video baru ke galeri.
      */
     public function store(Request $request)
     {
@@ -89,11 +91,11 @@ class GalleryController extends Controller
             $mime = $file->getMimeType();
             $type = str_starts_with($mime, 'video/') ? 'video' : 'image';
 
-            // Compress images using GD (no external library needed)
+            // Mengompres gambar dengan GD tanpa library eksternal.
             if ($type === 'image') {
                 $path = $this->compressAndStoreImage($file, 'galleries');
             } else {
-                // Store video directly (no FFMpeg)
+                // Menyimpan video langsung tanpa FFMpeg.
                 $path = $file->store('galleries', 'public');
             }
 
@@ -110,12 +112,11 @@ class GalleryController extends Controller
 
 
     /**
-     * Remove the specified resource from storage.
-     * FIX: hapus file dari disk storage sebelum delete record
+     * Menghapus media galeri beserta file fisiknya.
      */
     public function destroy(Gallery $gallery)
     {
-        // FIX: hapus file dari storage saat foto dihapus
+        // Menghapus file dari storage sebelum record galeri dihapus.
         if (Storage::disk('public')->exists($gallery->path)) {
             Storage::disk('public')->delete($gallery->path);
         }

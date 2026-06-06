@@ -31,7 +31,7 @@
                         Gambar / Cover Paket <span class="text-admin-muted text-xs font-normal">(Opsional)</span>
                     </label>
                     <input type="file" id="image" name="image" accept="image/*"
-                        class="w-full px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors">
+                        class="admin-file-input w-full">
                     @error('image')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
@@ -166,6 +166,7 @@
 
 @push('scripts')
     <script>
+        // Menambahkan baris input destinasi baru ke formulir paket.
         function addDestinasiField(value = '') {
             const container = document.getElementById('destinasis-container');
             const empty = document.getElementById('destinasis-empty');
@@ -180,7 +181,7 @@
             class="w-full min-w-0 flex-1 px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors"
             placeholder="Nama destinasi (contoh: Mekkah, Madinah)">
         <input type="file" name="destinasis[${index}][image]" accept="image/*" title="Upload Gambar Destinasi"
-            class="w-full sm:w-48 px-3 py-2 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors text-sm">
+            class="admin-file-input w-full sm:w-56 text-sm">
         <button type="button" onclick="removeRow(this, 'destinasis-container', 'destinasis-empty', 'Belum ada destinasi. Klik &quot;+ Tambah Destinasi&quot; untuk menambahkan.')"
             class="min-h-11 min-w-11 p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors flex-shrink-0">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,6 +192,7 @@
             renumberRows('destinasis-container');
         }
 
+        // Menambahkan baris input fasilitas baru ke formulir paket.
         function addFasilitasField(nama = '', tipe = 'konsumsi') {
             const container = document.getElementById('fasilitas-container');
             const empty = document.getElementById('fasilitas-empty');
@@ -204,7 +206,7 @@
             class="w-full min-w-0 flex-1 px-4 py-2.5 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors"
             placeholder="Nama fasilitas (contoh: Hotel Bintang 5)">
         <input type="file" name="fasilitas[${index}][image]" accept="image/*" title="Upload Gambar Fasilitas"
-            class="w-full sm:w-48 px-3 py-2 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors text-sm">
+            class="admin-file-input w-full sm:w-56 text-sm">
         <select name="fasilitas[${index}][tipe_fasilitas]"
             class="w-full sm:w-36 px-3 py-2.5 rounded-lg border border-admin-border bg-admin-card text-admin-text focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors text-sm">
             <option value="konsumsi" ${tipe === 'konsumsi' ? 'selected' : ''}>🍽 Konsumsi</option>
@@ -220,6 +222,7 @@
             container.appendChild(div);
         }
 
+        // Menambahkan baris rundown baru ke formulir paket.
         function addRundownField(waktu = '', acara = '', deskripsi = '') {
             const container = document.getElementById('rundowns-container');
             const empty = document.getElementById('rundowns-empty');
@@ -259,6 +262,7 @@
             container.appendChild(div);
         }
 
+        // Menghapus baris rundown dan menampilkan status kosong bila diperlukan.
         function removeRundownRow(btn) {
             const container = document.getElementById('rundowns-container');
             btn.closest('.field-row').remove();
@@ -271,6 +275,7 @@
             }
         }
 
+        // Menghapus baris dinamis dan memperbarui status kosong serta nomor urut.
         function removeRow(btn, containerId, emptyId, emptyText) {
             const container = document.getElementById(containerId);
             btn.closest('.field-row').remove();
@@ -284,6 +289,7 @@
             }
         }
 
+        // Menyesuaikan kembali indeks nama input setelah baris berubah.
         function renumberRows(containerId) {
             const rows = document.querySelectorAll(`#${containerId} .field-row`);
             rows.forEach((row, i) => {

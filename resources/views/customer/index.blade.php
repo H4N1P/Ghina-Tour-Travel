@@ -194,12 +194,14 @@
         </div>
 
         <script>
+            // Mengaktifkan tombol navigasi carousel paket setelah halaman siap.
             document.addEventListener('DOMContentLoaded', function() {
                 const track = document.getElementById('paketTrack');
                 const prev = document.getElementById('paketPrev');
                 const next = document.getElementById('paketNext');
                 if (!track) return;
 
+                // Menghitung jarak geser carousel berdasarkan lebar kartu aktif.
                 function scrollAmount() {
                     const card = track.querySelector('.package-card');
                     return card ? card.offsetWidth + 24 : 300;

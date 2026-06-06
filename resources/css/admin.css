@@ -11,6 +11,9 @@ html[data-theme="light"] {
   --admin-orange: #ff7a1a;
   --admin-orange-soft: #fff4eb;
   --admin-gold: #f5b000;
+  --admin-success-bg: #ecfdf3;
+  --admin-success-border: #86efac;
+  --admin-success-text: #15803d;
   --admin-shadow: 0 18px 44px rgba(31, 41, 55, .12);
   --color-admin-bg: #f3f4f6;
   --color-admin-card: #ffffff;
@@ -28,6 +31,9 @@ html[data-theme="dark"] {
   --admin-muted: #a8b0bf;
   --admin-border: #303744;
   --admin-orange-soft: rgba(255, 122, 26, .14);
+  --admin-success-bg: rgba(20, 83, 45, .28);
+  --admin-success-border: #166534;
+  --admin-success-text: #86efac;
   --admin-shadow: 0 18px 44px rgba(0, 0, 0, .28);
   --color-admin-bg: #111318;
   --color-admin-card: #1b1f27;
@@ -199,6 +205,63 @@ body {
 
 [data-theme="dark"] .admin-date-input::-webkit-calendar-picker-indicator {
   filter: invert(1) brightness(1.8);
+}
+
+.admin-file-input {
+  min-height: 48px;
+  padding: 6px;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  background: var(--admin-card);
+  color: var(--admin-muted);
+  cursor: pointer;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.admin-file-input::file-selector-button {
+  min-height: 34px;
+  margin-right: 12px;
+  padding: 7px 14px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--admin-gold);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background .18s ease, transform .18s ease;
+}
+
+.admin-file-input:hover::file-selector-button {
+  background: #d99b00;
+}
+
+.admin-file-input:focus {
+  outline: none;
+  border-color: var(--admin-gold);
+  box-shadow: 0 0 0 3px rgba(245, 176, 0, .24);
+}
+
+.admin-total-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--admin-success-border);
+  border-radius: 12px;
+  background: var(--admin-success-bg);
+  color: var(--admin-success-text);
+}
+
+.admin-total-summary__label {
+  font-weight: 600;
+}
+
+.admin-total-summary__value {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .admin-profile {
@@ -499,4 +562,3 @@ form[data-confirm].is-confirm-pending button:not([type]) {
 .admin-content nav[aria-label="Pagination Navigation"] p {
   color: var(--admin-muted) !important;
 }
-

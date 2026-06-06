@@ -1,3 +1,4 @@
+// Menginisialisasi interaksi chatbot setelah seluruh elemen halaman tersedia.
 document.addEventListener("DOMContentLoaded", () => {
     const trigger = document.getElementById("chatbotTrigger");
     const container = document.getElementById("chatbotContainer");
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sendMessage(input.value);
     });
 
+    // Mengirim pesan pelanggan ke endpoint chatbot dan menampilkan responsnya.
     async function sendMessage(text) {
         if (!text.trim()) return;
 
@@ -60,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Mengambil pesan pembuka dan pilihan cepat saat chatbot pertama dibuka.
     async function fetchInitialMenu() {
         showTyping();
         try {
@@ -79,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Menambahkan pesan pengguna atau bot beserta pilihan cepat ke percakapan.
     function appendMessage(text, side, options = []) {
         const row = document.createElement("div");
         row.className = `message-row message-row-${side}`;
@@ -127,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         messages.scrollTop = messages.scrollHeight;
     }
 
+    // Mengamankan teks lalu mengubah format tebal dan baris baru menjadi HTML.
     function formatMessage(text) {
         const escaped = String(text)
             .replaceAll("&", "&amp;")
@@ -138,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/\n/g, "<br>");
     }
 
+    // Menampilkan indikator bahwa chatbot sedang menyiapkan jawaban.
     function showTyping() {
         const typing = document.createElement("div");
         typing.className = "message-row message-row-bot typing-indicator";
@@ -155,10 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
         messages.scrollTop = messages.scrollHeight;
     }
 
+    // Menghapus indikator chatbot sedang mengetik.
     function hideTyping() {
         document.getElementById("typingIndicator")?.remove();
     }
 
+    // Menutup panel percakapan chatbot.
     function closeChatbot() {
         container.classList.remove("active");
     }

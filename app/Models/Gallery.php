@@ -9,18 +9,24 @@ class Gallery extends Model
 {
     protected $fillable = ['path', 'keterangan', 'type', 'id_fasilitas', 'id_destinasi'];
 
+    /**
+     * Mendefinisikan fasilitas yang terkait dengan media galeri.
+     */
     public function fasilitas()
     {
         return $this->belongsTo(Fasilitas::class);
     }
 
+    /**
+     * Mendefinisikan destinasi yang terkait dengan media galeri.
+     */
     public function destinasi()
     {
         return $this->belongsTo(Destinasi::class, 'id_destinasi');
     }
 
     /**
-     * Get the paket through destinasi relationship.
+     * Mendefinisikan paket media melalui relasi destinasi.
      */
     public function paket()
     {
@@ -35,7 +41,7 @@ class Gallery extends Model
     }
 
     /**
-     * Check if the gallery item is a video.
+     * Memeriksa apakah media galeri merupakan video.
      */
     public function isVideo(): bool
     {

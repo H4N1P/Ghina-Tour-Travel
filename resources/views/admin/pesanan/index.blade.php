@@ -68,7 +68,7 @@
                             Paket</th>
                         <th
                             class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
-                            Tanggal Acara</th>
+                            Rentang Acara</th>
                         <th
                             class="px-4 py-3 text-left text-xs font-semibold text-admin-muted uppercase tracking-wider border-b border-admin-border">
                             Jumlah Pax</th>
@@ -102,8 +102,7 @@
                                     {{ $p->paket->nama_paket ?? '-' }}
                                 @endif
                             </td>
-                            <td class="px-4 py-3 text-sm text-admin-text">{{ \Carbon\Carbon::parse($p->tanggal_acara)->format('d M Y') }}
-                            </td>
+                            <td class="px-4 py-3 text-sm text-admin-text">{{ $p->formatRentangTanggal() }}</td>
                             <td class="px-4 py-3 text-sm text-admin-text">{{ $p->jumlah_orang ?? '-' }} pax</td>
                             <td class="px-4 py-3 text-sm">
                                 <div class="font-semibold text-admin-text">

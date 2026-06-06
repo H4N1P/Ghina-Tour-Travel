@@ -1,3 +1,4 @@
+// Menginisialisasi modal notifikasi dan konfirmasi setelah halaman siap.
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('adminModal');
     if (!modal) return;
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButtons = modal.querySelectorAll('[data-admin-modal-close]');
     let pendingForm = null;
 
+    // Membuka modal dengan isi dan tindakan konfirmasi sesuai konteks.
     function openModal({ type = 'success', titleText, messageText, confirmText = 'Konfirmasi', showCancel = false, form = null }) {
         pendingForm = form;
         title.textContent = titleText;
@@ -26,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.setAttribute('aria-hidden', 'false');
     }
 
+    // Menutup modal dan membersihkan status formulir yang menunggu konfirmasi.
     function closeModal() {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');

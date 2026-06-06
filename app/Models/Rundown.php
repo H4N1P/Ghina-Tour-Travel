@@ -13,6 +13,9 @@ class Rundown extends Model
         'deskripsi',
     ];
 
+    /**
+     * Mendefinisikan paket pemilik rundown.
+     */
     public function paket()
     {
         return $this->belongsTo(Paket::class, 'id_paket');

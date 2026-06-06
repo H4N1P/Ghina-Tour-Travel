@@ -262,7 +262,7 @@
                         <th>No. HP</th>
                         <th>Paket</th>
                         <th>Jumlah Orang</th>
-                        <th>Tanggal Tour</th>
+                        <th>Rentang Tour</th>
                         <th>Total Harga</th>
                         <th>Status</th>
                         <th style="width:80px;text-align:center;">Detail</th>
@@ -276,7 +276,7 @@
                             <td style="color:var(--text-muted);">{{ $p->no_hp }}</td>
                             <td>{{ $p->is_custom ? 'Custom' : ($p->paket->nama_paket ?? '-') }}</td>
                             <td>{{ $p->jumlah_orang }} Orang</td>
-                            <td>{{ \Carbon\Carbon::parse($p->tanggal_acara)->format('d M Y') }}</td>
+                            <td>{{ $p->formatRentangTanggal() }}</td>
                             {{-- <td>
                                 <div style="font-weight:600; color:var(--text);">
                                     Rp
@@ -408,6 +408,7 @@
 @push('scripts')
     @vite('resources/js/admin-dashboard.js')
     <script>
+        // Membuat grafik dashboard setelah elemen dan data halaman tersedia.
         document.addEventListener("DOMContentLoaded", function() {
 
             const bulanLabels = @json($chartBulan);
@@ -419,7 +420,7 @@
             const textColor = isDark ? '#94a3b8' : '#6b7280';
             const gridColor = isDark ? '#2a3045' : '#f3f4f6';
 
-            // Chart 1: Area — Tren Pendapatan Bulanan
+            // Membuat grafik area tren pendapatan bulanan.
             @if (array_sum($chartRevenu) > 0)
                 new ApexCharts(document.querySelector("#chartPendapatan"), {
                     series: [{
@@ -491,7 +492,7 @@
                 }).render();
             @endif
 
-            // Chart 2: Bar — Pendapatan per Paket
+            // Membuat grafik batang pendapatan per paket.
             @if (count($chartPaketLabel) > 0)
                 new ApexCharts(document.querySelector("#chartPaket"), {
                     series: [{

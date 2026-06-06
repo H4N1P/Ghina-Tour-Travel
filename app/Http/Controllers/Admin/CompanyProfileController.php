@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CompanyProfileController extends Controller
 {
     /**
-     * Display the single company profile.
+     * Menampilkan profil perusahaan yang tersedia.
      */
     public function show()
     {
@@ -18,8 +18,7 @@ class CompanyProfileController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     * FIX: hapus parameter CompanyProfile $id yang tidak relevan — route tidak meneruskan ID
+     * Menampilkan formulir untuk mengubah profil perusahaan.
      */
     public function edit()
     {
@@ -29,8 +28,7 @@ class CompanyProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     * FIX: hapus parameter CompanyProfile $id yang tidak relevan
+     * Memvalidasi dan menyimpan perubahan profil perusahaan.
      */
     public function update(Request $request)
     {
@@ -43,7 +41,7 @@ class CompanyProfileController extends Controller
             'instagram'     => 'nullable|string',
         ]);
 
-        // Update existing or create the first record
+        // Memperbarui profil yang ada atau membuat profil pertama.
         CompanyProfile::updateOrCreate(
             ['id' => 1],           // force only 1 record (optional safety)
             $validated
