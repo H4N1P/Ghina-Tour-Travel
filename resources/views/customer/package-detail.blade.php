@@ -213,7 +213,6 @@
                 --facility-visible-slides: 3;
             }
         }
-
     </style>
 @endsection
 
@@ -442,7 +441,7 @@
                         </span>
                         <span>
                             <strong class="block">Banner Custom</strong>
-                            <span class="tm mt-1 block text-xs">Mockup banner perjalanan rombongan</span>
+                            <span class="tm mt-1 block text-xs">Banner perjalanan rombongan</span>
                         </span>
                     </div>
                 </div>
@@ -516,7 +515,8 @@
                 const scrollOneSlide = (direction) => {
                     const slide = track.querySelector('.facility-slide');
                     const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
-                    const distance = slide ? slide.getBoundingClientRect().width + gap : track.clientWidth;
+                    const distance = slide ? slide.getBoundingClientRect().width + gap : track
+                        .clientWidth;
 
                     track.scrollBy({
                         left: distance * direction,
