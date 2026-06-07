@@ -126,7 +126,7 @@ it('blocks edit pages and update requests for final orders while keeping details
         ->assertDontSee(route('admin.pesanan.edit', $pesanan));
 })->with(['selesai', 'batal']);
 
-it('hides edit actions for final orders in the order list', function () {
+it('shows informational edit actions without edit links for final orders in the order list', function () {
     $selesai = Pesanan::create([
         ...statusOrderPayload($this->paket, ['status' => 'selesai']),
         'invoice' => 'INV-LIST-SELESAI',
@@ -140,5 +140,20 @@ it('hides edit actions for final orders in the order list', function () {
         ->get(route('admin.pesanan.index'))
         ->assertOk()
         ->assertDontSee(route('admin.pesanan.edit', $selesai))
-        ->assertDontSee(route('admin.pesanan.edit', $batal));
+        ->assertDontSee(route('admin.pesanan.edit', $batal))
+        ->assertSee('data-admin-notice', false)
+        ->assertSee('Pesanan berstatus Selesai sudah final dan tidak dapat diubah.')
+        ->assertSee('Pesanan berstatus Batal sudah final dan tidak dapat diubah.');
+});
+
+it('keeps a real edit link for pending orders in the order list', function () {
+    $pending = Pesanan::create([
+        ...statusOrderPayload($this->paket),
+        'invoice' => 'INV-LIST-PENDING',
+    ]);
+
+    $this->actingAs($this->user)
+        ->get(route('admin.pesanan.index'))
+        ->assertOk()
+        ->assertSee(route('admin.pesanan.edit', $pending));
 });

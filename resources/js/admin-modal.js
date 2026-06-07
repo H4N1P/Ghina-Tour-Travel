@@ -46,6 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
         flash.remove();
     });
 
+    // Menampilkan informasi saat aksi yang tersedia secara visual tidak dapat dijalankan.
+    document.addEventListener('click', (event) => {
+        const trigger = event.target.closest('[data-admin-notice]');
+        if (!trigger) return;
+
+        openModal({
+            type: trigger.dataset.adminNoticeType || 'danger',
+            titleText: trigger.dataset.adminNoticeTitle || 'Aksi Tidak Tersedia',
+            messageText: trigger.dataset.adminNoticeMessage || 'Aksi ini tidak dapat dilakukan.',
+            confirmText: trigger.dataset.adminNoticeConfirm || 'Mengerti',
+        });
+    });
+
     document.addEventListener('submit', (event) => {
         const form = event.target.closest('form[data-confirm]');
         if (!form || form.dataset.confirmed === 'true') return;
