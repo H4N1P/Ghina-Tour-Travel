@@ -222,25 +222,34 @@ body {
   min-height: 34px;
   margin-right: 12px;
   padding: 7px 14px;
-  border: 0;
+  border: 1px solid var(--admin-border);
   border-radius: 7px;
-  background: var(--admin-gold);
-  color: #fff;
+  background: var(--admin-bg);
+  color: var(--admin-text);
   cursor: pointer;
   font: inherit;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   transition: background .18s ease, transform .18s ease;
 }
 
 .admin-file-input:hover::file-selector-button {
-  background: #d99b00;
+  background: var(--admin-border);
 }
 
 .admin-file-input:focus {
   outline: none;
-  border-color: var(--admin-gold);
-  box-shadow: 0 0 0 3px rgba(245, 176, 0, .24);
+  border-color: var(--admin-muted);
+  box-shadow: 0 0 0 3px rgba(102, 112, 133, .18);
+}
+
+.admin-edit-action {
+  background: var(--admin-orange);
+  color: #fff;
+}
+
+.admin-edit-action:hover {
+  background: #e96812;
 }
 
 .admin-total-summary {

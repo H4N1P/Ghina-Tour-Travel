@@ -14,6 +14,34 @@ class Paket extends Model
         'image',
     ];
 
+    /**
+     * Mengambil kapasitas maksimum pax dari catatan paket bila tersedia.
+     */
+    public function maxPaxFromNote(): ?int
+    {
+        if (!$this->note) {
+            return null;
+        }
+
+        return preg_match('/harga\s+untuk\s+(?:seat\s+)?(\d+)\s*(?:pax|siswa)/i', $this->note, $matches)
+            ? (int) $matches[1]
+            : null;
+    }
+
+    /**
+     * Menghapus frasa kapasitas ambigu dari catatan yang ditampilkan ke pelanggan.
+     */
+    public function displayNote(): ?string
+    {
+        if (!$this->note) {
+            return null;
+        }
+
+        $note = preg_replace('/harga\s+untuk\s+(?:seat\s+)?\d+\s*(?:pax|siswa)\s*\.?\s*/i', '', $this->note);
+        $note = trim((string) preg_replace('/\s+/', ' ', $note));
+
+        return $note !== '' ? $note : null;
+    }
 
     /**
      * Mendefinisikan kumpulan destinasi dalam paket.

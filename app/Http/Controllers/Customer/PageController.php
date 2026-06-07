@@ -74,7 +74,7 @@ class PageController extends Controller
      */
     public function packageDetail($id)
     {
-        $paket = Paket::with(['rundowns', 'fasilitas', 'destinasis.galleries', 'fotos'])
+        $paket = Paket::with(['rundowns', 'fasilitas.galleries', 'destinasis.galleries', 'fotos'])
             ->findOrFail($id);
 
         return view('customer.package-detail', compact('paket'));

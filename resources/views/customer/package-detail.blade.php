@@ -4,7 +4,7 @@
 @section('description',
     Str::limit(
     strip_tags(
-    $paket->note ??
+    $paket->displayNote() ??
     'Paket wisata dari Ghina Tour Travel dengan harga fleksibel dan
     layanan terpercaya.',
     ),
@@ -18,6 +18,12 @@
             background: var(--bg-section);
         }
 
+        .detail-hero__blur {
+            filter: blur(22px);
+            opacity: .72;
+            transform: scale(1.12);
+        }
+
         .placeholder-panel {
             background: var(--bg-section);
             border: 1px solid var(--border);
@@ -29,16 +35,127 @@
             border: 1px solid var(--border);
         }
 
-        .fas-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            padding: 6px 0;
-            border-bottom: 1px solid var(--border);
+        .facility-price-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 32px;
+            width: 100%;
         }
 
-        .fas-item:last-child {
-            border: none;
+        .facility-panel {
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .facility-carousel {
+            position: relative;
+            min-width: 0;
+        }
+
+        .facility-carousel__track {
+            --facility-visible-slides: 1;
+            --facility-gap: 18px;
+            display: flex;
+            gap: var(--facility-gap);
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 4px 0 16px;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .facility-carousel__track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .facility-slide {
+            flex: 0 0 calc((100% - (var(--facility-gap) * (var(--facility-visible-slides) - 1))) / var(--facility-visible-slides));
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--bg-card);
+            scroll-snap-align: start;
+        }
+
+        .facility-slide__media {
+            height: 190px;
+            overflow: hidden;
+            background: var(--bg-section);
+        }
+
+        .facility-slide__media img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform .3s ease;
+        }
+
+        .facility-slide:hover .facility-slide__media img {
+            transform: scale(1.04);
+        }
+
+        .facility-carousel__button {
+            position: absolute;
+            top: 94px;
+            z-index: 2;
+            display: flex;
+            height: 42px;
+            width: 42px;
+            transform: translateY(-50%);
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, .45);
+            border-radius: 999px;
+            background: rgba(15, 23, 42, .8);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, .2);
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .facility-carousel__button:hover,
+        .facility-carousel__button:focus-visible {
+            background: var(--gold-dark);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .facility-carousel__button:disabled {
+            cursor: not-allowed;
+            opacity: .35;
+            pointer-events: none;
+        }
+
+        .facility-carousel__button--prev {
+            left: 8px;
+        }
+
+        .facility-carousel__button--next {
+            right: 8px;
+        }
+
+        .package-detail-action {
+            display: flex;
+            min-height: 76px;
+            align-items: center;
+            gap: 14px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--bg-section);
+            padding: 16px;
+            color: var(--text);
+        }
+
+        .package-detail-action__icon {
+            display: flex;
+            height: 42px;
+            width: 42px;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: var(--gold);
+            color: #111827;
         }
 
         .rundown-card {
@@ -80,16 +197,47 @@
             width: 44px;
             height: 44px;
         }
+
+        @media (min-width: 640px) {
+            .facility-carousel__track {
+                --facility-visible-slides: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .facility-price-layout {
+                grid-template-columns: minmax(0, 1fr) 300px;
+            }
+
+            .facility-carousel__track {
+                --facility-visible-slides: 3;
+            }
+        }
+
     </style>
 @endsection
 
 @section('content')
+    @php
+        $displayNote = $paket->displayNote();
+        $maxPax = $paket->maxPaxFromNote();
+        $whatsappNumber = \App\Models\CompanyProfile::whatsappLinkNumber($companyProfile?->whatsapp);
+    @endphp
+
     <!-- HERO / HEADER PAKET -->
     <div class="detail-hero relative mt-[72px] h-[320px] w-full overflow-hidden sm:h-[380px] lg:h-[420px]">
         @if ($paket->image)
-            <img src="{{ Str::startsWith($paket->image, 'http') ? $paket->image : asset('storage/' . $paket->image) }}"
-                alt="{{ $paket->nama_paket }}" class="absolute inset-0 h-full w-full max-w-full object-cover" />
-            <div class="absolute inset-0" style="background:rgba(0,0,0,.45);"></div>
+            @php
+                $packageImage = Str::startsWith($paket->image, 'http')
+                    ? $paket->image
+                    : asset('storage/' . $paket->image);
+            @endphp
+            <img src="{{ $packageImage }}" alt="" aria-hidden="true"
+                class="detail-hero__blur absolute inset-0 h-full w-full max-w-full object-cover" />
+            <div class="absolute inset-0 bg-black/35"></div>
+            <img src="{{ $packageImage }}" alt="{{ $paket->nama_paket }}"
+                class="absolute inset-0 h-full w-full max-w-full object-contain" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/20"></div>
         @else
             <div class="placeholder-icon absolute inset-0">
                 <svg fill="currentColor" viewBox="0 0 24 24">
@@ -99,7 +247,7 @@
             </div>
             <div class="absolute inset-0" style="background:rgba(255,255,255,.35);"></div>
         @endif
-        <div class="absolute inset-0 flex items-center justify-center flex-col gap-2 px-4 text-center">
+        <div class="absolute inset-0 flex flex-col justify-end gap-2 px-4 pb-9 text-center sm:px-8 sm:pb-12">
             <h1 class="text-3xl font-bold sm:text-[38px] {{ $paket->image ? 'text-white' : 't' }}">
                 {{ $paket->nama_paket }}
             </h1>
@@ -145,11 +293,11 @@
         @endif
 
         <!-- Description -->
-        @if ($paket->note)
+        @if ($displayNote)
             <div class="mb-10">
                 <h2 class="text-[22px] font-bold t mb-4">Deskripsi Paket</h2>
                 <div class="p-6 rounded-2xl" style="background:var(--bg-card);border:1px solid var(--border);">
-                    <p class="tm leading-7">{{ $paket->note }}</p>
+                    <p class="tm leading-7">{{ $displayNote }}</p>
                 </div>
             </div>
         @endif
@@ -183,112 +331,134 @@
         @endauth
 
         <!-- Fasilitas + Harga -->
-        <div class="flex flex-col gap-8 lg:flex-row">
+        <div class="facility-price-layout">
 
             <!-- Fasilitas -->
-            <div class="fas-box flex-1 rounded-2xl p-5 sm:p-7">
-                <h2 class="text-[22px] font-bold t mb-5">Fasilitas</h2>
-
+            <div class="facility-panel fas-box rounded-2xl p-5 sm:p-7">
                 @php
-                    $transportasis = $paket->fasilitas
-                        ? $paket->fasilitas->where('tipe_fasilitas', 'transportasi')
-                        : collect();
-                    $akomodasis = $paket->fasilitas
-                        ? $paket->fasilitas->where('tipe_fasilitas', 'akomodasi')
-                        : collect();
-                    $konsumsis = $paket->fasilitas ? $paket->fasilitas->where('tipe_fasilitas', 'konsumsi') : collect();
+                    $facilitySlides = collect();
+
+                    foreach ($paket->fasilitas ?? collect() as $facility) {
+                        if ($facility->image) {
+                            $facilitySlides->push([
+                                'src' => Str::startsWith($facility->image, 'http')
+                                    ? $facility->image
+                                    : asset('storage/' . $facility->image),
+                                'name' => $facility->nama_fasilitas,
+                                'type' => $facility->tipe_fasilitas,
+                                'caption' => $facility->nama_fasilitas,
+                            ]);
+                        }
+
+                        foreach ($facility->galleries->where('type', 'image') as $gallery) {
+                            $facilitySlides->push([
+                                'src' => Str::startsWith($gallery->path, 'http')
+                                    ? $gallery->path
+                                    : asset('storage/' . $gallery->path),
+                                'name' => $facility->nama_fasilitas,
+                                'type' => $facility->tipe_fasilitas,
+                                'caption' => $gallery->keterangan ?: $facility->nama_fasilitas,
+                            ]);
+                        }
+
+                        if (!$facility->image && $facility->galleries->where('type', 'image')->isEmpty()) {
+                            $facilitySlides->push([
+                                'src' => null,
+                                'name' => $facility->nama_fasilitas,
+                                'type' => $facility->tipe_fasilitas,
+                                'caption' => $facility->nama_fasilitas,
+                            ]);
+                        }
+                    }
                 @endphp
 
-                <div class="mb-4">
-                    <p class="font-semibold t mb-2 text-[15px]">a. Transportasi</p>
-                    <div class="space-y-1 ml-1">
-                        @forelse ($transportasis as $transportasi)
-                            <div class="fas-item flex items-center gap-2">
-                                @if ($transportasi->image)
-                                    <button type="button"
-                                        class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400"
-                                        onclick="openLightbox('{{ asset('storage/' . $transportasi->image) }}', '{{ $transportasi->nama_fasilitas }}')">
-                                        <img src="{{ asset('storage/' . $transportasi->image) }}"
-                                            class="h-5 w-5 max-w-full rounded object-cover"
-                                            alt="{{ $transportasi->nama_fasilitas }}" loading="lazy" />
-                                    </button>
-                                @else
-                                    <span class="tm text-sm">–</span>
-                                @endif
-                                <span class="tm text-sm">{{ $transportasi->nama_fasilitas }}</span>
-                            </div>
+                <div class="mb-5 flex items-center justify-between gap-4">
+                    <h2 class="text-[22px] font-bold t">Fasilitas</h2>
+                    <p class="tm text-xs">Geser untuk melihat foto lainnya</p>
+                </div>
+
+                <div class="facility-carousel" data-facility-carousel>
+                    @if ($facilitySlides->isNotEmpty())
+                        <button type="button" class="facility-carousel__button facility-carousel__button--prev"
+                            data-facility-carousel-prev aria-label="Foto fasilitas sebelumnya">&larr;</button>
+                        <button type="button" class="facility-carousel__button facility-carousel__button--next"
+                            data-facility-carousel-next aria-label="Foto fasilitas berikutnya">&rarr;</button>
+                    @endif
+
+                    <div class="facility-carousel__track" data-facility-carousel-track>
+                        @forelse ($facilitySlides as $slide)
+                            <article class="facility-slide">
+                                <button type="button" class="facility-slide__media block w-full"
+                                    @if ($slide['src']) onclick="openLightbox('{{ $slide['src'] }}', @js($slide['caption']))" @endif>
+                                    @if ($slide['src'])
+                                        <img src="{{ $slide['src'] }}" alt="{{ $slide['caption'] }}" loading="lazy" />
+                                    @else
+                                        <span class="placeholder-icon" aria-label="Foto fasilitas belum tersedia">
+                                            <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path
+                                                    d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2ZM8.5 11.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5Z" />
+                                            </svg>
+                                        </span>
+                                    @endif
+                                </button>
+                                <div class="p-4">
+                                    <p class="t font-bold">{{ $slide['name'] }}</p>
+                                    <p class="mt-1 text-xs font-semibold uppercase tracking-wide"
+                                        style="color:var(--gold-dark);">{{ $slide['type'] }}</p>
+                                    <p class="tm mt-2 text-sm leading-6">{{ $slide['caption'] }}</p>
+                                </div>
+                            </article>
                         @empty
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Bus
-                                    Pariwisata</span></div>
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">AC (Air
-                                    Conditioner)</span></div>
+                            <div class="placeholder-panel w-full rounded-xl p-6 text-center">
+                                <p class="tm text-sm">Informasi fasilitas belum tersedia.</p>
+                            </div>
                         @endforelse
                     </div>
                 </div>
 
-                <div class="mb-4">
-                    <p class="font-semibold t mb-2 text-[15px]">b. Akomodasi</p>
-                    <div class="space-y-1 ml-1">
-                        @forelse ($akomodasis as $akomodasi)
-                            <div class="fas-item flex items-center gap-2">
-                                @if ($akomodasi->image)
-                                    <button type="button"
-                                        class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400"
-                                        onclick="openLightbox('{{ asset('storage/' . $akomodasi->image) }}', '{{ $akomodasi->nama_fasilitas }}')">
-                                        <img src="{{ asset('storage/' . $akomodasi->image) }}"
-                                            class="h-5 w-5 max-w-full rounded object-cover"
-                                            alt="{{ $akomodasi->nama_fasilitas }}" loading="lazy" />
-                                    </button>
-                                @else
-                                    <span class="tm text-sm">–</span>
-                                @endif
-                                <span class="tm text-sm">{{ $akomodasi->nama_fasilitas }}</span>
-                            </div>
-                        @empty
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Tour
-                                    Leader</span></div>
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Tiket Masuk
-                                    Objek Wisata</span></div>
-                        @endforelse
-                    </div>
-                </div>
+                <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                    <a href="{{ route('photos') }}"
+                        class="package-detail-action transition hover:-translate-y-0.5 hover:shadow-md">
+                        <span class="package-detail-action__icon">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 7h3l2-2h8l2 2h3v12H3V7Zm9 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+                            </svg>
+                        </span>
+                        <span>
+                            <strong class="block">Dokumentasi</strong>
+                            <span class="tm mt-1 block text-xs">Lihat semua galeri perjalanan</span>
+                        </span>
+                    </a>
 
-                <div>
-                    <p class="font-semibold t mb-2 text-[15px]">c. Konsumsi</p>
-                    <div class="space-y-1 ml-1">
-                        @forelse ($konsumsis as $konsumsi)
-                            <div class="fas-item flex items-center gap-2">
-                                @if ($konsumsi->image)
-                                    <button type="button"
-                                        class="flex min-h-11 min-w-11 items-center justify-center rounded hover:ring-2 hover:ring-amber-400"
-                                        onclick="openLightbox('{{ asset('storage/' . $konsumsi->image) }}', '{{ $konsumsi->nama_fasilitas }}')">
-                                        <img src="{{ asset('storage/' . $konsumsi->image) }}"
-                                            class="h-5 w-5 max-w-full rounded object-cover"
-                                            alt="{{ $konsumsi->nama_fasilitas }}" loading="lazy" />
-                                    </button>
-                                @else
-                                    <span class="tm text-sm">–</span>
-                                @endif
-                                <span class="tm text-sm">{{ $konsumsi->nama_fasilitas }}</span>
-                            </div>
-                        @empty
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Makan 2x</span>
-                            </div>
-                            <div class="fas-item"><span class="tm text-sm">–</span><span class="tm text-sm">Air
-                                    Mineral</span></div>
-                        @endforelse
+                    <div class="package-detail-action" aria-label="Banner Custom">
+                        <span class="package-detail-action__icon">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 13V8l12-4v13L4 13Zm0 0v4m12-7 4 2-4 2M7 14l2 5" />
+                            </svg>
+                        </span>
+                        <span>
+                            <strong class="block">Banner Custom</strong>
+                            <span class="tm mt-1 block text-xs">Mockup banner perjalanan rombongan</span>
+                        </span>
                     </div>
                 </div>
             </div>
 
             <!-- Harga & CTA -->
-            <div class="w-full lg:w-[300px] flex-shrink-0 space-y-4">
+            <div class="w-full space-y-4">
                 <div class="harga-box rounded-2xl p-6 space-y-3">
                     <p class="tm text-sm">Harga Paket Tour</p>
                     <p class="text-[26px] font-bold t">
                         Rp {{ number_format($paket->harga_paket, 0, ',', '.') }}<span
                             class="text-base font-normal tm">/pax</span>
                     </p>
+                    @if ($maxPax)
+                        <p class="tm text-xs">Maks. {{ $maxPax }} pax/slot</p>
+                    @endif
                     <p class="text-xs font-bold" style="color:#dc2626;">NB : HARGA SEWAKTU WAKTU BISA BERUBAH</p>
 
                     <hr style="border-color:var(--border);" />
@@ -304,7 +474,7 @@
                     </div>
                 </div>
 
-                <a href="https://wa.me/{{ preg_replace('/\D/', '', $companyProfile->whatsapp ?? '6281390162558') }}?text=Halo%20Ghina%20Tour%20Travel,%20saya%20tertarik%20dengan%20paket%20{{ urlencode($paket->nama_paket) }}."
+                <a href="https://wa.me/{{ $whatsappNumber }}?text=Halo%20Ghina%20Tour%20Travel,%20saya%20tertarik%20dengan%20paket%20{{ urlencode($paket->nama_paket) }}."
                     target="_blank" class="btn btn-gold w-full justify-center text-[15px] py-4">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path
@@ -319,4 +489,49 @@
             </div>
         </div>
     </main>
+@endsection
+
+@section('extra_scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-facility-carousel]').forEach((carousel) => {
+                const track = carousel.querySelector('[data-facility-carousel-track]');
+                const previousButton = carousel.querySelector('[data-facility-carousel-prev]');
+                const nextButton = carousel.querySelector('[data-facility-carousel-next]');
+
+                if (!track || !previousButton || !nextButton) {
+                    return;
+                }
+
+                // Menonaktifkan tombol ketika carousel berada di batas awal atau akhir.
+                const updateButtons = () => {
+                    const maxScrollLeft = Math.max(0, track.scrollWidth - track.clientWidth);
+                    const tolerance = 2;
+
+                    previousButton.disabled = track.scrollLeft <= tolerance;
+                    nextButton.disabled = track.scrollLeft >= maxScrollLeft - tolerance;
+                };
+
+                // Menggeser carousel sebanyak satu kartu fasilitas.
+                const scrollOneSlide = (direction) => {
+                    const slide = track.querySelector('.facility-slide');
+                    const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
+                    const distance = slide ? slide.getBoundingClientRect().width + gap : track.clientWidth;
+
+                    track.scrollBy({
+                        left: distance * direction,
+                        behavior: 'smooth',
+                    });
+                };
+
+                previousButton.addEventListener('click', () => scrollOneSlide(-1));
+                nextButton.addEventListener('click', () => scrollOneSlide(1));
+                track.addEventListener('scroll', updateButtons, {
+                    passive: true,
+                });
+                window.addEventListener('resize', updateButtons);
+                updateButtons();
+            });
+        });
+    </script>
 @endsection

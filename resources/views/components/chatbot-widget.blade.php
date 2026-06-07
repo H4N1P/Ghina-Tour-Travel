@@ -7,12 +7,12 @@
 <?php
 try {
     $companyProfile = \App\Models\CompanyProfile::query()->first();
-    $whatsapp = $companyProfile->whatsapp ?? '6281234567890';
+    $whatsapp = $companyProfile?->whatsapp;
 } catch (\Throwable) {
-    $whatsapp = '6281234567890';
+    $whatsapp = null;
 }
 
-$waLink = 'https://wa.me/' . preg_replace('/\D/', '', $whatsapp);
+$waLink = 'https://wa.me/' . \App\Models\CompanyProfile::whatsappLinkNumber($whatsapp);
 ?>
 
 <div class="chatbot-root fixed bottom-4 right-4 z-50 max-w-[calc(100vw-2rem)] sm:bottom-6 sm:right-6">

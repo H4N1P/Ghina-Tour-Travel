@@ -121,17 +121,17 @@ class ChatbotDatabaseTools
         $profile = CompanyProfile::query()->latest('id')->first();
 
         return [
-            'ok' => (bool) $profile,
-            'company' => $profile ? [
+            'ok' => true,
+            'company' => [
                 'name' => 'Ghina Tour Travel',
-                'about' => $profile->about,
-                'vision_mission' => $profile->vision_mission,
-                'whatsapp' => $profile->whatsapp,
-                'email' => $profile->email,
-                'address' => $profile->address,
-                'instagram' => $profile->instagram,
-            ] : null,
-            'message' => $profile ? null : 'Profil perusahaan belum tersedia di database.',
+                'about' => $profile?->about,
+                'vision_mission' => $profile?->vision_mission,
+                'whatsapp' => CompanyProfile::whatsappDisplay($profile?->whatsapp),
+                'email' => $profile?->email,
+                'address' => $profile?->address,
+                'instagram' => $profile?->instagram,
+            ],
+            'message' => $profile ? null : 'Profil perusahaan belum tersedia; nomor WhatsApp resmi tetap dapat digunakan.',
         ];
     }
 

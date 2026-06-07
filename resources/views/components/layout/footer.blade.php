@@ -1,3 +1,8 @@
+@php
+    $whatsappDisplay = \App\Models\CompanyProfile::whatsappDisplay($companyProfile?->whatsapp);
+    $whatsappLinkNumber = \App\Models\CompanyProfile::whatsappLinkNumber($companyProfile?->whatsapp);
+@endphp
+
 <footer class="mt-20 w-full px-4 py-12 text-white sm:px-6 lg:px-14 lg:py-16">
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
@@ -44,15 +49,13 @@
                     </li>
                 @endif
 
-                @if ($companyProfile?->whatsapp)
-                    <li class="flex items-center gap-3">
-                        <img src="{{ asset('customer/icon/whatsapp.svg') }}" class="h-5 w-5" alt="WhatsApp" />
-                        <a href="https://wa.me/{{ preg_replace('/\D/', '', $companyProfile->whatsapp) }}"
-                            target="_blank" class="inline-flex min-h-11 items-center hover:text-yellow-500 transition-colors">
-                            {{ $companyProfile->whatsapp }}
-                        </a>
-                    </li>
-                @endif
+                <li class="flex items-center gap-3">
+                    <img src="{{ asset('customer/icon/whatsapp.svg') }}" class="h-5 w-5" alt="WhatsApp" />
+                    <a href="https://wa.me/{{ $whatsappLinkNumber }}" target="_blank"
+                        class="inline-flex min-h-11 items-center hover:text-yellow-500 transition-colors">
+                        {{ $whatsappDisplay }}
+                    </a>
+                </li>
 
                 @if ($companyProfile?->email)
                     <li class="flex items-center gap-3">
