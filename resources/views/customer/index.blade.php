@@ -165,9 +165,9 @@
                 <a href="{{ route('packages') }}" class="btn btn-gold w-full sm:w-auto">Lihat Semua Paket</a>
             </div>
 
-            <div class="paket-slider">
+            <div class="paket-slider" data-public-carousel data-carousel-item=".package-card">
                 {{-- Prev --}}
-                <button type="button" class="paket-slider__btn paket-slider__btn--prev" id="paketPrev"
+                <button type="button" class="paket-slider__btn paket-slider__btn--prev" data-carousel-prev
                     aria-label="Sebelumnya">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -175,7 +175,7 @@
                 </button>
 
                 {{-- Track --}}
-                <div class="paket-slider__track" id="paketTrack">
+                <div class="paket-slider__track" data-carousel-track>
                     @forelse($pakets as $paket)
                         @include('components.customer.package-card', ['paket' => $paket])
                     @empty
@@ -184,7 +184,7 @@
                 </div>
 
                 {{-- Next --}}
-                <button type="button" class="paket-slider__btn paket-slider__btn--next" id="paketNext"
+                <button type="button" class="paket-slider__btn paket-slider__btn--next" data-carousel-next
                     aria-label="Berikutnya">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -193,30 +193,6 @@
             </div>
         </div>
 
-        <script>
-            // Mengaktifkan tombol navigasi carousel paket setelah halaman siap.
-            document.addEventListener('DOMContentLoaded', function() {
-                const track = document.getElementById('paketTrack');
-                const prev = document.getElementById('paketPrev');
-                const next = document.getElementById('paketNext');
-                if (!track) return;
-
-                // Menghitung jarak geser carousel berdasarkan lebar kartu aktif.
-                function scrollAmount() {
-                    const card = track.querySelector('.package-card');
-                    return card ? card.offsetWidth + 24 : 300;
-                }
-
-                prev?.addEventListener('click', () => track.scrollBy({
-                    left: -scrollAmount(),
-                    behavior: 'smooth'
-                }));
-                next?.addEventListener('click', () => track.scrollBy({
-                    left: scrollAmount(),
-                    behavior: 'smooth'
-                }));
-            });
-        </script>
     </section>
 
     <section id="galeri" class="sec-bg py-20">

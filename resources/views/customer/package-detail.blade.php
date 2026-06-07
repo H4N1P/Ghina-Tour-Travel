@@ -376,15 +376,15 @@
                     <p class="tm text-xs">Geser untuk melihat foto lainnya</p>
                 </div>
 
-                <div class="facility-carousel" data-facility-carousel>
+                <div class="facility-carousel" data-public-carousel data-carousel-item=".facility-slide">
                     @if ($facilitySlides->isNotEmpty())
                         <button type="button" class="facility-carousel__button facility-carousel__button--prev"
-                            data-facility-carousel-prev aria-label="Foto fasilitas sebelumnya">&larr;</button>
+                            data-carousel-prev aria-label="Foto fasilitas sebelumnya">&larr;</button>
                         <button type="button" class="facility-carousel__button facility-carousel__button--next"
-                            data-facility-carousel-next aria-label="Foto fasilitas berikutnya">&rarr;</button>
+                            data-carousel-next aria-label="Foto fasilitas berikutnya">&rarr;</button>
                     @endif
 
-                    <div class="facility-carousel__track" data-facility-carousel-track>
+                    <div class="facility-carousel__track" data-carousel-track>
                         @forelse ($facilitySlides as $slide)
                             <article class="facility-slide">
                                 <button type="button" class="facility-slide__media block w-full"
@@ -488,50 +488,4 @@
             </div>
         </div>
     </main>
-@endsection
-
-@section('extra_scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('[data-facility-carousel]').forEach((carousel) => {
-                const track = carousel.querySelector('[data-facility-carousel-track]');
-                const previousButton = carousel.querySelector('[data-facility-carousel-prev]');
-                const nextButton = carousel.querySelector('[data-facility-carousel-next]');
-
-                if (!track || !previousButton || !nextButton) {
-                    return;
-                }
-
-                // Menonaktifkan tombol ketika carousel berada di batas awal atau akhir.
-                const updateButtons = () => {
-                    const maxScrollLeft = Math.max(0, track.scrollWidth - track.clientWidth);
-                    const tolerance = 2;
-
-                    previousButton.disabled = track.scrollLeft <= tolerance;
-                    nextButton.disabled = track.scrollLeft >= maxScrollLeft - tolerance;
-                };
-
-                // Menggeser carousel sebanyak satu kartu fasilitas.
-                const scrollOneSlide = (direction) => {
-                    const slide = track.querySelector('.facility-slide');
-                    const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
-                    const distance = slide ? slide.getBoundingClientRect().width + gap : track
-                        .clientWidth;
-
-                    track.scrollBy({
-                        left: distance * direction,
-                        behavior: 'smooth',
-                    });
-                };
-
-                previousButton.addEventListener('click', () => scrollOneSlide(-1));
-                nextButton.addEventListener('click', () => scrollOneSlide(1));
-                track.addEventListener('scroll', updateButtons, {
-                    passive: true,
-                });
-                window.addEventListener('resize', updateButtons);
-                updateButtons();
-            });
-        });
-    </script>
 @endsection

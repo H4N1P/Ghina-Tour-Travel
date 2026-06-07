@@ -230,11 +230,39 @@ body {
 .paket-slider {
   position: relative;
 }
+
+[data-carousel-track] {
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  overscroll-behavior-x: contain;
+}
+
+[data-carousel-track].is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+[data-carousel-track] img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+[data-carousel-prev]:disabled,
+[data-carousel-next]:disabled {
+  cursor: not-allowed;
+  opacity: .35;
+  pointer-events: none;
+}
+
 .paket-slider__track {
   display: flex;
   gap: 24px;
   overflow-x: auto;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   padding: 4px 0 12px;
@@ -243,6 +271,7 @@ body {
 .paket-slider__track .package-card {
   flex: 0 0 calc(25% - 18px);
   min-width: 260px;
+  scroll-snap-align: start;
 }
 
 .paket-slider__btn {
