@@ -146,7 +146,7 @@
                                     <option value="transportasi" {{ ($fasilitas['tipe_fasilitas'] ?? '') === 'transportasi' ? 'selected' : '' }}>🚌 Transportasi</option>
                                 </select>
                                 <button type="button" onclick="removeFasilitasRow(this)"
-                                    class="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors flex-shrink-0">
+                                    class="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors shrink-0">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                                     </svg>
