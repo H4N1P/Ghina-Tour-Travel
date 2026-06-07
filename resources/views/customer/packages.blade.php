@@ -4,47 +4,116 @@
 @section('description', 'Lihat pilihan paket wisata Ghina Tour Travel untuk perjalanan rombongan, sekolah, instansi, dan
     keluarga.')
 @section('content')
-    <section class="search-hero">
-        <form action="{{ route('packages') }}" method="GET" class="search-panel">
-            <div class="search-panel__field">
-                <input type="text" name="q" value="{{ $query ?? '' }}" placeholder="Search">
-                <span class="search-panel__icon" aria-hidden="true">
-                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+    <main class="mx-auto max-w-7xl px-4 pb-12 pt-32 sm:px-6 sm:pb-14 sm:pt-36 lg:px-16">
+        <div class="mb-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <h1 class="text-3xl font-extrabold leading-tight text-[#202638] dark:text-white sm:text-[44px]">
+                Semua Paket
+            </h1>
+
+            <form id="package-search-form" action="{{ route('packages') }}" method="GET"
+                class="package-live-search" role="search">
+                <span class="package-live-search__icon" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.25">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="m21 21-5.2-5.2m1.7-5.3a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
                     </svg>
                 </span>
-            </div>
-            <button type="submit">Cari</button>
-            @if (($query ?? '') !== '')
-                <a href="{{ route('packages') }}" class="inline-flex items-center justify-center">Reset</a>
-            @endif
-        </form>
-    </section>
+                <input id="package-search-input" type="search" name="q" value="{{ $query ?? '' }}"
+                    placeholder="Cari nama paket atau destinasi..." autocomplete="off"
+                    aria-label="Cari nama paket atau destinasi">
+                <span id="package-search-loading" class="package-live-search__loading" aria-hidden="true"></span>
+            </form>
+        </div>
 
-    <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-16">
-        <h1 class="mb-8 text-3xl font-extrabold leading-tight text-[#202638] dark:text-white sm:text-[44px]">
-            {{ ($query ?? '') !== '' ? 'Hasil Pencarian' : 'Semua Paket' }}
-        </h1>
-
-        @if (($query ?? '') !== '')
-            <p class="tm -mt-5 mb-8">Menampilkan paket untuk "{{ $query }}".</p>
-        @endif
-
-        @if ($pakets->count() > 0)
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                @foreach ($pakets as $paket)
-                    @include('components.customer.package-card', ['paket' => $paket])
-                @endforeach
-            </div>
-
-            @include('components.ui.pagination', ['paginator' => $pakets])
-        @else
-            <div class="rounded-3xl border border-[var(--border)] bg-[var(--bg-card)] px-6 py-16 text-center">
-                <h2 class="text-2xl font-extrabold t">Tidak Ada Paket Ditemukan</h2>
-                <p class="tm mt-2">Coba gunakan kata kunci lain atau lihat semua paket yang tersedia.</p>
-                <a href="{{ route('packages') }}" class="btn btn-gold mt-6 w-full sm:w-auto">Lihat Semua Paket</a>
-            </div>
-        @endif
+        <div id="package-results" aria-live="polite">
+            @include('customer.partials.package-results', ['pakets' => $pakets, 'query' => $query])
+        </div>
     </main>
+@endsection
+
+@section('extra_scripts')
+    <script>
+        // Mengaktifkan pencarian paket real-time dan pagination tanpa memuat ulang halaman.
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('package-search-form');
+            const input = document.getElementById('package-search-input');
+            const results = document.getElementById('package-results');
+            const loading = document.getElementById('package-search-loading');
+            if (!form || !input || !results) return;
+
+            let debounceTimer;
+            let activeRequest;
+
+            // Memperbarui URL halaman sesuai kata pencarian dan halaman hasil aktif.
+            function syncUrl(url) {
+                const nextUrl = new URL(url, window.location.origin);
+                if (nextUrl.searchParams.get('page') === '1') {
+                    nextUrl.searchParams.delete('page');
+                }
+                window.history.replaceState({}, '', `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+            }
+
+            // Mengambil partial hasil paket terbaru dari server.
+            async function loadResults(url) {
+                activeRequest?.abort();
+                const request = new AbortController();
+                activeRequest = request;
+                results.setAttribute('aria-busy', 'true');
+                loading?.classList.add('is-visible');
+
+                try {
+                    const response = await fetch(url, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+                        signal: request.signal,
+                    });
+
+                    if (!response.ok) throw new Error('Gagal memuat hasil pencarian.');
+
+                    results.innerHTML = await response.text();
+                    syncUrl(url);
+                } catch (error) {
+                    if (error.name !== 'AbortError') {
+                        window.location.assign(url);
+                    }
+                } finally {
+                    if (activeRequest === request) {
+                        results.removeAttribute('aria-busy');
+                        loading?.classList.remove('is-visible');
+                    }
+                }
+            }
+
+            // Menjalankan pencarian setelah pengguna berhenti mengetik selama 300 milidetik.
+            input.addEventListener('input', function() {
+                window.clearTimeout(debounceTimer);
+                debounceTimer = window.setTimeout(() => {
+                    const url = new URL(form.action);
+                    const query = input.value.trim();
+                    if (query) url.searchParams.set('q', query);
+                    loadResults(url);
+                }, 300);
+            });
+
+            // Mempertahankan fallback form GET sambil menggunakan AJAX ketika JavaScript aktif.
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                window.clearTimeout(debounceTimer);
+                const url = new URL(form.action);
+                const query = input.value.trim();
+                if (query) url.searchParams.set('q', query);
+                loadResults(url);
+            });
+
+            // Memuat halaman hasil pagination melalui AJAX.
+            results.addEventListener('click', function(event) {
+                const link = event.target.closest('.ui-pagination a');
+                if (!link) return;
+
+                event.preventDefault();
+                loadResults(link.href);
+            });
+        });
+    </script>
 @endsection

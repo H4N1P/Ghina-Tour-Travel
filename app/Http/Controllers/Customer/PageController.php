@@ -37,7 +37,7 @@ class PageController extends Controller
     }
 
     /**
-     * Menampilkan daftar paket dan menerapkan pencarian nama paket.
+     * Menampilkan daftar paket dan menerapkan pencarian nama paket atau destinasi.
      */
     public function packages(Request $request)
     {
@@ -46,7 +46,13 @@ class PageController extends Controller
         try {
             $pakets = Paket::with(['fasilitas', 'destinasis.galleries', 'fotos'])
                 ->when($query !== '', function ($builder) use ($query) {
-                    $builder->where('nama_paket', 'like', "%{$query}%");
+                    $builder->where(function ($searchQuery) use ($query) {
+                        $searchQuery
+                            ->where('nama_paket', 'like', "%{$query}%")
+                            ->orWhereHas('destinasis', function ($destinationQuery) use ($query) {
+                                $destinationQuery->where('nama_destinasi', 'like', "%{$query}%");
+                            });
+                    });
                 })
                 ->orderBy('created_at', 'desc')
                 ->paginate(12)
@@ -54,6 +60,10 @@ class PageController extends Controller
         } catch (QueryException) {
             $pakets = new LengthAwarePaginator([], 0, 12);
             $pakets->withPath(route('packages'));
+        }
+
+        if ($request->ajax()) {
+            return view('customer.partials.package-results', compact('pakets', 'query'));
         }
 
         return view('customer.packages', compact('pakets', 'query'));
