@@ -17,30 +17,6 @@
             opacity: .9;
         }
 
-        .pg-btn {
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text);
-            transition: all .2s;
-        }
-
-        .pg-btn:hover,
-        .pg-btn.active {
-            background: var(--gold);
-            color: #000;
-            border-color: var(--gold);
-        }
-
-        .pg-btn:disabled {
-            opacity: 0.4;
-            cursor: default;
-        }
-
         .video-play-overlay {
             position: absolute;
             inset: 0;
@@ -101,27 +77,7 @@
                 @endforeach
             </div>
 
-            <!-- Pagination -->
-            @if ($fotos->hasPages())
-                <div class="mt-10 flex items-center justify-center gap-2">
-                    @if ($fotos->onFirstPage())
-                        <button class="pg-btn" disabled>‹ Prev</button>
-                    @else
-                        <a href="{{ $fotos->previousPageUrl() }}" class="pg-btn">‹ Prev</a>
-                    @endif
-
-                    @foreach ($fotos->getUrlRange(1, $fotos->lastPage()) as $page => $url)
-                        <a href="{{ $url }}"
-                            class="pg-btn {{ $page == $fotos->currentPage() ? 'active' : '' }}">{{ $page }}</a>
-                    @endforeach
-
-                    @if ($fotos->hasMorePages())
-                        <a href="{{ $fotos->nextPageUrl() }}" class="pg-btn">Next ›</a>
-                    @else
-                        <button class="pg-btn" disabled>Next ›</button>
-                    @endif
-                </div>
-            @endif
+            @include('components.ui.pagination', ['paginator' => $fotos])
         @else
             <div class="text-center py-16">
                 <div class="mb-4">

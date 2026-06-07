@@ -20,6 +20,7 @@ function initializeCarousel(carousel) {
     let isDragging = false;
     let isHorizontalDrag = false;
     let suppressClickUntil = 0;
+    let dragPointerId = null;
 
     /**
      * Menghitung jarak satu kartu termasuk gap antar kartu.
@@ -63,6 +64,7 @@ function initializeCarousel(carousel) {
     const finishDrag = () => {
         if (isDragging) {
             suppressClickUntil = Date.now() + 500;
+            dragPointerId = pointerId;
         }
 
         const activePointerId = pointerId;
@@ -90,7 +92,6 @@ function initializeCarousel(carousel) {
         startScrollLeft = track.scrollLeft;
         isDragging = false;
         isHorizontalDrag = false;
-        track.setPointerCapture?.(event.pointerId);
     });
 
     track.addEventListener('pointermove', (event) => {
@@ -115,6 +116,7 @@ function initializeCarousel(carousel) {
                 return;
             }
 
+            track.setPointerCapture?.(event.pointerId);
             track.classList.add('is-dragging');
         }
 
@@ -127,12 +129,18 @@ function initializeCarousel(carousel) {
     track.addEventListener('lostpointercapture', finishDrag);
 
     track.addEventListener('click', (event) => {
-        if (Date.now() > suppressClickUntil) {
+        const clickPointerId = event.pointerId ?? 1;
+        const isSuppressedDragClick = Date.now() <= suppressClickUntil
+            && (dragPointerId === null || clickPointerId === dragPointerId);
+
+        if (!isSuppressedDragClick) {
             return;
         }
 
         event.preventDefault();
         event.stopPropagation();
+        suppressClickUntil = 0;
+        dragPointerId = null;
     }, true);
 
     track.addEventListener('dragstart', (event) => event.preventDefault());

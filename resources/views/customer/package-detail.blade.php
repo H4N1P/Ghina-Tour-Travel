@@ -96,36 +96,6 @@
             transform: scale(1.04);
         }
 
-        .facility-carousel__button {
-            position: absolute;
-            top: 94px;
-            z-index: 2;
-            display: flex;
-            height: 42px;
-            width: 42px;
-            transform: translateY(-50%);
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 255, 255, .45);
-            border-radius: 999px;
-            background: rgba(15, 23, 42, .8);
-            color: #fff;
-            box-shadow: 0 8px 20px rgba(15, 23, 42, .2);
-            transition: background .2s ease, transform .2s ease;
-        }
-
-        .facility-carousel__button:hover,
-        .facility-carousel__button:focus-visible {
-            background: var(--gold-dark);
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .facility-carousel__button:disabled {
-            cursor: not-allowed;
-            opacity: .35;
-            pointer-events: none;
-        }
-
         .facility-carousel__button--prev {
             left: 8px;
         }
@@ -378,10 +348,20 @@
 
                 <div class="facility-carousel" data-public-carousel data-carousel-item=".facility-slide">
                     @if ($facilitySlides->isNotEmpty())
-                        <button type="button" class="facility-carousel__button facility-carousel__button--prev"
-                            data-carousel-prev aria-label="Foto fasilitas sebelumnya">&larr;</button>
-                        <button type="button" class="facility-carousel__button facility-carousel__button--next"
-                            data-carousel-next aria-label="Foto fasilitas berikutnya">&rarr;</button>
+                        <button type="button" class="public-carousel__btn facility-carousel__button--prev"
+                            data-carousel-prev aria-label="Foto fasilitas sebelumnya">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button type="button" class="public-carousel__btn facility-carousel__button--next"
+                            data-carousel-next aria-label="Foto fasilitas berikutnya">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     @endif
 
                     <div class="facility-carousel__track" data-carousel-track>

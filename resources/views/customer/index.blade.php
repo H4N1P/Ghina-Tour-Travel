@@ -167,7 +167,7 @@
 
             <div class="paket-slider" data-public-carousel data-carousel-item=".package-card">
                 {{-- Prev --}}
-                <button type="button" class="paket-slider__btn paket-slider__btn--prev" data-carousel-prev
+                <button type="button" class="public-carousel__btn paket-slider__btn--prev" data-carousel-prev
                     aria-label="Sebelumnya">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -184,7 +184,7 @@
                 </div>
 
                 {{-- Next --}}
-                <button type="button" class="paket-slider__btn paket-slider__btn--next" data-carousel-next
+                <button type="button" class="public-carousel__btn paket-slider__btn--next" data-carousel-next
                     aria-label="Berikutnya">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
