@@ -220,7 +220,7 @@
             </div>
             <div>
                 <p class="stat-label">Total Pesanan</p>
-                <p class="stat-value">{{ $orders->count() }}</p>
+                <p class="stat-value">{{ $totalPesanan }}</p>
             </div>
         </div>
 

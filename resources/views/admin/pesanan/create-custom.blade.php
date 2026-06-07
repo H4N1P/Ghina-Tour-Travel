@@ -173,17 +173,16 @@
             </div>
         </div>
 
-        {{-- Status --}}
+        {{-- Status Awal --}}
         <div class="bg-admin-card rounded-xl border border-admin-border">
-            <div class="p-4 lg:p-6">
-                <label class="block text-sm font-medium text-admin-text mb-2">Status Pesanan</label>
-                <select name="status"
-                    class="w-full px-4 py-2.5 rounded-lg border border-admin-border bg-white dark:bg-neutral-800 focus:ring-2 focus:ring-amber-500 transition-colors">
-                    <option value="pending" {{ old('status', 'pending') === 'pending' ? 'selected' : '' }}>Pending
-                    </option>
-                    <option value="selesai" {{ old('status') === 'selesai' ? 'selected' : '' }}>Selesai</option>
-                    <option value="batal" {{ old('status') === 'batal' ? 'selected' : '' }}>Batal</option>
-                </select>
+            <div class="flex flex-col gap-2 p-4 lg:p-6 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <p class="text-sm font-medium text-admin-text">Status awal pesanan</p>
+                    <p class="mt-1 text-xs text-admin-muted">Status dapat diubah menjadi selesai atau batal melalui form edit.</p>
+                </div>
+                <span class="inline-flex w-fit rounded-full bg-yellow-100 px-3 py-1 text-sm font-semibold text-yellow-700">
+                    Pending
+                </span>
             </div>
         </div>
 

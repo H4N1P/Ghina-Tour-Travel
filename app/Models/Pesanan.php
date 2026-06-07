@@ -48,6 +48,14 @@ class Pesanan extends Model
     }
 
     /**
+     * Memeriksa apakah status pesanan sudah final dan tidak dapat diubah lagi.
+     */
+    public function isFinal(): bool
+    {
+        return in_array($this->status, ['selesai', 'batal'], true);
+    }
+
+    /**
      * Memformat tanggal mulai dan selesai menjadi label rentang yang mudah dibaca.
      */
     public function formatRentangTanggal(string $format = 'd M Y'): string

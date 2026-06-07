@@ -151,6 +151,12 @@ class PesananController extends Controller
      */
     public function edit(Pesanan $pesanan)
     {
+        if ($pesanan->isFinal()) {
+            return redirect()
+                ->route('admin.pesanan.show', $pesanan)
+                ->with('failed', 'Pesanan dengan status selesai atau batal sudah final dan tidak dapat diubah.');
+        }
+
         $id = $pesanan; // Keep $id for view compatibility
         $pakets = Paket::with(['fasilitas', 'destinasis'])->get();
         
@@ -166,6 +172,12 @@ class PesananController extends Controller
      */
     public function update(Request $request, Pesanan $pesanan)
     {
+        if ($pesanan->isFinal()) {
+            return redirect()
+                ->route('admin.pesanan.show', $pesanan)
+                ->with('failed', 'Pesanan dengan status selesai atau batal sudah final dan tidak dapat diubah.');
+        }
+
         $rules = [
             'nama_pemesan'  => 'required|string|max:255',
             'no_hp'         => 'required|string|max:20',
@@ -174,7 +186,7 @@ class PesananController extends Controller
             'tanggal_acara' => 'required|date',
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_acara',
             'jumlah_orang'  => 'required|integer|min:1',
-            'status'        => 'nullable|in:pending,batal,selesai',
+            'status'        => 'required|in:pending,batal,selesai',
         ];
 
         // Pesanan paket wajib memiliki paket yang valid.
