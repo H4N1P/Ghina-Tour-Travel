@@ -6,22 +6,22 @@
     dengan layanan terpercaya, fleksibel, dan menyenangkan.')
 
 @section('content')
-    <section id="beranda" class="relative min-h-[560px] w-full overflow-hidden sm:min-h-[620px] lg:min-h-[660px]">
+    <section id="beranda" class="relative w-full overflow-hidden pb-10 pt-[68px] sm:pb-14 sm:pt-[78px] lg:min-h-[660px] lg:pb-0 lg:pt-0">
         <div class="absolute inset-0 z-10" style="background:var(--hero-overlay);"></div>
         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
             <source src="{{ asset('customer/assets/videos/hero-video.mp4') }}" type="video/mp4">
         </video>
 
         <div
-            class="relative z-20 mx-auto grid min-h-[560px] max-w-7xl items-center px-4 pt-24 sm:min-h-[620px] sm:px-6 lg:min-h-[660px] lg:px-14">
+            class="relative z-20 mx-auto grid max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:min-h-[660px] lg:items-center lg:px-14 lg:py-20">
             <div class="fade-in">
-                <h1 class="max-w-[820px] text-4xl font-extrabold leading-tight text-white sm:text-[42px] lg:text-[58px]">
+                <h1 class="max-w-[820px] text-[32px] font-extrabold leading-tight text-white sm:text-[42px] lg:text-[58px]">
                     Temukan Pengalaman Wisata Terbaik Bersama Kami
                 </h1>
                 <p class="mt-5 max-w-[620px] text-base leading-7 text-gray-200 sm:text-[17px] sm:leading-8">
                     Jelajahi berbagai destinasi menarik dengan paket open trip yang mudah, terjangkau, dan menyenangkan.
                 </p>
-                <form action="{{ route('packages') }}" method="GET" class="hero-search mt-9">
+                <form action="{{ route('packages') }}" method="GET" class="hero-search mt-7 sm:mt-9">
                     <input type="text" name="q" placeholder="Search by Paket or Destinasi ...">
                     <button type="submit">Cari</button>
                 </form>
@@ -29,53 +29,53 @@
         </div>
     </section>
 
-    <div class="relative z-20 mx-auto -mt-16 max-w-7xl px-4 sm:px-6 lg:px-14">
-        <div class="stats-bar grid grid-cols-1 gap-5 px-5 py-6 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:gap-0 lg:px-12">
-            <div class="flex items-center gap-4 lg:border-r lg:border-[var(--border)]">
-                <div class="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[var(--gold)] text-black">
-                    <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+    <div class="relative z-20 mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:-mt-16 lg:px-14 lg:py-0">
+        <div class="stats-bar grid grid-cols-2 gap-3 px-3 py-4 sm:gap-5 sm:px-8 sm:py-6 lg:grid-cols-4 lg:gap-0 lg:px-12">
+            <div class="flex min-w-0 items-center gap-2.5 rounded-xl p-2 sm:gap-4 sm:p-0 lg:border-r lg:border-[var(--border)]">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--gold)] text-black sm:h-[58px] sm:w-[58px]">
+                    <svg class="h-5 w-5 sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M3 21V9l9-6 9 6v12h-6v-7H9v7H3Z" />
                     </svg>
                 </div>
                 <div>
                     {{-- <h2 class="text-[26px] font-extrabold t">{{ $pakets->count() }}+</h2> --}}
-                    <h2 class="text-[26px] font-extrabold t">10+</h2>
-                    <p class="tm text-sm">Paket Tersedia</p>
+                    <h2 class="text-xl font-extrabold t sm:text-[26px]">10+</h2>
+                    <p class="tm text-[11px] leading-tight sm:text-sm">Paket Tersedia</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 lg:border-r lg:border-[var(--border)] lg:pl-10">
-                <div class="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[var(--gold)] text-black">
-                    <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+            <div class="flex min-w-0 items-center gap-2.5 rounded-xl p-2 sm:gap-4 sm:p-0 lg:border-r lg:border-[var(--border)] lg:pl-10">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--gold)] text-black sm:h-[58px] sm:w-[58px]">
+                    <svg class="h-5 w-5 sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M16 11a4 4 0 1 0-3.99-4A4 4 0 0 0 16 11Zm-8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.31 0-6 1.57-6 3.5V19h12v-2.5C14 14.57 11.31 13 8 13Zm8 0c-.42 0-.83.03-1.22.08A4.23 4.23 0 0 1 16 16.5V19h6v-2.5c0-1.93-2.69-3.5-6-3.5Z" />
                     </svg>
                 </div>
                 <div>
-                    <h2 class="text-[26px] font-extrabold t">40+</h2>
-                    <p class="tm text-sm">Review Terpercaya</p>
+                    <h2 class="text-xl font-extrabold t sm:text-[26px]">40+</h2>
+                    <p class="tm text-[11px] leading-tight sm:text-sm">Review Terpercaya</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 lg:border-r lg:border-[var(--border)] lg:pl-10">
-                <div class="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[var(--gold)] text-black">
-                    <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+            <div class="flex min-w-0 items-center gap-2.5 rounded-xl p-2 sm:gap-4 sm:p-0 lg:border-r lg:border-[var(--border)] lg:pl-10">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--gold)] text-black sm:h-[58px] sm:w-[58px]">
+                    <svg class="h-5 w-5 sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 1 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-4Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" />
                     </svg>
                 </div>
                 <div>
-                    <h2 class="text-[26px] font-extrabold t">99%</h2>
-                    <p class="tm text-sm">Aman</p>
+                    <h2 class="text-xl font-extrabold t sm:text-[26px]">99%</h2>
+                    <p class="tm text-[11px] leading-tight sm:text-sm">Aman</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 lg:pl-10">
-                <div class="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[var(--gold)] text-black">
-                    <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+            <div class="flex min-w-0 items-center gap-2.5 rounded-xl p-2 sm:gap-4 sm:p-0 lg:pl-10">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--gold)] text-black sm:h-[58px] sm:w-[58px]">
+                    <svg class="h-5 w-5 sm:h-7 sm:w-7" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 9h-3.07a15.8 15.8 0 0 0-1.1-5A8.03 8.03 0 0 1 18.93 11ZM12 4.04A13.6 13.6 0 0 1 13.82 11h-3.64A13.6 13.6 0 0 1 12 4.04ZM4.26 13h3.88c.18 1.77.65 3.48 1.1 5a8.03 8.03 0 0 1-4.98-5Zm3.88-2H4.26a8.03 8.03 0 0 1 4.98-5 15.8 15.8 0 0 0-1.1 5ZM12 19.96A13.6 13.6 0 0 1 10.18 13h3.64A13.6 13.6 0 0 1 12 19.96ZM14.76 18a15.8 15.8 0 0 0 1.1-5h3.07a8.03 8.03 0 0 1-4.17 5Z" />
                     </svg>
                 </div>
                 <div>
-                    <h2 class="text-[26px] font-extrabold t">30++</h2>
-                    <p class="tm text-sm">Destinasi</p>
+                    <h2 class="text-xl font-extrabold t sm:text-[26px]">30++</h2>
+                    <p class="tm text-[11px] leading-tight sm:text-sm">Destinasi</p>
                 </div>
             </div>
         </div>
